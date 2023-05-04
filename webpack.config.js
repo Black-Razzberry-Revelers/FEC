@@ -9,6 +9,7 @@ module.exports = {
     filename: 'bundle.js',
     path: path.resolve('client/dist'),
   },
+  devtool: "source-map",
   module: {
     rules: [
       {
@@ -33,6 +34,13 @@ module.exports = {
           options: {
             presets: ['@babel/preset-env', '@babel/preset-react'],
           },
+        },
+      },
+      {
+        test: /\.(js|jsx)$/,
+        exclude: /nodeModules/,
+        use: {
+          loader: "babel-loader",
         },
       },
     ],
