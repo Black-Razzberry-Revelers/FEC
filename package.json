@@ -6,7 +6,8 @@
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
     "dev": "webpack serve",
-    "build": "webpack"
+    "build": "webpack",
+    "start": "nodemon --watch server server/index.js"
   },
   "repository": {
     "type": "git",
@@ -31,6 +32,12 @@
   "dependencies": {
     "@babel/polyfill": "^7.12.1",
     "autoprefixer": "10.4.5",
-    "nodemon": "^2.0.22"
+    "axios": "^1.4.0",
+    "cors": "^2.8.5",
+    "dotenv": "^16.0.3",
+    "express": "^4.18.2",
+    "morgan": "^1.10.0",
+    "nodemon": "^2.0.22",
+    "path": "^0.12.7"
   }
 }
