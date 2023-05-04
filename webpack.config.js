@@ -1,6 +1,8 @@
+require("dotenv").config();
+
 const path = require('path');
 const webpack = require('webpack');
-const HtmlWebpackPlugin = require('html-webpack-plugin');
+
 
 module.exports = {
   mode: 'development',
@@ -46,13 +48,6 @@ module.exports = {
     ],
   },
 
-  // stats: {
-  //   children: true,
-  // },
 
-  plugins: [
-    new HtmlWebpackPlugin({
-      template: path.join(__dirname, 'client/dist', 'index.html'),
-    }),
-  ],
+
 };
