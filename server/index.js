@@ -1,3 +1,4 @@
+/* eslint-disable no-console */
 // import and configure dotenv, import other lobraries and modules
 require('dotenv').config();
 const express = require('express');
