@@ -7,5 +7,5 @@ render(
     <h1>Shoptopia</h1>
     <App />
   </div>,
-  document.getElementById('root')
+  document.getElementById('root'),
 );

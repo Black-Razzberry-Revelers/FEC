@@ -10,7 +10,7 @@ const router = require('./routes');
 // initializes a new Express application
 const app = express();
 
-//middelwares
+// middelwares
 app.use(express.static(path.join(__dirname, '../client/dist')));
 app.use(express.json());
 app.use(morgan('dev'));
