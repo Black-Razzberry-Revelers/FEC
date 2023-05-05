@@ -1,14 +1,14 @@
-import react from 'react'
-import {useState} from 'react'
+import React, { useState } from 'react';
 
-function SearchBar({changeDisplay}){
-  const [searchText, setSearchText] = useState('')
+function SearchBar({ changeDisplay }) {
+  const [searchText, setSearchText] = useState('');
 
-  function onTextChange(){}
+  function onTextChange() {}
 
   return (
   <>
-  </>)
+  </>
+  );
 }
 
-export default SearchBar
+export default SearchBar;

@@ -5,6 +5,7 @@
   "main": "server/index.js",
   "scripts": {
     "test": "jest --env=jsdom",
+    "client-dev": "npx webpack --watch",
     "dev": "webpack serve",
     "build": "webpack",
     "start": "nodemon --watch server server/index.js"
