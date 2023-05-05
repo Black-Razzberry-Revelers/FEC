@@ -1,15 +1,12 @@
 import React from 'react';
 
-const App = (props) => {
-
+export default function App(props) {
   return (
-    <div classname='body'>
+    <div className="body">
       <h1>product page</h1>
       <div>
-       our components go here
+        our components go here. and another change
       </div>
     </div>
-  )
+  );
 }
-
-export default App
