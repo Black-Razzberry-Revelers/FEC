@@ -14,4 +14,4 @@ function AddAnswerModal({props, changeMode}){
   return (<></>)
 }
 
-export default AddAnswerModal
+export default AddAnswerModal;
