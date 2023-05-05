@@ -6,5 +6,6 @@ render(
   <div>
     <h1>Shoptopia</h1>
     <App />
-  </div>
+  </div>,
+  document.getElementById('root')
 )
