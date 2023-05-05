@@ -1,10 +1,12 @@
 import React from 'react';
+import OutfitItemsList from './subcomponents/OutfitItemsList.jsx';
+import RelatedItemsList from './subcomponents/RelatedItemsList.jsx';
 
 export default function RelatedItemsSection() {
   return (
     <>
-      <div>Related Items</div>
-      <div>Outfits</div>
+      <div><RelatedItemsList /></div>
+      <div><OutfitItemsList /></div>
     </>
   );
 }
