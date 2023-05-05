@@ -1,6 +1,8 @@
+require("dotenv").config();
+
 const path = require('path');
 const webpack = require('webpack');
-const HtmlWebpackPlugin = require('html-webpack-plugin');
+
 
 module.exports = {
   mode: 'development',
@@ -9,6 +11,7 @@ module.exports = {
     filename: 'bundle.js',
     path: path.resolve('client/dist'),
   },
+  devtool: "source-map",
   module: {
     rules: [
       {
@@ -35,16 +38,16 @@ module.exports = {
           },
         },
       },
+      {
+        test: /\.(js|jsx)$/,
+        exclude: /nodeModules/,
+        use: {
+          loader: "babel-loader",
+        },
+      },
     ],
   },
 
-  // stats: {
-  //   children: true,
-  // },
 
-  plugins: [
-    new HtmlWebpackPlugin({
-      template: path.join(__dirname, 'client/dist', 'index.html'),
-    }),
-  ],
+
 };
