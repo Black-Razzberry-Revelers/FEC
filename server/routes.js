@@ -1,19 +1,18 @@
 const express = require('express');
-const controllers = require('./controllers')
+const controllers = require('./controllers');
 
 const router = express.Router();
-//Overview
+// Overview
 
-//Products
+// Products
 
-//Reviews
+// Reviews
 router.get('/reviews', controllers.reviews.getListReviews);
 
-//Questions and Answers
+// Questions and Answers
 
-//Cart
+// Cart
 
-//Ineractions
+// Ineractions
 
 module.exports = router;
-
