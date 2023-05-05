@@ -17,5 +17,8 @@ module.exports = {
     'react',
   ],
   rules: {
+    camelcase: 'off',
+    "no-console": "off"
+
   },
 };
