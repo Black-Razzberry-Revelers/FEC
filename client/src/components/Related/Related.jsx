@@ -1,6 +1,6 @@
 import React from 'react';
 
-export default function RelatedItemsAndOutfits() {
+export default function RelatedItemsSection() {
   return (
     <>
       <div>Related Items</div>
