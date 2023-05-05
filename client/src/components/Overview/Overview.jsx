@@ -1,7 +1,8 @@
 import React from 'react';
 import ProductInfo from './productInfo';
 import StyleSelect from './styleSelect';
-
+import Gallery from './Gallery';
+import AddToCart from './addToCart';
 
 export default function Overview() {
 
