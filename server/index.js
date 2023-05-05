@@ -10,7 +10,7 @@ const router = require('./routes');
 const app = express();
 
 // middelwares
-app.use(express.static(path.join(__dirname, 'client/dist')));
+app.use(express.static(path.join(__dirname, '../client/dist')));
 app.use(express.json());
 app.use(morgan('dev'));
 app.use(cors());
