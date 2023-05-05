@@ -1,13 +1,12 @@
-import react from 'react'
+import React from 'react';
 
-function NavigationButtons({changeMode, collapse, collapsed}) {
-
-  function onAddQuestion(){}
-  function onShowMore(){}
-  function onShowLess(){}
+function NavigationButtons({ changeMode, collapse, collapsed }) {
+  function onAddQuestion() {}
+  function onShowMore() {}
+  function onShowLess() {}
 
   return (<>
   </>)
 }
 
-export default NavigationButtons
+export default NavigationButtons;
