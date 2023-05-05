@@ -1,7 +1,8 @@
 import React from 'react';
+import Image from './image';
 
 export default function Gallery() {
   return (
-    <h1>Gallery</h1>
-  )
+    <Image />
+  );
 }

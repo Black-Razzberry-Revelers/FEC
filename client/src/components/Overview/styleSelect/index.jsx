@@ -1,7 +1,8 @@
 import React from 'react';
+import Style from './style';
 
-export default function StyleSelect() {
+export default function StyleSelect({ style, setStyle }) {
   return (
-    <h1>style selector</h1>
-  )
+    <Style style={style} setStyle={setStyle} />
+  );
 }
