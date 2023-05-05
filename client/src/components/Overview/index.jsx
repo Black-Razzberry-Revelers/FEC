@@ -5,7 +5,7 @@ import Gallery from './Gallery';
 import AddToCart from './addToCart';
 
 export default function Overview() {
-  const [style, setStyle] = React.useState([]);
+  const [style, setStyle] = React.useState({});
 
   return (
     <div>
