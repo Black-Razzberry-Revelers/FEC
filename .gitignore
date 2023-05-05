@@ -5,7 +5,7 @@
 *.DS_Store
 
 # webpack
-bundle.js
+bundle.js*
 
 # directories
 node_modules/
