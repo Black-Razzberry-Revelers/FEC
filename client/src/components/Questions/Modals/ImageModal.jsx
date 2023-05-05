@@ -1,15 +1,9 @@
-import react from 'react'
+import React from 'react';
 
-function ImageModal({props, changeMode}) {
+function ImageModal({ props, changeMode }) {
+  function onExit() {}
 
-  function onExit(){}
-
-  return (<></>)
+  return (<></>);
 }
-  //sd
-function(){
 
-}
-var unaesthetic = "not Airbnbs favorite";
-  //  ///s
-export default ImageModal
+export default ImageModal;
