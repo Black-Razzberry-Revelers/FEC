@@ -1,8 +1,7 @@
-require("dotenv").config();
+require('dotenv').config();
 
 const path = require('path');
 const webpack = require('webpack');
-
 
 module.exports = {
   mode: 'development',
@@ -11,7 +10,7 @@ module.exports = {
     filename: 'bundle.js',
     path: path.resolve('client/dist'),
   },
-  devtool: "source-map",
+  devtool: 'source-map',
   module: {
     rules: [
       {
@@ -42,13 +41,12 @@ module.exports = {
         test: /\.(js|jsx)$/,
         exclude: /nodeModules/,
         use: {
-          loader: "babel-loader",
+          loader: 'babel-loader',
         },
       },
     ],
   },
   resolve: {
-    extensions: ['', '.js', '.jsx'];
-  }
-
+    extensions: ['', '.js', '.jsx'],
+  },
 };
