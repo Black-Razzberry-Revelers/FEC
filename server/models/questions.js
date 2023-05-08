@@ -1,6 +1,20 @@
 const axios = require('axios');
 
-exports.getQuestions = () => {};
+exports.getQuestions = (id, page = 1, count = 5) => {
+  const request = {
+    url: `${process.env.URL}/qa/questions`,
+    method: 'GET',
+    params: {
+      product_id: id,
+      page,
+      count,
+    },
+    headers: {
+      Authorization: `${process.env.TOKEN}`,
+    },
+  };
+  return axios(request);
+};
 exports.getAnswers = () => {};
 exports.postNewQuestion = () => {};
 exports.postNewAnswer = () => {};

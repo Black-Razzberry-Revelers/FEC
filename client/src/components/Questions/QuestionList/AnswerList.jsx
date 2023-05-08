@@ -1,13 +1,15 @@
-import React from 'react';
+import React, { useEffect, useState } from 'react';
 import Answer from './Answer.jsx';
 
-function AnswerList({ answers, answersCollapsed, changeMode }) {
+function AnswerList({ answers, collapsed, changeMode }) {
   function onScroll() {}
 
+  const displayedAnswers = collapsed ? answers.slice(0, 2) : answers;
+
   return (
-  <>
-    <Answer changeMode={changeMode} answer={{}}/>
-  </>
+    <>
+      {displayedAnswers.map((answer) => (<Answer changeMode={changeMode} answer={answer} />))}
+    </>
   );
 }
 
