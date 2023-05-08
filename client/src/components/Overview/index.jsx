@@ -11,7 +11,7 @@ export default function Overview() {
     <div>
       <ProductInfo style={style} />
       <StyleSelect style={style} setStyle={setStyle} />
-      <Gallery />
+      <Gallery style={style} />
       <AddToCart />
     </div>
   );
