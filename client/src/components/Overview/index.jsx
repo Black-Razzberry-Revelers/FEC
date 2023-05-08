@@ -5,20 +5,32 @@ import Gallery from './Gallery';
 import AddToCart from './addToCart';
 import { productsData, productData, stylesData } from './mockData';
 
+export const styleContext = React.createContext(null);
+
 export default function Overview() {
   const [styles, setStyles] = React.useState(stylesData.results);
   const [style, setStyle] = React.useState(styles[0]);
 
-  const styleContext = React.createContext(style);
+  React.useEffect(() => {
+    // GET
+    setStyles(stylesData.results);
+    console.log('rendering')
+    styles.forEach((option, i) => {
+      option.index = i;
+      if (option['default?']) {
+        setStyle(option);
+        console.log('style set', style);
+      }
+    });
+  }, []);
 
   return (
-    <div>
-      <StyleSelect style={style} setStyle={setStyle} />
-      <styleContext.Provider value={style.name}>
-        <ProductInfo />
-        <Gallery />
-      </styleContext.Provider>
+    <styleContext.Provider value={{ style, setStyle, styles }}>
+      <ProductInfo />
+      <StyleSelect styles={styles} />
+      <Gallery />
       <AddToCart />
-    </div>
+    </styleContext.Provider>
   );
 }
+

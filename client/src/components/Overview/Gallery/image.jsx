@@ -1,8 +1,11 @@
 import React from 'react';
 
-export default function Image({ setDisplay }) {
+
+export default function Image({ display, gallery }) {
+
+
   // on click set display
   return (
-    <div> this will be an image </div>
+    <img className="display" alt="main" src={display} />
   );
 }
