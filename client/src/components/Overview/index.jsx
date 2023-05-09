@@ -7,7 +7,8 @@ import { productsData, productData, stylesData } from './mockData';
 
 export const styleContext = React.createContext(null);
 
-export default function Overview() {
+export default function Overview({ avgRating }) {
+  const [product, setProduct] = React.useState(productData);
   const [styles, setStyles] = React.useState(stylesData.results);
   const [style, setStyle] = React.useState(styles[0]);
   const [gallery, setGallery] = React.useState(style.photos);
@@ -33,8 +34,12 @@ export default function Overview() {
 
   return (
     <styleContext.Provider value={{ style, setStyle }}>
+<<<<<<< HEAD
       <ProductInfo />
       <div className="row2"
+=======
+      <ProductInfo product={product} avgRating={avgRating} />
+>>>>>>> productinfo
       <StyleSelect styles={styles} />
       <Gallery gallery={gallery} display={display} setDisplay={setDisplay} />
       <AddToCart />
