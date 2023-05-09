@@ -1,4 +1,4 @@
-export default function avgRating(ratingsObj) {
+export default function findAvgRating(ratingsObj) {
   let responses = 0;
   let score = 0;
   const ratings = Object.values(ratingsObj);
@@ -11,7 +11,7 @@ export default function avgRating(ratingsObj) {
   const average = score / responses;
 
   return Math.round(average * 10) / 10; // round to nearest 10th.
-};
+}
 
 // let test = { '1': '10', '2': '15', '3': '20', '4': '25', '5': '50' }
 

@@ -11,10 +11,10 @@ export default function ProductInfo({ product, avgRating }) {
     <>
       <h1>
         {product.name}
-        <div> {avgRating} </div>
+        <div> rating: {avgRating} </div>
       </h1>
       <div>in: {product.category}</div>
-      <Description product={product}/>
+      <Description product={product} />
       <Price />
       <Share />
     </>

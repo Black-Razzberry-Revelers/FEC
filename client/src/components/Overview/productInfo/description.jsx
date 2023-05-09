@@ -6,7 +6,7 @@ export default function Description({ product }) {
       <h2>{product.slogan}</h2>
       <p>{product.description}</p>
       <ul>
-        {product.features.map((feat) => <li>{feat.feature} - {feat.value}</li>)}
+        {product.features.map((feat) => <li key={feat.feature} >{feat.feature} - {feat.value}</li>)}
       </ul>
     </>
   );
