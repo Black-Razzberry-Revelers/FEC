@@ -11,10 +11,10 @@ exports.getRelatedProducts = (productId) => {
   return axios(options);
 };
 
-exports.getRelatedProductInfo = (relatedProductIds) => {
+exports.getRelatedProductInfo = (relatedProductIds, endpoint = '') => {
   const apiCalls = relatedProductIds.map((productId) => {
     const options = {
-      url: `${process.env.URL}/products/${productId}`,
+      url: `${process.env.URL}/products/${productId}${endpoint}`,
       method: 'get',
       headers: {
         Authorization: `${process.env.TOKEN}`,
