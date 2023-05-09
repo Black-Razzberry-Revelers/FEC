@@ -5,7 +5,7 @@ export default function OutfitItemsList() {
   return (
     <div>
       <h2>Outfit Items List</h2>
-      <ItemCard />
+      {/* <ItemCard /> */}
     </div>
   );
 }
