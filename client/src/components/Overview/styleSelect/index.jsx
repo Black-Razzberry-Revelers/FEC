@@ -1,10 +1,8 @@
 import React from 'react';
 import Style from './style';
 
-export default function StyleSelect({ style, setStyle }) {
-  const [availableStyles, setAvailableStyles] = React.useState({ /* data.results */ });
-
+export default function StyleSelect({ styles }) {
   return (
-    <Style style={style} setStyle={setStyle} />
+    styles.map((styleInfo) => <Style key={styleInfo.style_id} styleInfo={styleInfo} />)
   );
 }
