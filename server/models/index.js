@@ -1,4 +1,3 @@
-exports.overview = require('./overview');
 exports.products = require('./products');
 exports.reviews = require('./reviews');
 exports.questions = require('./questions');
