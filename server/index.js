@@ -1,4 +1,3 @@
-/* eslint-disable no-console */
 // import and configure dotenv, import other lobraries and modules
 require('dotenv').config();
 const express = require('express');
@@ -6,6 +5,7 @@ const morgan = require('morgan');
 const cors = require('cors');
 const path = require('path');
 const router = require('./routes');
+const logger = require('./middlewares/logger');
 
 // initializes a new Express application
 const app = express();
@@ -15,12 +15,22 @@ app.use(express.static(path.join(__dirname, '../client/dist')));
 app.use(express.json());
 app.use(morgan('dev'));
 app.use(cors());
+app.use(logger);
 
 // Create route
 app.use('/api', router);
 
 // Start the server on port;
 const port = process.env.PORT || 3000;
-app.listen(port, () => {
-  console.log(`LISTENING ON PORT http://localhost:${port}/`);
-});
+
+// If we are being run directly, run the server.
+// If the module is being imported as a module in another file,
+// this code block will not be executed
+
+if (!module.parent) {
+  app.listen(port, () => {
+    console.log(`LISTENING ON PORT http://localhost:${port}/`);
+  });
+}
+
+module.exports = app;
