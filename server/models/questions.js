@@ -15,7 +15,7 @@ exports.getQuestions = (id, page = 1, count = 5) => {
   };
   return axios(request);
 };
-exports.getAnswers = () => {};
+
 exports.postNewQuestion = () => {};
 exports.postNewAnswer = () => {};
 exports.putQuestionAsHelpful = () => {};

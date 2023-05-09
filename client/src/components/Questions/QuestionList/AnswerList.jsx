@@ -8,7 +8,7 @@ function AnswerList({ answers, collapsed, changeMode }) {
 
   return (
     <>
-      {displayedAnswers.map((answer) => (<Answer changeMode={changeMode} answer={answer} />))}
+      {displayedAnswers.map((answer) => (<Answer changeMode={changeMode} answer={answer} key={answer.id} />))}
     </>
   );
 }

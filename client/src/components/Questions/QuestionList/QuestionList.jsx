@@ -16,7 +16,7 @@ function QuestionList({questions, changeMode, collapsed, changeDisplay}) {
 
   return (
   <>
-    {sortedQuestions.map((question) => (<Question question={question} changeMode={changeMode} />))}
+    {sortedQuestions.map((question) => (<Question question={question} changeMode={changeMode} key={question.question_id} />))}
   </>
   );
 }
