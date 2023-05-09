@@ -10,27 +10,33 @@ export const styleContext = React.createContext(null);
 export default function Overview() {
   const [styles, setStyles] = React.useState(stylesData.results);
   const [style, setStyle] = React.useState(styles[0]);
+  const [gallery, setGallery] = React.useState(style.photos);
+  const [display, setDisplay] = React.useState(gallery[0].url);
+
+  React.useEffect(() => {
+    setGallery(style.photos);
+    setDisplay(style.photos[0].url);
+  }, [style]);
 
   React.useEffect(() => {
     // GET
     setStyles(stylesData.results);
-    console.log('rendering')
+    console.log('rendering');
     styles.forEach((option, i) => {
-      option.index = i;
       if (option['default?']) {
-        setStyle(option);
-        console.log('style set', style);
+        const defaultStyle = option;
+        defaultStyle.index = i;
+        setStyle(defaultStyle);
       }
     });
   }, []);
 
   return (
-    <styleContext.Provider value={{ style, setStyle, styles }}>
+    <styleContext.Provider value={{ style, setStyle }}>
       <ProductInfo />
       <StyleSelect styles={styles} />
-      <Gallery />
+      <Gallery gallery={gallery} display={display} setDisplay={setDisplay} />
       <AddToCart />
     </styleContext.Provider>
   );
 }
-

@@ -8,4 +8,6 @@
 .display {
   max-width: 50%;
   max-height: 60%;
+  min-width: 50%;
+  min-height: 60%;
 }
