@@ -1,13 +1,16 @@
 import React from 'react';
 
-export default function ItemCard() {
+export default function ItemCard({ item }) {
   return (
     <div>
       <h3>Item Card</h3>
-      <img src="https://images.unsplash.com/photo-1501088430049-71c79fa3283e?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=300&q=80" alt="Camo Jacket" />
-      <div>Category</div>
-      <div>Name</div>
-      <div>Price</div>
+      <img
+        src={item.results[0].photos[0].thumbnail_url}
+        alt={item.name}
+      />
+      <div>Name: {item.name}</div>
+      <div>Category: {item.category}</div>
+      <div>Price: ${item.default_price}</div>
       <div>Rating</div>
     </div>
   );
