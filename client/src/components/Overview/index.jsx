@@ -34,6 +34,7 @@ export default function Overview() {
   return (
     <styleContext.Provider value={{ style, setStyle }}>
       <ProductInfo />
+      <div className="row2"
       <StyleSelect styles={styles} />
       <Gallery gallery={gallery} display={display} setDisplay={setDisplay} />
       <AddToCart />
