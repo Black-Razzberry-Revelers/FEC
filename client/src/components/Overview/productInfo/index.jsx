@@ -11,7 +11,7 @@ export default function ProductInfo({ product, avgRating }) {
     <>
       <h1>
         {product.name}
-        <div> rating: {avgRating} </div>
+        <div> {avgRating} </div>
       </h1>
       <div>in: {product.category}</div>
       <Description product={product} />
