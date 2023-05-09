@@ -34,12 +34,23 @@ export default function Overview({ avgRating }) {
 
   return (
     <styleContext.Provider value={{ style, setStyle }}>
+      <h1>
+        {product.name}
+      </h1>
+      <div>
+        {avgRating}
+      </div>
+      <div>
+        in: {product.category}
+      </div>
       <div className="overview">
-        <ProductInfo product={product} avgRating={avgRating} />
-        <StyleSelect styles={styles} />
+        <div className="stylesinfo">
+          <ProductInfo product={product} avgRating={avgRating} />
+          <StyleSelect styles={styles} />
+          <AddToCart />
+        </div>
         <Gallery gallery={gallery} display={display} setDisplay={setDisplay} />
       </div>
-      <AddToCart />
     </styleContext.Provider>
   );
 }

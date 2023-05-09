@@ -8,15 +8,10 @@ export default function ProductInfo({ product, avgRating }) {
   const { style } = React.useContext(styleContext);
 
   return (
-    <>
-      <h1>
-        {product.name}
-        <div> {avgRating} </div>
-      </h1>
-      <div>in: {product.category}</div>
+    <div className="info">
       <Description product={product} />
       <Price />
       <Share />
-    </>
+    </div>
   );
 }

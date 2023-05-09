@@ -1,15 +1,55 @@
+h1,
+div,
+img {
+  padding:1%;
+}
+
+.overview {
+  display:flex;
+  flex-direction: row-reverse;
+  justify-content: space-between;
+}
+
+.stylesinfo {
+  display:flex;
+  flex-direction: column;
+  align-content: center;
+  justify-content: space-evenly;
+}
+
+.info {
+  display:flex;
+  flex-direction: column;
+  align-self: flex-start;
+}
+
+.descript{
+  display:flex;
+  flex-direction: column;
+}
+
+.styles,
+.add,
+.display {
+  display:flex;
+  flex-direction: column;
+  align-self: center;
+  justify-self: flex-end;
+  min-width: fit-content;
+}
+
 .thumbnail {
   border: 1px solid #ddd;
   border-radius: 4px;
   padding: 5px;
-  width: 3rem;
+  width: 3vw;
+  height: 5vw;
 }
 
 .display {
-  max-width: 35rem;
-  max-height: 40rem;
-  min-width: 35rem;
-  min-height: 40rem;
+  height:55vw;
+  width: 50vw;
+
 }
 
 .imageSelect {
@@ -23,6 +63,7 @@
 .gallery {
   display:flex;
   flex-direction: row-reverse;
-  justify-content: flex-end;
-  padding:5%
+  justify-content: baseline;
+  align-content: center;
+
 }
