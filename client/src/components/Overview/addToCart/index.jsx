@@ -3,6 +3,7 @@ import SelectSize from './selectSize';
 import SelectQuantity from './selectQuantity';
 
 export default function AddToCart() {
+  // may want to utilize form submission
   return (
     <>
       <SelectSize />

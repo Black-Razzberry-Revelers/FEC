@@ -4,9 +4,9 @@
   "description": "Ecommerce Interactive Details Page",
   "main": "server/index.js",
   "scripts": {
+    "deep-test": "jest --env=jsdom --detectOpenHandles",
     "test": "jest --env=jsdom",
     "client-dev": "npx webpack --watch",
-    "dev": "webpack serve",
     "build": "webpack",
     "start": "nodemon --watch server server/index.js"
   },
@@ -36,6 +36,7 @@
     "html-webpack-plugin": "^5.5.1",
     "jest": "^29.5.0",
     "jest-environment-jsdom": "^29.5.0",
+    "supertest": "^6.3.3",
     "webpack": "^5.41.0",
     "webpack-cli": "^5.0.2",
     "webpack-dev-server": "^4.13.3"
