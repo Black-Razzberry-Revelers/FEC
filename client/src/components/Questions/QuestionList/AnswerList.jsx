@@ -1,5 +1,5 @@
 import React from 'react';
-import Answer from './Answer.jsx'
+import Answer from './Answer.jsx';
 
 function AnswerList({ answers, answersCollapsed, changeMode }) {
   function onScroll() {}
