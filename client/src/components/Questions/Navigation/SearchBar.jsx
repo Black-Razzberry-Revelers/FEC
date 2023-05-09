@@ -6,8 +6,12 @@ function SearchBar({ changeDisplay }) {
   function onTextChange() {}
 
   return (
-  <>
-  </>
+    <>
+      <h3>Questions and Answers</h3>
+      <form>
+        <input type="text" placeholder="Search for a Question or Answer" />
+      </form>
+    </>
   );
 }
 

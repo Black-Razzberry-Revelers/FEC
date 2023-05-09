@@ -8,7 +8,12 @@ function Answer({ answer, changeMode }) {
   function onReport() {}
   function onImage() {}
 
-  return (<></>);
+  return (<>
+  <p> Answer: {answer.body}</p>
+  <p> by: {answer.answerer_name}</p>
+  <p> on: {answer.date}</p>
+  <p>Helpful? <strong>Yes</strong>({answer.helpfulness}) | <strong>Report</strong></p>
+  </>);
 }
 
 export default Answer;
