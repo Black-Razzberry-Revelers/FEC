@@ -1,13 +1,12 @@
 import React from 'react';
-import { styleContext } from '../index';
+import { styleContext } from '../../App';
 
-export default function Style({ styleInfo }) {
+export default function StyleOption({ styleInfo }) {
   // const [selected, setSelected] = React.useState({/* styleId: 240500 */});
   // on click set selected client/src/components/Overview/index.jsx
   //                       client/src/components/Overview/styleSelect/style.jsx
-  const { setStyle } = React.useContext(styleContext);
+  const { style, setStyle } = React.useContext(styleContext);
   const handleClick = () => {
-    console.log('clicked')
     setStyle(styleInfo);
   };
 

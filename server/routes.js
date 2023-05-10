@@ -5,6 +5,7 @@ const router = express.Router();
 // Overview
 
 // Products
+router.get('/products/:product_id/related', controllers.products.getRelatedProducts);
 
 // Reviews
 router.get('/reviews', controllers.reviews.getListReviews);
