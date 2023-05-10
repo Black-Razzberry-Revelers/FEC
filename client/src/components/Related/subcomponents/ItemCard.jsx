@@ -1,7 +1,7 @@
 import React from 'react';
 import ComparisonModal from './ComparisonModal';
 
-export default function ItemCard({ item }) {
+export default function ItemCard({ item, outfitList }) {
   const defaultStyle = item.results.filter((style) => style['default?'] === true);
   const placeholder = 'https://static-00.iconduck.com/assets.00/image-icon-256x256-09od4zyo.png';
   const thumbnail = defaultStyle.length > 0 ? defaultStyle[0].photos[0].thumbnail_url
@@ -28,7 +28,7 @@ export default function ItemCard({ item }) {
         {item.default_price}
       </div>
       <div>Rating</div>
-      <button>Compare</button>
+      <button type="button">{outfitList ? 'Delete' : 'Compare'}</button>
       {/* <ComparisonModal item={item} /> */}
     </>
   );
