@@ -1,3 +1,4 @@
+/* eslint-disable object-curly-newline */
 /* eslint-disable comma-dangle */
 /* eslint-disable quote-props */
 module.exports.productsData = [
@@ -326,6 +327,14 @@ module.exports.stylesData = {
   ],
 };
 
-const meta = `{"product_id":"40344","ratings":{"1":"138","2":"201","3":"314","4":"299","5":"652"},"recommended":{"false":"418","true":"1186"},"characteristics":{"Fit":{"id":135219,"value":"3.3045310853530032"},"Length":{"id":135220,"value":"3.3283100107642626"},"Comfort":{"id":135221,"value":"3.3818181818181818"},"Quality":{"id":135222,"value":"3.3355629877369008"}}}`
-
-console.log(JSON.parse(meta))
+const meta = {
+  product_id: '40344',
+  ratings: { '1': '138', '2': '201', '3': '314', '4': '299', '5': '652' },
+  recommended: { false: '418', true: '1186' },
+  characteristics: {
+    Fit: { id: 135219, value: '3.3045310853530032' },
+    Length: { id: 135220, value: '3.3283100107642626' },
+    Comfort: { id: 135221, value: '3.3818181818181818' },
+    Quality: { id: 135222, value: '3.3355629877369008' }
+  }
+};
