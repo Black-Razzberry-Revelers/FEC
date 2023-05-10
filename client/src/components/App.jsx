@@ -11,7 +11,7 @@ export const styleContext = React.createContext(null);
 export default function App() {
   const [product, setProduct] = React.useState(productData);
   const [avgRating, setAvgRating] = React.useState(3.8); // hardcoded for now. change later
-  const [styles, setStyles] = React.useState(stylesData.results);
+  const [styles, setStyles] = React.useState({});
   const [style, setStyle] = React.useState({});
 
   React.useEffect(() => {
