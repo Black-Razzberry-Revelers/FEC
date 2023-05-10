@@ -9,7 +9,7 @@ export const styleContext = React.createContext(null);
 
 export default function App() {
   const [product, setProduct] = React.useState({ features: [] });
-  const [avgRating, setAvgRating] = React.useState(3.8); // hardcoded for now. change later
+  const [avgRating, setAvgRating] = React.useState(0); // hardcoded for now. change later
   const [styles, setStyles] = React.useState([]);
   const [style, setStyle] = React.useState({});
 
@@ -19,6 +19,7 @@ export default function App() {
         const stylesArr = results.data.styles.results;
         setProduct(results.data.product);
         setStyles(stylesArr);
+
         stylesArr.forEach((option, i) => {
           if (option['default?']) {
             const defaultStyle = option;
@@ -26,6 +27,13 @@ export default function App() {
             setStyle(defaultStyle);
           }
         });
+      })
+      .catch((err) => {
+        console.log(err);
+      });
+    requests.get.meta()
+      .then((results) => {
+        setAvgRating(findAvgRating(results.data.ratings));
       })
       .catch((err) => {
         console.log(err);
