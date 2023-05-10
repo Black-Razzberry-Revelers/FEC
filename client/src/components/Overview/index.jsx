@@ -11,13 +11,12 @@ export default function Overview({ avgRating, product }) {
   const [display, setDisplay] = React.useState('');
 
   React.useEffect(() => {
-    console.log('triggered')
+    console.log('triggered', style);
     if (style.photos) {
       setGallery(style.photos);
       setDisplay(style.photos[0].url);
     }
   }, [style]);
-
 
   return (
     <>
