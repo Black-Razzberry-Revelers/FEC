@@ -67,3 +67,8 @@ img {
   align-content: center;
 
 }
+
+.list {
+  display: flex;
+  flex-direction: row;
+}
