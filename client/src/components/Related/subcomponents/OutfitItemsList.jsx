@@ -6,24 +6,25 @@ export default function OutfitItemsList() {
   const [outfitItems, setOutfitItems] = useState(
     JSON.parse(localStorage.getItem('outfitItems')) || [],
   );
+  const [activeIndex, setActiveIndex] = useState(0);
 
   return (
-    <div className="outfit container">
+    <div className="outfit carousel">
       <h2>Outfit Items List</h2>
-      <div className="outfit list">
-        <button
-          type="button"
-          className="outfit"
-          id="add-item-to-outfit"
-          onClick={(e) => {
-            setOutfitItems([...outfitItems, currentItem]);
-            localStorage.setItem('outfitItems', JSON.stringify([...outfitItems, currentItem]));
-          }}
-        >
-          +
-        </button>
+      <button
+        type="button"
+        className="outfit"
+        id="add-item-to-outfit"
+        onClick={(e) => {
+          setOutfitItems([...outfitItems, currentItem]);
+          localStorage.setItem('outfitItems', JSON.stringify([...outfitItems, currentItem]));
+        }}
+      >
+        +
+      </button>
+      <div className="outfit list inner" style={{ transform: `translateX(-${activeIndex * 33}%)` }}>
         {outfitItems.map((item) => (
-          <div className="outfit item-card">
+          <div className="outfit carousel-item item-card">
             <ItemCard
               key={item.id}
               item={item}
@@ -34,6 +35,8 @@ export default function OutfitItemsList() {
           </div>
         ))}
       </div>
+      <button type="button" onClick={(e) => setActiveIndex(activeIndex - 1)}>{'<'}</button>
+      <button type="button" onClick={(e) => setActiveIndex(activeIndex + 1)}>{'>'}</button>
     </div>
   );
 }

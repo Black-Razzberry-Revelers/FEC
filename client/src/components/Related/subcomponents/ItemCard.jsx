@@ -32,9 +32,10 @@ export default function ItemCard({ item, outfitItems, setOutfitItems, outfitList
         type="button"
         onClick={(e) => {
           if (outfitList) {
-            const outfitItemsFilter = outfitItems.filter((outfitItem) => outfitItem.id !== item.id)
+            const outfitItemsFilter = outfitItems.filter(
+              (outfitItem) => outfitItem.id !== item.id
+            );
             setOutfitItems(outfitItemsFilter);
-            console.log('outfitItemsFilter:', outfitItemsFilter);
             localStorage.setItem('outfitItems', JSON.stringify(outfitItemsFilter));
           } else {
             const node = document.querySelector(`#modal-${item.id}`);
