@@ -1,6 +1,6 @@
 /* eslint-disable react/jsx-one-expression-per-line */
 import React from 'react';
-import { styleContext } from '../index';
+import { styleContext } from '../../App';
 
 export default function Price() {
   const { style } = React.useContext(styleContext);
