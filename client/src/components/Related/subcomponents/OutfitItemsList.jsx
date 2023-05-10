@@ -24,7 +24,13 @@ export default function OutfitItemsList() {
         </button>
         {outfitItems.map((item) => (
           <div className="outfit item-card">
-            <ItemCard key={item.id} item={item} outfitList />
+            <ItemCard
+              key={item.id}
+              item={item}
+              outfitItems={outfitItems}
+              setOutfitItems={setOutfitItems}
+              outfitList
+            />
           </div>
         ))}
       </div>
