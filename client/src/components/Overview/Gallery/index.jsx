@@ -1,13 +1,14 @@
 import React from 'react';
 import Image from './image';
+import Thumbnail from './thumbnail';
 
-export default function Gallery() {
-  const [display, setDisplay] = React.useState({ /* style.photos[0].url */});
-
+export default function Gallery({ gallery, display, setDisplay }) {
   return (
-    <>
-      <img alt="current display" />
-      <Image setDisplay={setDisplay} />
-    </>
+    <div className="gallery">
+      <Image display={display} />
+      <div className="imageSelect">
+        {gallery.map((image, i) => <Thumbnail image={image} key={i} setDisplay={setDisplay}/>)}
+      </div>
+    </div>
   );
 }
