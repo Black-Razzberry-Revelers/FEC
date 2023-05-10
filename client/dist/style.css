@@ -11,3 +11,8 @@
   min-width: 25rem;
   min-height: 30rem;
 }
+
+.list {
+  display: flex;
+  flex-direction: row;
+}
