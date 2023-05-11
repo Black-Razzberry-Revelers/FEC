@@ -8,20 +8,15 @@ import AddQuestionModal from './Modals/AddQuestionModal.jsx';
 import ImageModal from './Modals/ImageModal.jsx';
 
 function Questions() {
-  const [mode, setMode] = useState('');
-  const [modeProps, setModeProps] = useState({});
-  const [questions, setQuestions] = useState([]);
-  const [displayedQuestions, setDisplayedQuestions] = useState([]);
-  const [questionsCollapsed, setQuestionsCollapsed] = useState(true);
+  const [model, setModel] = useState({});
+  const [view, setView] = useState({
+    questions: [],
+    empty: true,
+    expanded: false,
+    mode: '',
+    modeProps: {},
+  });
 
-  function changeMode(aMode, someModeProps) {
-    setMode(aMode);
-    setModeProps(someModeProps);
-  }
-  function toggleQuestions() {
-    setQuestionsCollapsed(!questionsCollapsed);
-  }
-  function changeDisplay() {}
   function getQuestions(id) {
     return axios({
       url: 'http://localhost:3000/api/questions',
@@ -31,26 +26,103 @@ function Questions() {
   }
 
   useEffect(() => {
-    getQuestions(40347, 'true').then((response) => {
+    getQuestions(40347).then((response) => {
       console.log(response.data);
-      setQuestions(response.data);
-      setDisplayedQuestions(response.data.slice(0, 2));
+      setModel({
+        questions: response.data,
+      });
+
+      setView({
+        questions: response.data.slice(0, 2),
+        empty: response.data.length > 0,
+        expanded: false,
+        mode: '',
+        modeProps: {},
+      });
     });
   }, []);
 
-  // we'll change this later but it's just for convenience
   useEffect(() => {
-  questionsCollapsed ? setDisplayedQuestions(questions.slice(0,2)) : setDisplayedQuestions(questions);
-  }, [questionsCollapsed]);
+    if (Array.isArray(model.questions)) {
+      setView({ ...view, questions: model.questions.map((x) => x) });
+    }
+  }, [model]);
+
+  function toggleExpanded() {
+    const tog = !view.expanded;
+    setView({ ...view, expanded: tog });
+  }
+
+  function showAnswers(id) {
+    const copy = model.questions.map((q) => {
+      if (q.question_id === id) {
+        const show = { ...q };
+        show.showMore = !show.showMore;
+        return show;
+      }
+      return q;
+    });
+    setModel({ questions: copy });
+  }
+
+  function changeMode(mode, modeProps) {
+    setView({...view, mode, modeProps});
+  }
+
+  function textSearch(str) {
+
+  }
+
+  function markQHelpful(id) {
+    const copy = model.questions.map((q) => {
+      if (q.question_id === id) {
+        const mark = { ...q };
+        mark.markedHelpful = true;
+        mark.question_helpfulness += 1;
+        return mark;
+      }
+      return q;
+    });
+    setModel({ questions: copy });
+  }
+
+  function markAHelpful(qid, aid) {
+    const copy = model.questions.map((q) => {
+      if (q.question_id === qid) {
+        const mark = { ...q };
+        mark.answers[aid].markedHelpful = true;
+        mark.answers[aid].helpfulness += 1;
+        return mark;
+      }
+      return q;
+    });
+    setModel({ questions: copy });
+  }
+
+  function reportAnswer(qid, aid) {
+    const copy = model.questions.map((q) => {
+      if (q.question_id === qid) {
+        const mark = { ...q };
+        mark.answers[aid].reported = true;
+        return mark;
+      }
+      return q;
+    });
+    setModel({ questions: copy });
+  }
+
+  const controller = {
+    reportAnswer, markAHelpful, markQHelpful, changeMode, showAnswers, toggleExpanded, textSearch,
+  };
+
   return (
     <>
-      <SearchBar changeDisplay={changeDisplay}/>
-      <QuestionList questions={displayedQuestions} changeMode={changeMode} collapsed={questionsCollapsed} changeDisplay={changeDisplay}/>
-      <NavigationButtons changeMode={changeMode} toggle={toggleQuestions} collapsed={questionsCollapsed} />
+      <SearchBar c={controller} v={view} />
+      <QuestionList v={view} c={controller} />
+      <NavigationButtons v={view} c={controller} />
 
-      {mode === 'Add Answer' && <AddAnswerModal props={modeProps} changeMode={changeMode}/>}
-      {mode === 'Add Question' && <AddQuestionModal props={modeProps} changeMode={changeMode}/>}
-      {mode === 'Image' && <ImageModal props={modeProps} changeMode={changeMode}/>}
+      {view.mode === 'Add Answer' && <AddAnswerModal v={view} c={controller} />}
+      {view.mode === 'Add Question' && <AddQuestionModal v={view} c={controller} />}
     </>
   );
 }
