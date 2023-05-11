@@ -2,9 +2,9 @@ const models = require('../models');
 
 exports.getProductById = (req, res) => {
   models.products
-    .getProduct(req.query.product_id)
+    .getProduct(req.params.product_id)
     .then((results) => {
-      const styles = models.products.getProductStyles(req.query.product_id);
+      const styles = models.products.getProductStyles(req.params.product_id);
       return Promise.all([results.data, styles]);
     })
     .then((results) => {
@@ -16,6 +16,7 @@ exports.getProductById = (req, res) => {
       res.status(202).send(data);
     })
     .catch((err) => {
+      // console.log('getProductById Error: ', err);
       res.sendStatus(505);
     });
 };
@@ -29,10 +30,11 @@ exports.getRelatedProducts = (req, res) => {
       return Promise.all([info, styles]);
     })
     .then((results) => {
-      const resultsData = results[0].map((result, i) => (
-        Object.assign(result.data, results[1][i].data)
-      ));
-      res.status(200).json(resultsData);
+      const data = {
+        products: results[0].map((result) => result.data),
+        styles: results[1].map((result) => result.data),
+      };
+      res.status(200).json(data);
     })
     .catch((err) => {
       console.log('Error getting related products:', err);

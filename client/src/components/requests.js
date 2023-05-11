@@ -4,8 +4,9 @@ import axios from 'axios';
 export const requests = {
   get: {
     product: (id = 40347) => axios.get(
-      'http://localhost:3000/api/products/:product_id',
-      { params: { product_id: id } },
+      `http://localhost:3000/api/products/${id}`,
+      // 'http://localhost:3000/api/products/:product_id',
+      // { params: { product_id: id } },
     )
     ,
     meta: (id = 40347) => axios.get(
