@@ -26,6 +26,7 @@ img {
 .descript{
   display:flex;
   flex-direction: column;
+  position: relative;
 }
 
 .styles,
@@ -44,11 +45,12 @@ img {
   padding: 5px;
   width: 3vw;
   height: 5vw;
+  overflow: visible;
 }
 
 .display {
-  height:55vw;
-  width: 50vw;
+  height:50vw;
+  max-width: 50vw;
 
 }
 
@@ -63,7 +65,12 @@ img {
 .gallery {
   display:flex;
   flex-direction: row-reverse;
-  justify-content: baseline;
   align-content: center;
+  overflow: hidden;
 
+}
+
+.list {
+  display: flex;
+  flex-direction: row;
 }
