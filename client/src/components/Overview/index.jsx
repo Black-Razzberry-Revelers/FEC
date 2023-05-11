@@ -7,16 +7,17 @@ import { styleContext } from '../App';
 
 export default function Overview({ avgRating, product }) {
   const { style, setStyle, styles } = React.useContext(styleContext);
-  const [gallery, setGallery] = React.useState(style.photos);
+  const [gallery, setGallery] = React.useState([]);
   const [display, setDisplay] = React.useState('');
 
   React.useEffect(() => {
+    console.log('triggered', style);
     if (style.photos) {
       setGallery(style.photos);
+      console.log('gallery', style.photos)
       setDisplay(style.photos[0].url);
     }
   }, [style]);
-
 
   return (
     <>
@@ -35,7 +36,9 @@ export default function Overview({ avgRating, product }) {
           <StyleSelect styles={styles} />
           <AddToCart />
         </div>
-        <Gallery gallery={gallery} display={display} setDisplay={setDisplay} />
+        <div>
+          <Gallery gallery={gallery} display={display} setDisplay={setDisplay} />
+        </div>
       </div>
     </>
   );
