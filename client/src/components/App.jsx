@@ -43,9 +43,7 @@ export default function App() {
 
   return (
     <div className="body" role="application">
-      <h1>product page</h1>
       <div>
-        our components go here
         <starsContext.Provider value={{ avgRating, setAvgRating }}>
           <styleContext.Provider value={{ style, setStyle, styles, setStyles }}>
             <Overview data-testid="overview" avgRating={avgRating} product={product} />
