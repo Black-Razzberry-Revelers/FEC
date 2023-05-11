@@ -5,7 +5,9 @@ import Thumbnail from './thumbnail';
 export default function Gallery({ gallery, display, setDisplay }) {
   return (
     <div className="gallery">
-      <Image display={display} />
+      <div>
+        <Image display={display} />
+      </div>
       <div className="imageSelect">
         {gallery.map((image, i) => <Thumbnail image={image} key={i} setDisplay={setDisplay}/>)}
       </div>
