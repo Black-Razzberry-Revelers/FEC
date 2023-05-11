@@ -8,8 +8,8 @@ function ReviewsList({ reviews }) {
   const [scrollTop, setScrollTop] = useState(0);
   const style = {
     border: '1px solid black',
-    width: '400px',
-    height: '200px',
+    width: '600px',
+    height: '500px',
     overflow: 'auto',
   };
   const handleScroll = (event) => {
