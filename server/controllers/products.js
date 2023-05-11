@@ -1,5 +1,25 @@
 const models = require('../models');
 
+exports.getProductById = (req, res) => {
+  models.products
+    .getProduct(req.query.product_id)
+    .then((results) => {
+      const styles = models.products.getProductStyles(req.query.product_id);
+      return Promise.all([results.data, styles]);
+    })
+    .then((results) => {
+      data = {
+        product: results[0],
+        styles: results[1].data,
+      };
+      console.log('sending data to Front-end');
+      res.status(202).send(data);
+    })
+    .catch((err) => {
+      res.sendStatus(505);
+    });
+};
+
 exports.getRelatedProducts = (req, res) => {
   models.products
     .getRelatedProducts(req.params.product_id)
