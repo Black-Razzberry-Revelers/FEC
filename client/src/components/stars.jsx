@@ -7,13 +7,20 @@ export default function Stars() {
   const { avgRating, setAvgRating } = React.useContext(starsContext);
   let floor = Math.floor(avgRating);
   let percent = Math.ceil((avgRating - Math.floor(avgRating)) * 10);
-  const percentText = `${percent}%`;
+  if (percent > 7) {
+    percent = 10;
+  } else if (percent > 5 && percent < 8) {
+    percent = 5;
+  } else if (percent > 2 && percent < 6) {
+    percent = 2.5;
+  } else {
+    percent = 0;
+  }
   const filled = [];
   while (floor > 0) {
     filled.push('star');
-    floor--;
+    floor -= 1;
   }
-  console.log(percent)
 
   return (
     <div className="bar">
@@ -41,8 +48,19 @@ export default function Stars() {
               <img src={starFilled} alt="star" />
             </div>
           ))}
-          <div className="star" style={{ width: `${percent}%`, overflow: 'hidden', 'padding-right': '5px'}}>
-            <img src={starFilled} alt="star" style={{'padding-bottom': '20%'}} />
+          <div
+            className="star"
+            style={{
+              width: `${percent}%`,
+              overflow: 'hidden',
+              paddingRight: '5px',
+            }}
+          >
+            <img
+              src={starFilled}
+              alt="star"
+              style={{ paddingBottom: '20%' }}
+            />
           </div>
         </div>
       </div>
