@@ -7,6 +7,11 @@ import { useState } from 'react';
 import fetcher from '../../fetcher';
 
 function ReviewTile({ review }) {
+  const style = {
+    width: '5rem',
+    borderRadius: '5rem',
+    height: '5rem',
+  };
   const [feedback, setFeedback] = useState(true);
 
   const sendPositiveFeedback = () => {
@@ -26,12 +31,12 @@ function ReviewTile({ review }) {
   return (
     <div>
       <p>*****</p>
-      <p>review.reviewer_name</p>
-      <p>review.date</p>
-      <p>{review.summary}</p>
+      <p>{review.reviewer_name}</p>
+      <p>{review.date}</p>
+      <p style={{ fontWeight: 'bold' }}>{review.summary}</p>
       <p>{review.body}</p>
       {review.photos.map((photo) => (
-        <image src={photo.url} alt="img" />
+        <img src={photo.url} alt="img" style={style} />
       ))}
       {review.response && (
         <>
