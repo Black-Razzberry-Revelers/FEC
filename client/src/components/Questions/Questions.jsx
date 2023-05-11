@@ -26,7 +26,7 @@ function Questions() {
   }
 
   useEffect(() => {
-    getQuestions(40347).then((response) => {
+    getQuestions(40342).then((response) => {
       console.log(response.data);
       setModel({
         questions: response.data,
@@ -34,7 +34,7 @@ function Questions() {
 
       setView({
         questions: response.data.slice(0, 2),
-        empty: response.data.length > 0,
+        empty: response.data.length === 0,
         expanded: false,
         mode: '',
         modeProps: {},
@@ -70,7 +70,17 @@ function Questions() {
   }
 
   function textSearch(str) {
-
+    if (str.length >= 3) {
+      const filtered = model.questions.filter((q) => {
+        if (q.question_body.includes(str)) {
+          return true;
+        }
+        return false;
+      });
+      setView({...view, questions:filtered})
+    } else {
+      setView({...view, questions: model.questions.map((x) => x) });
+    }
   }
 
   function markQHelpful(id) {
