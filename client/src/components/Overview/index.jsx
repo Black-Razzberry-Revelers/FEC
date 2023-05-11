@@ -11,13 +11,13 @@ export default function Overview({ avgRating, product }) {
   const [display, setDisplay] = React.useState('');
 
   React.useEffect(() => {
-    console.log('triggered')
+    console.log('triggered', style);
     if (style.photos) {
       setGallery(style.photos);
+      console.log('gallery', style.photos)
       setDisplay(style.photos[0].url);
     }
   }, [style]);
-
 
   return (
     <>
@@ -36,7 +36,9 @@ export default function Overview({ avgRating, product }) {
           <StyleSelect styles={styles} />
           <AddToCart />
         </div>
-        <Gallery gallery={gallery} display={display} setDisplay={setDisplay} />
+        <div>
+          <Gallery gallery={gallery} display={display} setDisplay={setDisplay} />
+        </div>
       </div>
     </>
   );
