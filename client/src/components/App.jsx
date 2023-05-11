@@ -3,7 +3,7 @@ import RelatedItemsSection from './Related/Related';
 import Overview from './Overview';
 import Questions from './Questions/Questions';
 import findAvgRating from '../calculateAvgRating';
-// import { styleContext } from './stylecontext';
+import { requests } from './requests';
 import { productsData, productData, stylesData } from './mockData';
 
 export const styleContext = React.createContext(null);
@@ -12,19 +12,24 @@ export default function App() {
   const [product, setProduct] = React.useState(productData);
   const [avgRating, setAvgRating] = React.useState(3.8); // hardcoded for now. change later
   const [styles, setStyles] = React.useState(stylesData.results);
-  const [style, setStyle] = React.useState(styles[0]);
+  const [style, setStyle] = React.useState({});
 
   React.useEffect(() => {
-    // GET
-    setStyles(stylesData.results);
-    console.log('rendering');
-    styles.forEach((option, i) => {
-      if (option['default?']) {
-        const defaultStyle = option;
-        defaultStyle.index = i;
-        setStyle(defaultStyle);
-      }
-    });
+    requests.get.product()
+      .then((results) => {
+        setProduct(results.data.product);
+        setStyles(results.data.styles.results);
+        styles.forEach((option, i) => {
+          if (option['default?']) {
+            const defaultStyle = option;
+            defaultStyle.index = i;
+            setStyle(defaultStyle);
+          }
+        });
+      })
+      .catch((err) => {
+        console.log(err);
+      });
   }, []);
 
   return (

@@ -7,10 +7,11 @@ import { styleContext } from '../App';
 
 export default function Overview({ avgRating, product }) {
   const { style, setStyle, styles } = React.useContext(styleContext);
-  const [gallery, setGallery] = React.useState(style.photos);
+  const [gallery, setGallery] = React.useState([]);
   const [display, setDisplay] = React.useState('');
 
   React.useEffect(() => {
+    console.log('triggered')
     if (style.photos) {
       setGallery(style.photos);
       setDisplay(style.photos[0].url);
