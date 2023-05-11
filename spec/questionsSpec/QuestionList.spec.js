@@ -1,12 +1,13 @@
 import react from 'react';
-import QuestionList from '../QuestionList/QuestionList.jsx'
 
-describe('Importing QuestionList', ()=>{
-  test('should not be undefined', () =>{
+const QuestionList = require('../../client/src/components/Questions/QuestionList/QuestionList.jsx').default;
+
+describe('Importing QuestionList', () => {
+  test('should not be undefined', () => {
     expect(QuestionList).not.toBe(undefined);
   });
-}
-)
+});
+
 // On Load It Should
 //    * Load up to four questions on Default
 //    * up to two answers should display for each question
