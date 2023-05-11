@@ -1,9 +1,10 @@
-import React from 'react';
+// import React from 'react';
 
-function ImageModal({ props, changeMode }) {
-  function onExit() {}
+// function ImageModal({v, c}) {
+//   //function onExit() {}
 
-  return (<></>);
-}
+//   return (<> </>);
+// }
 
-export default ImageModal;
+// export default ImageModal;
+//{view.mode === 'Image' && <ImageModal v={view} c={controller} />}

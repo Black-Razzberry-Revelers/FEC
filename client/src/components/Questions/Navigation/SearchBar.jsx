@@ -1,15 +1,17 @@
 import React, { useState } from 'react';
 
-function SearchBar({ changeDisplay }) {
+function SearchBar({ c }) {
   const [searchText, setSearchText] = useState('');
 
-  function onTextChange() {}
+  function onTextChange(e) {
+    c.textSearch(e.target.value);
+  }
 
   return (
     <>
       <h3>Questions and Answers</h3>
       <form>
-        <input type="text" placeholder="Search for a Question or Answer" />
+        <input type="text" placeholder="Search for a Question or Answer" onChange={onTextChange} />
       </form>
     </>
   );
