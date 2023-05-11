@@ -2,9 +2,9 @@ const models = require('../models');
 
 exports.getProductById = (req, res) => {
   models.products
-    .getProduct(req.query.product_id)
+    .getProduct(req.params.product_id)
     .then((results) => {
-      const styles = models.products.getProductStyles(req.query.product_id);
+      const styles = models.products.getProductStyles(req.params.product_id);
       return Promise.all([results.data, styles]);
     })
     .then((results) => {
@@ -16,6 +16,7 @@ exports.getProductById = (req, res) => {
       res.status(202).send(data);
     })
     .catch((err) => {
+      // console.log('getProductById Error: ', err);
       res.sendStatus(505);
     });
 };
