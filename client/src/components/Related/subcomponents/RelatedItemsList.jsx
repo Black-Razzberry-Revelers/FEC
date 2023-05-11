@@ -4,9 +4,15 @@ import { currentItem, relatedItems } from './exampleData';
 
 export default function RelatedItemsList() {
   return (
-    <div>
+    <div className="related-items container">
       <h2>Related Items List</h2>
-      <div>{relatedItems.map((item) => <ItemCard key={item.id} item={item} />)}</div>
+      <div className="related-items list">
+        {relatedItems.map((item) => (
+          <div className="related-items item-card">
+            <ItemCard key={item.id} item={item} outfitList={false} />
+          </div>
+        ))}
+      </div>
     </div>
   );
 }

@@ -4,28 +4,41 @@ import Overview from './Overview';
 import Questions from './Questions/Questions';
 import Ratings from './Ratings/Ratings';
 import findAvgRating from '../calculateAvgRating';
-// import { styleContext } from './stylecontext';
-import { productsData, productData, stylesData } from './mockData';
+import { requests } from './requests';
 
 export const styleContext = React.createContext(null);
 
 export default function App() {
-  const [product, setProduct] = React.useState(productData);
-  const [avgRating, setAvgRating] = React.useState(3.8); // hardcoded for now. change later
-  const [styles, setStyles] = React.useState(stylesData.results);
-  const [style, setStyle] = React.useState(styles[0]);
+  const [product, setProduct] = React.useState({ features: [] });
+  const [avgRating, setAvgRating] = React.useState(0); // hardcoded for now. change later
+  const [styles, setStyles] = React.useState([]);
+  const [style, setStyle] = React.useState({});
 
   React.useEffect(() => {
-    // GET
-    setStyles(stylesData.results);
-    console.log('rendering');
-    styles.forEach((option, i) => {
-      if (option['default?']) {
-        const defaultStyle = option;
-        defaultStyle.index = i;
-        setStyle(defaultStyle);
-      }
-    });
+    requests.get.product()
+      .then((results) => {
+        const stylesArr = results.data.styles.results;
+        setProduct(results.data.product);
+        setStyles(stylesArr);
+
+        stylesArr.forEach((option, i) => {
+          if (option['default?']) {
+            const defaultStyle = option;
+            defaultStyle.index = i;
+            setStyle(defaultStyle);
+          }
+        });
+      })
+      .catch((err) => {
+        console.log(err);
+      });
+    requests.get.meta()
+      .then((results) => {
+        setAvgRating(findAvgRating(results.data.ratings));
+      })
+      .catch((err) => {
+        console.log(err);
+      });
   }, []);
 
   return (
