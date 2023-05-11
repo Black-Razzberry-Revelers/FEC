@@ -6,9 +6,11 @@ export default function ComparisonModal({ item }) {
     <table>
       <caption>Comparing</caption>
       <thead>
-        <th scope="col">{item.product.name}</th>
-        <th scope="col">{' '}</th>
-        <th scope="col">{currentItem.product.name}</th>
+        <tr>
+          <th scope="col">{item.product.name}</th>
+          <th scope="col">{' '}</th>
+          <th scope="col">{currentItem.product.name}</th>
+        </tr>
       </thead>
       <tbody>
         <tr>
