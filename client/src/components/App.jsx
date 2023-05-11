@@ -1,3 +1,5 @@
+/* eslint-disable react/jsx-no-constructed-context-values */
+/* eslint-disable import/no-cycle */
 import React from 'react';
 import RelatedItemsSection from './Related/Related';
 import Overview from './Overview';
@@ -14,7 +16,8 @@ export default function App() {
   const [style, setStyle] = React.useState({});
 
   React.useEffect(() => {
-    requests.get.product()
+    requests.get
+      .product()
       .then((results) => {
         const stylesArr = results.data.styles.results;
         setProduct(results.data.product);
@@ -31,7 +34,8 @@ export default function App() {
       .catch((err) => {
         console.log(err);
       });
-    requests.get.meta()
+    requests.get
+      .meta()
       .then((results) => {
         setAvgRating(findAvgRating(results.data.ratings));
       })
@@ -45,7 +49,14 @@ export default function App() {
       <h1>product page</h1>
       <div>
         our components go here
-        <styleContext.Provider value={{ style, setStyle, styles, setStyles }}>
+        <styleContext.Provider
+          value={{
+            style,
+            setStyle,
+            styles,
+            setStyles,
+          }}
+        >
           <Overview avgRating={avgRating} product={product} />
           <RelatedItemsSection />
           <Questions />
