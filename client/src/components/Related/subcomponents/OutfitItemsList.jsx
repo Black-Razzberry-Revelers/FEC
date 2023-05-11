@@ -16,6 +16,7 @@ export default function OutfitItemsList() {
         className="outfit"
         id="add-item-to-outfit"
         onClick={(e) => {
+          console.log('Current Item', currentItem);
           setOutfitItems([...outfitItems, currentItem]);
           localStorage.setItem('outfitItems', JSON.stringify([...outfitItems, currentItem]));
         }}
@@ -26,8 +27,8 @@ export default function OutfitItemsList() {
         {outfitItems.map((item) => (
           <div className="outfit carousel-item item-card">
             <ItemCard
-              key={item.id}
-              item={item}
+              key={item.product.id}
+              item={{ product: item.product, styles: item.styles }}
               outfitItems={outfitItems}
               setOutfitItems={setOutfitItems}
               outfitList
