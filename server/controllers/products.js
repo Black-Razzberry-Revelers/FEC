@@ -29,10 +29,11 @@ exports.getRelatedProducts = (req, res) => {
       return Promise.all([info, styles]);
     })
     .then((results) => {
-      const resultsData = results[0].map((result, i) => (
-        Object.assign(result.data, results[1][i].data)
-      ));
-      res.status(200).json(resultsData);
+      const data = {
+        products: results[0].map((result) => result.data),
+        styles: results[1].map((result) => result.data),
+      };
+      res.status(200).json(data);
     })
     .catch((err) => {
       console.log('Error getting related products:', err);
