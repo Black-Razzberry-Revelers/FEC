@@ -16,5 +16,6 @@ module.exports = {
     'no-console': 'off',
     'no-unused-vars': 'off',
     'no-undef': 'off',
+    'import/no-cycle': 'off',
   },
 };

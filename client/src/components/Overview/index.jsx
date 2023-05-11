@@ -4,6 +4,7 @@ import StyleSelect from './styleSelect';
 import Gallery from './Gallery';
 import AddToCart from './addToCart';
 import { styleContext } from '../App';
+import Stars from '../stars';
 
 export default function Overview({ avgRating, product }) {
   const { style, setStyle, styles } = React.useContext(styleContext);
@@ -25,10 +26,11 @@ export default function Overview({ avgRating, product }) {
         {product.name}
       </h1>
       <div>
-        {avgRating}
-      </div>
-      <div>
         in: {product.category}
+      </div>
+      <div className="rating">
+        {avgRating}
+        <Stars />
       </div>
       <div className="overview">
         <div className="stylesinfo">
