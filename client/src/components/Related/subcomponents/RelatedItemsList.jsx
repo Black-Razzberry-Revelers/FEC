@@ -10,7 +10,7 @@ export default function RelatedItemsList() {
       <h2>Related Items List</h2>
       <div className="related-items list inner" style={{ transform: `translateX(-${activeIndex * 33}%)` }}>
         {relatedItems.products.map((item, i) => (
-          <div className="related-items carousel-item item-card">
+          <div className="related-items carousel-item item-card" key={item.id}>
             <ItemCard
               key={item.id}
               item={{ product: item, styles: relatedItems.styles[i] }}

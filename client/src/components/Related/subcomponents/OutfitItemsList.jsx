@@ -24,7 +24,7 @@ export default function OutfitItemsList() {
       </button>
       <div className="outfit list inner" style={{ transform: `translateX(-${activeIndex * 33}%)` }}>
         {outfitItems.map((item) => (
-          <div className="outfit carousel-item item-card">
+          <div className="outfit carousel-item item-card" key={item.product.id}>
             <ItemCard
               key={item.product.id}
               item={{ product: item.product, styles: item.styles }}
