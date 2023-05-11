@@ -16,7 +16,6 @@ export default function OutfitItemsList() {
         className="outfit"
         id="add-item-to-outfit"
         onClick={(e) => {
-          console.log('Current Item', currentItem);
           setOutfitItems([...outfitItems, currentItem]);
           localStorage.setItem('outfitItems', JSON.stringify([...outfitItems, currentItem]));
         }}
