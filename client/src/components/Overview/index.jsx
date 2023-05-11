@@ -19,7 +19,7 @@ export default function Overview({ avgRating, product }) {
 
 
   return (
-    <>
+    <div data-testid="overview">
       <h1>
         {product.name}
       </h1>
@@ -37,6 +37,6 @@ export default function Overview({ avgRating, product }) {
         </div>
         <Gallery gallery={gallery} display={display} setDisplay={setDisplay} />
       </div>
-    </>
+    </div>
   );
 }
