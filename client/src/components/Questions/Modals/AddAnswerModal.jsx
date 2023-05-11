@@ -35,13 +35,17 @@ function AddAnswerModal({ v, c }) {
     c.changeMode('', {});
   }
 
+  const p1 = "What answer do you have to this question?"
+  const p2 = "What Nickname do you want to be known as?"
+  const p3 = "email@provider.com"
+
   return (
     <>
       <h1>ADD AN ANSWER ON Question: {v.modeProps.question.question_body}</h1>
       <form>
-        <input value={answer} type='text' onChange={(e)=>change(e.target.value, setAnswer)} />
-        <input value={nickname} type='text' onChange={(e)=>change(e.target.value, setNickname)} />
-        <input value={email} type='text' onChange={(e)=>change(e.target.value, setEmail)} />
+        <input value={answer} type='text' placeholder={p1} onChange={(e)=>change(e.target.value, setAnswer)} />
+        <input value={nickname} type='text' placeholder={p2} onChange={(e)=>change(e.target.value, setNickname)} />
+        <input value={email} type='text' placeholder={p3} onChange={(e)=>change(e.target.value, setEmail)} />
       </form>
       <button>Upload an Image</button>
       <button onClick={onSubmit}>Submit</button>

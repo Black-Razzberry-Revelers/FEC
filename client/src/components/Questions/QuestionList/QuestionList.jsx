@@ -18,9 +18,11 @@ function QuestionList({ v, c }) {
     sort = sort.slice(0, 2);
   }
   return (
-    <>
+    <div id="QuestionViewport">
+      <div id="QuestionStrip">
       {sort.map((q) => (<Question question={q} key={q.question_id} qid={q.question_id} v={v} c={c} />))}
-    </>
+      </div>
+    </div>
   );
 }
 

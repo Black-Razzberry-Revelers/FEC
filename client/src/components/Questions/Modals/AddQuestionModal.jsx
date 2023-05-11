@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 
 function AddQuestionModal({ v, c }) {
-  const [answer, setAnswer] = useState('');
+  const [question, setQuestion] = useState('');
   const [nickname, setNickname] = useState('');
   const [email, setEmail] = useState('');
 
@@ -28,14 +28,16 @@ function AddQuestionModal({ v, c }) {
     }
     return true
   }
-
+  const p1 = "What question do you have about this product?"
+  const p2 = "What Nickname do you want to be known as?"
+  const p3 = "email@provider.com"
   return (
     <>
-      <h1>ADD A QUESTION!</h1>
+      <h3>Your Question</h3>
       <form>
-        <input value={answer} type='text' onChange={(e)=>change(e.target.value, setAnswer)}/>
-        <input value={nickname} type='text' onChange={(e)=>change(e.target.value, setNickname)}/>
-        <input value={email} type='text' onChange={(e)=>change(e.target.value, setEmail)}/>
+        <input value={question} type='text' placeholder={p1} onChange={(e)=>change(e.target.value, setQuestion)}/>
+        <input value={nickname} type='text' placeholder={p2} onChange={(e)=>change(e.target.value, setNickname)}/>
+        <input value={email} type='text' placeholder={p3} onChange={(e)=>change(e.target.value, setEmail)}/>
       </form>
       <button onClick={onSubmit}>Submit</button>
       <button onClick={onBack}>Go Back!</button>
