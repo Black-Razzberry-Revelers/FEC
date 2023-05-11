@@ -2,6 +2,7 @@ import React from 'react';
 import RelatedItemsSection from './Related/Related';
 import Overview from './Overview';
 import Questions from './Questions/Questions';
+import Ratings from './Ratings/Ratings';
 import findAvgRating from '../calculateAvgRating';
 // import { styleContext } from './stylecontext';
 import { productsData, productData, stylesData } from './mockData';
@@ -36,6 +37,7 @@ export default function App() {
           <Overview avgRating={avgRating} product={product} />
           <RelatedItemsSection />
           <Questions />
+          <Ratings />
         </styleContext.Provider>
       </div>
     </div>
