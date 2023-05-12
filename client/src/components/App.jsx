@@ -1,7 +1,10 @@
+/* eslint-disable react/jsx-no-constructed-context-values */
+/* eslint-disable import/no-cycle */
 import React from 'react';
 import RelatedItemsSection from './Related/Related';
 import Overview from './Overview';
 import Questions from './Questions/Questions';
+import Ratings from './Ratings/Ratings';
 import findAvgRating from '../calculateAvgRating';
 import { requests } from './requests';
 
@@ -15,7 +18,8 @@ export default function App() {
   const [style, setStyle] = React.useState({});
 
   React.useEffect(() => {
-    requests.get.product()
+    requests.get
+      .product()
       .then((results) => {
         const stylesArr = results.data.styles.results;
         setProduct(results.data.product);
@@ -32,7 +36,8 @@ export default function App() {
       .catch((err) => {
         console.log(err);
       });
-    requests.get.meta()
+    requests.get
+      .meta()
       .then((results) => {
         setAvgRating(findAvgRating(results.data.ratings));
       })
