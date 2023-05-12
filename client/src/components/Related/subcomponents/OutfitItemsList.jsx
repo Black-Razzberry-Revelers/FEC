@@ -1,4 +1,5 @@
 import React, { useState, useContext } from 'react';
+import PropTypes from 'prop-types';
 import ItemCard from './ItemCard';
 // import { currentItem } from './exampleData'; // stub data
 import { styleContext } from '../../App';
@@ -46,3 +47,21 @@ export default function OutfitItemsList({ currentProduct, setProduct }) {
     </div>
   );
 }
+
+OutfitItemsList.propTypes = {
+  currentProduct: PropTypes.shape({
+    id: PropTypes.number.isRequired,
+    campus: PropTypes.string,
+    name: PropTypes.string,
+    slogan: PropTypes.string,
+    description: PropTypes.string,
+    category: PropTypes.string,
+    default_price: PropTypes.string,
+    created_at: PropTypes.string,
+    updated_at: PropTypes.string,
+    features: PropTypes.arrayOf(
+      PropTypes.shape({ feature: PropTypes.string, value: PropTypes.string }),
+    ),
+  }).isRequired,
+  setProduct: PropTypes.func.isRequired,
+};
