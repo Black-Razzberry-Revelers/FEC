@@ -18,8 +18,11 @@ export default function OutfitItemsList({ currentProduct, setProduct }) {
         className="outfit"
         id="add-item-to-outfit"
         onClick={(e) => {
-          setOutfitItems([...outfitItems, { product: currentProduct, styles }]);
-          localStorage.setItem('outfitItems', JSON.stringify([...outfitItems, { product: currentProduct, styles }]));
+          const productIds = outfitItems.map((item) => item.product.id);
+          if (!productIds.includes(currentProduct.id)) {
+            setOutfitItems([...outfitItems, { product: currentProduct, styles }]);
+            localStorage.setItem('outfitItems', JSON.stringify([...outfitItems, { product: currentProduct, styles }]));
+          }
         }}
       >
         +
