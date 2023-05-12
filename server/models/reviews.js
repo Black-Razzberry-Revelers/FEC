@@ -36,6 +36,23 @@ exports.reviewsMetadata = (product_id = 40344) => {
   return axios(options);
 };
 
+exports.relatedReviewsMetaData = (productIds) => {
+  const apiCalls = productIds.map((productId) => {
+    const options = {
+      method: 'get',
+      url: `${process.env.URL}/reviews/meta`,
+      headers: {
+        Authorization: `${process.env.TOKEN}`,
+      },
+      params: {
+        product_id,
+      },
+    };
+    return axios(options);
+  });
+  return Promise.all(apiCalls);
+};
+
 exports.addReview = (
   product_id,
   rating,
