@@ -11,7 +11,7 @@ describe('Overview', () => {
   const { getByRole, getByTestId } = render(<App />);
   const app = getByRole('application');
   const overview = getByTestId('overview');
-  const
+
   test('Overview should be a function', () => {
     expect(typeof Overview).toBe('function');
   });
