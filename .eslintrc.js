@@ -17,5 +17,7 @@ module.exports = {
     'no-unused-vars': 'off',
     'no-undef': 'off',
     'import/no-cycle': 'off',
+    'react/prop-types': 'off',
+    'react/no-array-index-key': 'off',
   },
 };
