@@ -4,7 +4,6 @@ import StyleSelect from './styleSelect';
 import Gallery from './Gallery';
 import AddToCart from './addToCart';
 import { styleContext } from '../App';
-import Stars from
 
 export default function Overview({ avgRating, product }) {
   const { style, setStyle, styles } = React.useContext(styleContext);
@@ -12,9 +11,6 @@ export default function Overview({ avgRating, product }) {
 <<<<<<< HEAD
   const [display, setDisplay] = React.useState('');
   const [sizes, setSizes] = React.useState([]);
-=======
-  const [display, setDisplay] = React.useState({});
->>>>>>> carouselrefact
 
   React.useEffect(() => {
     console.log('triggered', style);
@@ -40,17 +36,11 @@ export default function Overview({ avgRating, product }) {
         {product.name}
       </h1>
       <div>
-<<<<<<< HEAD
-=======
-        in:
-        {product.category}
-      </div>
-      <div className="rating">
->>>>>>> carouselrefact
         {avgRating}
       </div>
       <div>
-        in: {product.category}
+        in:
+        {product.category}
       </div>
       <div className="overview">
         <div className="stylesinfo">
