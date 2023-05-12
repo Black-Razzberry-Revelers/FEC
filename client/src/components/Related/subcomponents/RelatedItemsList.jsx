@@ -1,9 +1,13 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect, useContext } from 'react';
 import ItemCard from './ItemCard';
 // import { currentItem, relatedItems } from './exampleData';
 import { requests } from '../../requests';
+import { styleContext } from '../../App';
 
 export default function RelatedItemsList({ currentProduct, setProduct }) {
+  const {
+    style, setStyle, styles, setStyles,
+  } = useContext(styleContext);
   const [activeIndex, setActiveIndex] = useState(0);
   const [relatedItems, setRelatedItems] = useState({ products: [], styles: [] });
 
@@ -26,7 +30,15 @@ export default function RelatedItemsList({ currentProduct, setProduct }) {
       <h2>Related Items List</h2>
       <div className="related-items list inner" style={{ transform: `translateX(-${activeIndex * 33}%)` }}>
         {relatedItems.products.map((item, i) => (
-          <div className="related-items carousel-item item-card" key={item.id}>
+          <div className="related-items carousel-item item-card" key={item.id} onClick={(e) => {
+            setProduct(item);
+            // console.log('Item:', item);
+            setStyles(relatedItems.styles[i].results);
+            // console.log('Style:', relatedItems.styles[i].results)
+            const defaultStyle = styles.filter((style) => style['default?']);
+            // console.log('Default Style:', defaultStyle);
+            setStyle(defaultStyle);
+          }}>
             <ItemCard
               key={item.id}
               item={{ product: item, styles: relatedItems.styles[i].results }}

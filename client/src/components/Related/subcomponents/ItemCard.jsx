@@ -3,9 +3,11 @@ import ComparisonModal from './ComparisonModal';
 
 export default function ItemCard({ item, outfitItems, setOutfitItems, outfitList }) {
   const defaultStyle = item.styles.filter((style) => style['default?'] === true);
+  // console.log(`Item Card ${item.product.id}:`, item);
+  // console.log(`Item Card ${item.product.id} Default Style:`, defaultStyle);
   const placeholder = 'https://static-00.iconduck.com/assets.00/image-icon-256x256-09od4zyo.png';
   const thumbnail = defaultStyle.length > 0 ? defaultStyle[0].photos[0].thumbnail_url
-    : item.styles.results[0].photos[0].thumbnail_url;
+    : item.styles[0].photos[0].thumbnail_url;
   return (
     <>
       <h3>Item Card</h3>
