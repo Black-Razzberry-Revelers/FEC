@@ -18,6 +18,12 @@ export default function RelatedItemsList({ currentProduct, setProduct }) {
           setRelatedItems(result.data);
         }
       });
+    requests.get.meta(currentProduct.id)
+      .then((result) => {
+        if (!ignore) {
+          // add ratings calc here
+        }
+      });
     return () => {
       ignore = true;
     };
