@@ -11,6 +11,13 @@ module.exports = {
     sourceType: 'module',
   },
   plugins: ['react'],
+  settings: {
+    'import/resolver': {
+      node: {
+        extensions: ['.js', '.mjs', '.jsx'],
+      },
+    },
+  },
   rules: {
     camelcase: 'off',
     'no-console': 'off',
