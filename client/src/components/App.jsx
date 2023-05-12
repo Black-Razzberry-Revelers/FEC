@@ -9,6 +9,7 @@ import findAvgRating from '../calculateAvgRating';
 import { requests } from './requests';
 
 export const styleContext = React.createContext(null);
+export const starsContext = React.createContext(null);
 
 export default function App() {
   const [product, setProduct] = React.useState({ features: [] });
@@ -46,23 +47,15 @@ export default function App() {
   }, []);
 
   return (
-    <div className="body">
-      <h1>product page</h1>
+    <div className="body" role="application">
       <div>
-        our components go here
-        <styleContext.Provider
-          value={{
-            style,
-            setStyle,
-            styles,
-            setStyles,
-          }}
-        >
-          <Overview avgRating={avgRating} product={product} />
-          <RelatedItemsSection />
-          <Questions />
-          <Ratings />
-        </styleContext.Provider>
+        <starsContext.Provider value={{ avgRating, setAvgRating }}>
+          <styleContext.Provider value={{ style, setStyle, styles, setStyles }}>
+            <Overview data-testid="overview" avgRating={avgRating} product={product} />
+            <RelatedItemsSection />
+            <Questions />
+          </styleContext.Provider>
+        </starsContext.Provider>
       </div>
     </div>
   );
