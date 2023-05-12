@@ -9,14 +9,13 @@ import Stars from '../stars';
 export default function Overview({ avgRating, product }) {
   const { style, setStyle, styles } = React.useContext(styleContext);
   const [gallery, setGallery] = React.useState([]);
-  const [display, setDisplay] = React.useState('');
+  const [display, setDisplay] = React.useState({});
 
   React.useEffect(() => {
     console.log('triggered', style);
     if (style.photos) {
       setGallery(style.photos);
-      console.log('gallery', style.photos)
-      setDisplay(style.photos[0].url);
+      setDisplay(style.photos[0]);
     }
   }, [style]);
 
@@ -26,7 +25,8 @@ export default function Overview({ avgRating, product }) {
         {product.name}
       </h1>
       <div>
-        in: {product.category}
+        in:
+        {product.category}
       </div>
       <div className="rating">
         {avgRating}
