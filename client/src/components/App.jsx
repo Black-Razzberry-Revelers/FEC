@@ -47,7 +47,7 @@ export default function App() {
         our components go here
         <styleContext.Provider value={{ style, setStyle, styles, setStyles }}>
           <Overview avgRating={avgRating} product={product} />
-          <RelatedItemsSection />
+          <RelatedItemsSection currentProduct={product} setProduct={setProduct} />
           <Questions />
         </styleContext.Provider>
       </div>

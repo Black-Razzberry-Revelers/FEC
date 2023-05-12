@@ -1,8 +1,10 @@
-import React, { useState } from 'react';
+import React, { useState, useContext } from 'react';
 import ItemCard from './ItemCard';
-import { currentItem } from './exampleData'; // stub data
+// import { currentItem } from './exampleData'; // stub data
+import { styleContext } from '../../App';
 
-export default function OutfitItemsList() {
+export default function OutfitItemsList({ currentProduct, setProduct }) {
+  const { styles } = useContext(styleContext);
   const [outfitItems, setOutfitItems] = useState(
     JSON.parse(localStorage.getItem('outfitItems')) || [],
   );
@@ -16,8 +18,8 @@ export default function OutfitItemsList() {
         className="outfit"
         id="add-item-to-outfit"
         onClick={(e) => {
-          setOutfitItems([...outfitItems, currentItem]);
-          localStorage.setItem('outfitItems', JSON.stringify([...outfitItems, currentItem]));
+          setOutfitItems([...outfitItems, { product: currentProduct, styles }]);
+          localStorage.setItem('outfitItems', JSON.stringify([...outfitItems, { product: currentProduct, styles }]));
         }}
       >
         +
@@ -31,6 +33,7 @@ export default function OutfitItemsList() {
               outfitItems={outfitItems}
               setOutfitItems={setOutfitItems}
               outfitList
+              setProduct={setProduct}
             />
           </div>
         ))}

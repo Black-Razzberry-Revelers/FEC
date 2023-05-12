@@ -1,9 +1,25 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import ItemCard from './ItemCard';
-import { currentItem, relatedItems } from './exampleData';
+// import { currentItem, relatedItems } from './exampleData';
+import { requests } from '../../requests';
 
-export default function RelatedItemsList() {
+export default function RelatedItemsList({ currentProduct, setProduct }) {
   const [activeIndex, setActiveIndex] = useState(0);
+  const [relatedItems, setRelatedItems] = useState({ products: [], styles: [] });
+
+  useEffect(() => {
+    let ignore = false;
+    requests.get.related(currentProduct.id)
+      .then((result) => {
+        console.log(result.data);
+        if (!ignore) {
+          setRelatedItems(result.data);
+        }
+      });
+    return () => {
+      ignore = true;
+    };
+  }, [currentProduct]);
 
   return (
     <div className="related-items carousel">
@@ -13,8 +29,9 @@ export default function RelatedItemsList() {
           <div className="related-items carousel-item item-card" key={item.id}>
             <ItemCard
               key={item.id}
-              item={{ product: item, styles: relatedItems.styles[i] }}
+              item={{ product: item, styles: relatedItems.styles[i].results }}
               outfitList={false}
+              setProduct={setProduct}
             />
           </div>
         ))}
