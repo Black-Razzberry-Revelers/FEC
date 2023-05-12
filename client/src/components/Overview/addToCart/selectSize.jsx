@@ -2,16 +2,15 @@ import React from 'react';
 import SelectQuantity from './selectQuantity';
 import { styleContext } from '../../App';
 
-export default function SelectSize({ sizes }) {
+export default function SelectSize({ sizes, product }) {
   // drop down of available sizes to choose
   const { style } = React.useContext(styleContext);
   const [size, setSize] = React.useState('size');
   const [quantity, setQuantity] = React.useState(['select a size first']);
   console.log('sizes', sizes)
   const handleChange = (e) => {
-    console.log(e);
     const quants = [];
-    let count = e.target.value;
+    let count = e.target.value.split(' ')[1];
     while (count > 0) {
       quants.unshift(count.toString());
       count -= 1;
@@ -24,8 +23,12 @@ export default function SelectSize({ sizes }) {
     let data = new FormData(e.target);
     let form = Object.fromEntries(data.entries());
     form.style = style;
-    form.product = 'product name';
-    console.log(e.target.innerText)
+    form.product = product;
+    console.log(form)
+  };
+
+  const handleSelect = (e) => {
+    console.log('select', e.target)
   }
 
   return (
@@ -33,13 +36,12 @@ export default function SelectSize({ sizes }) {
       {sizes
         ? (
           <form onSubmit={handleSubmit}>
-            <select defaultValue="M" name="size" onChange={handleChange}>
+            <select value="size" name="size" onChange={handleChange}>
               {sizes.map((option) => (
                 <option
                   key={option.key}
-                  value={option.quantity}
                 >
-                  {`${option.size}(${option.quantity})`}
+                  {`${option.size} ${option.quantity}`}
                 </option>
               ))}
             </select>
