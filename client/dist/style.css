@@ -4,10 +4,39 @@ img {
   padding:1%;
 }
 
+/******* STARS *********/
+
+.bar {
+ position:relative
+}
+
+.stars {
+  display: flex;
+  flex-direction: row;
+  position: absolute;
+  padding: 2%;
+  min-width: fit-content;
+
+}
+
+.star {
+  padding:1%
+}
+
+
+
+
+/******* OverView *******/
+
 .overview {
   display:flex;
   flex-direction: row-reverse;
   justify-content: space-between;
+}
+
+.rating {
+  display: flex;
+
 }
 
 .stylesinfo {
@@ -69,6 +98,8 @@ img {
   overflow: hidden;
 
 }
+
+/********* Related *********/
 
 .list {
   display: flex;
