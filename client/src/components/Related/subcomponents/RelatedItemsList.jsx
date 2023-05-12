@@ -35,9 +35,9 @@ export default function RelatedItemsList({ currentProduct, setProduct }) {
             // console.log('Item:', item);
             setStyles(relatedItems.styles[i].results);
             // console.log('Style:', relatedItems.styles[i].results)
-            const defaultStyle = styles.filter((style) => style['default?']);
-            // console.log('Default Style:', defaultStyle);
-            setStyle(defaultStyle);
+            const newDefaultStyle = relatedItems.styles[i].results.filter((style) => style['default?'])[0];
+            console.log('Related Item Default Style:', newDefaultStyle);
+            setStyle(newDefaultStyle);
           }}>
             <ItemCard
               key={item.id}

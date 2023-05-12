@@ -85,6 +85,7 @@ img {
   align-items: center;
   justify-content: space-between;
   height: auto;
+  cursor: pointer;
 }
 
 .inner {
