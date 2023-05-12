@@ -1,10 +1,11 @@
 import React from 'react';
 import Question from './Question.jsx';
 
-function QuestionList({questions, changeMode, collapsed, changeDisplay}) {
+function QuestionList({ v, c }) {
   function onScroll() {}
+  const { questions } = v;
 
-  const sortedQuestions = questions.sort((a, b) => {
+  let sort = questions.sort((a, b) => {
     if (a.question_helpfulness < b.question_helpfulness) {
       return 1;
     }
@@ -13,11 +14,13 @@ function QuestionList({questions, changeMode, collapsed, changeDisplay}) {
     }
     return 0;
   });
-
+  if (!v.expanded) {
+    sort = sort.slice(0, 2);
+  }
   return (
-  <>
-    {sortedQuestions.map((question) => (<Question question={question} changeMode={changeMode} />))}
-  </>
+    <>
+      {sort.map((q) => (<Question question={q} key={q.question_id} qid={q.question_id} v={v} c={c} />))}
+    </>
   );
 }
 
