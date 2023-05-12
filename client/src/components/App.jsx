@@ -56,6 +56,7 @@ export default function App() {
             setStyle,
             styles,
             setStyles,
+            product,
           }}
         >
           <Overview avgRating={avgRating} product={product} />
