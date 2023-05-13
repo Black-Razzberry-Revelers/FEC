@@ -26,21 +26,11 @@ export default function Stars() {
     <div className="bar">
       <div className="stars">
         <div className="stars" id="empty">
-          <div>
-            <img src={starEmpty} alt="star" />
-          </div>
-          <div>
-            <img src={starEmpty} alt="star" />
-          </div>
-          <div>
-            <img src={starEmpty} alt="star" />
-          </div>
-          <div>
-            <img src={starEmpty} alt="star" />
-          </div>
-          <div>
-            <img src={starEmpty} alt="star" />
-          </div>
+          {[1, 2, 3, 4, 5].map((num) => (
+            <div>
+              <img src={starEmpty} alt="star" />
+            </div>
+          ))}
         </div>
         <div className="stars" id="filled">
           {filled.map((star, i) => (
