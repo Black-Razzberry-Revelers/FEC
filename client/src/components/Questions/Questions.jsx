@@ -6,8 +6,9 @@ import SearchBar from './Navigation/SearchBar.jsx';
 import AddAnswerModal from './Modals/AddAnswerModal.jsx';
 import AddQuestionModal from './Modals/AddQuestionModal.jsx';
 import ImageModal from './Modals/ImageModal.jsx';
+import requests from '../requests';
 
-function Questions() {
+function Questions({ product_id }) {
   const [model, setModel] = useState({});
   const [view, setView] = useState({
     questions: [],
@@ -15,18 +16,11 @@ function Questions() {
     expanded: false,
     mode: '',
     modeProps: {},
+    pid: product_id || 40342,
   });
 
-  function getQuestions(id) {
-    return axios({
-      url: 'http://localhost:3000/api/questions',
-      method: 'GET',
-      params: { product_id: id },
-    });
-  }
-
   useEffect(() => {
-    getQuestions(40342).then((response) => {
+    requests.get.questions(40342).then((response) => {
       console.log(response.data);
       setModel({
         questions: response.data,
@@ -38,6 +32,7 @@ function Questions() {
         expanded: false,
         mode: '',
         modeProps: {},
+        pid: product_id || 40342,
       });
     });
   }, []);
@@ -84,41 +79,47 @@ function Questions() {
   }
 
   function markQHelpful(id) {
-    const copy = model.questions.map((q) => {
-      if (q.question_id === id) {
-        const mark = { ...q };
-        mark.markedHelpful = true;
-        mark.question_helpfulness += 1;
-        return mark;
-      }
-      return q;
+    requests.put.helpfulQuestion(id).then(() => {
+      const copy = model.questions.map((q) => {
+        if (q.question_id === id) {
+          const mark = { ...q };
+          mark.markedHelpful = true;
+          mark.question_helpfulness += 1;
+          return mark;
+        }
+        return q;
+      });
+      setModel({ questions: copy });
     });
-    setModel({ questions: copy });
   }
 
   function markAHelpful(qid, aid) {
-    const copy = model.questions.map((q) => {
-      if (q.question_id === qid) {
-        const mark = { ...q };
-        mark.answers[aid].markedHelpful = true;
-        mark.answers[aid].helpfulness += 1;
-        return mark;
-      }
-      return q;
+    requests.put.helpfulAnswer(aid).then(()=>{
+      const copy = model.questions.map((q) => {
+        if (q.question_id === qid) {
+          const mark = { ...q };
+          mark.answers[aid].markedHelpful = true;
+          mark.answers[aid].helpfulness += 1;
+          return mark;
+        }
+        return q;
+      });
+      setModel({ questions: copy });
     });
-    setModel({ questions: copy });
   }
 
   function reportAnswer(qid, aid) {
-    const copy = model.questions.map((q) => {
-      if (q.question_id === qid) {
-        const mark = { ...q };
-        mark.answers[aid].reported = true;
-        return mark;
-      }
-      return q;
+    requests.put.reportAnswer(aid).then(() => {
+      const copy = model.questions.map((q) => {
+        if (q.question_id === qid) {
+          const mark = { ...q };
+          mark.answers[aid].reported = true;
+          return mark;
+        }
+        return q;
+      });
+      setModel({ questions: copy });
     });
-    setModel({ questions: copy });
   }
 
   const controller = {

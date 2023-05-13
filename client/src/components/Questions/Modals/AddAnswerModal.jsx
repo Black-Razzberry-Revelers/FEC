@@ -1,11 +1,11 @@
 import React, { useState } from 'react';
+import requests from '../../requests';
 
 function AddAnswerModal({ v, c }) {
   const [answer, setAnswer] = useState('');
   const [nickname, setNickname] = useState('');
   const [email, setEmail] = useState('');
   const [images, setImages] = useState([]);
-
   function onUpload() {}
 
   const emailREGEXP = /^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$/;
@@ -26,9 +26,10 @@ function AddAnswerModal({ v, c }) {
     set(text);
   }
   function onSubmit() {
-    if(validate()) {
-      c.changeMode('', {});
-    }
+    if (validate()) {
+      requests.post.answer(v.pid, v.modeProps.qid, answer, nickname, email).then(() => {
+        c.changeMode('', {});
+      });
   }
 
   function onBack() {

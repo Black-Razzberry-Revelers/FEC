@@ -76,7 +76,7 @@ exports.putAnswerAsHelpful = (answer_id) => {
     },
   };
 };
-};
+
 exports.putAnswerAsReported = (answer_id) => {
   const request = {
     url: `${process.env.URL}/qa/answers/${answer_id}/report`,

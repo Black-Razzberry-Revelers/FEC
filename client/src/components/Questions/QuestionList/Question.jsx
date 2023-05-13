@@ -12,7 +12,7 @@ function Question({ question, qid, v, c }) {
     showAnswers(qid);
   }
   function onAddAnswer() {
-    changeMode('Add Answer', { question });
+    changeMode('Add Answer', { question, qid });
   }
 
   let answers = Object.keys(question.answers).map((key) => question.answers[key]);
