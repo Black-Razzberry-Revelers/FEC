@@ -1,15 +1,24 @@
 import React from 'react';
 import SelectSize from './selectSize';
-import SelectQuantity from './selectQuantity';
 
-export default function AddToCart() {
-  // may want to utilize form submission
+export default function AddToCart({ sizes, product }) {
+  const [clicked, setClicked] = React.useState(false);
+  //  use a form for values of selects?
+
+  const handleClick = () => {
+    setClicked(true);
+  };
+
   return (
-    <div className="add">
-      How many do you want?
-      <SelectSize />
-      <SelectQuantity />
-      <button type="button">Add To Cart</button>
+    <div>
+      {clicked
+        ? (
+          <div className="add">
+            what size?
+            <SelectSize sizes={sizes} product={product} />
+          </div>
+        )
+        : <button type="button" onClick={handleClick}>Add To Cart</button>}
     </div>
   );
 }
