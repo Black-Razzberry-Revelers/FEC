@@ -8,25 +8,6 @@ import averageRating from '../../../calculateAvgRating';
 import Stars from '../../stars';
 
 function RatingBreakdown({ metaData, filters, setFilters }) {
-  const ratingStyle = {
-    display: 'inline-block',
-    position: 'relative',
-    lineHeight: '1em',
-    // width: '6.5%',
-  };
-  const solidStars = {
-    position: 'absolute',
-    width: `${(averageRating(metaData.ratings) * 100) / 5}%`,
-    whiteSpace: 'nowrap',
-    overflow: 'hidden',
-    fontSize: '20px',
-  };
-
-  const outlinedStars = {
-    whiteSpace: 'nowrap',
-    fontSize: '20px',
-  };
-
   const totalReviews = Object.values(metaData.ratings).reduce(
     (acc, curr) => Number(acc) + Number(curr),
     0,
@@ -41,11 +22,10 @@ function RatingBreakdown({ metaData, filters, setFilters }) {
     }
     setFilters(updatedFilter);
   };
-
   return (
     <>
       <h2>{averageRating(metaData.ratings)}</h2>
-      <Stars />
+      <Stars avgRating={averageRating(metaData.ratings)} />
       <div>
         {Object.values(metaData.ratings).map((rating, i) => (
           <div key={i + 1} className="bar" onClick={() => handleFilterClick(i + 1)}>

@@ -47,7 +47,7 @@ export default function Overview({ avgRating, product }) {
       </div>
       <div>
         {avgRating}
-        <Stars />
+        <Stars avgRating={avgRating} />
       </div>
 
       <div className="overview">
