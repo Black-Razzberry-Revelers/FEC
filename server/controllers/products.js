@@ -27,12 +27,14 @@ exports.getRelatedProducts = (req, res) => {
     .then((results) => {
       const info = models.products.getRelatedProductInfo(results.data, '');
       const styles = models.products.getRelatedProductInfo(results.data, '/styles');
-      return Promise.all([info, styles]);
+      const meta = models.reviews.relatedReviewsMetaData(results.data);
+      return Promise.all([info, styles, meta]);
     })
     .then((results) => {
       const data = {
         products: results[0].map((result) => result.data),
         styles: results[1].map((result) => result.data),
+        meta: results[2].map((result) => result.data),
       };
       res.status(200).json(data);
     })
