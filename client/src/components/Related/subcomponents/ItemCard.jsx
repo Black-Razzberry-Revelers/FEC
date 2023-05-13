@@ -57,7 +57,7 @@ export default function ItemCard({
         <div>
           Rating:
           {' '}
-          {/* {findAvgRating(item.ratings)} */}
+          {item.ratings ? findAvgRating(item.ratings) : 'calculating'}
         </div>
       </div>
       <button
