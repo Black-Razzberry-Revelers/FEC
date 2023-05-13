@@ -15,7 +15,7 @@ export default function Overview({ avgRating, product }) {
     console.log('triggered', style);
     if (style.photos) {
       setGallery(style.photos);
-      console.log('gallery', style.photos)
+      console.log('gallery', style.photos);
       setDisplay(style.photos[0].url);
     }
   }, [style]);
