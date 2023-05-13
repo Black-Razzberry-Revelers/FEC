@@ -14,7 +14,7 @@ export const starsContext = React.createContext(null);
 export default function App() {
   const [product, setProduct] = React.useState({ features: [] });
   const [avgRating, setAvgRating] = React.useState(0); // hardcoded for now. change later
-  const [styles, setStyles] = React.useState([]);
+  const [styles, setStyles] = React.useState({});
   const [style, setStyle] = React.useState({});
 
   React.useEffect(() => {
@@ -23,7 +23,7 @@ export default function App() {
       .then((results) => {
         const stylesArr = results.data.styles.results;
         setProduct(results.data.product);
-        setStyles(stylesArr);
+        setStyles(results.data.styles);
 
         stylesArr.forEach((option, i) => {
           if (option['default?']) {
@@ -51,7 +51,7 @@ export default function App() {
       <div>
         <starsContext.Provider value={{ avgRating, setAvgRating }}>
           <styleContext.Provider value={{
-            style, setStyle, styles, setStyles,
+            style, setStyle, styles, setStyles, product,
           }}
           >
             <Overview data-testid="overview" avgRating={avgRating} product={product} />

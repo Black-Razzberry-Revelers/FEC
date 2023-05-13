@@ -4,22 +4,35 @@
 import { useState, useEffect } from 'react';
 import ReviewTile from './ReviewTile';
 
-function ReviewsList({ reviews }) {
+function ReviewsList({ reviews, filters }) {
   const [scrollTop, setScrollTop] = useState(0);
+  const [filteredReviews, setFilteredReviews] = useState(reviews);
 
   const style = {
     border: '1px solid black',
-    width: '600px',
-    height: '500px',
+    width: '65rem',
+    height: '55rem',
     overflow: 'auto',
   };
   const handleScroll = (event) => {
     setScrollTop(event.currentTarget.scrollTop);
   };
 
+  const applyFilters = () => {
+    if (filters.length === 0) {
+      setFilteredReviews(reviews);
+      return;
+    }
+    const filtered = reviews.filter((review) => filters.includes(review.rating));
+    setFilteredReviews(filtered);
+  };
+
+  useEffect(() => {
+    applyFilters();
+  }, [filters]);
   return (
     <div style={style} onScroll={handleScroll}>
-      {reviews.map((review, i) => (
+      {filteredReviews.map((review, i) => (
         <ReviewTile key={i} review={review} />
       ))}
     </div>

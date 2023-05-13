@@ -1,16 +1,22 @@
+/* eslint-disable jsx-a11y/no-noninteractive-element-interactions */
+/* eslint-disable jsx-a11y/anchor-is-valid */
+/* eslint-disable jsx-a11y/click-events-have-key-events */
+/* eslint-disable jsx-a11y/no-static-element-interactions */
 /* eslint-disable react/react-in-jsx-scope */
 import { useState } from 'react';
 import averageRating from '../../../calculateAvgRating';
+import Stars from '../../stars';
 
-function RatingBreakdown({ metaData }) {
+function RatingBreakdown({ metaData, filters, setFilters }) {
   const ratingStyle = {
     display: 'inline-block',
     position: 'relative',
     lineHeight: '1em',
+    // width: '6.5%',
   };
   const solidStars = {
     position: 'absolute',
-    width: `${(averageRating(metaData.ratings) * 100) / 5.5}%`,
+    width: `${(averageRating(metaData.ratings) * 100) / 5}%`,
     whiteSpace: 'nowrap',
     overflow: 'hidden',
     fontSize: '20px',
@@ -26,30 +32,23 @@ function RatingBreakdown({ metaData }) {
     0,
   );
 
-  console.log('>>>>>>>>>>>>>>>>>>', totalReviews);
+  const handleFilterClick = (rating) => {
+    let updatedFilter;
+    if (filters.includes(rating)) {
+      updatedFilter = filters.filter((filter) => filter !== rating);
+    } else {
+      updatedFilter = [...filters, rating];
+    }
+    setFilters(updatedFilter);
+  };
 
   return (
     <>
       <h2>{averageRating(metaData.ratings)}</h2>
-      <div className="product-info-rating" style={ratingStyle}>
-        <div className="solid-stars" style={solidStars}>
-          <i className="fa-solid fa-star" />
-          <i className="fa-solid fa-star" />
-          <i className="fa-solid fa-star" />
-          <i className="fa-solid fa-star" />
-          <i className="fa-solid fa-star" />
-        </div>
-        <div className="outlined-stars" style={outlinedStars}>
-          <i className="fa-regular fa-star" />
-          <i className="fa-regular fa-star" />
-          <i className="fa-regular fa-star" />
-          <i className="fa-regular fa-star" />
-          <i className="fa-regular fa-star" />
-        </div>
-      </div>
+      <Stars />
       <div>
         {Object.values(metaData.ratings).map((rating, i) => (
-          <div key={i + 1}>
+          <div key={i + 1} className="bar" onClick={() => handleFilterClick(i + 1)}>
             <div>
               {i + 1}
               {' '}
@@ -76,6 +75,10 @@ function RatingBreakdown({ metaData }) {
             </div>
           </div>
         ))}
+      </div>
+      <div>
+        {filters.length
+          ? <p onClick={() => setFilters([])}>Remove All Filters</p> : null}
       </div>
     </>
   );

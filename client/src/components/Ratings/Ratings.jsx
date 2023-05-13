@@ -9,6 +9,7 @@ function Ratings(/* {product_id, count} */) {
   const [metaData, setMetaData] = useState();
   const [moreReviews, setMoreReviews] = useState(false);
   const [sortReviews, setSortReviews] = useState('relevant');
+  const [filters, setFilters] = useState([]);
 
   useEffect(() => {
     fetcher
@@ -23,9 +24,19 @@ function Ratings(/* {product_id, count} */) {
       .catch((err) => console.log('RATINGS GET META DATA ERR', err));
   }, [sortReviews]);
   return (
-    <>
+    <div style={{ display: 'flex' }}>
       <h2>Ratings & Reviews</h2>
-      <div className="right">
+      <div className="right" style={{ width: '50%' }}>
+        {metaData && (
+          <RatingBreakdown
+            metaData={metaData}
+            setFilters={setFilters}
+            filters={filters}
+          />
+        )}
+      </div>
+
+      <div className="left" style={{ width: '50%' }}>
         <h3>{reviews && `${reviews.length} Reviews, sorted by`}</h3>
         <select onChange={(e) => setSortReviews(e.target.value)}>
           <option value="relevant">Relevant</option>
@@ -34,17 +45,16 @@ function Ratings(/* {product_id, count} */) {
         </select>
 
         {reviews && (
-          <ReviewsList reviews={moreReviews ? reviews : reviews.slice(0, 2)} />
+          <ReviewsList
+            reviews={moreReviews ? reviews : reviews.slice(0, 2)}
+            filters={filters}
+          />
         )}
         <button type="button" onClick={() => setMoreReviews(true)}>
           More Reviews
         </button>
       </div>
-
-      <div className="left">
-        {metaData && <RatingBreakdown metaData={metaData} />}
-      </div>
-    </>
+    </div>
   );
 }
 
