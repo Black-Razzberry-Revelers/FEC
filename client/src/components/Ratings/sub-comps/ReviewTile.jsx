@@ -44,6 +44,7 @@ function ReviewTile({ review }) {
   return (
     <div>
       <p>*****</p>
+
       <p>{review.reviewer_name}</p>
       <p>{review.date}</p>
       <p style={{ fontWeight: 'bold' }}>
