@@ -14,7 +14,7 @@ export default function RelatedItemsSection({ currentProduct, setProduct }) {
 
 RelatedItemsSection.propTypes = {
   currentProduct: PropTypes.shape({
-    id: PropTypes.number.isRequired,
+    id: PropTypes.number,
     campus: PropTypes.string,
     name: PropTypes.string,
     slogan: PropTypes.string,
@@ -26,6 +26,10 @@ RelatedItemsSection.propTypes = {
     features: PropTypes.arrayOf(
       PropTypes.shape({ feature: PropTypes.string, value: PropTypes.string }),
     ),
-  }).isRequired,
+  }),
   setProduct: PropTypes.func.isRequired,
+};
+
+RelatedItemsSection.defaultProps = {
+  currentProduct: { features: [] },
 };
