@@ -7,6 +7,8 @@
 /* eslint-disable react/prop-types */
 import { useState, useEffect } from 'react';
 import fetcher from '../../fetcher';
+import Stars from '../../stars';
+// import averageRating from '../../../calculateAvgRating';
 
 function ReviewTile({ review }) {
   const style = {
@@ -43,7 +45,9 @@ function ReviewTile({ review }) {
 
   return (
     <div>
-      <p>*****</p>
+      <p>
+        <Stars avgRating={review.rating} />
+      </p>
 
       <p>{review.reviewer_name}</p>
       <p>{review.date}</p>
