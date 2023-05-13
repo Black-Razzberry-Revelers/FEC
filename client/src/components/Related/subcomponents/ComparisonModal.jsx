@@ -51,7 +51,7 @@ ComparisonModal.propTypes = {
       original_price: PropTypes.string,
       sale_price: PropTypes.string,
       'default?': PropTypes.bool,
-      photos: PropTypes.arrayOf(PropType.shape({
+      photos: PropTypes.arrayOf(PropTypes.shape({
         thumbnail_url: PropTypes.string,
         url: PropTypes.string,
       })),

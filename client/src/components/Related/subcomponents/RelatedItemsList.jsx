@@ -7,21 +7,15 @@ import { requests } from '../../requests';
 
 export default function RelatedItemsList({ currentProduct, setProduct }) {
   const [activeIndex, setActiveIndex] = useState(0);
-  const [relatedItems, setRelatedItems] = useState({ products: [], styles: [] });
+  const [relatedItems, setRelatedItems] = useState({ products: [], styles: [], meta: [] });
 
   useEffect(() => {
     let ignore = false;
     requests.get.related(currentProduct.id)
       .then((result) => {
-        console.log(result.data);
+        console.log('Related Items Data', result.data);
         if (!ignore) {
           setRelatedItems(result.data);
-        }
-      });
-    requests.get.meta(currentProduct.id)
-      .then((result) => {
-        if (!ignore) {
-          // add ratings calc here
         }
       });
     return () => {
@@ -37,7 +31,11 @@ export default function RelatedItemsList({ currentProduct, setProduct }) {
           <div className="related-items carousel-item item-card" key={item.id}>
             <ItemCard
               key={item.id}
-              item={{ product: item, styles: relatedItems.styles[i].results }}
+              item={{
+                product: item,
+                styles: relatedItems.styles[i].results,
+                ratings: relatedItems.meta[i].ratings,
+              }}
               outfitList={false}
               setProduct={setProduct}
             />
@@ -52,7 +50,7 @@ export default function RelatedItemsList({ currentProduct, setProduct }) {
 
 RelatedItemsList.propTypes = {
   currentProduct: PropTypes.shape({
-    id: PropTypes.number.isRequired,
+    id: PropTypes.number,
     campus: PropTypes.string,
     name: PropTypes.string,
     slogan: PropTypes.string,

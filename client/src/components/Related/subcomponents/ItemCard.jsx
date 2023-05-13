@@ -2,6 +2,7 @@ import React, { useContext } from 'react';
 import PropTypes from 'prop-types';
 import ComparisonModal from './ComparisonModal';
 import { styleContext } from '../../App';
+import findAvgRating from '../../../calculateAvgRating';
 
 export default function ItemCard({
   item, outfitItems, setOutfitItems, outfitList, setProduct,
@@ -53,7 +54,11 @@ export default function ItemCard({
           Price: $
           {item.product.default_price}
         </div>
-        <div>Rating</div>
+        <div>
+          Rating:
+          {' '}
+          {/* {findAvgRating(item.ratings)} */}
+        </div>
       </div>
       <button
         type="button"
@@ -101,7 +106,7 @@ ItemCard.propTypes = {
       original_price: PropTypes.string,
       sale_price: PropTypes.string,
       'default?': PropTypes.bool,
-      photos: PropTypes.arrayOf(PropType.shape({
+      photos: PropTypes.arrayOf(PropTypes.shape({
         thumbnail_url: PropTypes.string,
         url: PropTypes.string,
       })),
@@ -111,13 +116,16 @@ ItemCard.propTypes = {
       })),
     })),
   }).isRequired,
-  outfitItems: PropTypes.arrayOf(ItemCard.propTypes.item),
-  setOutfitItems: PropTypes.func.isRequired,
+  setOutfitItems: PropTypes.func,
   outfitList: PropTypes.bool,
   setProduct: PropTypes.func.isRequired,
+  get outfitItems() {
+    return PropTypes.arrayOf(this.item);
+  },
 };
 
 ItemCard.defaultProps = {
   outfitList: false,
   outfitItems: [],
+  setOutfitItems: () => {},
 };

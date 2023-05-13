@@ -50,7 +50,7 @@ export default function OutfitItemsList({ currentProduct, setProduct }) {
 
 OutfitItemsList.propTypes = {
   currentProduct: PropTypes.shape({
-    id: PropTypes.number.isRequired,
+    id: PropTypes.number,
     campus: PropTypes.string,
     name: PropTypes.string,
     slogan: PropTypes.string,
