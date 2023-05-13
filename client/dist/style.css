@@ -4,10 +4,39 @@ img {
   padding:1%;
 }
 
+/******* STARS *********/
+
+.bar {
+ position:relative
+}
+
+.stars {
+  display: flex;
+  flex-direction: row;
+  position: absolute;
+  padding: 2%;
+  min-width: fit-content;
+
+}
+
+.star {
+  padding:1%
+}
+
+
+
+
+/******* OverView *******/
+
+.rating {
+  display: flex;
+
+}
+
 .overview {
   display:flex;
   flex-direction: row-reverse;
-  justify-content: space-between;
+  justify-content: space-evenly;
 }
 
 .stylesinfo {
@@ -15,12 +44,15 @@ img {
   flex-direction: column;
   align-content: center;
   justify-content: space-evenly;
+  min-width:10rem;
+  width:20vw;
 }
 
 .info {
   display:flex;
   flex-direction: column;
   align-self: flex-start;
+
 }
 
 .descript{
@@ -39,19 +71,13 @@ img {
   min-width: fit-content;
 }
 
-.thumbnail {
-  border: 1px solid #ddd;
-  border-radius: 4px;
-  padding: 5px;
-  width: 3vw;
-  height: 5vw;
-  overflow: visible;
-}
 
-.display {
-  height:50vw;
-  max-width: 50vw;
+/* Image Carousel */
 
+.gallery {
+  display:flex;
+  flex-direction: row-reverse;
+  align-content: center;
 }
 
 .imageSelect {
@@ -62,15 +88,42 @@ img {
 
 }
 
-.gallery {
-  display:flex;
-  flex-direction: row-reverse;
-  align-content: center;
+.display {
+  height:40vw;
+  width:40vw;
   overflow: hidden;
 
 }
 
+.thumbnail {
+  border: 1px solid #ddd;
+  border-radius: 4px;
+  padding: 5px;
+  width: 3vw;
+  height: 5vw;
+  overflow: visible;
+}
+
+/********* Related *********/
+
 .list {
   display: flex;
   flex-direction: row;
+}
+
+.carousel {
+  overflow: hidden;
+}
+
+.carousel-item {
+  display: inline-flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-between;
+  height: auto;
+}
+
+.inner {
+  white-space: nowrap;
+  transition: transform 0.3s;
 }

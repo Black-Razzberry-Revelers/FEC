@@ -11,10 +11,20 @@ module.exports = {
     sourceType: 'module',
   },
   plugins: ['react'],
+  settings: {
+    'import/resolver': {
+      node: {
+        extensions: ['.js', '.mjs', '.jsx'],
+      },
+    },
+  },
   rules: {
     camelcase: 'off',
     'no-console': 'off',
     'no-unused-vars': 'off',
     'no-undef': 'off',
+    'import/no-cycle': 'off',
+    'react/prop-types': 'off',
+    'react/no-array-index-key': 'off',
   },
 };

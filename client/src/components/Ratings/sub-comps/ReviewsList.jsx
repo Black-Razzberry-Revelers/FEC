@@ -1,0 +1,42 @@
+/* eslint-disable react/no-array-index-key */
+/* eslint-disable react/react-in-jsx-scope */
+/* eslint-disable react/prop-types */
+import { useState, useEffect } from 'react';
+import ReviewTile from './ReviewTile';
+
+function ReviewsList({ reviews, filters }) {
+  const [scrollTop, setScrollTop] = useState(0);
+  const [filteredReviews, setFilteredReviews] = useState(reviews);
+
+  const style = {
+    border: '1px solid black',
+    width: '65rem',
+    height: '55rem',
+    overflow: 'auto',
+  };
+  const handleScroll = (event) => {
+    setScrollTop(event.currentTarget.scrollTop);
+  };
+
+  const applyFilters = () => {
+    if (filters.length === 0) {
+      setFilteredReviews(reviews);
+      return;
+    }
+    const filtered = reviews.filter((review) => filters.includes(review.rating));
+    setFilteredReviews(filtered);
+  };
+
+  useEffect(() => {
+    applyFilters();
+  }, [filters]);
+  return (
+    <div style={style} onScroll={handleScroll}>
+      {filteredReviews.map((review, i) => (
+        <ReviewTile key={i} review={review} />
+      ))}
+    </div>
+  );
+}
+
+export default ReviewsList;

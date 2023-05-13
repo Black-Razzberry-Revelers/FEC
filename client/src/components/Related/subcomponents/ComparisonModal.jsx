@@ -6,20 +6,20 @@ export default function ComparisonModal({ item }) {
     <table>
       <caption>Comparing</caption>
       <thead>
-        <th scope="col">{item.name}</th>
+        <th scope="col">{item.product.name}</th>
         <th scope="col">{' '}</th>
-        <th scope="col">{currentItem.name}</th>
+        <th scope="col">{currentItem.product.name}</th>
       </thead>
       <tbody>
         <tr>
-          <td>{item.default_price}</td>
+          <td>{item.product.default_price}</td>
           <td>Price</td>
-          <td>{currentItem.default_price}</td>
+          <td>{currentItem.product.default_price}</td>
         </tr>
         <tr>
-          <td>{item.category}</td>
+          <td>{item.product.category}</td>
           <td>Category</td>
-          <td>{currentItem.category}</td>
+          <td>{currentItem.product.category}</td>
         </tr>
       </tbody>
     </table>
