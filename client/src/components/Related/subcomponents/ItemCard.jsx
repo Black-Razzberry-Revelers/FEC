@@ -1,5 +1,6 @@
 import React, { useContext } from 'react';
 import PropTypes from 'prop-types';
+import Stars from '../../stars';
 import ComparisonModal from './ComparisonModal';
 import { styleContext } from '../../App';
 import findAvgRating from '../../../calculateAvgRating';
@@ -55,9 +56,7 @@ export default function ItemCard({
           {item.product.default_price}
         </div>
         <div>
-          Rating:
-          {' '}
-          {item.ratings ? findAvgRating(item.ratings) : 'calculating'}
+          <Stars avgRating={item.ratings ? findAvgRating(item.ratings) : 0} />
         </div>
       </div>
       <button
