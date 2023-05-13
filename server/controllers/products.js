@@ -39,7 +39,22 @@ exports.getRelatedProducts = (req, res) => {
       res.status(200).json(data);
     })
     .catch((err) => {
-      console.log('Error getting related products:', err);
+      if (err.response) {
+        // The request was made and the server responded with a status code
+        // that falls out of the range of 2xx
+        console.log('Error Response Data:', err.response.data);
+        console.log('Error Response Status:', err.response.status);
+        console.log('Error Response Headers:', err.response.headers);
+      } else if (err.request) {
+        // The request was made but no response was received
+        // `error.request` is an instance of XMLHttpRequest in the browser and an instance of
+        // http.ClientRequest in node.js
+        console.log('Error Request:', err.request);
+      } else {
+        // Something happened in setting up the request that triggered an Error
+        console.log('Error:', err.message);
+      }
+      console.log('Error Config', err.config);
       res.sendStatus(505);
     });
 };
