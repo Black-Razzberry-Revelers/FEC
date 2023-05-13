@@ -50,10 +50,14 @@ export default function App() {
     <div className="body" role="application">
       <div>
         <starsContext.Provider value={{ avgRating, setAvgRating }}>
-          <styleContext.Provider value={{ style, setStyle, styles, setStyles }}>
+          <styleContext.Provider value={{
+            style, setStyle, styles, setStyles,
+          }}
+          >
             <Overview data-testid="overview" avgRating={avgRating} product={product} />
             <RelatedItemsSection />
             <Questions />
+            <Ratings />
           </styleContext.Provider>
         </starsContext.Provider>
       </div>
