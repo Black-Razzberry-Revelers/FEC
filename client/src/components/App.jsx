@@ -64,7 +64,7 @@ export default function App() {
             avgRating={avgRating}
             product={product}
           />
-          <RelatedItemsSection />
+          <RelatedItemsSection currentProduct={product} setProduct={setProduct} />
           <Questions />
           <Ratings />
         </styleContext.Provider>

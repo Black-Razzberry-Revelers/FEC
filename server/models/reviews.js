@@ -36,6 +36,11 @@ exports.reviewsMetadata = (product_id = 40344) => {
   return axios(options);
 };
 
+exports.relatedReviewsMetaData = (productIds) => {
+  const apiCalls = productIds.map((productId) => exports.reviewsMetadata(productId));
+  return Promise.all(apiCalls);
+};
+
 exports.addReview = (
   product_id,
   rating,

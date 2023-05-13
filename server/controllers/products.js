@@ -27,17 +27,34 @@ exports.getRelatedProducts = (req, res) => {
     .then((results) => {
       const info = models.products.getRelatedProductInfo(results.data, '');
       const styles = models.products.getRelatedProductInfo(results.data, '/styles');
-      return Promise.all([info, styles]);
+      const meta = models.reviews.relatedReviewsMetaData(results.data);
+      return Promise.all([info, styles, meta]);
     })
     .then((results) => {
       const data = {
         products: results[0].map((result) => result.data),
         styles: results[1].map((result) => result.data),
+        meta: results[2].map((result) => result.data),
       };
       res.status(200).json(data);
     })
     .catch((err) => {
-      console.log('Error getting related products:', err);
+      if (err.response) {
+        // The request was made and the server responded with a status code
+        // that falls out of the range of 2xx
+        console.log('Error Response Data:', err.response.data);
+        console.log('Error Response Status:', err.response.status);
+        console.log('Error Response Headers:', err.response.headers);
+      } else if (err.request) {
+        // The request was made but no response was received
+        // `error.request` is an instance of XMLHttpRequest in the browser and an instance of
+        // http.ClientRequest in node.js
+        console.log('Error Request:', err.request);
+      } else {
+        // Something happened in setting up the request that triggered an Error
+        console.log('Error:', err.message);
+      }
+      console.log('Error Config', err.config);
       res.sendStatus(505);
     });
 };
