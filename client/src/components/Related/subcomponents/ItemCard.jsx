@@ -50,6 +50,7 @@ export default function ItemCard({
           Category:
           {' '}
           {item.product.category}
+          {console.log('Item Card Item:', item)}
         </div>
         <div>
           Price: $
@@ -99,21 +100,24 @@ ItemCard.propTypes = {
         PropTypes.shape({ feature: PropTypes.string, value: PropTypes.string }),
       ),
     }),
-    styles: PropTypes.arrayOf(PropTypes.shape({
-      style_id: PropTypes.number,
-      name: PropTypes.string,
-      original_price: PropTypes.string,
-      sale_price: PropTypes.string,
-      'default?': PropTypes.bool,
-      photos: PropTypes.arrayOf(PropTypes.shape({
-        thumbnail_url: PropTypes.string,
-        url: PropTypes.string,
+    styles: PropTypes.shape({
+      product_id: PropTypes.string,
+      results: PropTypes.arrayOf(PropTypes.shape({
+        style_id: PropTypes.number,
+        name: PropTypes.string,
+        original_price: PropTypes.string,
+        sale_price: PropTypes.string,
+        'default?': PropTypes.bool,
+        photos: PropTypes.arrayOf(PropTypes.shape({
+          thumbnail_url: PropTypes.string,
+          url: PropTypes.string,
+        })),
+        skus: PropTypes.objectOf(PropTypes.shape({
+          quantity: PropTypes.number,
+          size: PropTypes.string,
+        })),
       })),
-      skus: PropTypes.objectOf(PropTypes.shape({
-        quantity: PropTypes.number,
-        size: PropTypes.string,
-      })),
-    })),
+    }),
   }).isRequired,
   setOutfitItems: PropTypes.func,
   outfitList: PropTypes.bool,
@@ -126,5 +130,5 @@ ItemCard.propTypes = {
 ItemCard.defaultProps = {
   outfitList: false,
   outfitItems: [],
-  setOutfitItems: () => {},
+  setOutfitItems: () => { },
 };
