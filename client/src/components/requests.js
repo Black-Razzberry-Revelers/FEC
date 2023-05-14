@@ -14,6 +14,9 @@ export const requests = {
       'http://localhost:3000/api/questions',
       { params: { product_id: id } },
     ),
+    related: (id = 40347) => axios.get(
+      `http://localhost:3000/api/products/${id}/related`,
+    ),
   },
   post: {
     question: (product_id, body, name, email) => axios.post(

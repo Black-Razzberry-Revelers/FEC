@@ -21,7 +21,6 @@ function Questions({ product_id }) {
 
   useEffect(() => {
     requests.get.questions(40342).then((response) => {
-      console.log(response.data);
       setModel({
         questions: response.data,
       });
