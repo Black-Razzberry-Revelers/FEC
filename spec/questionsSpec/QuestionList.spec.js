@@ -1,6 +1,6 @@
 import react from 'react';
 
-const QuestionList = require('../../client/src/components/Questions/QuestionList/QuestionList.jsx').default;
+const QuestionList = require('../../client/src/components/Questions/QuestionList/QuestionList').default;
 
 describe('Importing QuestionList', () => {
   test('should not be undefined', () => {

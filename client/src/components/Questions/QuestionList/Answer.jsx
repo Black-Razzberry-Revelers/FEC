@@ -8,7 +8,6 @@ function Answer({ answer, v, c, qid, aid}) {
   function onReport() {
     reportAnswer(qid, aid);
   }
-  function onImage() {}
 
   return (
     <>

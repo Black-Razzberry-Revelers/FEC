@@ -2,7 +2,6 @@ import React from 'react';
 import Question from './Question';
 
 function QuestionList({ v, c }) {
-  function onScroll() {}
   const { questions } = v;
 
   let sort = questions.sort((a, b) => {
