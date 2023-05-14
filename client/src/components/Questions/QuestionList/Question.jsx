@@ -1,8 +1,8 @@
 import React, { useState, useEffect } from 'react';
-import AnswerList from './AnswerList.jsx';
+import AnswerList from './AnswerList';
 
 function Question({ question, qid, v, c }) {
-  const {showAnswers, changeMode, markQHelpful} = c;
+  const { showAnswers, changeMode, markQHelpful } = c;
 
   function onHelpful() {
     markQHelpful(qid);

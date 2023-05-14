@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import requests from '../../requests';
+import { requests } from '../../requests';
 
 function AddAnswerModal({ v, c }) {
   const [answer, setAnswer] = useState('');
@@ -25,11 +25,14 @@ function AddAnswerModal({ v, c }) {
   function change(text, set) {
     set(text);
   }
+
   function onSubmit() {
     if (validate()) {
+      console.log(v.modeProps.qid);
       requests.post.answer(v.pid, v.modeProps.qid, answer, nickname, email).then(() => {
         c.changeMode('', {});
       });
+    }
   }
 
   function onBack() {
@@ -44,9 +47,9 @@ function AddAnswerModal({ v, c }) {
     <>
       <h1>ADD AN ANSWER ON Question: {v.modeProps.question.question_body}</h1>
       <form>
-        <input value={answer} type='text' placeholder={p1} onChange={(e)=>change(e.target.value, setAnswer)} />
-        <input value={nickname} type='text' placeholder={p2} onChange={(e)=>change(e.target.value, setNickname)} />
-        <input value={email} type='text' placeholder={p3} onChange={(e)=>change(e.target.value, setEmail)} />
+        <input value={answer} type="text" placeholder={p1} onChange={(e) => change(e.target.value, setAnswer)} />
+        <input value={nickname} type="text" placeholder={p2} onChange={(e) => change(e.target.value, setNickname)} />
+        <input value={email} type="text" placeholder={p3} onChange={(e) => change(e.target.value, setEmail)} />
       </form>
       <button>Upload an Image</button>
       <button onClick={onSubmit}>Submit</button>
@@ -54,5 +57,6 @@ function AddAnswerModal({ v, c }) {
     </>
   );
 }
+
 
 export default AddAnswerModal;

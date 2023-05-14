@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import requests from '../../requests';
+import { requests } from '../../requests';
 
 function AddQuestionModal({ v, c }) {
   const [question, setQuestion] = useState('');
@@ -8,7 +8,7 @@ function AddQuestionModal({ v, c }) {
 
   const emailREGEXP = /^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$/;
   function validate() {
-    if (answer === '' || nickname === '' || email === '') {
+    if (question === '' || nickname === '' || email === '') {
       alert("You can't submit unless you've filled in all forms!");
       return false;
     } if (!email.match(emailREGEXP)) {
@@ -23,7 +23,7 @@ function AddQuestionModal({ v, c }) {
   }
   function onSubmit() {
     if (validate()) {
-      requests.post.question().then(() => {
+      requests.post.question(v.pid, question, nickname, email).then(() => {
         c.changeMode('', {});
       });
     }

@@ -1,5 +1,5 @@
 import React from 'react';
-import Question from './Question.jsx';
+import Question from './Question';
 
 function QuestionList({ v, c }) {
   function onScroll() {}

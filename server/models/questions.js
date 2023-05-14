@@ -16,11 +16,11 @@ exports.getQuestions = (id, page = 1, count = 5) => {
   return axios(request);
 };
 
-exports.postNewQuestion = (body, name, email, product_id) => {
+exports.postNewQuestion = (product_id, body, name, email) => {
   const request = {
     url: `${process.env.URL}/qa/questions`,
     method: 'POST',
-    params: {
+    data: {
       product_id,
       body,
       name,
@@ -32,7 +32,7 @@ exports.postNewQuestion = (body, name, email, product_id) => {
   };
   return axios(request);
 };
-exports.postNewAnswer = (body, name, email, product_id, question_id, photos = []) => {
+exports.postNewAnswer = (question_id, product_id, body, name, email, photos = []) => {
   const request = {
     url: `${process.env.URL}/qa/questions/${question_id}/answers`,
     method: 'POST',
@@ -75,6 +75,7 @@ exports.putAnswerAsHelpful = (answer_id) => {
       Authorization: `${process.env.TOKEN}`,
     },
   };
+  return axios(request);
 };
 
 exports.putAnswerAsReported = (answer_id) => {

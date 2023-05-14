@@ -1,11 +1,9 @@
 import React, { useEffect, useState } from 'react';
-import Answer from './Answer.jsx';
+import Answer from './Answer';
 
-function AnswerList({ qid, v, c, answers}) {
+function AnswerList({ qid, v, c, answers }) {
   let shown;
   const { showMore } = v.questions.find((q) => q.question_id === qid);
-  console.log(qid)
-  console.log(v.questions.find((q) => q.question_id === qid))
   if (!showMore || showMore === undefined) {
     shown = answers.slice(0, 2);
   } else {

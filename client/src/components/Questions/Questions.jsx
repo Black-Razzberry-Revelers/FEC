@@ -1,12 +1,12 @@
 import React, { useState, useEffect } from 'react';
 import axios from 'axios';
-import QuestionList from './QuestionList/QuestionList.jsx';
-import NavigationButtons from './Navigation/NavigationButtons.jsx';
-import SearchBar from './Navigation/SearchBar.jsx';
-import AddAnswerModal from './Modals/AddAnswerModal.jsx';
-import AddQuestionModal from './Modals/AddQuestionModal.jsx';
-import ImageModal from './Modals/ImageModal.jsx';
-import requests from '../requests';
+import QuestionList from './QuestionList/QuestionList';
+import NavigationButtons from './Navigation/NavigationButtons';
+import SearchBar from './Navigation/SearchBar';
+import AddAnswerModal from './Modals/AddAnswerModal';
+import AddQuestionModal from './Modals/AddQuestionModal';
+import ImageModal from './Modals/ImageModal';
+import { requests } from '../requests';
 
 function Questions({ product_id }) {
   const [model, setModel] = useState({});
@@ -61,7 +61,7 @@ function Questions({ product_id }) {
   }
 
   function changeMode(mode, modeProps) {
-    setView({...view, mode, modeProps});
+    setView({ ...view, mode, modeProps });
   }
 
   function textSearch(str) {
@@ -72,7 +72,7 @@ function Questions({ product_id }) {
         }
         return false;
       });
-      setView({...view, questions:filtered})
+      setView({...view, questions: filtered });
     } else {
       setView({...view, questions: model.questions.map((x) => x) });
     }
