@@ -50,7 +50,7 @@ export default function ItemCard({
           Category:
           {' '}
           {item.product.category}
-          {console.log('Item Card Item:', item)}
+          {/* {console.log('Item Card Item:', item)} */}
         </div>
         <div>
           Price: $
