@@ -115,12 +115,14 @@ img {
   overflow: hidden;
 }
 
-.carousel-item {
+.carousel-item,
+.card-info {
   display: inline-flex;
   flex-direction: column;
   align-items: center;
   justify-content: space-between;
   height: auto;
+  cursor: pointer;
 }
 
 .inner {
