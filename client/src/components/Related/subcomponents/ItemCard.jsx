@@ -11,10 +11,10 @@ export default function ItemCard({
   const {
     style, setStyle, styles, setStyles,
   } = useContext(styleContext);
-  const defaultStyle = item.styles.filter((itemStyle) => itemStyle['default?'] === true);
+  const defaultStyle = item.styles.results.filter((itemStyle) => itemStyle['default?'] === true);
   const placeholder = 'https://static-00.iconduck.com/assets.00/image-icon-256x256-09od4zyo.png';
   const thumbnail = defaultStyle.length > 0 ? defaultStyle[0].photos[0].thumbnail_url
-    : item.styles[0].photos[0].thumbnail_url;
+    : item.styles.results[0].photos[0].thumbnail_url;
   return (
     <>
       <div
