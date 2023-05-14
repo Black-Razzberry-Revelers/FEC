@@ -25,7 +25,7 @@ export default function Stars({ avgRating }) {
       <div className="stars">
         <div className="stars" id="empty">
           {[1, 2, 3, 4, 5].map((num) => (
-            <div>
+            <div key={num}>
               <img src={starEmpty} alt="star" />
             </div>
           ))}
