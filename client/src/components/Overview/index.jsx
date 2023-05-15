@@ -39,9 +39,9 @@ export default function Overview({ avgRating, product }) {
   }, [style]);
 
   return (
-    <>
-      <h1>{product.name}</h1>
-      <div>
+    <div data-testid="overview">
+      <h1 data-testid="productName">{product.name}</h1>
+      <div data-testid="category">
         in:
         {product.category}
       </div>
@@ -63,6 +63,6 @@ export default function Overview({ avgRating, product }) {
         </div>
 
       </div>
-    </>
+    </div>
   );
 }

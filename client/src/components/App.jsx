@@ -60,13 +60,12 @@ export default function App() {
           }}
         >
           <Overview
-            data-testid="overview"
             avgRating={avgRating}
             product={product}
           />
-          <RelatedItemsSection />
+          {/* <RelatedItemsSection /> */}
           <Questions />
-          <Ratings />
+          {/* <Ratings /> */}
         </styleContext.Provider>
         {/* </starsContext.Provider> */}
       </div>
