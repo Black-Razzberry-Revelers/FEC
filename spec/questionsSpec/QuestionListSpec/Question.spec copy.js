@@ -1,3 +1,8 @@
+import React from 'react';
+import { render, fireEvent, screen } from '@testing-library/react';
+import userEvent from '@testing-library/user-event';
+import { question } from './qListMock';
+import '@testing-library/jest-dom';
 
 // Each question should:
 // * Display the question located at the top

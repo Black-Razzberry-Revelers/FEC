@@ -1,3 +1,8 @@
+import React from 'react';
+import { render, fireEvent, screen } from '@testing-library/react';
+import userEvent from '@testing-library/user-event';
+import { answer } from './qListMock';
+import '@testing-library/jest-dom';
 // Helpful should
 //  * Dynamically display the count of selections.
 //  * Onclick should increase the count once.

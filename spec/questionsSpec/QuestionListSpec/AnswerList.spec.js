@@ -1,3 +1,9 @@
+import React from 'react';
+import { render, fireEvent, screen } from '@testing-library/react';
+import userEvent from '@testing-library/user-event';
+import { answers } from './qListMock';
+import '@testing-library/jest-dom';
+
 // The answers list should:
 // *  Display the text body of the answer on a new line
 // * The username and date should display in the correct format.
