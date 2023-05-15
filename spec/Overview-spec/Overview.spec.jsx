@@ -9,6 +9,7 @@ describe('Overview', () => {
   const app = getByRole('application');
   const overview = getByTestId('overview');
   const name = getByTestId('productName');
+  const category = getByTestId('category');
 
   test('It should be a function', () => {
     expect(typeof Overview).toBe('function');
@@ -18,7 +19,6 @@ describe('Overview', () => {
   });
   test('the Name of the product and category should be visible', () => {
     expect(name).toBeVisible();
-    // expect(getByTestId('category').toBeVisible());
+    expect(category).toBeVisible();
   });
-  //unmount();
 });
