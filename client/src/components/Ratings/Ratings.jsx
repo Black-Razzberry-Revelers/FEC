@@ -3,11 +3,14 @@ import { useState, useEffect } from 'react';
 import fetcher from '../fetcher';
 import ReviewsList from './sub-comps/ReviewsList';
 import RatingBreakdown from './sub-comps/RatingBreakdown';
+import ProductBreakdown from './sub-comps/ProductBreakdown';
+import WriteNewReview from './sub-comps/WriteNewReview';
 
 function Ratings(/* {product_id, count} */) {
   const [reviews, setReviews] = useState();
   const [metaData, setMetaData] = useState();
   const [moreReviews, setMoreReviews] = useState(false);
+  const [writeReview, setWriteReview] = useState(false);
   const [sortReviews, setSortReviews] = useState('relevant');
   const [filters, setFilters] = useState([]);
 
@@ -34,6 +37,7 @@ function Ratings(/* {product_id, count} */) {
             filters={filters}
           />
         )}
+        {metaData && <ProductBreakdown metaData={metaData} />}
       </div>
 
       <div className="left" style={{ width: '50%' }}>
@@ -53,6 +57,10 @@ function Ratings(/* {product_id, count} */) {
         <button type="button" onClick={() => setMoreReviews(true)}>
           More Reviews
         </button>
+        <button type="button" onClick={() => setWriteReview(true)}>
+          Write New Review
+        </button>
+        {writeReview && <WriteNewReview setWriteReview={setWriteReview} metaData={metaData} />}
       </div>
     </div>
   );
