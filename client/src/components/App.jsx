@@ -60,7 +60,6 @@ export default function App() {
           }}
         >
           <Overview
-            data-testid="overview"
             avgRating={avgRating}
             product={product}
           />
