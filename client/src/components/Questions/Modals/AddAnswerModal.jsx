@@ -1,11 +1,11 @@
 import React, { useState } from 'react';
+import { requests } from '../../requests';
 
 function AddAnswerModal({ v, c }) {
   const [answer, setAnswer] = useState('');
   const [nickname, setNickname] = useState('');
   const [email, setEmail] = useState('');
   const [images, setImages] = useState([]);
-
   function onUpload() {}
 
   const emailREGEXP = /^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$/;
@@ -25,9 +25,13 @@ function AddAnswerModal({ v, c }) {
   function change(text, set) {
     set(text);
   }
+
   function onSubmit() {
-    if(validate()) {
-      c.changeMode('', {});
+    if (validate()) {
+      console.log(v.modeProps.qid);
+      requests.post.answer(v.pid, v.modeProps.qid, answer, nickname, email).then(() => {
+        c.changeMode('', {});
+      });
     }
   }
 
@@ -35,13 +39,17 @@ function AddAnswerModal({ v, c }) {
     c.changeMode('', {});
   }
 
+  const p1 = "What answer do you have to this question?"
+  const p2 = "What Nickname do you want to be known as?"
+  const p3 = "email@provider.com"
+
   return (
     <>
       <h1>ADD AN ANSWER ON Question: {v.modeProps.question.question_body}</h1>
       <form>
-        <input value={answer} type='text' onChange={(e)=>change(e.target.value, setAnswer)} />
-        <input value={nickname} type='text' onChange={(e)=>change(e.target.value, setNickname)} />
-        <input value={email} type='text' onChange={(e)=>change(e.target.value, setEmail)} />
+        <input value={answer} type="text" placeholder={p1} onChange={(e) => change(e.target.value, setAnswer)} />
+        <input value={nickname} type="text" placeholder={p2} onChange={(e) => change(e.target.value, setNickname)} />
+        <input value={email} type="text" placeholder={p3} onChange={(e) => change(e.target.value, setEmail)} />
       </form>
       <button>Upload an Image</button>
       <button onClick={onSubmit}>Submit</button>
@@ -49,5 +57,6 @@ function AddAnswerModal({ v, c }) {
     </>
   );
 }
+
 
 export default AddAnswerModal;
