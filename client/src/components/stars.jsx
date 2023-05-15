@@ -1,10 +1,8 @@
 import React from 'react';
-import { starsContext } from './App';
-import starEmpty from '../icons8-star-ios-16-16.png';
-import starFilled from '../icons8-star-ios-16-filled-16.png';
+import starEmpty from '../../dist/assets/icons8-star-ios-16-16.png';
+import starFilled from '../../dist/assets/icons8-star-ios-16-filled-16.png';
 
-export default function Stars() {
-  const { avgRating, setAvgRating } = React.useContext(starsContext);
+export default function Stars({ avgRating }) {
   let floor = Math.floor(avgRating);
   let percent = Math.ceil((avgRating - Math.floor(avgRating)) * 10);
   if (percent > 7) {
