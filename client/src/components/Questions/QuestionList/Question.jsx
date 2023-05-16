@@ -29,12 +29,12 @@ function Question({ question, qid, v, c }) {
 
   return (
   <div>
-    <h4>Question: {question.question_body}</h4>
-    <p>Asked By:{question.asker_name}</p>
-    <p>On: {question.question_date}</p>
-    <p> Helpful? {question.markedHelpful ? <strong>Marked Helpful!</strong> : <strong onClick={onHelpful}> Yes! </strong>} ({question.question_helpfulness})  |  <strong onClick={onAddAnswer}>Add Answer</strong></p>
+    <h4 className="sub-head">Question: {question.question_body}</h4>
+    <p className="label">Asked By:{question.asker_name}</p>
+    <p className="label">On: {question.question_date}</p>
+    <p className="label"> Helpful? {question.markedHelpful ? <strong className="helpful-button">Marked Helpful!</strong> : <strong onClick={onHelpful} className="helpful-button"> Yes! </strong>} ({question.question_helpfulness})  |  <strong onClick={onAddAnswer} className="helpful-button">Add Answer</strong></p>
     <AnswerList c={c} v={v} qid={qid} answers={answers} />
-    {answers.length > 2 && <button onClick={onToggle}> {question.showMore ? 'Show Less Answers' : 'Show More Answers'} </button>}
+    {answers.length > 2 && <button onClick={onToggle} className="show-button"> {question.showMore ? 'Show Less Answers' : 'Show More Answers'} </button>}
   </div>
   );
 }

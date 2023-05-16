@@ -43,7 +43,7 @@ function AddAnswerModal({ v, c }) {
   const p3 = 'email@provider.com';
 
   return (
-    <>
+    <div className="modal">
       <h1>
         ADD AN ANSWER ON Question:
         {' '}
@@ -57,7 +57,7 @@ function AddAnswerModal({ v, c }) {
       <button>Upload an Image</button>
       <button onClick={onSubmit} data-testid="answer submit">Submit</button>
       <button onClick={onBack}>Go Back!</button>
-    </>
+    </div>
   );
 }
 

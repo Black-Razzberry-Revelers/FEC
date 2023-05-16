@@ -7,7 +7,7 @@ export default function Price() {
   // if onSale cross out default price and display sale price
   return (
     style.sale_price
-      ? <div> {style.sale_price} </div>
-      : <div> {style.original_price} </div>
+      ? <div className="info-text"> {style.sale_price} </div>
+      : <div className="info-text"> {style.original_price} </div>
   );
 }

@@ -13,12 +13,12 @@ export default function AddToCart({ sizes }) {
     <div>
       {clicked
         ? (
-          <div className="add">
+          <div className="add info-text">
             what size?
             <SelectSize sizes={sizes} />
           </div>
         )
-        : <button type="button" onClick={handleClick}>Add To Cart</button>}
+        : <button type="button" onClick={handleClick} className="submit-button">Add To Cart</button>}
     </div>
   );
 }
