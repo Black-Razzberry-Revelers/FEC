@@ -6,12 +6,30 @@ import axios from 'axios';
 
 const Questions = require('../../client/src/components/Questions/Questions').default;
 
+jest.mock('../../client/src/components/Questions/QuestionList/QuestionList', () => function QuestionList({ v, c }) {
+  const toggleText = Object.keys(c).length === 7 ? '7 functions got Passed' : 'Not 7 Functions got Passed';
+  return (
+    <div>
+      {toggleText}
+    </div>
+  );
+});
 const user = userEvent.setup();
 
 describe('Questions Component', () => {
-  render(<Questions product_id={40420} />);
-  test('It should query the API and display 2 questions.', () => {
-    expect(screen.findByText("Numquam blanditiis libero facere eos.").resolves.toBeDefined());
+
+  test('It should display our 3 main components', () => {
+    render(<Questions product_id={40420} />);
+    expect(screen.findByTestId('SearchBar').resolves.toBeDefined());
+    expect(screen.findByTestId('QuestionList').resolves.toBeDefined());
+    expect(screen.findByTestId('NavigationButtons').resolves.toBeDefined());
+  })
+  test("It should Pass 7 functions", async () => {
+    render(<Questions product_id={40420} />);
+    await screen.getByText('7 functions got Passed').then((elem) => {
+      expect(elem).toHaveTextContent('7 functions got Passed');
+    })
+
   });
   // test('It should query the API and get the values associated with the ID.', () => {
   // // wait until the Get has run

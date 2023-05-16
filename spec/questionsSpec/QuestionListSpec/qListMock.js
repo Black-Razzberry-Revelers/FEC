@@ -401,7 +401,7 @@ const question = {
   },
 };
 
-const answers = {
+const answersRaw = {
   3080103: {
     id: 3080103,
     body: 'Molestias non aut consequatur eius non officia distinctio temporibus.',
@@ -456,5 +456,5 @@ const answer = {
 };
 
 module.exports = {
-  answer, answers, question, questions,
+  answer, answersRaw, question, questions,
 };

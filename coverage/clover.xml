@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<coverage generated="1684117712237" clover="3.2.0">
-  <project timestamp="1684117712237" name="All files">
-    <metrics statements="405" coveredstatements="102" conditionals="158" coveredconditionals="27" methods="166" coveredmethods="33" elements="729" coveredelements="162" complexity="0" loc="405" ncloc="405" packages="15" files="38" classes="38"/>
-    <package name="src">
+<coverage generated="1684206047983" clover="3.2.0">
+  <project timestamp="1684206047983" name="All files">
+    <metrics statements="421" coveredstatements="178" conditionals="160" coveredconditionals="56" methods="168" coveredmethods="62" elements="749" coveredelements="296" complexity="0" loc="421" ncloc="421" packages="17" files="40" classes="40"/>
+    <package name="client.src">
       <metrics statements="8" coveredstatements="0" conditionals="0" coveredconditionals="0" methods="2" coveredmethods="0"/>
       <file name="calculateAvgRating.js" path="/home/benjis-brain/hackreactor/senior/fec/Shoptopia/client/src/calculateAvgRating.js">
         <metrics statements="8" coveredstatements="0" conditionals="0" coveredconditionals="0" methods="2" coveredmethods="0"/>
@@ -16,11 +16,11 @@
         <line num="13" count="0" type="stmt"/>
       </file>
     </package>
-    <package name="src.components">
+    <package name="client.src.components">
       <metrics statements="56" coveredstatements="28" conditionals="20" coveredconditionals="8" methods="24" coveredmethods="10"/>
       <file name="App.jsx" path="/home/benjis-brain/hackreactor/senior/fec/Shoptopia/client/src/components/App.jsx">
         <metrics statements="20" coveredstatements="9" conditionals="2" coveredconditionals="0" methods="7" coveredmethods="2"/>
-        <line num="11" count="2" type="stmt"/>
+        <line num="11" count="1" type="stmt"/>
         <line num="15" count="1" type="stmt"/>
         <line num="16" count="1" type="stmt"/>
         <line num="17" count="1" type="stmt"/>
@@ -56,11 +56,11 @@
       </file>
       <file name="requests.js" path="/home/benjis-brain/hackreactor/senior/fec/Shoptopia/client/src/components/requests.js">
         <metrics statements="10" coveredstatements="5" conditionals="3" coveredconditionals="3" methods="9" coveredmethods="4"/>
-        <line num="4" count="3" type="stmt"/>
+        <line num="4" count="5" type="stmt"/>
         <line num="6" count="1" type="cond" truecount="1" falsecount="0"/>
         <line num="9" count="1" type="cond" truecount="1" falsecount="0"/>
-        <line num="13" count="2" type="stmt"/>
-        <line num="17" count="1" type="cond" truecount="1" falsecount="0"/>
+        <line num="13" count="3" type="stmt"/>
+        <line num="17" count="2" type="cond" truecount="1" falsecount="0"/>
         <line num="22" count="0" type="stmt"/>
         <line num="26" count="0" type="stmt"/>
         <line num="32" count="0" type="stmt"/>
@@ -87,7 +87,7 @@
         <line num="35" count="0" type="stmt"/>
       </file>
     </package>
-    <package name="src.components.Overview">
+    <package name="client.src.components.Overview">
       <metrics statements="16" coveredstatements="9" conditionals="6" coveredconditionals="2" methods="2" coveredmethods="2"/>
       <file name="index.jsx" path="/home/benjis-brain/hackreactor/senior/fec/Shoptopia/client/src/components/Overview/index.jsx">
         <metrics statements="16" coveredstatements="9" conditionals="6" coveredconditionals="2" methods="2" coveredmethods="2"/>
@@ -109,7 +109,7 @@
         <line num="41" count="1" type="stmt"/>
       </file>
     </package>
-    <package name="src.components.Overview.Gallery">
+    <package name="client.src.components.Overview.Gallery">
       <metrics statements="19" coveredstatements="5" conditionals="4" coveredconditionals="0" methods="7" coveredmethods="2"/>
       <file name="image.jsx" path="/home/benjis-brain/hackreactor/senior/fec/Shoptopia/client/src/components/Overview/Gallery/image.jsx">
         <metrics statements="1" coveredstatements="1" conditionals="0" coveredconditionals="0" methods="1" coveredmethods="1"/>
@@ -140,7 +140,7 @@
         <line num="10" count="0" type="stmt"/>
       </file>
     </package>
-    <package name="src.components.Overview.addToCart">
+    <package name="client.src.components.Overview.addToCart">
       <metrics statements="26" coveredstatements="3" conditionals="6" coveredconditionals="1" methods="8" coveredmethods="1"/>
       <file name="index.jsx" path="/home/benjis-brain/hackreactor/senior/fec/Shoptopia/client/src/components/Overview/addToCart/index.jsx">
         <metrics statements="4" coveredstatements="3" conditionals="2" coveredconditionals="1" methods="2" coveredmethods="1"/>
@@ -178,8 +178,8 @@
         <line num="37" count="0" type="stmt"/>
       </file>
     </package>
-    <package name="src.components.Overview.productInfo">
-      <metrics statements="7" coveredstatements="6" conditionals="2" coveredconditionals="1" methods="5" coveredmethods="4"/>
+    <package name="client.src.components.Overview.productInfo">
+      <metrics statements="16" coveredstatements="13" conditionals="4" coveredconditionals="2" methods="6" coveredmethods="4"/>
       <file name="description.jsx" path="/home/benjis-brain/hackreactor/senior/fec/Shoptopia/client/src/components/Overview/productInfo/description.jsx">
         <metrics statements="2" coveredstatements="1" conditionals="0" coveredconditionals="0" methods="2" coveredmethods="1"/>
         <line num="4" count="1" type="stmt"/>
@@ -196,11 +196,20 @@
         <line num="8" count="1" type="stmt"/>
       </file>
       <file name="share.jsx" path="/home/benjis-brain/hackreactor/senior/fec/Shoptopia/client/src/components/Overview/productInfo/share.jsx">
-        <metrics statements="1" coveredstatements="1" conditionals="0" coveredconditionals="0" methods="1" coveredmethods="1"/>
+        <metrics statements="10" coveredstatements="8" conditionals="2" coveredconditionals="1" methods="2" coveredmethods="1"/>
         <line num="4" count="1" type="stmt"/>
+        <line num="5" count="1" type="stmt"/>
+        <line num="6" count="1" type="stmt"/>
+        <line num="7" count="1" type="stmt"/>
+        <line num="8" count="1" type="stmt"/>
+        <line num="10" count="1" type="stmt"/>
+        <line num="11" count="1" type="stmt"/>
+        <line num="12" count="0" type="stmt"/>
+        <line num="13" count="0" type="stmt"/>
+        <line num="15" count="1" type="stmt"/>
       </file>
     </package>
-    <package name="src.components.Overview.styleSelect">
+    <package name="client.src.components.Overview.styleSelect">
       <metrics statements="6" coveredstatements="1" conditionals="2" coveredconditionals="1" methods="4" coveredmethods="1"/>
       <file name="index.jsx" path="/home/benjis-brain/hackreactor/senior/fec/Shoptopia/client/src/components/Overview/styleSelect/index.jsx">
         <metrics statements="2" coveredstatements="1" conditionals="2" coveredconditionals="1" methods="2" coveredmethods="1"/>
@@ -215,18 +224,18 @@
         <line num="10" count="0" type="stmt"/>
       </file>
     </package>
-    <package name="src.components.Questions">
+    <package name="client.src.components.Questions">
       <metrics statements="54" coveredstatements="8" conditionals="22" coveredconditionals="5" methods="21" coveredmethods="3"/>
       <file name="Questions.jsx" path="/home/benjis-brain/hackreactor/senior/fec/Shoptopia/client/src/components/Questions/Questions.jsx">
         <metrics statements="54" coveredstatements="8" conditionals="22" coveredconditionals="5" methods="21" coveredmethods="3"/>
-        <line num="12" count="2" type="stmt"/>
-        <line num="13" count="2" type="stmt"/>
-        <line num="22" count="2" type="stmt"/>
-        <line num="23" count="2" type="stmt"/>
+        <line num="12" count="3" type="stmt"/>
+        <line num="13" count="3" type="stmt"/>
+        <line num="22" count="3" type="stmt"/>
+        <line num="23" count="3" type="stmt"/>
         <line num="24" count="0" type="stmt"/>
         <line num="28" count="0" type="stmt"/>
-        <line num="39" count="2" type="stmt"/>
-        <line num="40" count="2" type="cond" truecount="1" falsecount="1"/>
+        <line num="39" count="3" type="stmt"/>
+        <line num="40" count="3" type="cond" truecount="1" falsecount="1"/>
         <line num="41" count="0" type="stmt"/>
         <line num="46" count="0" type="stmt"/>
         <line num="47" count="0" type="stmt"/>
@@ -271,137 +280,136 @@
         <line num="116" count="0" type="stmt"/>
         <line num="118" count="0" type="stmt"/>
         <line num="120" count="0" type="stmt"/>
-        <line num="124" count="2" type="stmt"/>
-        <line num="128" count="2" type="stmt"/>
+        <line num="124" count="3" type="stmt"/>
+        <line num="128" count="3" type="stmt"/>
       </file>
     </package>
-    <package name="src.components.Questions.Modals">
-      <metrics statements="48" coveredstatements="0" conditionals="18" coveredconditionals="0" methods="19" coveredmethods="0"/>
+    <package name="client.src.components.Questions.Modals">
+      <metrics statements="47" coveredstatements="37" conditionals="18" coveredconditionals="12" methods="19" coveredmethods="16"/>
       <file name="AddAnswerModal.jsx" path="/home/benjis-brain/hackreactor/senior/fec/Shoptopia/client/src/components/Questions/Modals/AddAnswerModal.jsx">
-        <metrics statements="25" coveredstatements="0" conditionals="9" coveredconditionals="0" methods="10" coveredmethods="0"/>
-        <line num="5" count="0" type="stmt"/>
-        <line num="6" count="0" type="stmt"/>
-        <line num="7" count="0" type="stmt"/>
-        <line num="8" count="0" type="stmt"/>
-        <line num="11" count="0" type="stmt"/>
-        <line num="14" count="0" type="cond" truecount="0" falsecount="5"/>
+        <metrics statements="24" coveredstatements="19" conditionals="9" coveredconditionals="6" methods="10" coveredmethods="8"/>
+        <line num="5" count="47" type="stmt"/>
+        <line num="6" count="47" type="stmt"/>
+        <line num="7" count="47" type="stmt"/>
+        <line num="8" count="47" type="stmt"/>
+        <line num="11" count="47" type="stmt"/>
+        <line num="14" count="1" type="cond" truecount="4" falsecount="1"/>
         <line num="15" count="0" type="stmt"/>
         <line num="16" count="0" type="stmt"/>
-        <line num="18" count="0" type="cond" truecount="0" falsecount="2"/>
+        <line num="18" count="1" type="cond" truecount="1" falsecount="1"/>
         <line num="19" count="0" type="stmt"/>
         <line num="20" count="0" type="stmt"/>
-        <line num="22" count="0" type="stmt"/>
-        <line num="26" count="0" type="stmt"/>
-        <line num="30" count="0" type="cond" truecount="0" falsecount="2"/>
-        <line num="31" count="0" type="stmt"/>
-        <line num="32" count="0" type="stmt"/>
-        <line num="33" count="0" type="stmt"/>
-        <line num="39" count="0" type="stmt"/>
-        <line num="42" count="0" type="stmt"/>
-        <line num="43" count="0" type="stmt"/>
-        <line num="44" count="0" type="stmt"/>
-        <line num="46" count="0" type="stmt"/>
-        <line num="50" count="0" type="stmt"/>
-        <line num="51" count="0" type="stmt"/>
-        <line num="52" count="0" type="stmt"/>
+        <line num="22" count="1" type="stmt"/>
+        <line num="26" count="46" type="stmt"/>
+        <line num="30" count="1" type="cond" truecount="1" falsecount="1"/>
+        <line num="31" count="1" type="stmt"/>
+        <line num="32" count="1" type="stmt"/>
+        <line num="38" count="0" type="stmt"/>
+        <line num="41" count="47" type="stmt"/>
+        <line num="42" count="47" type="stmt"/>
+        <line num="43" count="47" type="stmt"/>
+        <line num="45" count="47" type="stmt"/>
+        <line num="53" count="23" type="stmt"/>
+        <line num="54" count="6" type="stmt"/>
+        <line num="55" count="17" type="stmt"/>
       </file>
       <file name="AddQuestionModal.jsx" path="/home/benjis-brain/hackreactor/senior/fec/Shoptopia/client/src/components/Questions/Modals/AddQuestionModal.jsx">
-        <metrics statements="23" coveredstatements="0" conditionals="9" coveredconditionals="0" methods="9" coveredmethods="0"/>
-        <line num="5" count="0" type="stmt"/>
-        <line num="6" count="0" type="stmt"/>
-        <line num="7" count="0" type="stmt"/>
-        <line num="9" count="0" type="stmt"/>
-        <line num="11" count="0" type="cond" truecount="0" falsecount="5"/>
+        <metrics statements="23" coveredstatements="18" conditionals="9" coveredconditionals="6" methods="9" coveredmethods="8"/>
+        <line num="5" count="47" type="stmt"/>
+        <line num="6" count="47" type="stmt"/>
+        <line num="7" count="47" type="stmt"/>
+        <line num="9" count="47" type="stmt"/>
+        <line num="11" count="1" type="cond" truecount="4" falsecount="1"/>
         <line num="12" count="0" type="stmt"/>
         <line num="13" count="0" type="stmt"/>
-        <line num="14" count="0" type="cond" truecount="0" falsecount="2"/>
+        <line num="14" count="1" type="cond" truecount="1" falsecount="1"/>
         <line num="15" count="0" type="stmt"/>
         <line num="16" count="0" type="stmt"/>
-        <line num="18" count="0" type="stmt"/>
-        <line num="22" count="0" type="stmt"/>
-        <line num="25" count="0" type="cond" truecount="0" falsecount="2"/>
-        <line num="26" count="0" type="stmt"/>
-        <line num="27" count="0" type="stmt"/>
+        <line num="18" count="1" type="stmt"/>
+        <line num="22" count="46" type="stmt"/>
+        <line num="25" count="1" type="cond" truecount="1" falsecount="1"/>
+        <line num="26" count="1" type="stmt"/>
+        <line num="27" count="1" type="stmt"/>
         <line num="33" count="0" type="stmt"/>
-        <line num="36" count="0" type="stmt"/>
-        <line num="37" count="0" type="stmt"/>
-        <line num="38" count="0" type="stmt"/>
-        <line num="39" count="0" type="stmt"/>
-        <line num="43" count="0" type="stmt"/>
-        <line num="44" count="0" type="stmt"/>
-        <line num="45" count="0" type="stmt"/>
+        <line num="36" count="47" type="stmt"/>
+        <line num="37" count="47" type="stmt"/>
+        <line num="38" count="47" type="stmt"/>
+        <line num="39" count="47" type="stmt"/>
+        <line num="43" count="23" type="stmt"/>
+        <line num="44" count="6" type="stmt"/>
+        <line num="45" count="17" type="stmt"/>
       </file>
       <file name="ImageModal.jsx" path="/home/benjis-brain/hackreactor/senior/fec/Shoptopia/client/src/components/Questions/Modals/ImageModal.jsx">
         <metrics statements="0" coveredstatements="0" conditionals="0" coveredconditionals="0" methods="0" coveredmethods="0"/>
       </file>
     </package>
-    <package name="src.components.Questions.Navigation">
-      <metrics statements="7" coveredstatements="5" conditionals="4" coveredconditionals="3" methods="4" coveredmethods="2"/>
+    <package name="client.src.components.Questions.Navigation">
+      <metrics statements="7" coveredstatements="7" conditionals="4" coveredconditionals="3" methods="4" coveredmethods="4"/>
       <file name="NavigationButtons.jsx" path="/home/benjis-brain/hackreactor/senior/fec/Shoptopia/client/src/components/Questions/Navigation/NavigationButtons.jsx">
-        <metrics statements="4" coveredstatements="3" conditionals="4" coveredconditionals="3" methods="2" coveredmethods="1"/>
-        <line num="4" count="2" type="stmt"/>
-        <line num="6" count="0" type="stmt"/>
-        <line num="8" count="2" type="cond" truecount="1" falsecount="1"/>
-        <line num="9" count="2" type="stmt"/>
+        <metrics statements="4" coveredstatements="4" conditionals="4" coveredconditionals="3" methods="2" coveredmethods="2"/>
+        <line num="4" count="4" type="stmt"/>
+        <line num="6" count="1" type="stmt"/>
+        <line num="8" count="4" type="cond" truecount="1" falsecount="1"/>
+        <line num="9" count="4" type="stmt"/>
       </file>
       <file name="SearchBar.jsx" path="/home/benjis-brain/hackreactor/senior/fec/Shoptopia/client/src/components/Questions/Navigation/SearchBar.jsx">
-        <metrics statements="3" coveredstatements="2" conditionals="0" coveredconditionals="0" methods="2" coveredmethods="1"/>
-        <line num="4" count="2" type="stmt"/>
-        <line num="7" count="0" type="stmt"/>
-        <line num="10" count="2" type="stmt"/>
+        <metrics statements="3" coveredstatements="3" conditionals="0" coveredconditionals="0" methods="2" coveredmethods="2"/>
+        <line num="4" count="4" type="stmt"/>
+        <line num="7" count="4" type="stmt"/>
+        <line num="10" count="4" type="stmt"/>
       </file>
     </package>
-    <package name="src.components.Questions.QuestionList">
-      <metrics statements="35" coveredstatements="6" conditionals="24" coveredconditionals="1" methods="15" coveredmethods="1"/>
+    <package name="client.src.components.Questions.QuestionList">
+      <metrics statements="35" coveredstatements="29" conditionals="24" coveredconditionals="17" methods="15" coveredmethods="12"/>
       <file name="Answer.jsx" path="/home/benjis-brain/hackreactor/senior/fec/Shoptopia/client/src/components/Questions/QuestionList/Answer.jsx">
-        <metrics statements="4" coveredstatements="0" conditionals="4" coveredconditionals="0" methods="3" coveredmethods="0"/>
-        <line num="4" count="0" type="stmt"/>
-        <line num="6" count="0" type="stmt"/>
-        <line num="9" count="0" type="stmt"/>
-        <line num="12" count="0" type="stmt"/>
+        <metrics statements="4" coveredstatements="4" conditionals="4" coveredconditionals="2" methods="3" coveredmethods="3"/>
+        <line num="6" count="2" type="stmt"/>
+        <line num="8" count="1" type="stmt"/>
+        <line num="11" count="1" type="stmt"/>
+        <line num="14" count="2" type="stmt"/>
       </file>
       <file name="AnswerList.jsx" path="/home/benjis-brain/hackreactor/senior/fec/Shoptopia/client/src/components/Questions/QuestionList/AnswerList.jsx">
-        <metrics statements="7" coveredstatements="0" conditionals="4" coveredconditionals="0" methods="3" coveredmethods="0"/>
-        <line num="6" count="0" type="stmt"/>
-        <line num="7" count="0" type="cond" truecount="0" falsecount="4"/>
-        <line num="8" count="0" type="stmt"/>
+        <metrics statements="7" coveredstatements="6" conditionals="4" coveredconditionals="3" methods="3" coveredmethods="3"/>
+        <line num="8" count="1" type="stmt"/>
+        <line num="9" count="1" type="cond" truecount="3" falsecount="1"/>
         <line num="10" count="0" type="stmt"/>
-        <line num="12" count="0" type="stmt"/>
-        <line num="17" count="0" type="stmt"/>
-        <line num="19" count="0" type="stmt"/>
+        <line num="12" count="1" type="stmt"/>
+        <line num="14" count="1" type="stmt"/>
+        <line num="19" count="1" type="stmt"/>
+        <line num="21" count="4" type="stmt"/>
       </file>
       <file name="Question.jsx" path="/home/benjis-brain/hackreactor/senior/fec/Shoptopia/client/src/components/Questions/QuestionList/Question.jsx">
-        <metrics statements="12" coveredstatements="0" conditionals="10" coveredconditionals="0" methods="6" coveredmethods="0"/>
-        <line num="5" count="0" type="stmt"/>
+        <metrics statements="12" coveredstatements="8" conditionals="10" coveredconditionals="7" methods="6" coveredmethods="3"/>
+        <line num="5" count="1" type="stmt"/>
         <line num="8" count="0" type="stmt"/>
         <line num="12" count="0" type="stmt"/>
         <line num="15" count="0" type="stmt"/>
-        <line num="18" count="0" type="stmt"/>
-        <line num="20" count="0" type="stmt"/>
-        <line num="21" count="0" type="cond" truecount="0" falsecount="2"/>
-        <line num="22" count="0" type="stmt"/>
-        <line num="24" count="0" type="cond" truecount="0" falsecount="2"/>
+        <line num="18" count="4" type="stmt"/>
+        <line num="20" count="1" type="stmt"/>
+        <line num="21" count="3" type="cond" truecount="2" falsecount="0"/>
+        <line num="22" count="2" type="stmt"/>
+        <line num="24" count="1" type="cond" truecount="1" falsecount="1"/>
         <line num="25" count="0" type="stmt"/>
-        <line num="27" count="0" type="stmt"/>
-        <line num="30" count="0" type="stmt"/>
+        <line num="27" count="1" type="stmt"/>
+        <line num="30" count="1" type="stmt"/>
       </file>
       <file name="QuestionList.jsx" path="/home/benjis-brain/hackreactor/senior/fec/Shoptopia/client/src/components/Questions/QuestionList/QuestionList.jsx">
-        <metrics statements="12" coveredstatements="6" conditionals="6" coveredconditionals="1" methods="3" coveredmethods="1"/>
+        <metrics statements="12" coveredstatements="11" conditionals="6" coveredconditionals="5" methods="3" coveredmethods="3"/>
         <line num="5" count="2" type="stmt"/>
         <line num="7" count="2" type="stmt"/>
-        <line num="8" count="0" type="cond" truecount="0" falsecount="2"/>
-        <line num="9" count="0" type="stmt"/>
-        <line num="11" count="0" type="cond" truecount="0" falsecount="2"/>
+        <line num="8" count="4" type="cond" truecount="2" falsecount="0"/>
+        <line num="9" count="3" type="stmt"/>
+        <line num="11" count="1" type="cond" truecount="1" falsecount="1"/>
         <line num="12" count="0" type="stmt"/>
-        <line num="14" count="0" type="stmt"/>
-        <line num="16" count="2" type="cond" truecount="1" falsecount="1"/>
-        <line num="17" count="2" type="stmt"/>
+        <line num="14" count="1" type="stmt"/>
+        <line num="16" count="2" type="cond" truecount="2" falsecount="0"/>
+        <line num="17" count="1" type="stmt"/>
         <line num="20" count="2" type="stmt"/>
         <line num="26" count="2" type="stmt"/>
-        <line num="29" count="0" type="stmt"/>
+        <line num="29" count="5" type="stmt"/>
       </file>
     </package>
-    <package name="src.components.Ratings">
+    <package name="client.src.components.Ratings">
       <metrics statements="15" coveredstatements="9" conditionals="8" coveredconditionals="3" methods="8" coveredmethods="2"/>
       <file name="Ratings.jsx" path="/home/benjis-brain/hackreactor/senior/fec/Shoptopia/client/src/components/Ratings/Ratings.jsx">
         <metrics statements="15" coveredstatements="9" conditionals="8" coveredconditionals="3" methods="8" coveredmethods="2"/>
@@ -422,7 +430,7 @@
         <line num="53" count="0" type="stmt"/>
       </file>
     </package>
-    <package name="src.components.Ratings.sub-comps">
+    <package name="client.src.components.Ratings.sub-comps">
       <metrics statements="50" coveredstatements="0" conditionals="24" coveredconditionals="0" methods="24" coveredmethods="0"/>
       <file name="RatingBreakdown.jsx" path="/home/benjis-brain/hackreactor/senior/fec/Shoptopia/client/src/components/Ratings/sub-comps/RatingBreakdown.jsx">
         <metrics statements="10" coveredstatements="0" conditionals="4" coveredconditionals="0" methods="7" coveredmethods="0"/>
@@ -484,38 +492,39 @@
         <line num="36" count="0" type="stmt"/>
       </file>
     </package>
-    <package name="src.components.Related">
-      <metrics statements="3" coveredstatements="3" conditionals="0" coveredconditionals="0" methods="1" coveredmethods="1"/>
+    <package name="client.src.components.Related">
+      <metrics statements="3" coveredstatements="3" conditionals="0" coveredconditionals="0" methods="2" coveredmethods="1"/>
       <file name="Related.jsx" path="/home/benjis-brain/hackreactor/senior/fec/Shoptopia/client/src/components/Related/Related.jsx">
-        <metrics statements="3" coveredstatements="3" conditionals="0" coveredconditionals="0" methods="1" coveredmethods="1"/>
-        <line num="7" count="1" type="stmt"/>
+        <metrics statements="3" coveredstatements="3" conditionals="0" coveredconditionals="0" methods="2" coveredmethods="1"/>
+        <line num="7" count="2" type="stmt"/>
         <line num="15" count="2" type="stmt"/>
         <line num="33" count="2" type="stmt"/>
       </file>
     </package>
-    <package name="src.components.Related.subcomponents">
-      <metrics statements="55" coveredstatements="19" conditionals="18" coveredconditionals="2" methods="22" coveredmethods="4"/>
+    <package name="client.src.components.Related.subcomponents">
+      <metrics statements="56" coveredstatements="19" conditionals="18" coveredconditionals="2" methods="22" coveredmethods="4"/>
       <file name="ComparisonModal.jsx" path="/home/benjis-brain/hackreactor/senior/fec/Shoptopia/client/src/components/Related/subcomponents/ComparisonModal.jsx">
-        <metrics statements="2" coveredstatements="1" conditionals="0" coveredconditionals="0" methods="1" coveredmethods="0"/>
-        <line num="6" count="0" type="stmt"/>
-        <line num="32" count="2" type="stmt"/>
+        <metrics statements="3" coveredstatements="1" conditionals="0" coveredconditionals="0" methods="1" coveredmethods="0"/>
+        <line num="7" count="0" type="stmt"/>
+        <line num="8" count="0" type="stmt"/>
+        <line num="34" count="1" type="stmt"/>
       </file>
       <file name="ItemCard.jsx" path="/home/benjis-brain/hackreactor/senior/fec/Shoptopia/client/src/components/Related/subcomponents/ItemCard.jsx">
         <metrics statements="24" coveredstatements="2" conditionals="12" coveredconditionals="0" methods="8" coveredmethods="0"/>
-        <line num="12" count="0" type="stmt"/>
         <line num="13" count="0" type="stmt"/>
         <line num="14" count="0" type="stmt"/>
-        <line num="15" count="0" type="cond" truecount="0" falsecount="2"/>
-        <line num="17" count="0" type="stmt"/>
-        <line num="24" count="0" type="stmt"/>
+        <line num="15" count="0" type="stmt"/>
+        <line num="16" count="0" type="cond" truecount="0" falsecount="2"/>
+        <line num="18" count="0" type="stmt"/>
         <line num="25" count="0" type="stmt"/>
         <line num="26" count="0" type="stmt"/>
         <line num="27" count="0" type="stmt"/>
-        <line num="30" count="0" type="cond" truecount="0" falsecount="2"/>
-        <line num="31" count="0" type="stmt"/>
+        <line num="28" count="0" type="stmt"/>
+        <line num="31" count="0" type="cond" truecount="0" falsecount="2"/>
         <line num="32" count="0" type="stmt"/>
         <line num="33" count="0" type="stmt"/>
         <line num="34" count="0" type="stmt"/>
+        <line num="35" count="0" type="stmt"/>
         <line num="66" count="0" type="cond" truecount="0" falsecount="2"/>
         <line num="67" count="0" type="stmt"/>
         <line num="68" count="0" type="stmt"/>
@@ -523,9 +532,9 @@
         <line num="71" count="0" type="stmt"/>
         <line num="73" count="0" type="stmt"/>
         <line num="74" count="0" type="stmt"/>
-        <line num="87" count="2" type="stmt"/>
-        <line num="123" count="0" type="stmt"/>
-        <line num="127" count="2" type="stmt"/>
+        <line num="87" count="1" type="stmt"/>
+        <line num="126" count="0" type="stmt"/>
+        <line num="130" count="1" type="stmt"/>
       </file>
       <file name="OutfitItemsList.jsx" path="/home/benjis-brain/hackreactor/senior/fec/Shoptopia/client/src/components/Related/subcomponents/OutfitItemsList.jsx">
         <metrics statements="12" coveredstatements="5" conditionals="4" coveredconditionals="2" methods="6" coveredmethods="1"/>
@@ -540,21 +549,21 @@
         <line num="33" count="0" type="stmt"/>
         <line num="45" count="0" type="stmt"/>
         <line num="46" count="0" type="stmt"/>
-        <line num="51" count="2" type="stmt"/>
+        <line num="51" count="1" type="stmt"/>
       </file>
       <file name="RelatedItemsList.jsx" path="/home/benjis-brain/hackreactor/senior/fec/Shoptopia/client/src/components/Related/subcomponents/RelatedItemsList.jsx">
         <metrics statements="15" coveredstatements="9" conditionals="2" coveredconditionals="0" methods="7" coveredmethods="3"/>
-        <line num="9" count="1" type="stmt"/>
-        <line num="10" count="1" type="stmt"/>
-        <line num="12" count="1" type="stmt"/>
-        <line num="13" count="1" type="stmt"/>
-        <line num="14" count="1" type="stmt"/>
+        <line num="9" count="2" type="stmt"/>
+        <line num="10" count="2" type="stmt"/>
+        <line num="12" count="2" type="stmt"/>
+        <line num="13" count="2" type="stmt"/>
+        <line num="14" count="2" type="stmt"/>
         <line num="16" count="0" type="stmt"/>
         <line num="17" count="0" type="cond" truecount="0" falsecount="2"/>
         <line num="18" count="0" type="stmt"/>
-        <line num="21" count="1" type="stmt"/>
-        <line num="22" count="1" type="stmt"/>
-        <line num="26" count="1" type="stmt"/>
+        <line num="21" count="2" type="stmt"/>
+        <line num="22" count="2" type="stmt"/>
+        <line num="26" count="2" type="stmt"/>
         <line num="31" count="0" type="stmt"/>
         <line num="45" count="0" type="stmt"/>
         <line num="46" count="0" type="stmt"/>
@@ -562,8 +571,27 @@
       </file>
       <file name="exampleData.js" path="/home/benjis-brain/hackreactor/senior/fec/Shoptopia/client/src/components/Related/subcomponents/exampleData.js">
         <metrics statements="2" coveredstatements="2" conditionals="0" coveredconditionals="0" methods="0" coveredmethods="0"/>
-        <line num="1" count="2" type="stmt"/>
-        <line num="384" count="2" type="stmt"/>
+        <line num="1" count="1" type="stmt"/>
+        <line num="384" count="1" type="stmt"/>
+      </file>
+    </package>
+    <package name="spec.questionsSpec.QuestionListSpec">
+      <metrics statements="5" coveredstatements="5" conditionals="0" coveredconditionals="0" methods="0" coveredmethods="0"/>
+      <file name="qListMock.js" path="/home/benjis-brain/hackreactor/senior/fec/Shoptopia/spec/questionsSpec/QuestionListSpec/qListMock.js">
+        <metrics statements="5" coveredstatements="5" conditionals="0" coveredconditionals="0" methods="0" coveredmethods="0"/>
+        <line num="1" count="4" type="stmt"/>
+        <line num="353" count="4" type="stmt"/>
+        <line num="404" count="4" type="stmt"/>
+        <line num="447" count="4" type="stmt"/>
+        <line num="458" count="4" type="stmt"/>
+      </file>
+    </package>
+    <package name="spec.relatedItemsSpec">
+      <metrics statements="2" coveredstatements="2" conditionals="0" coveredconditionals="0" methods="0" coveredmethods="0"/>
+      <file name="exampleData.js" path="/home/benjis-brain/hackreactor/senior/fec/Shoptopia/spec/relatedItemsSpec/exampleData.js">
+        <metrics statements="2" coveredstatements="2" conditionals="0" coveredconditionals="0" methods="0" coveredmethods="0"/>
+        <line num="1" count="1" type="stmt"/>
+        <line num="384" count="1" type="stmt"/>
       </file>
     </package>
   </project>

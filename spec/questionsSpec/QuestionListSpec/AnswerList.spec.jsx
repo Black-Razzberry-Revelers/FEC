@@ -1,8 +1,37 @@
 import React from 'react';
 import { render, fireEvent, screen } from '@testing-library/react';
 import userEvent from '@testing-library/user-event';
-import { answers } from './qListMock';
+import { answersRaw } from './qListMock';
 import '@testing-library/jest-dom';
+
+const AnswerList = require('../../../client/src/components/Questions/QuestionList/AnswerList').default;
+
+jest.mock(
+  '../../../client/src/components/Questions/QuestionList/Answer',
+  () => function Answer({
+    aid,
+  }) {
+    return (
+      <div>
+        Mocked Answer #:
+        {aid}
+      </div>
+    );
+  },
+);
+describe('AnswerList', () => {
+  it('should render a div with each answer ID', async () => {
+    const qid = 329705;
+    const v = { questions: [{ question_id: 329705, showMore: true }] };
+    const answerIDS = Object.keys(answersRaw);
+    const answers = answerIDS.map((id) => answersRaw[id]);
+
+    render(<AnswerList qid={qid} v={v} answers={answers} />);
+    await screen.findAllByText('Mocked Answer #', { exact: false }).then((elems) => {
+      elems.forEach((elem) => expect(elem).toBeInTheDocument());
+    });
+  });
+});
 
 // The answers list should:
 // *  Display the text body of the answer on a new line
