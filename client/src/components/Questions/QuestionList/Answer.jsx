@@ -25,23 +25,23 @@ function Answer({
         {' '}
         {answer.answerer_name}
       </p>
-      <p>
+      <p className='label'>
         {' '}
         on:
         {' '}
         {answer.date}
       </p>
-      <p>
+      <p className="info-text">
         {' '}
         Helpful?
         {' '}
-        {!answer.markedHelpful ? <strong onClick={onHelpful}>Yes</strong> : <strong>Marked Helpful</strong>}
+        {!answer.markedHelpful ? <strong onClick={onHelpful} className="helpful-button">Yes</strong> : <strong>Marked Helpful</strong>}
         {' '}
         (
         {answer.helpfulness}
         ) |
         {' '}
-        {!answer.reported ? <strong onClick={onReport}>Report</strong> : <strong>Reported</strong>}
+        {!answer.reported ? <strong onClick={onReport} className="helpful-button">Report</strong> : <strong>Reported</strong>}
       </p>
     </>
   );

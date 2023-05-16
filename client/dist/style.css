@@ -168,16 +168,19 @@ img {
 
 /********** Shared Classes ***********/
 .section-head {
-
+color:blue;
 }
+
 .sub-head{
-
+color:purple
 }
+
 .info-text{
-
+  color:red;
 }
-.label{
 
+.label{
+color:yellowgreen;
 }
 .arrow-nav{
 
