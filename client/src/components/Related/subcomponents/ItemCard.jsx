@@ -1,5 +1,6 @@
 import React, { useContext } from 'react';
 import PropTypes from 'prop-types';
+import Stars from '../../stars';
 import ComparisonModal from './ComparisonModal';
 import { styleContext } from '../../App';
 import findAvgRating from '../../../calculateAvgRating';
@@ -10,10 +11,10 @@ export default function ItemCard({
   const {
     style, setStyle, styles, setStyles,
   } = useContext(styleContext);
-  const defaultStyle = item.styles.filter((itemStyle) => itemStyle['default?'] === true);
+  const defaultStyle = item.styles.results.filter((itemStyle) => itemStyle['default?'] === true);
   const placeholder = 'https://static-00.iconduck.com/assets.00/image-icon-256x256-09od4zyo.png';
   const thumbnail = defaultStyle.length > 0 ? defaultStyle[0].photos[0].thumbnail_url
-    : item.styles[0].photos[0].thumbnail_url;
+    : item.styles.results[0].photos[0].thumbnail_url;
   return (
     <>
       <div
@@ -49,15 +50,14 @@ export default function ItemCard({
           Category:
           {' '}
           {item.product.category}
+          {/* {console.log('Item Card Item:', item)} */}
         </div>
         <div>
           Price: $
           {item.product.default_price}
         </div>
         <div>
-          Rating:
-          {' '}
-          {item.ratings ? findAvgRating(item.ratings) : 'calculating'}
+          <Stars avgRating={item.ratings ? findAvgRating(item.ratings) : 0} />
         </div>
       </div>
       <button
@@ -100,21 +100,24 @@ ItemCard.propTypes = {
         PropTypes.shape({ feature: PropTypes.string, value: PropTypes.string }),
       ),
     }),
-    styles: PropTypes.arrayOf(PropTypes.shape({
-      style_id: PropTypes.number,
-      name: PropTypes.string,
-      original_price: PropTypes.string,
-      sale_price: PropTypes.string,
-      'default?': PropTypes.bool,
-      photos: PropTypes.arrayOf(PropTypes.shape({
-        thumbnail_url: PropTypes.string,
-        url: PropTypes.string,
+    styles: PropTypes.shape({
+      product_id: PropTypes.string,
+      results: PropTypes.arrayOf(PropTypes.shape({
+        style_id: PropTypes.number,
+        name: PropTypes.string,
+        original_price: PropTypes.string,
+        sale_price: PropTypes.string,
+        'default?': PropTypes.bool,
+        photos: PropTypes.arrayOf(PropTypes.shape({
+          thumbnail_url: PropTypes.string,
+          url: PropTypes.string,
+        })),
+        skus: PropTypes.objectOf(PropTypes.shape({
+          quantity: PropTypes.number,
+          size: PropTypes.string,
+        })),
       })),
-      skus: PropTypes.objectOf(PropTypes.shape({
-        quantity: PropTypes.number,
-        size: PropTypes.string,
-      })),
-    })),
+    }),
   }).isRequired,
   setOutfitItems: PropTypes.func,
   outfitList: PropTypes.bool,
@@ -127,5 +130,5 @@ ItemCard.propTypes = {
 ItemCard.defaultProps = {
   outfitList: false,
   outfitItems: [],
-  setOutfitItems: () => {},
+  setOutfitItems: () => { },
 };

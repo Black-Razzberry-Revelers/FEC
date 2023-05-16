@@ -8,6 +8,6 @@ export default function Thumbnail({ image, setDisplay }) {
   }
 
   return (
-    <img onClick={handleClick} className="thumbnail" alt="circle" src={image.thumbnail_url} />
+    <img data-testid="thumbnail" onClick={handleClick} className="thumbnail" alt="circle" src={image.thumbnail_url} />
   );
 }

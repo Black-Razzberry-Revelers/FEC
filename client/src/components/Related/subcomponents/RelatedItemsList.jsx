@@ -33,7 +33,7 @@ export default function RelatedItemsList({ currentProduct, setProduct }) {
               key={item.id}
               item={{
                 product: item,
-                styles: relatedItems.styles[i].results,
+                styles: relatedItems.styles[i],
                 ratings: relatedItems.meta[i].ratings,
               }}
               outfitList={false}
