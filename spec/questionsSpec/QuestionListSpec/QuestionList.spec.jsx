@@ -3,8 +3,7 @@ import { render, fireEvent, screen } from '@testing-library/react';
 import userEvent from '@testing-library/user-event';
 import { questions } from './qListMock';
 import '@testing-library/jest-dom';
-
-const QuestionList = require('../../../client/src/components/Questions/QuestionList/QuestionList').default;
+import QuestionList from '../../../client/src/components/Questions/QuestionList/QuestionList';
 
 jest.mock('../../../client/src/components/Questions/QuestionList/Question', () => function Question({ question, qid }) {
   return (
@@ -24,20 +23,3 @@ describe('Importing QuestionList', () => {
     });
   });
 });
-
-// On Load It Should
-//    * Load up to four questions on Default
-//    * up to two answers should display for each question
-//    * Other questions should NOT be visible
-
-// If there are no questions on load
-//     * The question list should collapse.
-//     * The Submit a new Question should be more prominent
-
-// Questions should
-//     * Appear in order of Helpfulness
-//     * Be filterable
-
-// Each question should:
-// * Display the question located at the top
-// * Have the same layout as other questions

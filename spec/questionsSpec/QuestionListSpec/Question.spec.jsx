@@ -3,8 +3,7 @@ import { render, fireEvent, screen } from '@testing-library/react';
 import userEvent from '@testing-library/user-event';
 import { question } from './qListMock';
 import '@testing-library/jest-dom';
-
-const Question = require('../../../client/src/components/Questions/QuestionList/Question').default;
+import Question from '../../../client/src/components/Questions/QuestionList/Question';
 
 jest.mock(
   '../../../client/src/components/Questions/QuestionList/AnswerList',
@@ -16,14 +15,6 @@ jest.mock(
 );
 
 describe('Question', () => {
-  beforeEach(() => {
-
-  });
-
-  afterEach(() => {
-
-  });
-
   it('should have components that display the question and who it was asked by', async () => {
     const qid = question.question_id;
     const v = {};
@@ -37,19 +28,4 @@ describe('Question', () => {
     await screen.findByText('Numquam blanditiis libero facere eos.', { exact: false })
       .then((elem) => expect(elem).toBeVisible());
   });
-
-  // it('should mark a question as helpful on click', () => {
-  // });
-
-  // it('should report a question on click', () => {
-  // });
-
-  // it('should pass sorted answers as props to the answerList component', () => {
-  // });
-
-  // it('should report a question on click', () => {
-  // });
-
-  // it('should Add an answer on click', () => {
-  // });
 });

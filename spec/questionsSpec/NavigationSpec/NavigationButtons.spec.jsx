@@ -3,7 +3,7 @@ import { render, fireEvent, screen } from '@testing-library/react';
 import userEvent from '@testing-library/user-event';
 import '@testing-library/jest-dom';
 
-const NavigationButtons = require('../../../client/src/components/Questions/Navigation/NavigationButtons').default;
+import NavigationButtons from '../../../client/src/components/Questions/Navigation/NavigationButtons';
 
 const changeMode = jest.fn();
 const toggleExpanded = jest.fn();
@@ -24,6 +24,3 @@ describe('Navigation Buttons', () => {
     });
   });
 });
-// If there are no questions on load
-// * The question list should collapse.
-// * The Submit a new Question should be more prominent

@@ -3,13 +3,12 @@ import { render, fireEvent, screen } from '@testing-library/react';
 import userEvent from '@testing-library/user-event';
 import '@testing-library/jest-dom';
 import { requests } from '../../../client/src/components/requests';
-
-const AddQuestionModal = require('../../../client/src/components/Questions/Modals/AddQuestionModal').default;
+import AddQuestionModal from '../../../client/src/components/Questions/Modals/AddQuestionModal';
 
 const v = { pid: 426, modeProps: { qid: 9000, question: { question_body: 'Testing' } } };
 
 jest.mock('../../../client/src/components/requests');
-requests.post.question.mockResolvedValue("Happy");
+requests.post.question.mockResolvedValue('Happy');
 
 describe('AddQuestionModal', () => {
   it("Should Accept typed Text in it's form and pass it as arguments to post.", async () => {
