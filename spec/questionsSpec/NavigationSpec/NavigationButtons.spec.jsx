@@ -16,7 +16,7 @@ describe('Navigation Buttons', () => {
   it('Should call toggleExpanded and changeMode when the buttons are clicked on.', async () => {
     render(<NavigationButtons c={c} v={v} />);
     const clickToggle = screen.findByText('More Answered Questions').then((elem) => userEvent.click(elem));
-    const clickAsk = screen.findByText('Ask A Question', {exact:false}).then((elem) => userEvent.click(elem));
+    const clickAsk = screen.findByText('Ask A Question', { exact: false }).then((elem) => userEvent.click(elem));
     expect.assertions(2);
     await Promise.all([clickToggle, clickAsk]).then((resolutions) => {
       expect(changeMode).toHaveBeenCalled();
