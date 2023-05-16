@@ -9,7 +9,7 @@ import App from '../../client/src/components/App';
 import Overview from '../../client/src/components/Overview';
 import Gallery from '../../client/src/components/Overview/Gallery';
 
-import { product, styles } from './mockData';
+import { product, style } from './mockData';
 
 describe('Overview', () => {
   beforeEach(async () => {
@@ -53,9 +53,9 @@ describe('Overview', () => {
 
 describe('Gallery', () => {
   beforeEach(async () => {
-    const mock = [{ url: 'someUrl', thumbnail: 'example' }];
-    const disp = { url: 'aLegitURL' };
-    render(<Gallery gallery={mock} display={disp} />);
+    const mockGallery = style.photos;
+    const mockDisp = style.photos[0];
+    render(<Gallery gallery={mockGallery} display={mockDisp} />);
     await screen.findByRole('main');
   });
 
@@ -69,7 +69,6 @@ describe('Gallery', () => {
   });
   test('there should be thumbnails and a product image', async () => {
     const images = await screen.findAllByRole('img');
-    expect(images.length).toBe(2);
-    console.log('images', images[0]);
+    expect(images.length).toBe(7);
   });
 });
