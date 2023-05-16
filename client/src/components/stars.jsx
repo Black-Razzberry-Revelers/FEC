@@ -7,7 +7,7 @@ export default function Stars({ avgRating }) {
   let percent = Math.ceil((avgRating - Math.floor(avgRating)) * 10);
   if (percent > 7) {
     percent = 10;
-  } else if (percent > 5 && percent < 8) {
+  } else if (percent > 4 && percent < 8) {
     percent = 5;
   } else if (percent > 2 && percent < 6) {
     percent = 2.5;
@@ -25,14 +25,14 @@ export default function Stars({ avgRating }) {
       <div className="stars">
         <div className="stars" id="empty">
           {[1, 2, 3, 4, 5].map((num) => (
-            <div key={num}>
+            <div key={`${num}emptyStar`}>
               <img src={starEmpty} alt="star" />
             </div>
           ))}
         </div>
         <div className="stars" id="filled">
           {filled.map((star, i) => (
-            <div key={i} className="star">
+            <div key={`${i}filledStar`} className="star">
               <img src={starFilled} alt="star" />
             </div>
           ))}

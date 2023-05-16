@@ -4,7 +4,7 @@
 import { useState, useEffect } from 'react';
 import ReviewTile from './ReviewTile';
 
-function ReviewsList({ reviews, filters }) {
+function ReviewsList({ reviews, filters, moreReviews }) {
   const [scrollTop, setScrollTop] = useState(0);
   const [filteredReviews, setFilteredReviews] = useState(reviews);
 
@@ -29,11 +29,20 @@ function ReviewsList({ reviews, filters }) {
 
   useEffect(() => {
     applyFilters();
-  }, [filters]);
+  }, [filters, moreReviews]);
+
+  useEffect(() => {
+    if (moreReviews) {
+      setFilteredReviews(reviews);
+    } else {
+      setFilteredReviews(reviews.slice(0, 2));
+    }
+  }, [reviews, moreReviews]);
+
   return (
     <div style={style} onScroll={handleScroll}>
       {filteredReviews.map((review, i) => (
-        <ReviewTile key={i} review={review} />
+        <ReviewTile key={`${i}review`} review={review} />
       ))}
     </div>
   );

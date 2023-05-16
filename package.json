@@ -4,6 +4,7 @@
   "description": "Ecommerce Interactive Details Page",
   "main": "server/index.js",
   "scripts": {
+    "test-coverage": "npx jest --coverage",
     "deep-test": "jest --env=jsdom --detectOpenHandles",
     "test": "jest --env=jsdom --coverage",
     "client-dev": "npx webpack --watch",
@@ -50,9 +51,11 @@
   },
   "dependencies": {
     "@babel/polyfill": "^7.12.1",
+    "@testing-library/user-event": "^14.4.3",
     "autoprefixer": "10.4.5",
     "axios": "^1.4.0",
     "cors": "^2.8.5",
+    "date-fns": "^2.30.0",
     "dotenv": "^16.0.3",
     "express": "^4.18.2",
     "morgan": "^1.10.0",

@@ -5,7 +5,7 @@ export default function Share() {
   const url = 'https://github.com/Black-Razzberry-Revelers';
   const query = encodeURIComponent(url);
   const fblink = `https://www.facebook.com/sharer/sharer.php?u=${query}&amp;src=sdkpreparse`;
-  const pinLink = `https://pinterest.com/pin-builder/?url=${url}`
+  const pinLink = `https://pinterest.com/pin-builder/?url=${url}`;
 
   console.log(query);
   const handleClick = (e) => {

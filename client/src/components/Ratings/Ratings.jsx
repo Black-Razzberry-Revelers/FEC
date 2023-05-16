@@ -3,11 +3,14 @@ import { useState, useEffect } from 'react';
 import fetcher from '../fetcher';
 import ReviewsList from './sub-comps/ReviewsList';
 import RatingBreakdown from './sub-comps/RatingBreakdown';
+import ProductBreakdown from './sub-comps/ProductBreakdown';
+import WriteNewReview from './sub-comps/WriteNewReview';
 
 function Ratings(/* {product_id, count} */) {
   const [reviews, setReviews] = useState();
   const [metaData, setMetaData] = useState();
   const [moreReviews, setMoreReviews] = useState(false);
+  const [writeReview, setWriteReview] = useState(false);
   const [sortReviews, setSortReviews] = useState('relevant');
   const [filters, setFilters] = useState([]);
 
@@ -23,6 +26,7 @@ function Ratings(/* {product_id, count} */) {
       .then((result) => setMetaData(result.data))
       .catch((err) => console.log('RATINGS GET META DATA ERR', err));
   }, [sortReviews]);
+
   return (
     <div style={{ display: 'flex' }}>
       <h2>Ratings & Reviews</h2>
@@ -34,6 +38,7 @@ function Ratings(/* {product_id, count} */) {
             filters={filters}
           />
         )}
+        {metaData && <ProductBreakdown metaData={metaData} />}
       </div>
 
       <div className="left" style={{ width: '50%' }}>
@@ -46,13 +51,25 @@ function Ratings(/* {product_id, count} */) {
 
         {reviews && (
           <ReviewsList
-            reviews={moreReviews ? reviews : reviews.slice(0, 2)}
+            reviews={reviews}
             filters={filters}
+            moreReviews={moreReviews}
+
           />
         )}
         <button type="button" onClick={() => setMoreReviews(true)}>
           More Reviews
         </button>
+        <button type="button" onClick={() => setWriteReview(true)}>
+          Write New Review
+        </button>
+        {metaData && (
+        <WriteNewReview
+          setWriteReview={setWriteReview}
+          metaData={metaData}
+          writeReview={writeReview}
+        />
+        )}
       </div>
     </div>
   );
