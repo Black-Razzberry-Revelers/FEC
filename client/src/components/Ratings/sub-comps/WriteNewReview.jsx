@@ -1,38 +1,108 @@
+/* eslint-disable max-len */
+/* eslint-disable jsx-a11y/label-has-associated-control */
 /* eslint-disable jsx-a11y/no-static-element-interactions */
 /* eslint-disable jsx-a11y/click-events-have-key-events */
 /* eslint-disable react/react-in-jsx-scope */
 import Reat, { useState } from 'react';
 import OverallRating from './sub-write-review/OverallRating';
 import Characteristics from './sub-write-review/Characteristics';
+import FeedbackAndInfo from './sub-write-review/FeedbackAndInfo';
+import UploadImages from './sub-write-review/UploadImages';
+import fetcher from '../../fetcher';
 
-function WriteNewReview({ setWriteReview, metaData }) {
-  const [star, setStar] = useState(0);
-  const [recommendation, setRecommendation] = useState(true);
+function WriteNewReview({ setWriteReview, metaData, writeReview }) {
+  const showHideClassName = writeReview ? 'modal display-block' : 'modal display-none';
+  const [person, setPerson] = useState({
+    product_id: 40345,
+    rating: 0,
+    recommend: true,
+    summary: '',
+    body: '',
+    nickname: '',
+    email: '',
+    characteristics: {},
+    photos: [],
+  });
+
+  const handleSubmit = (e) => {
+    e.preventDefault();
+    const {
+      product_id,
+      rating,
+      summary,
+      body,
+      recommend,
+      nickname,
+      email,
+      characteristics,
+      photos,
+    } = person;
+
+    fetcher.addReview(
+      product_id,
+      rating,
+      summary,
+      body,
+      recommend,
+      nickname,
+      email,
+      photos,
+      characteristics,
+    )
+      .then(() => setWriteReview(false))
+      .catch((err) => console.log('WRITE REVIEW ERR', err));
+  };
+
   return (
-    <div className="write-new-review">
-      <span
-        className="material-symbols-outlined"
-        onClick={() => setWriteReview(false)}
-      >
-        cancel
-      </span>
+    <div className={showHideClassName}>
+      <section className="modal-main">
+        <span
+          className="material-symbols-outlined"
+          onClick={() => setWriteReview(false)}
+        >
+          cancel
+        </span>
+        <form>
+          <label>Write Your Review</label>
 
-      <h1>Write Your Review</h1>
-      <h2>About the Product Name Here</h2>
-      <OverallRating star={star} setStar={setStar} />
-      <p>Do you recommend this product?</p>
+          <p>About the Product Name Here</p>
+          <OverallRating setPerson={setPerson} person={person} />
 
-      <label htmlFor="yes">Yes</label>
-      <input type="radio" id="yes" name="recommendation" onClick={(e) => setRecommendation(true)} />
+          <fieldset>
+            <legend>Do you recommend this product?</legend>
 
-      <label htmlFor="no">No</label>
-      <input type="radio" id="no" name="recommendation" value="" onClick={(e) => setRecommendation(false)} />
+            <label htmlFor="yes">Yes</label>
+            <input
+              type="radio"
+              id="yes"
+              name="recommendation"
+              required
+              onClick={() => setPerson({
+                ...person,
+                recommend: true,
+              })}
+            />
 
-      {metaData && <Characteristics metaData={metaData} />}
+            <label htmlFor="no">No</label>
+            <input
+              type="radio"
+              id="no"
+              name="recommendation"
+              required
+              onClick={() => setPerson({
+                ...person,
+                recommend: false,
+              })}
+            />
+          </fieldset>
 
-      <label htmlFor="summary">Summary:</label>
-      <input name="summary" type="text" placeholder="Example: Best purchase ever!" minLength="3" maxLength="60" required />
-      {/* make a counter to count how many char has been writen */}
+          {metaData && <Characteristics metaData={metaData} setPerson={setPerson} person={person} />}
+          <FeedbackAndInfo setPerson={setPerson} person={person} />
+
+          <UploadImages setPerson={setPerson} person={person} />
+          <button type="submit" onClick={(e) => handleSubmit(e)}>Click</button>
+        </form>
+      </section>
     </div>
   );
 }

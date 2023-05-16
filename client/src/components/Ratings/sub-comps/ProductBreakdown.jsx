@@ -14,27 +14,8 @@ function ProductBreakdown({ metaData }) {
             return (
               <>
                 <div>{feature}</div>
-                <div style={{ display: 'flex' }}>
-                  <div
-                    className="before"
-                    style={{
-                      width: `${(characteristics[feature].value / 5) * 100}%`,
-                      backgroundColor: 'gray',
-                      height: '10px',
-                    }}
-                  />
-                  <i className="fa-brands fa-hashnode" />
-                  <div
-                    className="after"
-                    style={{
-                      width: `${
-                        ((5 - characteristics[feature].value) / 5) * 100
-                      }%`,
-                      backgroundColor: 'gray',
-                      height: '10px',
-                    }}
-                  />
-                </div>
+                {console.log(`${(characteristics[feature].value / 5) * 100}%`)}
+                <input type="range" min="0" max="100" value={`${(characteristics[feature].value / 5) * 100}`} style={{ width: '100%' }} />
               </>
             );
           }

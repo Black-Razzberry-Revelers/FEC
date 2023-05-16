@@ -26,6 +26,7 @@ function Ratings(/* {product_id, count} */) {
       .then((result) => setMetaData(result.data))
       .catch((err) => console.log('RATINGS GET META DATA ERR', err));
   }, [sortReviews]);
+
   return (
     <div style={{ display: 'flex' }}>
       <h2>Ratings & Reviews</h2>
@@ -50,8 +51,10 @@ function Ratings(/* {product_id, count} */) {
 
         {reviews && (
           <ReviewsList
-            reviews={moreReviews ? reviews : reviews.slice(0, 2)}
+            reviews={reviews}
             filters={filters}
+            moreReviews={moreReviews}
+
           />
         )}
         <button type="button" onClick={() => setMoreReviews(true)}>
@@ -60,7 +63,13 @@ function Ratings(/* {product_id, count} */) {
         <button type="button" onClick={() => setWriteReview(true)}>
           Write New Review
         </button>
-        {writeReview && <WriteNewReview setWriteReview={setWriteReview} metaData={metaData} />}
+        {metaData && (
+        <WriteNewReview
+          setWriteReview={setWriteReview}
+          metaData={metaData}
+          writeReview={writeReview}
+        />
+        )}
       </div>
     </div>
   );

@@ -6,6 +6,7 @@
 /* eslint-disable jsx-a11y/anchor-is-valid */
 /* eslint-disable react/prop-types */
 import { useState, useEffect } from 'react';
+import { intlFormat } from 'date-fns';
 import fetcher from '../../fetcher';
 import Stars from '../../stars';
 // import averageRating from '../../../calculateAvgRating';
@@ -50,7 +51,14 @@ function ReviewTile({ review }) {
       </p>
 
       <p>{review.reviewer_name}</p>
-      <p>{review.date}</p>
+      <p>
+        {intlFormat(new Date(review.date), {
+          year: 'numeric',
+          month: 'long',
+          day: 'numeric',
+        })}
+
+      </p>
       <p style={{ fontWeight: 'bold' }}>
         {review.summary.length > 60 ? `${review.summary}...` : review.summary}
       </p>
