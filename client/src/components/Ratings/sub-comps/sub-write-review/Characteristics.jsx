@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 
-function Characteristics({ metaData }) {
+function Characteristics({ metaData, person, setPerson }) {
   const { characteristics } = metaData;
   const traits = {
     Size: ['A size too small', '½ a size too small', 'Perfect', '½ a size too big', 'A size too wide'],
@@ -21,7 +21,21 @@ function Characteristics({ metaData }) {
             {traits[entry[0]].map((rating, i) => (
               <div key={i + 1}>
                 <p>{i + 1}</p>
-                <input type="radio" id={entry[0]} name={entry[0]} value={i + 1} />
+                <input
+                  type="radio"
+                  id={entry[0]}
+                  name={entry[0]}
+                  value={i + 1}
+                  required
+                  onClick={(e) => setPerson({
+                    ...person,
+                    characteristics: {
+                      ...person.characteristics,
+                      [entry[1].id]: e.target.value,
+
+                    },
+                  })}
+                />
                 <p>{rating}</p>
               </div>
             ))}
