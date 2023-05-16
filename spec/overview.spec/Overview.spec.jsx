@@ -93,15 +93,25 @@ describe('Gallery', () => {
   test('there should be two buttons to change the image', async () => {
     const buttons = await screen.findAllByRole('button');
     expect(buttons.length).toBe(2);
-    const button = buttons[0];
-    await fireEvent.click(button);
+
+    const buttonUP = buttons[0];
+    await fireEvent.click(buttonUP);
+    expect(mockSetDisplay).toHaveBeenCalled();
+
+    const buttonDown = buttons[1];
+    await fireEvent.click(buttonDown);
     expect(mockSetDisplay).toHaveBeenCalled();
   });
 });
 
 describe('Styleselect', () => {
+  const setStyle = jest.fn();
   beforeEach(async () => {
-    render(<StyleSelect styles={stylesMock} />);
+    render(
+      <styleContext.Provider value={{ setStyle }}>
+        <StyleSelect styles={stylesMock} />
+      </styleContext.Provider>,
+    );
     await screen.findByRole('main');
   });
 
@@ -120,6 +130,13 @@ describe('Styleselect', () => {
   test('each style option should be a button', async () => {
     const styleSelectors = await screen.findAllByRole('button');
     expect(styleSelectors.length).toBe(6);
+  });
+
+  test('the buttons should have a click handler', async () => {
+    const styleSelectors = await screen.findAllByRole('button');
+    const clicked = await fireEvent.click(styleSelectors[3]);
+    expect(clicked).toBeTruthy();
+    expect(setStyle).toHaveBeenCalled();
   });
 });
 
@@ -148,9 +165,23 @@ describe('ProductInfo', () => {
     const slogan = await screen.findByText(productMock.slogan, { exact: true });
     expect(slogan).toBeVisible();
   });
+
   test('there should be a description of the product visible', async () => {
     const description = await screen.getByTestId('description');
     expect(description).toBeVisible();
+  });
+
+  test('there should be a share button', async () => {
+    const button = await screen.findByText('share', { exact: true });
+    expect(button).toBeVisible();
+  });
+
+  test(`when the share button is clicked,
+    options for 'where to share' should be rendered`, async () => {
+    const button = await screen.findByText('share', { exact: true });
+    await fireEvent.click(button);
+    const popUp = await screen.findByText('Share this product', { exact: true });
+    expect(popUp).toBeVisible();
   });
 });
 
@@ -186,5 +217,16 @@ describe('AddToCart', () => {
     const dropDowns = await screen.findAllByTestId('select');
     expect(dropDowns.length).toBe(2);
     expect(await screen.getByText('Add', { exact: false })).toBeVisible();
+  });
+  test('the form should have a submit button', async () => {
+    const button = await screen.findByRole('button');
+    await fireEvent.click(button);
+
+    const form = await screen.findByTestId('form');
+    const add = await screen.getByText('Add', { exact: false });
+    expect(add).toHaveAttribute('type', 'submit');
+
+    const submit = await fireEvent.click(add);
+    expect(submit).toBeTruthy();
   });
 });
