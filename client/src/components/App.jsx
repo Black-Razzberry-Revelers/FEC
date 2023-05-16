@@ -8,7 +8,7 @@ import Ratings from './Ratings/Ratings';
 import findAvgRating from '../calculateAvgRating';
 import { requests } from './requests';
 
-export const styleContext = React.createContext(null);
+export const styleContext = React.createContext({});
 // export const starsContext = React.createContext(null);
 
 export default function App() {

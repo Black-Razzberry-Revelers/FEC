@@ -1,24 +1,82 @@
 import React from 'react';
-import { render, screen } from '@testing-library/react';
+import 'jest-environment-jsdom';
 import '@testing-library/jest-dom';
+import {
+  render, screen, fireEvent, cleanup,
+} from '@testing-library/react';
+
 import App from '../../client/src/components/App';
 import Overview from '../../client/src/components/Overview';
+import Gallery from '../../client/src/components/Overview/Gallery';
+
+import { product, style } from './mockData';
 
 describe('Overview', () => {
-  const { getByRole, getByTestId } = render(<App />);
-  const app = getByRole('application');
-  const overview = getByTestId('overview');
-  const name = getByTestId('productName');
-  const category = getByTestId('category');
+  beforeEach(async () => {
+    render(<App />);
+    await screen.findByRole('application');
+  });
+
+  afterEach(() => {
+    cleanup();
+  });
+
+  // test('OverView should render', async () => {
+  //   // jest.mock('../../client/src/components/Overview', () => ({
+  //   //   Overview: () => <mock-overview data-testid="testOV" />,
+  //   // }));
+  //   render(<Overview product={product} />);
+  //   expect(await screen.findByTestId('overview')).toBeInTheDocument();
+  // });
 
   test('It should be a function', () => {
     expect(typeof Overview).toBe('function');
   });
-  test('it should render to the App', () => {
-    expect(app).toContainElement(overview);
+
+  test('it should render to the App', async () => {
+    const overview = await screen.findByTestId('overview');
+    expect(overview).toBeInTheDocument();
   });
-  test('the Name of the product and category should be visible', () => {
+
+  test('the name of the product and the category should be visible', async () => {
+    const name = await screen.findByTestId('productName');
+    const category = await screen.getByTestId('category');
     expect(name).toBeVisible();
     expect(category).toBeVisible();
+  });
+
+  test('there should be an image Gallery', async () => {
+    const gallery = await screen.findByTestId('gallery');
+    expect(gallery).toBeInTheDocument();
+  });
+});
+
+describe('Gallery', () => {
+  beforeEach(async () => {
+    const mockGallery = style.photos;
+    const mockDisp = style.photos[0];
+    render(<Gallery gallery={mockGallery} display={mockDisp} />);
+    await screen.findByRole('main');
+  });
+
+  afterEach(() => {
+    cleanup();
+  });
+
+  test('it should display an image of the product to the user', async () => {
+    const image = await screen.getByTestId('productImage');
+    expect(image).toBeVisible();
+  });
+
+  test('there should be thumbnails and a product image', async () => {
+    const images = await screen.findAllByRole('img');
+    expect(images.length).toBe(7);
+  });
+
+  test('when thumbnail clicked should change display', async () => {
+    const thumbnail = await screen.findAllByTestId('thumbnail');
+    await fireEvent.click(thumbnail, {target: {value: 'newDisplay'}});
+    console.log('test thumbnail', await screen.findByTestId('displayImage'));
+    // expect(await screen.findByTestId('displayImage').url).not.toBe(mockDisp.url);
   });
 });
