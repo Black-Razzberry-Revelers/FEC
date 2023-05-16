@@ -27,9 +27,10 @@ RelatedItemsSection.propTypes = {
       PropTypes.shape({ feature: PropTypes.string, value: PropTypes.string }),
     ),
   }),
-  setProduct: PropTypes.func.isRequired,
+  setProduct: PropTypes.func,
 };
 
 RelatedItemsSection.defaultProps = {
   currentProduct: { features: [] },
+  setProduct: () => {},
 };
