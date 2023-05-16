@@ -40,7 +40,7 @@ describe('Overview', () => {
 
   test('the name of the product and the category should be visible', async () => {
     const name = await screen.findByTestId('productName');
-    const category = screen.getByTestId('category');
+    const category = await screen.getByTestId('category');
     expect(name).toBeVisible();
     expect(category).toBeVisible();
   });
@@ -67,8 +67,16 @@ describe('Gallery', () => {
     const image = await screen.getByTestId('productImage');
     expect(image).toBeVisible();
   });
+
   test('there should be thumbnails and a product image', async () => {
     const images = await screen.findAllByRole('img');
     expect(images.length).toBe(7);
+  });
+
+  test('when thumbnail clicked should change display', async () => {
+    const thumbnail = await screen.findAllByTestId('thumbnail');
+    await fireEvent.click(thumbnail, {target: {value: 'newDisplay'}});
+    console.log('test thumbnail', await screen.findByTestId('displayImage'));
+    // expect(await screen.findByTestId('displayImage').url).not.toBe(mockDisp.url);
   });
 });
