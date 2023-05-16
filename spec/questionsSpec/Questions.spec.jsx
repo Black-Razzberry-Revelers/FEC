@@ -17,19 +17,17 @@ jest.mock('../../client/src/components/Questions/QuestionList/QuestionList', () 
 const user = userEvent.setup();
 
 describe('Questions Component', () => {
-
   test('It should display our 3 main components', () => {
     render(<Questions product_id={40420} />);
     expect(screen.findByTestId('SearchBar').resolves.toBeDefined());
     expect(screen.findByTestId('QuestionList').resolves.toBeDefined());
     expect(screen.findByTestId('NavigationButtons').resolves.toBeDefined());
-  })
-  test("It should Pass 7 functions", async () => {
+  });
+  test('It should Pass 7 functions', async () => {
     render(<Questions product_id={40420} />);
     await screen.getByText('7 functions got Passed').then((elem) => {
       expect(elem).toHaveTextContent('7 functions got Passed');
-    })
-
+    });
   });
   // test('It should query the API and get the values associated with the ID.', () => {
   // // wait until the Get has run
