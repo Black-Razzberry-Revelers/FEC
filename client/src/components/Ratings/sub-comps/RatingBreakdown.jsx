@@ -23,10 +23,10 @@ function RatingBreakdown({ metaData, filters, setFilters }) {
     setFilters(updatedFilter);
   };
   return (
-    <>
+    <div className="RatingBreakdown">
       <h2>{averageRating(metaData.ratings)}</h2>
       <Stars avgRating={averageRating(metaData.ratings)} />
-      <div>
+      <div className="bars">
         {Object.values(metaData.ratings).map((rating, i) => (
           <div key={i + 1} className="bar" onClick={() => handleFilterClick(i + 1)}>
             <div>
@@ -60,7 +60,8 @@ function RatingBreakdown({ metaData, filters, setFilters }) {
         {filters.length
           ? <p onClick={() => setFilters([])}>Remove All Filters</p> : null}
       </div>
-    </>
+
+    </div>
   );
 }
 
