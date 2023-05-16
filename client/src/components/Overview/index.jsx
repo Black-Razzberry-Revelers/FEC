@@ -17,7 +17,6 @@ export default function Overview({ avgRating }) {
   } = React.useContext(styleContext);
 
   const [gallery, setGallery] = React.useState([]);
-
   const [display, setDisplay] = React.useState('');
   const [sizes, setSizes] = React.useState([]);
 
