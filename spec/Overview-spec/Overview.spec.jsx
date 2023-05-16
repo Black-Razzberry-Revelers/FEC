@@ -5,11 +5,14 @@ import {
   render, screen, fireEvent, cleanup,
 } from '@testing-library/react';
 
-import App from '../../client/src/components/App';
+import App, { styleContext } from '../../client/src/components/App';
 import Overview from '../../client/src/components/Overview';
 import Gallery from '../../client/src/components/Overview/Gallery';
+import StyleSelect from '../../client/src/components/Overview/styleSelect';
+import ProductInfo from '../../client/src/components/Overview/productInfo';
 
-import { product, style } from './mockData';
+import { product, styles, style } from './mockData';
+
 
 describe('Overview', () => {
   beforeEach(async () => {
@@ -52,10 +55,12 @@ describe('Overview', () => {
 });
 
 describe('Gallery', () => {
+  const mockSetDisplay = jest.fn();
+  const mockGallery = style.photos;
+  const mockDisp = style.photos[0];
+
   beforeEach(async () => {
-    const mockGallery = style.photos;
-    const mockDisp = style.photos[0];
-    render(<Gallery gallery={mockGallery} display={mockDisp} />);
+    render(<Gallery gallery={mockGallery} display={mockDisp} setDisplay={mockSetDisplay} />);
     await screen.findByRole('main');
   });
 
@@ -74,9 +79,69 @@ describe('Gallery', () => {
   });
 
   test('when thumbnail clicked should change display', async () => {
-    const thumbnail = await screen.findAllByTestId('thumbnail');
-    await fireEvent.click(thumbnail, {target: {value: 'newDisplay'}});
-    console.log('test thumbnail', await screen.findByTestId('displayImage'));
-    // expect(await screen.findByTestId('displayImage').url).not.toBe(mockDisp.url);
+    const thumbnail = await screen.getAllByTestId('thumbnail');
+    const mock = mockSetDisplay;
+    await fireEvent.click(thumbnail[1]);
+    expect(mockSetDisplay).toHaveBeenCalled();
+  });
+});
+
+describe('Styleselect', () => {
+  const mockStyles = styles;
+  const mockStyle = style;
+  beforeEach(async () => {
+    render(<StyleSelect styles={mockStyles} />);
+    await screen.findByRole('main');
+  });
+
+  afterEach(() => {
+    cleanup();
+  });
+
+  test('it should display the stylenames', async () => {
+    const mockOptions = await screen.findAllByRole('button');
+    const styleText = await screen.findByText('Forest', { exact: false });
+
+    expect(mockOptions.length).toBe(6);
+    expect(styleText).toBeDefined();
+  });
+
+  xtest('', async () => {
+
+  });
+});
+
+describe('ProductInfo', () => {
+  const mockProduct = product;
+
+  // jest.mock(
+  //   '../../client/src/components/Overview/productInfo/price',
+  //   () => function mockPrice() {
+  //     return <div>Mocked Price $0</div>;
+  //   },
+  // );
+
+  beforeEach(async () => {
+    render(
+      <styleContext.Provider value={{ style }}>
+        <ProductInfo product={mockProduct} />
+      </styleContext.Provider>,
+    );
+    await screen.findByRole('main');
+  });
+
+  afterEach(() => {
+    cleanup();
+  });
+
+  test('it renders the mock price', async () => {
+    const mockStyle = style;
+    const mockPrice = await screen.findByText(mockStyle.original_price, { exact: true });
+    expect(mockPrice).toBeVisible();
+  });
+
+  test('it should display the product\'s slogan', async () => {
+    const slogan = await screen.findByText(mockProduct.slogan, { exact: true });
+    expect(slogan).toBeVisible();
   });
 });

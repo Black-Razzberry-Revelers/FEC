@@ -8,8 +8,14 @@ import AddToCart from './addToCart';
 import { styleContext } from '../App';
 import Stars from '../stars';
 
-export default function Overview({ avgRating, product }) {
-  const { style, setStyle, styles } = React.useContext(styleContext);
+export default function Overview({ avgRating }) {
+  const {
+    style,
+    setStyle,
+    styles,
+    product,
+  } = React.useContext(styleContext);
+
   const [gallery, setGallery] = React.useState([]);
 
   const [display, setDisplay] = React.useState('');
@@ -53,7 +59,7 @@ export default function Overview({ avgRating, product }) {
       <div className="overview">
 
         <div className="stylesinfo">
-          <ProductInfo product={product} avgRating={avgRating} />
+          <ProductInfo />
           <StyleSelect styles={styles} />
           <AddToCart sizes={sizes} />
         </div>
