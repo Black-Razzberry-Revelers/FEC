@@ -1,5 +1,5 @@
 import React from 'react';
-import Question from './Question.jsx';
+import Question from './Question';
 
 function QuestionList({ v, c }) {
   function onScroll() {}
@@ -17,10 +17,19 @@ function QuestionList({ v, c }) {
   if (!v.expanded) {
     sort = sort.slice(0, 2);
   }
+
+  const style = {
+    width: '95vh',
+    maxHeight: '80vh',
+    overflow: 'auto',
+  };
+
   return (
-    <>
-      {sort.map((q) => (<Question question={q} key={q.question_id} qid={q.question_id} v={v} c={c} />))}
-    </>
+    <div id="QuestionViewport" style={style}>
+      <div id="QuestionStrip">
+        {sort.map((q) => (<Question question={q} key={q.question_id} qid={q.question_id} v={v} c={c} />))}
+      </div>
+    </div>
   );
 }
 

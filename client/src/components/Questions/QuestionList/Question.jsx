@@ -1,8 +1,8 @@
 import React, { useState, useEffect } from 'react';
-import AnswerList from './AnswerList.jsx';
+import AnswerList from './AnswerList';
 
 function Question({ question, qid, v, c }) {
-  const {showAnswers, changeMode, markQHelpful} = c;
+  const { showAnswers, changeMode, markQHelpful } = c;
 
   function onHelpful() {
     markQHelpful(qid);
@@ -12,7 +12,7 @@ function Question({ question, qid, v, c }) {
     showAnswers(qid);
   }
   function onAddAnswer() {
-    changeMode('Add Answer', { question });
+    changeMode('Add Answer', { question, qid });
   }
 
   let answers = Object.keys(question.answers).map((key) => question.answers[key]);
