@@ -16,7 +16,7 @@ export default function Share() {
     clickShare
       ? (
         <div className="sharePopup">
-          Share this page
+          Share this product
           <div
             data-layout="button_count"
             data-size="small"
