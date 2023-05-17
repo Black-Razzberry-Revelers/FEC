@@ -3,31 +3,36 @@ import PropTypes from 'prop-types';
 import { currentItem } from './exampleData';
 import { styleContext } from '../../App';
 
-export default function ComparisonModal({ item }) {
+export default function ComparisonModal(/*{ item }*/) {
   const { product } = useContext(styleContext);
   return (
-    <table>
-      <caption>Comparing</caption>
-      <thead>
-        <tr>
-          <th scope="col">{item.product.name}</th>
-          <th scope="col">{' '}</th>
-          <th scope="col">{product.name}</th>
-        </tr>
-      </thead>
-      <tbody>
-        <tr>
-          <td>{item.product.default_price}</td>
-          <td>Price</td>
-          <td>{product.default_price}</td>
-        </tr>
-        <tr>
-          <td>{item.product.category}</td>
-          <td>Category</td>
-          <td>{product.category}</td>
-        </tr>
-      </tbody>
-    </table>
+    <>
+      <div className="related-items modal" id="comparison-modal" hidden>
+        <table>
+          <caption>Comparing</caption>
+          <thead>
+            <tr>
+              {/* <th scope="col">{item.product.name}</th> */}
+              <th scope="col">{' '}</th>
+              <th scope="col">{product.name}</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              {/* <td>{item.product.default_price}</td> */}
+              <td>Price</td>
+              <td>{product.default_price}</td>
+            </tr>
+            <tr>
+              {/* <td>{item.product.category}</td> */}
+              <td>Category</td>
+              <td>{product.category}</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+      <div className="related-items modal-overlay" id="comparison-modal-overlay" hidden />
+    </>
   );
 }
 

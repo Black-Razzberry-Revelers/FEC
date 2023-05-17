@@ -9,7 +9,7 @@ export default function ItemCard({
   item, outfitItems, setOutfitItems, outfitList, setProduct,
 }) {
   const {
-    style, setStyle, styles, setStyles,
+    style, setStyle, styles, setStyles, // make sure using all these
   } = useContext(styleContext);
   const defaultStyle = item.styles.results.filter((itemStyle) => itemStyle['default?'] === true);
   const placeholder = 'https://static-00.iconduck.com/assets.00/image-icon-256x256-09od4zyo.png';
@@ -70,16 +70,15 @@ export default function ItemCard({
             setOutfitItems(outfitItemsFilter);
             localStorage.setItem('outfitItems', JSON.stringify(outfitItemsFilter));
           } else {
-            const node = document.querySelector(`[data-testid="modal-${item.product.id}"]`);
-            node.hidden = !node.hidden;
+            const modal = document.querySelector('#comparison-modal');
+            modal.hidden = !modal.hidden;
+            const overlay = document.querySelector('#comparison-modal-overlay');
+            overlay.hidden = !overlay.hidden;
           }
         }}
       >
         {outfitList ? 'Delete' : 'Compare'}
       </button>
-      <div className="related-items modal" data-testid={`modal-${item.product.id}`} hidden>
-        <ComparisonModal item={item} />
-      </div>
     </>
   );
 }

@@ -5,6 +5,7 @@ import RelatedItemsSection from './Related/Related';
 import Overview from './Overview';
 import Questions from './Questions/Questions';
 import Ratings from './Ratings/Ratings';
+import ComparisonModal from './Related/subcomponents/ComparisonModal';
 import findAvgRating from '../calculateAvgRating';
 import { requests } from './requests';
 
@@ -63,6 +64,7 @@ export default function App() {
           <RelatedItemsSection currentProduct={product} setProduct={setProduct} />
           <Questions />
           <Ratings />
+          <ComparisonModal />
         </styleContext.Provider>
         {/* </starsContext.Provider> */}
       </div>
