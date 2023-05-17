@@ -9,7 +9,7 @@ function NavigationButtons({ c , v }) {
   return (
     <>
       <button onClick={onAddQuestion}>Ask a Question</button>
-      {v.empty && <button onClick={toggleExpanded}>{toggleText}</button> }
+      {v.empty && <button onClick={toggleExpanded} >{toggleText}</button> }
     </>
   );
 }

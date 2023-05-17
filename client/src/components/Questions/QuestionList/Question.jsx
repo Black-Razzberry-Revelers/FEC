@@ -28,14 +28,14 @@ function Question({ question, qid, v, c }) {
   });
 
   return (
-  <>
+  <div>
     <h4>Question: {question.question_body}</h4>
     <p>Asked By:{question.asker_name}</p>
     <p>On: {question.question_date}</p>
     <p> Helpful? {question.markedHelpful ? <strong>Marked Helpful!</strong> : <strong onClick={onHelpful}> Yes! </strong>} ({question.question_helpfulness})  |  <strong onClick={onAddAnswer}>Add Answer</strong></p>
     <AnswerList c={c} v={v} qid={qid} answers={answers} />
     {answers.length > 2 && <button onClick={onToggle}> {question.showMore ? 'Show Less Answers' : 'Show More Answers'} </button>}
-  </>
+  </div>
   );
 }
 
