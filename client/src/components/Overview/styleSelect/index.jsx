@@ -5,7 +5,9 @@ import StyleOption from './styleOption';
 export default function StyleSelect({ styles }) {
   return (
     <div role="main" className="styles">
-      Available in these styles!
+      <h2>
+        Available in these styles!
+      </h2>
       {styles.results
         ? styles.results.map((styleInfo) =>
           <StyleOption key={styleInfo.style_id} styleInfo={styleInfo} />)

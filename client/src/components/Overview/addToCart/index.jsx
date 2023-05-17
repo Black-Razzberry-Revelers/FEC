@@ -18,11 +18,11 @@ export default function AddToCart({ sizes }) {
   };
 
   return (
-    <div>
+    <div className="option">
       Buy now!
       {clicked
         ? (
-          <div className="add">
+          <div className="option">
             what size?
             <SelectSize sizes={sizes} />
             <button type="reset" onClick={reset}>nevermind</button>

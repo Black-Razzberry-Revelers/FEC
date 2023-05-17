@@ -32,13 +32,18 @@ img {
   display: flex;
 
 }
+.option {
+  margin:1%
+}
 
 .overview {
   display:flex;
   flex-direction: row-reverse;
-  justify-content: space-evenly;
+  justify-content: space-between;
+  flex-wrap: wrap-reverse;
 }
 
+.info,
 .stylesinfo {
   display:flex;
   flex-direction: column;
@@ -48,37 +53,32 @@ img {
   width:20vw;
 }
 
-.info {
-  display:flex;
-  flex-direction: column;
-  align-self: flex-start;
-
-}
-
-.descript{
-  display:flex;
-  flex-direction: column;
-  position: relative;
-}
-
+.descript,
 .styles,
-.add,
 .display {
   display:flex;
   flex-direction: column;
   align-self: center;
-  justify-self: flex-end;
   min-width: fit-content;
+  position: relative;
+  justify-content: space-between;
 }
 
 
 /* Image Carousel */
-
+.display,
+.imageContainer,
 .gallery {
   display:flex;
-  flex-direction: row-reverse;
   align-content: center;
-  overflow: visible;
+  width: fit-content;
+}
+
+.productImage,
+.imageContainer {
+  max-height: 55vw;
+  max-width: 55vw;
+  overflow: hidden;
 }
 
 .thumbnail,
@@ -87,7 +87,9 @@ img {
   justify-content:space-around;
   align-content: space-around;
   flex-direction: column;
-
+  align-self: center;
+  height: 40vw;
+  overflow: visible;
 }
 
 .thumbnail {
@@ -99,11 +101,15 @@ img {
   overflow: hidden;
 }
 
-.display {
-  height:40vw;
-  width:40vw;
-  overflow: hidden;
+.change {
+  display:flex;
+  justify-content: space-between;
+  max-width: 55vw;
+}
 
+.changeup,
+.changedown {
+  width: 3vw;
 }
 
 /* share  */

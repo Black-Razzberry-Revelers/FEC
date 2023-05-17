@@ -63,9 +63,7 @@ export default function Overview({ avgRating }) {
           <AddToCart sizes={sizes} />
         </div>
 
-        <div data-testid="gallery">
-          <Gallery gallery={gallery} display={display} setDisplay={setDisplay} />
-        </div>
+        <Gallery data-testid="gallery" gallery={gallery} display={display} setDisplay={setDisplay} />
 
       </div>
     </div>
