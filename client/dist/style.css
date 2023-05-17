@@ -78,14 +78,25 @@ img {
   display:flex;
   flex-direction: row-reverse;
   align-content: center;
+  overflow: visible;
 }
 
+.thumbnail,
 .imageSelect {
   display:flex;
-  justify-content:center;
+  justify-content:space-around;
   align-content: space-around;
   flex-direction: column;
 
+}
+
+.thumbnail {
+  border: 1px solid #ddd;
+  border-radius: 5px;
+  padding: unset;
+  width: 3vw;
+  height: 3vw;
+  overflow: hidden;
 }
 
 .display {
@@ -95,14 +106,6 @@ img {
 
 }
 
-.thumbnail {
-  border: 1px solid #ddd;
-  border-radius: 4px;
-  padding: 5px;
-  width: 3vw;
-  height: 5vw;
-  overflow: visible;
-}
 /* share  */
 
 .sharePopup {

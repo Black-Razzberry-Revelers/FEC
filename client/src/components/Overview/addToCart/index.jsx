@@ -19,6 +19,7 @@ export default function AddToCart({ sizes }) {
 
   return (
     <div>
+      Buy now!
       {clicked
         ? (
           <div className="add">
