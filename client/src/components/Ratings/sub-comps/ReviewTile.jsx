@@ -9,7 +9,6 @@ import { useState, useEffect } from 'react';
 import { intlFormat } from 'date-fns';
 import fetcher from '../../fetcher';
 import Stars from '../../stars';
-// import averageRating from '../../../calculateAvgRating';
 
 function ReviewTile({ review }) {
   const style = {
@@ -46,9 +45,9 @@ function ReviewTile({ review }) {
 
   return (
     <div>
-      <p>
+      <div>
         <Stars avgRating={review.rating} />
-      </p>
+      </div>
 
       <p>{review.reviewer_name}</p>
       <p>
@@ -66,8 +65,9 @@ function ReviewTile({ review }) {
       {review.body.length > 250 && (
         <a onClick={() => setShowMore(true)}>Show More</a>
       )}
-      {review.photos.map((photo) => (
+      {review.photos.map((photo, i) => (
         <img
+          key={`${i}reviewPhotos`}
           src={photo.url}
           alt="img"
           style={style}

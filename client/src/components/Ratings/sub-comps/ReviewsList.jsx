@@ -42,7 +42,7 @@ function ReviewsList({ reviews, filters, moreReviews }) {
   return (
     <div style={style} onScroll={handleScroll}>
       {filteredReviews.map((review, i) => (
-        <ReviewTile key={i} review={review} />
+        <ReviewTile key={`${i}review`} review={review} />
       ))}
     </div>
   );
