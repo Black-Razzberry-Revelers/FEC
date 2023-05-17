@@ -40,11 +40,11 @@ function AddQuestionModal({ v, c }) {
     <>
       <h3>Your Question</h3>
       <form>
-        <input value={question} type="text" placeholder={p1} onChange={(e) => change(e.target.value, setQuestion)} />
-        <input value={nickname} type="text" placeholder={p2} onChange={(e) => change(e.target.value, setNickname)} />
-        <input value={email} type="text" placeholder={p3} onChange={(e) => change(e.target.value, setEmail)} />
+        <input value={question} type="text" placeholder={p1} data-testid="question-input" onChange={(e) => change(e.target.value, setQuestion)} />
+        <input value={nickname} type="text" placeholder={p2} data-testid="question-nickname-input" onChange={(e) => change(e.target.value, setNickname)} />
+        <input value={email} type="text" placeholder={p3} data-testid="question-email-input" onChange={(e) => change(e.target.value, setEmail)} />
       </form>
-      <button onClick={onSubmit}>Submit</button>
+      <button onClick={onSubmit} data-testid={'question-submit'}>Submit</button>
       <button onClick={onBack}>Go Back!</button>
     </>
   );

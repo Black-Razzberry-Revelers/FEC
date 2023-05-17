@@ -126,14 +126,14 @@ function Questions({ product_id }) {
   };
 
   return (
-    <>
-      <SearchBar c={controller} v={view} />
-      <QuestionList v={view} c={controller} />
-      <NavigationButtons v={view} c={controller} />
+    <div data-testid="Questions">
+      <SearchBar c={controller} v={view} data-testid="SearchBar" />
+      <QuestionList v={view} c={controller} data-testid="QuestionList" />
+      <NavigationButtons v={view} c={controller} data-testid="NavigationButtons" />
 
-      {view.mode === 'Add Answer' && <AddAnswerModal v={view} c={controller} />}
-      {view.mode === 'Add Question' && <AddQuestionModal v={view} c={controller} />}
-    </>
+      {view.mode === 'Add Answer' && <AddAnswerModal v={view} c={controller} data-testid="AddAnswer" />}
+      {view.mode === 'Add Question' && <AddQuestionModal v={view} c={controller} data-testid="AddQuestion" />}
+    </div>
   );
 }
 
