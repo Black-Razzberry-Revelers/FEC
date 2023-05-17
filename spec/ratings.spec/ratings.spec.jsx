@@ -47,7 +47,7 @@ describe('Ratings & Revewis', () => {
     render(proxyReviews.results.map(((review, i) => <ReviewTile review={review} key={`${i}review.spec`} />)));
   });
 
-  test('it should render the WriteNewReview component', () => {});
+  // test('it should render the WriteNewReview component', () => {});
 
   test('it should render the UploadImages component', () => {
     function TestComponent() {
