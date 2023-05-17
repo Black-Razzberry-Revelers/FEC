@@ -9,6 +9,14 @@ export default function AddToCart({ sizes }) {
     setClicked(true);
   };
 
+  const reset = () => {
+    setClicked(false);
+  };
+
+  const emptyCart = (e) => {
+    localStorage.removeItem('cart');
+  };
+
   return (
     <div>
       {clicked
@@ -16,9 +24,15 @@ export default function AddToCart({ sizes }) {
           <div className="add">
             what size?
             <SelectSize sizes={sizes} />
+            <button type="reset" onClick={reset}>nevermind</button>
           </div>
         )
-        : <button type="button" onClick={handleClick}>Add To Cart</button>}
+        : (
+          <div>
+            <button type="button" onClick={handleClick}>Add To Cart</button>
+            <button type="reset" onClick={emptyCart}>clear cart</button>
+          </div>
+        )}
     </div>
   );
 }
