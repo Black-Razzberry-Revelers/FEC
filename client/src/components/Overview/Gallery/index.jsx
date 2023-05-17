@@ -15,7 +15,7 @@ export default function Gallery({ gallery, display, setDisplay }) {
   };
 
   const handleClickDown = () => {
-    console.log(photoIndex)
+    console.log(photoIndex);
     if (photoIndex === 0) {
       setPhotoIndex(gallery.length - 1);
     } else {
@@ -25,7 +25,7 @@ export default function Gallery({ gallery, display, setDisplay }) {
   };
 
   return (
-    <div className="gallery">
+    <div role="main" className="gallery">
       <div className="display">
         <Image display={display} />
         <button type="button" onClick={handleClickUp}>{'>'}</button>
