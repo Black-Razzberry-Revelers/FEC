@@ -25,14 +25,14 @@ export default function Stars({ avgRating }) {
       <div className="stars">
         <div className="stars" id="empty">
           {[1, 2, 3, 4, 5].map((num) => (
-            <div key={num}>
+            <div key={`${num}emptyStar`}>
               <img src={starEmpty} alt="star" />
             </div>
           ))}
         </div>
         <div className="stars" id="filled">
           {filled.map((star, i) => (
-            <div key={i} className="star">
+            <div key={`${i}filledStar`} className="star">
               <img src={starFilled} alt="star" />
             </div>
           ))}
