@@ -2066,4 +2066,122 @@ export const relatedItems = {
       ],
     },
   ],
+  meta: [
+    {
+      product_id: '40345',
+      ratings: {
+        1: '6',
+        2: '4',
+        3: '8',
+        4: '96',
+        5: '26',
+      },
+      recommended: {
+        false: '28',
+        true: '112',
+      },
+      characteristics: {
+        Quality: {
+          id: 135223,
+          value: '3.5208333333333333',
+        },
+      },
+    },
+    {
+      product_id: '40346',
+      ratings: {
+        1: '24',
+        2: '54',
+        3: '49',
+        4: '40',
+        5: '90',
+      },
+      recommended: {
+        false: '69',
+        true: '188',
+      },
+      characteristics: {
+        Fit: {
+          id: 135224,
+          value: '2.8418367346938776',
+        },
+        Length: {
+          id: 135225,
+          value: '3.1457286432160804',
+        },
+        Comfort: {
+          id: 135226,
+          value: '3.0300000000000000',
+        },
+        Quality: {
+          id: 135227,
+          value: '3.4153846153846154',
+        },
+      },
+    },
+    {
+      product_id: '40351',
+      ratings: {
+        1: '16',
+        2: '9',
+        3: '34',
+        4: '12',
+        5: '75',
+      },
+      recommended: {
+        false: '38',
+        true: '108',
+      },
+      characteristics: {
+        Size: {
+          id: 135244,
+          value: '3.0000000000000000',
+        },
+        Width: {
+          id: 135245,
+          value: '3.0520833333333333',
+        },
+        Comfort: {
+          id: 135246,
+          value: '3.7473684210526316',
+        },
+        Quality: {
+          id: 135247,
+          value: '3.9052631578947368',
+        },
+      },
+    },
+    {
+      product_id: '40350',
+      ratings: {
+        1: '8',
+        2: '7',
+        3: '17',
+        4: '30',
+        5: '34',
+      },
+      recommended: {
+        false: '28',
+        true: '68',
+      },
+      characteristics: {
+        Size: {
+          id: 135240,
+          value: '2.8217821782178218',
+        },
+        Width: {
+          id: 135241,
+          value: '2.8613861386138614',
+        },
+        Comfort: {
+          id: 135242,
+          value: '3.1287128712871287',
+        },
+        Quality: {
+          id: 135243,
+          value: '3.3500000000000000',
+        },
+      },
+    },
+  ],
 };
