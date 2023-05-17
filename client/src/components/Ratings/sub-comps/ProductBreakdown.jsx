@@ -9,14 +9,20 @@ function ProductBreakdown({ metaData }) {
   return (
     <div>
       {['Size', 'Width', 'Comfort', 'Quality', 'Length', 'Fit'].map(
-        (feature) => {
+        (feature, i) => {
           if (characteristics[feature] !== undefined) {
             return (
-              <>
-                <div>{feature}</div>
-                {console.log(`${(characteristics[feature].value / 5) * 100}%`)}
-                <input type="range" min="0" max="100" value={`${(characteristics[feature].value / 5) * 100}`} style={{ width: '100%' }} />
-              </>
+              <div key={`${i}-${feature}`}>
+                {feature}
+                <input
+                  type="range"
+                  min="0"
+                  max="100"
+                  defaultValue={`${(characteristics[feature].value / 5) * 100}`}
+                  style={{ width: '100%' }}
+                  key={`${i}-${feature}-${i}`}
+                />
+              </div>
             );
           }
         },
