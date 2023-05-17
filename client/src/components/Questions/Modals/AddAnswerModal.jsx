@@ -16,7 +16,7 @@ function AddAnswerModal({ v, c }) {
       return false;
     }
     if (!email.match(emailREGEXP)) {
-      alert("Please input a valid email. We want to keep in touch with you!")
+      alert('Please input a valid email. We want to keep in touch with you!');
       return false;
     }
     return true;
@@ -28,7 +28,6 @@ function AddAnswerModal({ v, c }) {
 
   function onSubmit() {
     if (validate()) {
-      console.log(v.modeProps.qid);
       requests.post.answer(v.pid, v.modeProps.qid, answer, nickname, email).then(() => {
         c.changeMode('', {});
       });
@@ -39,24 +38,27 @@ function AddAnswerModal({ v, c }) {
     c.changeMode('', {});
   }
 
-  const p1 = "What answer do you have to this question?"
-  const p2 = "What Nickname do you want to be known as?"
-  const p3 = "email@provider.com"
+  const p1 = 'What answer do you have to this question?';
+  const p2 = 'What Nickname do you want to be known as?';
+  const p3 = 'email@provider.com';
 
   return (
     <>
-      <h1>ADD AN ANSWER ON Question: {v.modeProps.question.question_body}</h1>
+      <h1>
+        ADD AN ANSWER ON Question:
+        {' '}
+        {v.modeProps.question.question_body}
+      </h1>
       <form>
-        <input value={answer} type="text" placeholder={p1} onChange={(e) => change(e.target.value, setAnswer)} />
-        <input value={nickname} type="text" placeholder={p2} onChange={(e) => change(e.target.value, setNickname)} />
-        <input value={email} type="text" placeholder={p3} onChange={(e) => change(e.target.value, setEmail)} />
+        <input value={answer} type="text" placeholder={p1} data-testid="answer-input" onChange={(e) => change(e.target.value, setAnswer)} />
+        <input value={nickname} type="text" placeholder={p2} data-testid="answer-nickname-input" onChange={(e) => change(e.target.value, setNickname)} />
+        <input value={email} type="text" placeholder={p3} data-testid="answer-email-input" onChange={(e) => change(e.target.value, setEmail)} />
       </form>
       <button>Upload an Image</button>
-      <button onClick={onSubmit}>Submit</button>
+      <button onClick={onSubmit} data-testid="answer submit">Submit</button>
       <button onClick={onBack}>Go Back!</button>
     </>
   );
 }
-
 
 export default AddAnswerModal;
