@@ -9,3 +9,6 @@ bundle.js*
 
 # directories
 node_modules/
+
+coverage
+
