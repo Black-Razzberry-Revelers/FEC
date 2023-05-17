@@ -1,5 +1,4 @@
 import React from 'react';
-import axios from 'axios';
 import 'jest-environment-jsdom';
 import '@testing-library/jest-dom';
 import {
@@ -23,18 +22,6 @@ import {
   sizesMock,
 } from '../mockData';
 
-// jest.mock('../../client/src/components/fetcher');
-// jest.mock('../../client/src/components/requests');
-// jest.mock('../../client/src/components/Related/Related', () => function mockRelated() {
-//   return <div>related items section </div>;
-// });
-// jest.mock('../../client/src/components/Questions/Questions', () => function mockQuestions() {
-//   return <div> question items section </div>;
-// });
-// jest.mock('../../client/src/components/Ratings/Ratings', () => function mockRatings() {
-//   return <div> ratings and reviews items section </div>;
-// });
-
 describe('Overview', () => {
   const style = styleMock;
   const product = productMock;
@@ -45,7 +32,6 @@ describe('Overview', () => {
         <Overview />
       </styleContext.Provider>,
     );
-    // await screen.findByRole('overview');
   });
 
   afterEach(() => {

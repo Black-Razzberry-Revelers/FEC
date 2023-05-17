@@ -3,11 +3,10 @@ import SelectQuantity from './selectQuantity';
 import { styleContext } from '../../App';
 
 export default function SelectSize({ sizes }) {
-  // drop down of available sizes to choose
   const { style, product } = React.useContext(styleContext);
   const [size, setSize] = React.useState('size');
   const [quantity, setQuantity] = React.useState(['select a size first']);
-  console.log('sizes', sizes)
+
   const handleChange = (e) => {
     const quants = [];
     let count = e.target.value.split(' ')[1];
