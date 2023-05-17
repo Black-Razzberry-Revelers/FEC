@@ -5,29 +5,38 @@ import {
   render, screen, fireEvent, cleanup,
 } from '@testing-library/react';
 
-import App from '../../client/src/components/App';
+import App, { styleContext } from '../../client/src/components/App';
 import Overview from '../../client/src/components/Overview';
 import Gallery from '../../client/src/components/Overview/Gallery';
+import StyleSelect from '../../client/src/components/Overview/styleSelect';
+import ProductInfo from '../../client/src/components/Overview/productInfo';
+import AddToCart from '../../client/src/components/Overview/addToCart';
 
-import { product, style } from './mockData';
+import { requests } from '../../client/src/components/requests';
+import fetcher from '../../client/src/components/fetcher';
+import {
+  productMock,
+  stylesMock,
+  styleMock,
+  metaMock,
+  sizesMock,
+} from '../mockData';
 
 describe('Overview', () => {
-  beforeEach(async () => {
-    render(<App />);
-    await screen.findByRole('application');
+  const style = styleMock;
+  const product = productMock;
+  const styles = stylesMock;
+  beforeEach(() => {
+    render(
+      <styleContext.Provider value={{ style, styles, product }}>
+        <Overview />
+      </styleContext.Provider>,
+    );
   });
 
   afterEach(() => {
     cleanup();
   });
-
-  // test('OverView should render', async () => {
-  //   // jest.mock('../../client/src/components/Overview', () => ({
-  //   //   Overview: () => <mock-overview data-testid="testOV" />,
-  //   // }));
-  //   render(<Overview product={product} />);
-  //   expect(await screen.findByTestId('overview')).toBeInTheDocument();
-  // });
 
   test('It should be a function', () => {
     expect(typeof Overview).toBe('function');
@@ -52,10 +61,12 @@ describe('Overview', () => {
 });
 
 describe('Gallery', () => {
+  const mockSetDisplay = jest.fn();
+  const mockGallery = styleMock.photos;
+  const mockDisplay = styleMock.photos[0];
+
   beforeEach(async () => {
-    const mockGallery = style.photos;
-    const mockDisp = style.photos[0];
-    render(<Gallery gallery={mockGallery} display={mockDisp} />);
+    render(<Gallery gallery={mockGallery} display={mockDisplay} setDisplay={mockSetDisplay} />);
     await screen.findByRole('main');
   });
 
@@ -74,9 +85,106 @@ describe('Gallery', () => {
   });
 
   test('when thumbnail clicked should change display', async () => {
-    const thumbnail = await screen.findAllByTestId('thumbnail');
-    await fireEvent.click(thumbnail, {target: {value: 'newDisplay'}});
-    console.log('test thumbnail', await screen.findByTestId('displayImage'));
-    // expect(await screen.findByTestId('displayImage').url).not.toBe(mockDisp.url);
+    const thumbnail = await screen.getAllByTestId('thumbnail');
+    await fireEvent.click(thumbnail[1]);
+    expect(mockSetDisplay).toHaveBeenCalled();
+  });
+
+  test('there should be two buttons to change the image', async () => {
+    const buttons = await screen.findAllByRole('button');
+    expect(buttons.length).toBe(2);
+    const button = buttons[0];
+    await fireEvent.click(button);
+    expect(mockSetDisplay).toHaveBeenCalled();
+  });
+});
+
+describe('Styleselect', () => {
+  beforeEach(async () => {
+    render(<StyleSelect styles={stylesMock} />);
+    await screen.findByRole('main');
+  });
+
+  afterEach(() => {
+    cleanup();
+  });
+
+  test('it should display the stylenames', async () => {
+    const mockOptions = await screen.findAllByRole('button');
+    const styleText = await screen.findByText('Forest', { exact: false });
+
+    expect(mockOptions.length).toBe(6);
+    expect(styleText).toBeDefined();
+  });
+
+  test('each style option should be a button', async () => {
+    const styleSelectors = await screen.findAllByRole('button');
+    expect(styleSelectors.length).toBe(6);
+  });
+});
+
+describe('ProductInfo', () => {
+  beforeEach(async () => {
+    const style = styleMock;
+    const product = productMock;
+    render(
+      <styleContext.Provider value={{ style, product }}>
+        <ProductInfo />
+      </styleContext.Provider>,
+    );
+    await screen.findByRole('main');
+  });
+
+  afterEach(() => {
+    cleanup();
+  });
+
+  test('it renders the mock price', async () => {
+    const mockPrice = await screen.findByText(styleMock.original_price, { exact: true });
+    expect(mockPrice).toBeVisible();
+  });
+
+  test('it should display the product\'s slogan', async () => {
+    const slogan = await screen.findByText(productMock.slogan, { exact: true });
+    expect(slogan).toBeVisible();
+  });
+  test('there should be a description of the product visible', async () => {
+    const description = await screen.getByTestId('description');
+    expect(description).toBeVisible();
+  });
+});
+
+describe('AddToCart', () => {
+  beforeEach(async () => {
+    const style = styleMock;
+    const product = productMock;
+    render(
+      <styleContext.Provider value={{ style, product }}>
+        <AddToCart sizes={sizesMock} />
+      </styleContext.Provider>,
+    );
+  });
+
+  afterEach(() => {
+    cleanup();
+  });
+
+  test('theres should be an addToCart button', async () => {
+    const button = await screen.findByRole('button');
+    expect(button).toBeVisible();
+  });
+
+  test('when the button is clicked a form should appear', async () => {
+    const button = await screen.findByRole('button');
+    await fireEvent.click(button);
+    expect(await screen.findByTestId('form')).toBeVisible();
+  });
+
+  test('The form should have two select dropdowns and a submit button', async () => {
+    const button = await screen.findByRole('button');
+    await fireEvent.click(button);
+    const dropDowns = await screen.findAllByTestId('select');
+    expect(dropDowns.length).toBe(2);
+    expect(await screen.getByText('Add', { exact: false })).toBeVisible();
   });
 });

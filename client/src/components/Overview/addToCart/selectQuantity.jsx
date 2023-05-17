@@ -6,7 +6,7 @@ export default function SelectQuantity({ quantity }) {
   return (
     quantity
       ? (
-        <select defaultValue="1" name="quantity">
+        <select data-testid="select" defaultValue="1" name="quantity">
           {quantity.map((quant, i) => <option key={i} value={quant} label={quant} />)}
         </select>
       )

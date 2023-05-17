@@ -7,7 +7,7 @@ export default function Stars({ avgRating }) {
   let percent = Math.ceil((avgRating - Math.floor(avgRating)) * 10);
   if (percent > 7) {
     percent = 10;
-  } else if (percent > 5 && percent < 8) {
+  } else if (percent > 4 && percent < 8) {
     percent = 5;
   } else if (percent > 2 && percent < 6) {
     percent = 2.5;

@@ -59,10 +59,7 @@ export default function App() {
             product,
           }}
         >
-          <Overview
-            avgRating={avgRating}
-            product={product}
-          />
+          <Overview avgRating={avgRating} />
           <RelatedItemsSection currentProduct={product} setProduct={setProduct} />
           <Questions />
           <Ratings />
