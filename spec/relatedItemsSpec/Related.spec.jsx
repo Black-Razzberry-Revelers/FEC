@@ -3,12 +3,11 @@ import { render, screen } from '@testing-library/react';
 import '@testing-library/jest-dom';
 
 import RelatedItemsSection from '../../client/src/components/Related/Related';
-// import App from '../../client/src/components/App';
 
 jest.mock(
   '../../client/src/components/Related/subcomponents/RelatedItemsList',
   () => function mockRelatedItemsList({ currentProduct, setProduct }) {
-    return <div>Mocked RelatedItemsList</div>;
+    return (<div>Mocked RelatedItemsList</div>);
   },
 );
 jest.mock(
@@ -27,4 +26,5 @@ describe('Related Items Section Component', () => {
     expect(screen.getByText('Mocked RelatedItemsList')).toBeInTheDocument();
     expect(screen.getByText('Mocked OutfitItemsList')).toBeInTheDocument();
   });
+  jest.resetAllMocks();
 });

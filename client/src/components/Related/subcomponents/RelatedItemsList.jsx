@@ -13,7 +13,8 @@ export default function RelatedItemsList({ currentProduct, setProduct }) {
     let ignore = false;
     requests.get.related(currentProduct.id)
       .then((result) => {
-        console.log('Related Items Data', result.data);
+        // console.log('Current Product', currentProduct);
+        // console.log('Related Items Data', result.data);
         if (!ignore) {
           setRelatedItems(result.data);
         }
