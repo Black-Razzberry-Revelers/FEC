@@ -70,14 +70,14 @@ export default function ItemCard({
             setOutfitItems(outfitItemsFilter);
             localStorage.setItem('outfitItems', JSON.stringify(outfitItemsFilter));
           } else {
-            const node = document.querySelector(`#modal-${item.product.id}`);
+            const node = document.querySelector(`[data-testid="modal-${item.product.id}"]`);
             node.hidden = !node.hidden;
           }
         }}
       >
         {outfitList ? 'Delete' : 'Compare'}
       </button>
-      <div className="related-items modal" id={`modal-${item.product.id}`} hidden>
+      <div className="related-items modal" data-testid={`modal-${item.product.id}`} hidden>
         <ComparisonModal item={item} />
       </div>
     </>
