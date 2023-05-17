@@ -47,6 +47,13 @@ export default function App() {
       });
   }, []);
 
+  function comparisonModalClickHandler() {
+    const nodes = document.querySelectorAll('.comparison-modal');
+    for (let i = 0; i < nodes.length; i += 1) {
+      nodes[i].hidden = !nodes[i].hidden;
+    }
+  }
+
   return (
     <div className="body" role="application">
       <div>
@@ -58,6 +65,7 @@ export default function App() {
             styles,
             setStyles,
             product,
+            comparisonModalClickHandler,
           }}
         >
           <Overview avgRating={avgRating} />

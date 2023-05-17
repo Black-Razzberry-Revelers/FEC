@@ -7,7 +7,7 @@ export default function ComparisonModal(/*{ item }*/) {
   const { product } = useContext(styleContext);
   return (
     <>
-      <div className="related-items modal" id="comparison-modal" hidden>
+      <div className="related-items comparison-modal" id="comparison-modal" hidden>
         <table>
           <caption>Comparing</caption>
           <thead>
@@ -31,7 +31,7 @@ export default function ComparisonModal(/*{ item }*/) {
           </tbody>
         </table>
       </div>
-      <div className="related-items modal-overlay" id="comparison-modal-overlay" hidden />
+      <div className="related-items comparison-modal" id="comparison-modal-overlay" hidden />
     </>
   );
 }
