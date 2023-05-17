@@ -7,7 +7,7 @@ export default function SelectSize({ sizes }) {
   const { style, product } = React.useContext(styleContext);
   const [size, setSize] = React.useState('size');
   const [quantity, setQuantity] = React.useState(['select a size first']);
-
+  console.log('sizes', sizes)
   const handleChange = (e) => {
     const quants = [];
     let count = e.target.value.split(' ')[1];
@@ -31,8 +31,8 @@ export default function SelectSize({ sizes }) {
     <div>
       {sizes
         ? (
-          <form onSubmit={handleSubmit}>
-            <select value="size" name="size" onChange={handleChange}>
+          <form data-testid="form" onSubmit={handleSubmit}>
+            <select data-testid="select" value="size" name="size" onChange={handleChange}>
               {sizes.map((option) => (
                 <option
                   key={option.key}

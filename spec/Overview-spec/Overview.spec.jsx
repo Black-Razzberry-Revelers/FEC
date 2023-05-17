@@ -1,4 +1,5 @@
 import React from 'react';
+import axios from 'axios';
 import 'jest-environment-jsdom';
 import '@testing-library/jest-dom';
 import {
@@ -10,27 +11,46 @@ import Overview from '../../client/src/components/Overview';
 import Gallery from '../../client/src/components/Overview/Gallery';
 import StyleSelect from '../../client/src/components/Overview/styleSelect';
 import ProductInfo from '../../client/src/components/Overview/productInfo';
+import AddToCart from '../../client/src/components/Overview/addToCart';
 
-import { product, styles, style } from './mockData';
+import { requests } from '../../client/src/components/requests';
+import fetcher from '../../client/src/components/fetcher';
+import {
+  productMock,
+  stylesMock,
+  styleMock,
+  metaMock,
+  sizesMock,
+} from '../mockData';
 
+// jest.mock('../../client/src/components/fetcher');
+// jest.mock('../../client/src/components/requests');
+// jest.mock('../../client/src/components/Related/Related', () => function mockRelated() {
+//   return <div>related items section </div>;
+// });
+// jest.mock('../../client/src/components/Questions/Questions', () => function mockQuestions() {
+//   return <div> question items section </div>;
+// });
+// jest.mock('../../client/src/components/Ratings/Ratings', () => function mockRatings() {
+//   return <div> ratings and reviews items section </div>;
+// });
 
 describe('Overview', () => {
-  beforeEach(async () => {
-    render(<App />);
-    await screen.findByRole('application');
+  const style = styleMock;
+  const product = productMock;
+  const styles = stylesMock;
+  beforeEach(() => {
+    render(
+      <styleContext.Provider value={{ style, styles, product }}>
+        <Overview />
+      </styleContext.Provider>,
+    );
+    // await screen.findByRole('overview');
   });
 
   afterEach(() => {
     cleanup();
   });
-
-  // test('OverView should render', async () => {
-  //   // jest.mock('../../client/src/components/Overview', () => ({
-  //   //   Overview: () => <mock-overview data-testid="testOV" />,
-  //   // }));
-  //   render(<Overview product={product} />);
-  //   expect(await screen.findByTestId('overview')).toBeInTheDocument();
-  // });
 
   test('It should be a function', () => {
     expect(typeof Overview).toBe('function');
@@ -56,11 +76,11 @@ describe('Overview', () => {
 
 describe('Gallery', () => {
   const mockSetDisplay = jest.fn();
-  const mockGallery = style.photos;
-  const mockDisp = style.photos[0];
+  const mockGallery = styleMock.photos;
+  const mockDisplay = styleMock.photos[0];
 
   beforeEach(async () => {
-    render(<Gallery gallery={mockGallery} display={mockDisp} setDisplay={mockSetDisplay} />);
+    render(<Gallery gallery={mockGallery} display={mockDisplay} setDisplay={mockSetDisplay} />);
     await screen.findByRole('main');
   });
 
@@ -87,10 +107,8 @@ describe('Gallery', () => {
 });
 
 describe('Styleselect', () => {
-  const mockStyles = styles;
-  const mockStyle = style;
   beforeEach(async () => {
-    render(<StyleSelect styles={mockStyles} />);
+    render(<StyleSelect styles={stylesMock} />);
     await screen.findByRole('main');
   });
 
@@ -105,26 +123,15 @@ describe('Styleselect', () => {
     expect(mockOptions.length).toBe(6);
     expect(styleText).toBeDefined();
   });
-
-  xtest('', async () => {
-
-  });
 });
 
 describe('ProductInfo', () => {
-  const mockProduct = product;
-
-  // jest.mock(
-  //   '../../client/src/components/Overview/productInfo/price',
-  //   () => function mockPrice() {
-  //     return <div>Mocked Price $0</div>;
-  //   },
-  // );
-
   beforeEach(async () => {
+    const style = styleMock;
+    const product = productMock;
     render(
-      <styleContext.Provider value={{ style }}>
-        <ProductInfo product={mockProduct} />
+      <styleContext.Provider value={{ style, product }}>
+        <ProductInfo />
       </styleContext.Provider>,
     );
     await screen.findByRole('main');
@@ -135,13 +142,47 @@ describe('ProductInfo', () => {
   });
 
   test('it renders the mock price', async () => {
-    const mockStyle = style;
-    const mockPrice = await screen.findByText(mockStyle.original_price, { exact: true });
+    const mockPrice = await screen.findByText(styleMock.original_price, { exact: true });
     expect(mockPrice).toBeVisible();
   });
 
   test('it should display the product\'s slogan', async () => {
-    const slogan = await screen.findByText(mockProduct.slogan, { exact: true });
+    const slogan = await screen.findByText(productMock.slogan, { exact: true });
     expect(slogan).toBeVisible();
+  });
+});
+
+describe('AddToCart', () => {
+  beforeEach(async () => {
+    const style = styleMock;
+    const product = productMock;
+    render(
+      <styleContext.Provider value={{ style, product }}>
+        <AddToCart sizes={sizesMock} />
+      </styleContext.Provider>,
+    );
+  });
+
+  afterEach(() => {
+    cleanup();
+  });
+
+  test('theres should be an addToCart button', async () => {
+    const button = await screen.findByRole('button');
+    expect(button).toBeVisible();
+  });
+
+  test('when the button is clicked a form should appear', async () => {
+    const button = await screen.findByRole('button');
+    await fireEvent.click(button);
+    expect(await screen.findByTestId('form')).toBeVisible();
+  });
+
+  test('The form should have two select dropdowns and a submit button', async () => {
+    const button = await screen.findByRole('button');
+    await fireEvent.click(button);
+    const dropDowns = await screen.findAllByTestId('select');
+    expect(dropDowns.length).toBe(2);
+    expect(await screen.getByText('Add', { exact: false })).toBeVisible();
   });
 });
