@@ -100,8 +100,15 @@ describe('Gallery', () => {
 
   test('when thumbnail clicked should change display', async () => {
     const thumbnail = await screen.getAllByTestId('thumbnail');
-    const mock = mockSetDisplay;
     await fireEvent.click(thumbnail[1]);
+    expect(mockSetDisplay).toHaveBeenCalled();
+  });
+
+  test('there should be two buttons to change the image', async () => {
+    const buttons = await screen.findAllByRole('button');
+    expect(buttons.length).toBe(2);
+    const button = buttons[0];
+    await fireEvent.click(button);
     expect(mockSetDisplay).toHaveBeenCalled();
   });
 });
@@ -122,6 +129,11 @@ describe('Styleselect', () => {
 
     expect(mockOptions.length).toBe(6);
     expect(styleText).toBeDefined();
+  });
+
+  test('each style option should be a button', async () => {
+    const styleSelectors = await screen.findAllByRole('button');
+    expect(styleSelectors.length).toBe(6);
   });
 });
 
@@ -149,6 +161,10 @@ describe('ProductInfo', () => {
   test('it should display the product\'s slogan', async () => {
     const slogan = await screen.findByText(productMock.slogan, { exact: true });
     expect(slogan).toBeVisible();
+  });
+  test('there should be a description of the product visible', async () => {
+    const description = await screen.getByTestId('description');
+    expect(description).toBeVisible();
   });
 });
 
