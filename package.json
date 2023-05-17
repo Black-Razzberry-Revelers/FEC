@@ -4,7 +4,7 @@
   "description": "Ecommerce Interactive Details Page",
   "main": "server/index.js",
   "scripts": {
-    "test-coverage": "npx jest --coverage",
+    "coverage": "npx jest --coverage",
     "deep-test": "jest --env=jsdom --detectOpenHandles",
     "test": "jest --env=jsdom",
     "client-dev": "npx webpack --watch",
