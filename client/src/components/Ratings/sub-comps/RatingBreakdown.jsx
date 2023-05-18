@@ -59,7 +59,7 @@ function RatingBreakdown({ metaData, filters, setFilters }) {
       </div>
       <div>
         {filters.length
-          ? <button type="butoon" onClick={() => setFilters([])}>Remove All Filters</button> : null}
+          ? <button type="button" onClick={() => setFilters([])}>Remove All Filters</button> : null}
       </div>
 
     </div>
