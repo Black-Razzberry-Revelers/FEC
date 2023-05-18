@@ -132,6 +132,9 @@ img {
   height: 3.5vw;
   overflow: hidden;
 }
+.thumbnail:hover {
+  transform: scale(1.25);
+}
 
 .change {
   display:flex;
