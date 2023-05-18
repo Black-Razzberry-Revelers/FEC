@@ -45,19 +45,19 @@ function ReviewTile({ review }) {
 
   return (
     <div>
-      <div>
-        <Stars avgRating={review.rating} />
+      <div className="tile-container-stars-user-date">
+        <div className="rating-star"><Stars avgRating={review.rating} /></div>
+        <p className="label tile-user">{review.reviewer_name}</p>
+        <p className="label tile-date">
+          {intlFormat(new Date(review.date), {
+            year: 'numeric',
+            month: 'long',
+            day: 'numeric',
+          })}
+
+        </p>
       </div>
 
-      <p className="label">{review.reviewer_name}</p>
-      <p className="label">
-        {intlFormat(new Date(review.date), {
-          year: 'numeric',
-          month: 'long',
-          day: 'numeric',
-        })}
-
-      </p>
       <p className="info-text" style={{ fontWeight: 'bold' }}>
         {review.summary.length > 60 ? `${review.summary}...` : review.summary}
       </p>
