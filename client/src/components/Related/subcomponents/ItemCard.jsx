@@ -67,6 +67,7 @@ export default function ItemCard({
       </div>
       <button
         type="button"
+        className="material-symbols-outlined"
         onClick={(e) => {
           if (outfitList) {
             const outfitItemsFilter = outfitItems.filter(
@@ -80,7 +81,7 @@ export default function ItemCard({
           }
         }}
       >
-        {outfitList ? 'Delete' : 'Compare'}
+        {outfitList ? 'close' : 'star'}
       </button>
     </>
   );
