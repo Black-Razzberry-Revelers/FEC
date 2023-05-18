@@ -5,6 +5,7 @@ import RelatedItemsSection from './Related/Related';
 import Overview from './Overview';
 import Questions from './Questions/Questions';
 import Ratings from './Ratings/Ratings';
+import ComparisonModal from './Related/subcomponents/ComparisonModal';
 import findAvgRating from '../calculateAvgRating';
 import { requests } from './requests';
 
@@ -13,9 +14,12 @@ export const styleContext = React.createContext({});
 
 export default function App() {
   const [product, setProduct] = React.useState({ features: [] });
-  const [avgRating, setAvgRating] = React.useState(0); // hardcoded for now. change later
+  const [avgRating, setAvgRating] = React.useState(0);
   const [styles, setStyles] = React.useState({});
   const [style, setStyle] = React.useState({});
+  const [comparisonModalProduct, setComparisonModalProduct] = React.useState(
+    { product: { features: [] } },
+  );
 
   React.useEffect(() => {
     requests.get
@@ -46,6 +50,13 @@ export default function App() {
       });
   }, []);
 
+  function comparisonModalClickHandler() {
+    const nodes = document.querySelectorAll('.comparison-modal');
+    for (let i = 0; i < nodes.length; i += 1) {
+      nodes[i].hidden = !nodes[i].hidden;
+    }
+  }
+
   return (
     <div className="body" role="application">
       <div>
@@ -57,12 +68,17 @@ export default function App() {
             styles,
             setStyles,
             product,
+            setProduct,
+            avgRating,
+            comparisonModalClickHandler,
+            setComparisonModalProduct,
           }}
         >
           <Overview avgRating={avgRating} />
           <RelatedItemsSection currentProduct={product} setProduct={setProduct} />
           <Questions />
           <Ratings />
+          <ComparisonModal item={comparisonModalProduct} />
         </styleContext.Provider>
         {/* </starsContext.Provider> */}
       </div>

@@ -2,6 +2,7 @@ import React from 'react';
 import { render, screen, fireEvent } from '@testing-library/react';
 import '@testing-library/jest-dom';
 import { currentItem, relatedItems } from './exampleData';
+import { styleContext } from '../../client/src/components/App';
 
 import OutfitItemsList from '../../client/src/components/Related/subcomponents/OutfitItemsList';
 
@@ -19,8 +20,6 @@ jest.mock(
     );
   },
 );
-
-const styleContext = React.createContext(null);
 
 beforeEach(() => {
   const setProduct = jest.fn();

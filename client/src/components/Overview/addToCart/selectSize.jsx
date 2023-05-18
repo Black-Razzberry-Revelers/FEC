@@ -6,6 +6,7 @@ export default function SelectSize({ sizes }) {
   const { style, product } = React.useContext(styleContext);
   const [size, setSize] = React.useState('size');
   const [quantity, setQuantity] = React.useState(['select a size first']);
+  const [cart, setCart] = React.useState(JSON.parse(localStorage.getItem('cart')) || []);
 
   const handleChange = (e) => {
     const quants = [];
@@ -23,7 +24,11 @@ export default function SelectSize({ sizes }) {
     const form = Object.fromEntries(data.entries());
     form.style = style;
     form.product = product;
-    console.log(form);
+    localStorage.setItem('cart', JSON.stringify([...cart, form]));
+  };
+
+  const emptyCart = (e) => {
+    localStorage.removeItem('cart');
   };
 
   return (
@@ -31,17 +36,19 @@ export default function SelectSize({ sizes }) {
       {sizes
         ? (
           <form data-testid="form" onSubmit={handleSubmit}>
-            <select data-testid="select" value="size" name="size" onChange={handleChange}>
+            <select data-testid="select" defaultValue={size} name="size" onChange={handleChange}>
               {sizes.map((option) => (
                 <option
                   key={option.key}
+                  value={`${option.size} ${option.quantity}`}
                 >
                   {`${option.size} ${option.quantity}`}
                 </option>
               ))}
             </select>
             <SelectQuantity quantity={quantity} />
-            <button type="submit" className="submit-button">Add</button>
+            <button type="submit">Add</button>
+            <button type="reset" onClick={emptyCart}>clear cart</button>
           </form>
         )
         : <div>loading...</div>}
