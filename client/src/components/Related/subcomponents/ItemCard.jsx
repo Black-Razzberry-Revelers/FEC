@@ -41,23 +41,23 @@ export default function ItemCard({
           }
         }}
       >
-        <h3>Item Card</h3>
+        <h3 className="sub-head">Item Card</h3>
         <img
           src={thumbnail || placeholder} // need to account for default styles
           alt={item.product.name}
         />
-        <div>
+        <div className="info-text">
           Name:
           {' '}
           {item.product.name}
         </div>
-        <div>
+        <div className="info-text">
           Category:
           {' '}
           {item.product.category}
           {/* {console.log('Item Card Item:', item)} */}
         </div>
-        <div>
+        <div className="info-text">
           Price: $
           {item.product.default_price}
         </div>

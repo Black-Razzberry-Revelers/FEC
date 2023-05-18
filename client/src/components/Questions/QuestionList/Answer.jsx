@@ -13,13 +13,13 @@ function Answer({
 
   return (
     <>
-      <p>
+      <p className="sub-head">
         {' '}
         Answer:
         {' '}
         {answer.body}
       </p>
-      <p>
+      <p className='label'>
         {' '}
         by:
         {' '}

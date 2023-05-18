@@ -45,8 +45,8 @@ export default function Overview({ avgRating }) {
 
   return (
     <div data-testid="overview">
-      <h1 data-testid="productName">{product.name}</h1>
-      <div data-testid="category">
+      <h1 data-testid="productName" className="section-head">{product.name}</h1>
+      <div data-testid="category" className="sub-head">
         in:
         {product.category}
       </div>

@@ -41,7 +41,7 @@ export default function SelectSize({ sizes }) {
               ))}
             </select>
             <SelectQuantity quantity={quantity} />
-            <button type="submit">Add</button>
+            <button type="submit" className="submit-button">Add</button>
           </form>
         )
         : <div>loading...</div>}

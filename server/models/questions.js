@@ -32,6 +32,7 @@ exports.postNewQuestion = (product_id, body, name, email) => {
   };
   return axios(request);
 };
+
 exports.postNewAnswer = (question_id, product_id, body, name, email, photos = []) => {
   const request = {
     url: `${process.env.URL}/qa/questions/${question_id}/answers`,

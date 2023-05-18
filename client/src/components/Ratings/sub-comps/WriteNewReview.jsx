@@ -55,21 +55,21 @@ function WriteNewReview({ setWriteReview, metaData, writeReview }) {
 
   return (
     <div className={showHideClassName}>
-      <section className="modal-main">
+      <section className="modal-main modalframe">
         <span
           className="material-symbols-outlined"
           onClick={() => setWriteReview(false)}
         >
           cancel
         </span>
-        <form>
-          <label>Write Your Review</label>
+        <form className="modal-form">
+          <label className="section-head">Write Your Review</label>
 
-          <p>About the Product Name Here</p>
+          <p className="sub-head">About the Product Name Here</p>
           <OverallRating setPerson={setPerson} person={person} />
 
           <fieldset>
-            <legend>Do you recommend this product?</legend>
+            <legend className="sub-head">Do you recommend this product?</legend>
 
             <label htmlFor="yes">Yes</label>
             <input
@@ -100,7 +100,7 @@ function WriteNewReview({ setWriteReview, metaData, writeReview }) {
           <FeedbackAndInfo setPerson={setPerson} person={person} />
 
           <UploadImages setPerson={setPerson} person={person} />
-          <button type="submit" onClick={(e) => handleSubmit(e)}>Click</button>
+          <button className="submit-button" type="submit" onClick={(e) => handleSubmit(e)}>Click</button>
         </form>
       </section>
     </div>
