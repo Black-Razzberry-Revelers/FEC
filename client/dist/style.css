@@ -1,3 +1,9 @@
+.body {
+  max-width: 1080px;
+  margin: 0 auto !important;
+  float: none !important;
+}
+
 h1,
 div,
 img {
@@ -157,6 +163,7 @@ img {
   transition: transform 0.3s;
 }
 
+.modal-frame,
 #comparison-modal {
   z-index: 1010;
   position:fixed;
@@ -168,6 +175,7 @@ img {
   transform: translate(-50%,-50%);
 }
 
+.modal-frame-overlay,
 #comparison-modal-overlay {
   z-index: 1000;
   position:fixed;
