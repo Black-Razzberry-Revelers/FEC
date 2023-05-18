@@ -9,11 +9,14 @@ export default function StyleOption({ styleInfo }) {
 
   return (
     <button
-      {styleInfo.id ==== style.id
-        ? style = {{}}
-
-      }
-      style={{ padding: 'unset', borderRadius: '8px', borderWidth: '.25px' }}
+      style={styleInfo.id === style.id
+        ? {
+          boxShadow: '12px 12px 2px 1px rgba(0, 0, 255, .2)',
+          padding: 'unset',
+          borderRadius: '8px',
+          borderWidth: '.25px',
+        }
+        : { padding: 'unset', borderRadius: '8px', borderWidth: '.25px' }}
       type="button"
       onClick={handleClick}
       data-testid="thumbnail"
