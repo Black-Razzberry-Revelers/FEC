@@ -10,9 +10,7 @@ export default function ComparisonModal({ item }) {
 
   function buildFeatureObj(features) {
     const obj = {};
-    console.log('Features provided:', features);
     features.forEach((feature) => { obj[feature.feature] = feature.value; });
-    console.log('Built Obj', obj);
     return obj;
   }
 
