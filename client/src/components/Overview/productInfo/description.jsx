@@ -10,7 +10,7 @@ export default function Description() {
       {product
         ? (
           <div className="descrip">
-            <h2 className="sub-head">{product.slogan}</h2>
+            <h3 className="sub-head">{product.slogan}</h3>
             <p className="info-text">{product.description}</p>
             <ul className="info-text">
               {product.features.map((f) => <li key={f.feature}>{f.feature} - {f.value}</li>)}

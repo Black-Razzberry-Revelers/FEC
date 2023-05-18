@@ -1,5 +1,5 @@
 .body {
-  max-width: 1080px;
+  max-width: 2000px;
   margin: 0 auto !important;
   float: none !important;
 }
@@ -41,11 +41,19 @@ img {
   margin:1%
 }
 
+.section-head {
+  display: flex;
+}
+
+#product-name {
+  font-weight: bold;
+}
+
 .overview {
   display:flex;
   flex-direction: row-reverse;
   justify-content: space-between;
-  flex-wrap: wrap-reverse;
+  /* flex-wrap: wrap-reverse; */
 }
 
 .info,
@@ -65,13 +73,8 @@ img {
   justify-content: flex-start;
   align-content: space-evenly;
 }
-/* /descript,/ */
-.descript{
-  display:flex;
-  flex-direction: column;
-  position: relative;
-}
 
+.descript,
 .display {
   display:flex;
   flex-direction: column;

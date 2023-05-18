@@ -9,6 +9,10 @@ export default function StyleOption({ styleInfo }) {
 
   return (
     <button
+      {styleInfo.id ==== style.id
+        ? style = {{}}
+
+      }
       style={{ padding: 'unset', borderRadius: '8px', borderWidth: '.25px' }}
       type="button"
       onClick={handleClick}
