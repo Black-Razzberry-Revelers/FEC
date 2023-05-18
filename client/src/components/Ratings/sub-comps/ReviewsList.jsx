@@ -10,8 +10,7 @@ function ReviewsList({ reviews, filters, moreReviews }) {
 
   const style = {
     border: '1px solid black',
-    width: '65rem',
-    height: '55rem',
+    width: '100%',
     overflow: 'auto',
   };
   const handleScroll = (event) => {

@@ -5,8 +5,6 @@
 /* eslint-disable jsx-a11y/no-static-element-interactions */
 /* eslint-disable react/react-in-jsx-scope */
 import { useState } from 'react';
-import averageRating from '../../../calculateAvgRating';
-import Stars from '../../stars';
 
 function RatingBreakdown({ metaData, filters, setFilters }) {
   const totalReviews = Object.values(metaData.ratings).reduce(
@@ -25,23 +23,21 @@ function RatingBreakdown({ metaData, filters, setFilters }) {
   };
   return (
     <div className="RatingBreakdown">
-      <h2>{averageRating(metaData.ratings)}</h2>
-      <Stars avgRating={averageRating(metaData.ratings)} />
-      <div className="bars">
+
+      <div className="ratings-bars">
         {Object.values(metaData.ratings).map((rating, i) => (
-          <div key={i + 1} className="bar" onClick={() => handleFilterClick(i + 1)}>
+          <div key={i + 1} className="rating-bar" onClick={() => handleFilterClick(i + 1)}>
             <div>
               {i + 1}
               {' '}
               Stars
-              <span>{rating}</span>
             </div>
             <div style={{ display: 'flex' }}>
               <div
                 className="green"
                 style={{
                   width: `${(rating / totalReviews) * 100}%`,
-                  backgroundColor: 'green',
+                  backgroundColor: '#545656',
                   height: '10px',
                 }}
               />
@@ -49,17 +45,18 @@ function RatingBreakdown({ metaData, filters, setFilters }) {
                 className="gray"
                 style={{
                   width: `${((totalReviews - rating) / totalReviews) * 100}%`,
-                  backgroundColor: 'gray',
+                  backgroundColor: '#c6cccc',
                   height: '10px',
                 }}
               />
             </div>
+            <span>{rating}</span>
           </div>
-        ))}
+        )).reverse()}
       </div>
       <div>
         {filters.length
-          ? <button type="butoon" onClick={() => setFilters([])}>Remove All Filters</button> : null}
+          ? <button type="button" onClick={() => setFilters([])}>Remove All Filters</button> : null}
       </div>
 
     </div>
