@@ -126,7 +126,7 @@ function Questions({ product_id }) {
   };
 
   return (
-    <div data-testid="Questions">
+    <div data-testid="Questions" id="Q-A">
       <SearchBar c={controller} v={view} data-testid="SearchBar" />
       <QuestionList v={view} c={controller} data-testid="QuestionList" />
       <NavigationButtons v={view} c={controller} data-testid="NavigationButtons" />

@@ -8,8 +8,8 @@ function NavigationButtons({ c , v }) {
   const toggleText = !v.expanded ? 'More Answered Questions' : 'Less Answered Questions';
   return (
     <>
-      <button onClick={onAddQuestion} className="show-button">Ask a Question</button>
-      {v.empty && <button onClick={toggleExpanded} className="show-button">{toggleText}</button> }
+      <div onClick={onAddQuestion} className="show-button" id="ask-a-question">Ask a Question</div>
+      {v.empty && <div onClick={toggleExpanded} className="show-button" id="more-questions">{toggleText}</div> }
     </>
   );
 }

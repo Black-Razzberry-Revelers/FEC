@@ -54,9 +54,8 @@ function AddAnswerModal({ v, c }) {
         <input value={nickname} type="text" placeholder={p2} data-testid="answer-nickname-input" onChange={(e) => change(e.target.value, setNickname)} />
         <input value={email} type="text" placeholder={p3} data-testid="answer-email-input" onChange={(e) => change(e.target.value, setEmail)} />
       </form>
-      <button>Upload an Image</button>
-      <button onClick={onSubmit} data-testid="answer submit">Submit</button>
-      <button onClick={onBack}>Go Back!</button>
+      <div className="submit-button" onClick={onSubmit} data-testid="answer submit">Submit</div>
+      <div className="submit-button" onClick={onBack}>Go Back!</div>
     </div>
   );
 }
