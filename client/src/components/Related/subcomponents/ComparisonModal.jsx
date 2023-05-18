@@ -3,8 +3,8 @@ import PropTypes from 'prop-types';
 import { currentItem } from './exampleData';
 import { styleContext } from '../../App';
 
-export default function ComparisonModal(/*{ item }*/) {
-  const { product } = useContext(styleContext);
+export default function ComparisonModal(/* { item } */) {
+  const { product, comparisonModalClickHandler } = useContext(styleContext);
   return (
     <>
       <div className="related-items comparison-modal" id="comparison-modal" hidden>
@@ -31,7 +31,20 @@ export default function ComparisonModal(/*{ item }*/) {
           </tbody>
         </table>
       </div>
-      <div className="related-items comparison-modal" id="comparison-modal-overlay" hidden />
+      <div
+        className="related-items comparison-modal"
+        id="comparison-modal-overlay"
+        role="button"
+        tabIndex="0"
+        aria-label="comparison-modal-overlay"
+        hidden
+        onClick={(e) => {
+          comparisonModalClickHandler();
+        }}
+        onKeyDown={(e) => {
+          comparisonModalClickHandler();
+        }}
+      />
     </>
   );
 }
