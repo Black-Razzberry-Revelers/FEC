@@ -49,8 +49,8 @@ function ReviewTile({ review }) {
         <Stars avgRating={review.rating} />
       </div>
 
-      <p>{review.reviewer_name}</p>
-      <p>
+      <p className="label">{review.reviewer_name}</p>
+      <p className="label">
         {intlFormat(new Date(review.date), {
           year: 'numeric',
           month: 'long',
@@ -58,10 +58,10 @@ function ReviewTile({ review }) {
         })}
 
       </p>
-      <p style={{ fontWeight: 'bold' }}>
+      <p className="info-text" style={{ fontWeight: 'bold' }}>
         {review.summary.length > 60 ? `${review.summary}...` : review.summary}
       </p>
-      <p>{showMore ? review.body : review.body.slice(0, 250)}</p>
+      <p className="show-button">{showMore ? review.body : review.body.slice(0, 250)}</p>
       {review.body.length > 250 && (
         <a onClick={() => setShowMore(true)}>Show More</a>
       )}
@@ -90,20 +90,20 @@ function ReviewTile({ review }) {
 
       {review.response && (
         <>
-          <p>Response from seller</p>
-          <p>{reiew.response}</p>
+          <p className="label">Response from seller</p>
+          <p className="info-text">{reiew.response}</p>
         </>
       )}
-      <p>{review.response && reiew.response}</p>
-      <p>{review.recommend && 'I recommend this product'}</p>
-      <p>
+      <p className="info-text">{review.response && reiew.response}</p>
+      <p className="info-text">{review.recommend && 'I recommend this product'}</p>
+      <p className="info-text">
         Was this review helpful?
-        <a onClick={() => sendPositiveFeedback(review.review_id)}>
+        <a className="helpful-button" onClick={() => sendPositiveFeedback(review.review_id)}>
           Yes (
           {review.helpfulness}
           )
         </a>
-        <a onClick={() => sendNegativeFeedback(review.review_id)}>No (0)</a>
+        <a className="helpful-button" onClick={() => sendNegativeFeedback(review.review_id)}>No (0)</a>
       </p>
     </div>
   );

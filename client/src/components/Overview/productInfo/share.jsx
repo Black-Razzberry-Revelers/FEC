@@ -15,7 +15,7 @@ export default function Share() {
   return (
     clickShare
       ? (
-        <div className="sharePopup">
+        <div className="sharePopup modal-frame">
           Share this product
           <div
             data-layout="button_count"
@@ -51,7 +51,7 @@ export default function Share() {
           </div>
         </div>
       )
-      : <button type="button" onClick={handleClick}>share</button>
+      : <button type="button" onClick={handleClick} className="show-button">share</button>
 
   );
 }

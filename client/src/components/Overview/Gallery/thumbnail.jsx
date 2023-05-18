@@ -15,6 +15,7 @@ export default function Thumbnail({ image, setDisplay }) {
       style={{ padding: 'unset', borderRadius: '8px', borderWidth: '.25px'}}
       type="button"
       onClick={handleClick}
+<<<<<<< HEAD
       data-testid="thumbnail"
     >
       <img
@@ -24,5 +25,11 @@ export default function Thumbnail({ image, setDisplay }) {
         src={image.thumbnail_url}
       />
     </button>
+=======
+      className="thumbnail img-thumbnail"
+      alt="circle"
+      src={image.thumbnail_url}
+    />
+>>>>>>> main
   );
 }

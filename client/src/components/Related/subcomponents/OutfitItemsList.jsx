@@ -13,10 +13,10 @@ export default function OutfitItemsList({ currentProduct, setProduct }) {
 
   return (
     <div className="outfit carousel">
-      <h2>Outfit Items List</h2>
+      <h2 className="section-head">Outfit Items List</h2>
       <button
         type="button"
-        className="outfit"
+        className="outfit "
         id="add-item-to-outfit"
         onClick={(e) => {
           const productIds = outfitItems.map((item) => item.product.id);
@@ -42,8 +42,8 @@ export default function OutfitItemsList({ currentProduct, setProduct }) {
           </div>
         ))}
       </div>
-      <button type="button" hidden={activeIndex === 0} onClick={(e) => setActiveIndex(activeIndex - 1)}>{'<'}</button>
-      <button type="button" onClick={(e) => setActiveIndex(activeIndex + 1)}>{'>'}</button>
+      <button className="arrow-nav" type="button" hidden={activeIndex === 0} onClick={(e) => setActiveIndex(activeIndex - 1)}>{'<'}</button>
+      <button className="arrow-nav" type="button" onClick={(e) => setActiveIndex(activeIndex + 1)}>{'>'}</button>
     </div>
   );
 }

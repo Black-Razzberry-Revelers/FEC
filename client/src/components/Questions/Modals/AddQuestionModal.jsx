@@ -37,16 +37,16 @@ function AddQuestionModal({ v, c }) {
   const p2 = 'What Nickname do you want to be known as?';
   const p3 = 'email@provider.com';
   return (
-    <>
-      <h3>Your Question</h3>
-      <form>
+    <div className="modal-frame">
+      <h3 className="section-head">Your Question</h3>
+      <form classname="modal-form">
         <input value={question} type="text" placeholder={p1} data-testid="question-input" onChange={(e) => change(e.target.value, setQuestion)} />
         <input value={nickname} type="text" placeholder={p2} data-testid="question-nickname-input" onChange={(e) => change(e.target.value, setNickname)} />
         <input value={email} type="text" placeholder={p3} data-testid="question-email-input" onChange={(e) => change(e.target.value, setEmail)} />
       </form>
-      <button onClick={onSubmit} data-testid={'question-submit'}>Submit</button>
-      <button onClick={onBack}>Go Back!</button>
-    </>
+      <button classname="submit-button" onClick={onSubmit} data-testid={'question-submit'}>Submit</button>
+      <button classname="submit-button" onClick={onBack}>Go Back!</button>
+    </div>
   );
 }
 
