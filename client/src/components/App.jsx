@@ -50,8 +50,8 @@ export default function App() {
       });
   }, []);
 
-  function comparisonModalClickHandler() {
-    const nodes = document.querySelectorAll('.comparison-modal');
+  function comparisonModalClickHandler(selector = '.comparison-modal') {
+    const nodes = document.querySelectorAll(selector);
     for (let i = 0; i < nodes.length; i += 1) {
       nodes[i].hidden = !nodes[i].hidden;
     }

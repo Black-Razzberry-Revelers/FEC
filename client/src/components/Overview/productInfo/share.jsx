@@ -15,41 +15,44 @@ export default function Share() {
   return (
     clickShare
       ? (
-        <div className="sharePopup modal-frame">
-          Share this product
-          <div
-            data-layout="button_count"
-            data-size="small"
-            data-href={url}
-          >
-            <a
-              target="_blank"
-              rel="noreferrer noopener"
-              href={fblink}
-            >
-              Facebook
-            </a>
-            <a
-              className="twitter-share-button"
-              href="https://twitter.com/intent/tweet"
+        <>
+          <div className="sharePopup modal-frame">
+            Share this product
+            <div
+              data-layout="button_count"
               data-size="small"
-              rel="noreferrer"
-              target="_blank"
+              data-href={url}
             >
-              <link rel="canonical" href={url} />
-              Tweet
-            </a>
-            <a
-              className="pinterest-share-button"
-              href={pinLink}
-              data-size="small"
-              rel="noreferrer"
-              target="_blank"
-            >
-              Pinterest
-            </a>
+              <a
+                target="_blank"
+                rel="noreferrer noopener"
+                href={fblink}
+              >
+                Facebook
+              </a>
+              <a
+                className="twitter-share-button"
+                href="https://twitter.com/intent/tweet"
+                data-size="small"
+                rel="noreferrer"
+                target="_blank"
+              >
+                <link rel="canonical" href={url} />
+                Tweet
+              </a>
+              <a
+                className="pinterest-share-button"
+                href={pinLink}
+                data-size="small"
+                rel="noreferrer"
+                target="_blank"
+              >
+                Pinterest
+              </a>
+            </div>
           </div>
-        </div>
+          <div className="modal-frame-overlay" onClick={(e) => setClickShare(false)} />
+        </>
       )
       : <button type="button" onClick={handleClick} className="show-button">share</button>
 
