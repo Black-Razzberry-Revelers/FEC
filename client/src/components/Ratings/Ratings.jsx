@@ -6,7 +6,7 @@ import RatingBreakdown from './sub-comps/RatingBreakdown';
 import ProductBreakdown from './sub-comps/ProductBreakdown';
 import WriteNewReview from './sub-comps/WriteNewReview';
 
-function Ratings(/* {product_id, count} */) {
+function Ratings(/* {product_id } */) {
   const [reviews, setReviews] = useState();
   const [metaData, setMetaData] = useState();
   const [moreReviews, setMoreReviews] = useState(false);
