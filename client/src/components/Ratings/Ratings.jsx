@@ -29,7 +29,7 @@ function Ratings(/* {product_id, count} */) {
 
   return (
     <div style={{ display: 'flex' }}>
-      <h2>Ratings & Reviews</h2>
+      <h2 className="section-head">Ratings & Reviews</h2>
       <div className="right" style={{ width: '50%' }}>
         {metaData && (
           <RatingBreakdown
@@ -42,7 +42,7 @@ function Ratings(/* {product_id, count} */) {
       </div>
 
       <div className="left" style={{ width: '50%' }}>
-        <h3>{reviews && `${reviews.length} Reviews, sorted by`}</h3>
+        <h3 className="sub-head">{reviews && `${reviews.length} Reviews, sorted by`}</h3>
         <select onChange={(e) => setSortReviews(e.target.value)}>
           <option value="relevant">Relevant</option>
           <option value="helpful">Helpful</option>
@@ -57,10 +57,10 @@ function Ratings(/* {product_id, count} */) {
 
           />
         )}
-        <button type="button" onClick={() => setMoreReviews(true)}>
+        <button className="show-button" type="button" onClick={() => setMoreReviews(true)}>
           More Reviews
         </button>
-        <button type="button" onClick={() => setWriteReview(true)}>
+        <button className="show-button" type="button" onClick={() => setWriteReview(true)}>
           Write New Review
         </button>
         {metaData && (

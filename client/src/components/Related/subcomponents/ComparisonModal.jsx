@@ -7,24 +7,24 @@ export default function ComparisonModal({ item }) {
   const { product } = useContext(styleContext);
   return (
     <table>
-      <caption>Comparing</caption>
+      <caption className="label">Comparing</caption>
       <thead>
         <tr>
-          <th scope="col">{item.product.name}</th>
-          <th scope="col">{' '}</th>
-          <th scope="col">{product.name}</th>
+          <th className="info-text" scope="col">{item.product.name}</th>
+          <th className="info-text" scope="col">{' '}</th>
+          <th className="info-text" scope="col">{product.name}</th>
         </tr>
       </thead>
       <tbody>
         <tr>
-          <td>{item.product.default_price}</td>
-          <td>Price</td>
-          <td>{product.default_price}</td>
+          <td className="info-text">{item.product.default_price}</td>
+          <td className="label">Price</td>
+          <td className="info-text">{product.default_price}</td>
         </tr>
         <tr>
-          <td>{item.product.category}</td>
-          <td>Category</td>
-          <td>{product.category}</td>
+          <td className="info-text">{item.product.category}</td>
+          <td className="label">Category</td>
+          <td className="info-text">{product.category}</td>
         </tr>
       </tbody>
     </table>

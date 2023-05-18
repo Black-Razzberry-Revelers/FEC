@@ -43,8 +43,8 @@ export default function RelatedItemsList({ currentProduct, setProduct }) {
           </div>
         ))}
       </div>
-      <button type="button" hidden={activeIndex === 0} onClick={(e) => setActiveIndex(activeIndex - 1)}>{'<'}</button>
-      <button type="button" onClick={(e) => setActiveIndex(activeIndex + 1)}>{'>'}</button>
+      <button className="arrow-nav" type="button" hidden={activeIndex === 0} onClick={(e) => setActiveIndex(activeIndex - 1)}>{'<'}</button>
+      <button className="arrow-nav" type="button" onClick={(e) => setActiveIndex(activeIndex + 1)}>{'>'}</button>
     </div>
   );
 }

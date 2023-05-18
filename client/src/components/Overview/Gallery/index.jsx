@@ -28,8 +28,8 @@ export default function Gallery({ gallery, display, setDisplay }) {
     <div role="main" className="gallery">
       <div className="display">
         <Image display={display} />
-        <button type="button" onClick={handleClickUp}>{'>'}</button>
-        <button type="button" onClick={handleClickDown}>{'<'}</button>
+        <button type="button" onClick={handleClickUp} className="arrow-nav">{'>'}</button>
+        <button type="button" onClick={handleClickDown} className="arrow-nav">{'<'}</button>
       </div>
       <div className="imageSelect">
         {gallery.map((image, i) => <Thumbnail image={image} key={i} setDisplay={setDisplay} />)}
