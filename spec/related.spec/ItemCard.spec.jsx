@@ -1,7 +1,10 @@
 import React from 'react';
-import { render, screen, fireEvent, cleanup } from '@testing-library/react';
+import {
+  render, screen, fireEvent, cleanup,
+} from '@testing-library/react';
 import '@testing-library/jest-dom';
 import { currentItem, relatedItems } from './exampleData';
+import { styleContext } from '../../client/src/components/App';
 
 import ItemCard from '../../client/src/components/Related/subcomponents/ItemCard';
 
@@ -19,7 +22,6 @@ jest.mock(
   },
 );
 
-const styleContext = React.createContext(null);
 const item = {
   product: relatedItems.products[0],
   styles: relatedItems.styles[0],
@@ -63,7 +65,7 @@ describe('Item Card', () => {
     expect(screen.getByTestId(/modal-\d{5}/)).not.toHaveAttribute('hidden');
   });
 
-  xit('should set the overview product and styles when the card is clicked', () => {
+  it('should set the overview product and styles when the card is clicked', () => {
     render(
       <styleContext.Provider value={{ setStyle, setStyles }}>
         <ItemCard item={item} outfitList={false} setProduct={setProduct} />
@@ -74,8 +76,8 @@ describe('Item Card', () => {
     expect(setStyles).not.toHaveBeenCalled();
     fireEvent.click(screen.getByRole('link'));
     expect(setProduct).toHaveBeenCalled();
-    // expect(setStyle).toHaveBeenCalled();
-    // expect(setStyles).toHaveBeenCalled();
+    expect(setStyle).toHaveBeenCalled();
+    expect(setStyles).toHaveBeenCalled();
   });
 
   it('should delete an Item Card when the delete button is clicked', () => {

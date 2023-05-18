@@ -2,28 +2,25 @@
 /* eslint-disable jsx-a11y/no-noninteractive-element-interactions */
 import React from 'react';
 
-export default function Thumbnail({ image, setDisplay, key }) {
+export default function Thumbnail({ image, setDisplay }) {
   const handleClick = (e) => {
     e.preventDefault();
     setDisplay(image.url);
   };
 
-  const handleKeyDown = (e) => {
-    e.preventDefault();
-    if (e.code === 'Enter') {
-      setDisplay(image.url);
-    }
-  };
-
   return (
-    <img
-      tabIndex={key}
-      onKeyDown={handleKeyDown}
-      data-testid="thumbnail"
+    <button
+      style={{ padding: 'unset', borderRadius: '8px', borderWidth: '.25px'}}
+      type="button"
       onClick={handleClick}
-      className="thumbnail img-thumbnail"
-      alt="circle"
-      src={image.thumbnail_url}
-    />
+      data-testid="thumbnail"
+    >
+      <img
+        className="thumbnail img-thumbnail"
+        style={{ padding: 'unset', borderRadius: '8px', borderWidth: '.25px' }}
+        alt="circle"
+        src={image.thumbnail_url}
+      />
+    </button>
   );
 }

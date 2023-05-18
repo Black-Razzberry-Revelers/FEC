@@ -2,6 +2,8 @@ import React from 'react';
 
 export default function Image({ display }) {
   return (
-    <img data-testid="productImage" className="display" alt="main" src={display.url} />
+    <div className="imageContainer">
+      <img data-testid="productImage" className="productImage" alt="main" src={display.url} />
+    </div>
   );
 }
