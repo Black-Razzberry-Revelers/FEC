@@ -30,15 +30,19 @@ img {
 
 .rating {
   display: flex;
-
+}
+.option {
+  margin:1%
 }
 
 .overview {
   display:flex;
   flex-direction: row-reverse;
-  justify-content: space-evenly;
+  justify-content: space-between;
+  flex-wrap: wrap-reverse;
 }
 
+.info,
 .stylesinfo {
   display:flex;
   flex-direction: column;
@@ -48,61 +52,76 @@ img {
   width:20vw;
 }
 
-.info {
-  display:flex;
-  flex-direction: column;
-  align-self: flex-start;
-
+.styles {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  justify-content: flex-start;
+  align-content: space-evenly;
 }
-
-.descript{
-  display:flex;
-  flex-direction: column;
-  position: relative;
-}
-
-.styles,
-.add,
+.descript,
 .display {
   display:flex;
   flex-direction: column;
   align-self: center;
-  justify-self: flex-end;
   min-width: fit-content;
+  position: relative;
+  justify-content: space-between;
 }
-
 
 /* Image Carousel */
 
+.carousel1,
+.display,
+.imageContainer,
 .gallery {
   display:flex;
-  flex-direction: row-reverse;
   align-content: center;
+  width: fit-content;
+  width: 52vw;
+  align-self: flex-end;
 }
 
+.productImage,
+.imageContainer {
+  max-height: 55vw;
+  max-width: 55vw;
+  overflow: hidden;
+  transform: translateX(4px);
+}
+
+.thumbnail,
 .imageSelect {
   display:flex;
-  justify-content:center;
+  justify-content:space-around;
   align-content: space-around;
   flex-direction: column;
-
-}
-
-.display {
-  height:40vw;
-  width:40vw;
-  overflow: hidden;
-
+  align-self: center;
+  height: 40vw;
+  width: 3.5vw;
+  overflow: visible;
 }
 
 .thumbnail {
   border: 1px solid #ddd;
-  border-radius: 4px;
-  padding: 5px;
-  width: 3vw;
-  height: 5vw;
-  overflow: visible;
+  border-radius: 5px;
+  padding: unset;
+  width: 3.5vw;
+  height: 3.5vw;
+  overflow: hidden;
 }
+
+.change {
+  display:flex;
+  justify-content: space-between;
+  max-width: 55vw;
+}
+
+.changeup,
+.changedown {
+  width: 3vw;
+}
+
 /* share  */
 
 .sharePopup {
