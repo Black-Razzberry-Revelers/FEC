@@ -5,31 +5,22 @@ import React from 'react';
 export default function Thumbnail({ image, setDisplay }) {
   const handleClick = (e) => {
     e.preventDefault();
-    setDisplay(image);
+    setDisplay(image.url);
   };
-
-  console.log(image)
 
   return (
     <button
       style={{ padding: 'unset', borderRadius: '8px', borderWidth: '.25px'}}
       type="button"
       onClick={handleClick}
-<<<<<<< HEAD
       data-testid="thumbnail"
     >
       <img
-        className="thumbnail"
+        className="thumbnail img-thumbnail"
         style={{ padding: 'unset', borderRadius: '8px', borderWidth: '.25px' }}
         alt="circle"
         src={image.thumbnail_url}
       />
     </button>
-=======
-      className="thumbnail img-thumbnail"
-      alt="circle"
-      src={image.thumbnail_url}
-    />
->>>>>>> main
   );
 }
