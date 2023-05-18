@@ -2,9 +2,11 @@ import React, { useContext } from 'react';
 import PropTypes from 'prop-types';
 import { currentItem } from './exampleData';
 import { styleContext } from '../../App';
+import Stars from '../../stars';
+import findAvgRating from '../../../calculateAvgRating';
 
 export default function ComparisonModal({ item }) {
-  const { product, comparisonModalClickHandler } = useContext(styleContext);
+  const { product, comparisonModalClickHandler, avgRating } = useContext(styleContext);
 
   function buildFeatureObj(features) {
     const obj = {};
@@ -59,6 +61,11 @@ export default function ComparisonModal({ item }) {
               }
               return node;
             })}
+            <tr>
+              <td><Stars avgRating={findAvgRating(item.ratings || {})} /></td>
+              <td>Rating</td>
+              <td><Stars avgRating={avgRating} /></td>
+            </tr>
           </tbody>
         </table>
       </div>
