@@ -63,7 +63,7 @@ img {
   align-content: center;
   justify-content: space-evenly;
   min-width:10rem;
-  width:20vw;
+  width:33%;
 }
 
 .styles {
@@ -93,8 +93,8 @@ img {
   display:flex;
   align-content: center;
   width: fit-content;
-  width: 52vw;
-  align-self: flex-end;
+  width: 66%;
+  /* align-self: flex-end; */
 }
 
 .productImage,
@@ -102,7 +102,7 @@ img {
   max-height: 55vw;
   max-width: 55vw;
   overflow: hidden;
-  transform: translateX(4px);
+  /* transform: translateX(4px); */
 }
 
 .thumbnail,
@@ -129,7 +129,7 @@ img {
 .change {
   display:flex;
   justify-content: space-between;
-  max-width: 55vw;
+  max-width: 66%;
 }
 
 .changeup,
@@ -209,10 +209,10 @@ img {
   transform: translate(-50%,-50%);
 } */
 
-body {
+/* body {
   margin-left: 25rem;
   margin-right: 25rem;
-}
+} */
 
 .display-block {
   display: block;
