@@ -16,7 +16,7 @@ export default function Thumbnail({ image, display, setDisplay }) {
         : { padding: 'unset', borderRadius: '8px', borderWidth: '.25px' }}
       type="button"
       onClick={handleClick}
-      data-testid="thumbnail img-thumbnail"
+      data-testid="thumbnail"
     >
       <img
         className="thumbnail img-thumbnail"
