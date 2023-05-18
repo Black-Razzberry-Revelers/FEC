@@ -21,7 +21,7 @@ export default function Stars({ avgRating }) {
   }
 
   return (
-    <div className="bar">
+    <div className="bar review-rating-star">
       <div className="stars">
         <div className="stars" id="empty">
           {[1, 2, 3, 4, 5].map((num) => (
