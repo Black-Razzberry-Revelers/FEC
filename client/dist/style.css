@@ -139,7 +139,7 @@ img {
 }
 
 /********** Rating & Reviews ***********/
-.modal-main {
+/* .modal-main {
   position:fixed;
   background: #e6e8ee;
   width: 80%;
@@ -147,7 +147,7 @@ img {
   top:50%;
   left:50%;
   transform: translate(-50%,-50%);
-}
+} */
 
 .display-block {
   display: block;
