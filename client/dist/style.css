@@ -30,12 +30,13 @@ img {
 
 .rating {
   display: flex;
-
 }
 .option {
   margin:1%
 }
-
+.gallery {
+  width: 62vw;
+}
 .overview {
   display:flex;
   flex-direction: row-reverse;
@@ -53,8 +54,14 @@ img {
   width:20vw;
 }
 
+.styles {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  justify-content: flex-start;
+  align-content: space-evenly;
+}
 .descript,
-.styles,
 .display {
   display:flex;
   flex-direction: column;
@@ -64,14 +71,17 @@ img {
   justify-content: space-between;
 }
 
-
 /* Image Carousel */
+
+.carousel1,
 .display,
 .imageContainer,
 .gallery {
   display:flex;
   align-content: center;
   width: fit-content;
+  width: 52vw;
+  align-self: flex-end;
 }
 
 .productImage,
@@ -89,6 +99,7 @@ img {
   flex-direction: column;
   align-self: center;
   height: 40vw;
+  width: 3.5vw;
   overflow: visible;
 }
 
@@ -96,8 +107,8 @@ img {
   border: 1px solid #ddd;
   border-radius: 5px;
   padding: unset;
-  width: 3vw;
-  height: 3vw;
+  width: 3.5vw;
+  height: 3.5vw;
   overflow: hidden;
 }
 

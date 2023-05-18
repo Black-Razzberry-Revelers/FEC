@@ -13,7 +13,7 @@ export default function StyleOption({ styleInfo }) {
       type="button"
       onClick={handleClick}
       data-testid="thumbnail"
-      className="thumbnail"
+      className="option"
     >
       <img
         className="thumbnail"

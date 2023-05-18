@@ -7,9 +7,11 @@ export default function Carousel({ setDisplay }) {
   return (
     style.photos
       ? (
-        <div className="imageSelect">
-          {style.photos.map((image, i) =>
-            <Thumbnail image={image} key={i} setDisplay={setDisplay} />)}
+        <div className="carousel1">
+          <div className="imageSelect">
+            {style.photos.map((image, i) =>
+              <Thumbnail image={image} key={i} setDisplay={setDisplay} />)}
+          </div>
         </div>
       )
       : <div>...</div>
