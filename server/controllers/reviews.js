@@ -50,7 +50,7 @@ exports.putReviewAsHelpful = (req, res) => {
     .markReviewAsHelpful(req.params.review_id)
     .then(() => res.sendStatus(204))
     .catch((err) => {
-      console.log('CONTROLLER REVIEWS POST REVIEW', err);
+      console.log('CONTROLLER REVIEWS PUT REVIEW', err);
       res.sendStatus(505);
     });
 };
@@ -60,7 +60,7 @@ exports.putReportReview = (req, res) => {
     .reportReview(req.params.review_id)
     .then(() => res.sendStatus(204))
     .catch((err) => {
-      console.log('CONTROLLER REVIEWS POST REVIEW', err);
+      console.log('CONTROLLER REVIEWS PUT REVIEW', err);
       res.sendStatus(505);
     });
 };

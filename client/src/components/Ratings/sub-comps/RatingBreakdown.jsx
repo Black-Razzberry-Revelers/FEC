@@ -1,3 +1,4 @@
+/* eslint-disable react/button-has-type */
 /* eslint-disable jsx-a11y/no-noninteractive-element-interactions */
 /* eslint-disable jsx-a11y/anchor-is-valid */
 /* eslint-disable jsx-a11y/click-events-have-key-events */
@@ -58,7 +59,7 @@ function RatingBreakdown({ metaData, filters, setFilters }) {
       </div>
       <div>
         {filters.length
-          ? <p onClick={() => setFilters([])}>Remove All Filters</p> : null}
+          ? <button type="butoon" onClick={() => setFilters([])}>Remove All Filters</button> : null}
       </div>
 
     </div>
