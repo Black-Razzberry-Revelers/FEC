@@ -2,32 +2,86 @@ import React, { useContext } from 'react';
 import PropTypes from 'prop-types';
 import { currentItem } from './exampleData';
 import { styleContext } from '../../App';
+import Stars from '../../stars';
+import findAvgRating from '../../../calculateAvgRating';
 
 export default function ComparisonModal({ item }) {
-  const { product } = useContext(styleContext);
+  const { product, comparisonModalClickHandler, avgRating } = useContext(styleContext);
+
+  function buildFeatureObj(features) {
+    const obj = {};
+    features.forEach((feature) => { obj[feature.feature] = feature.value; });
+    return obj;
+  }
+
+  const itemFeatures = buildFeatureObj(item.product.features);
+  const productFeatures = buildFeatureObj(product.features);
   return (
-    <table>
-      <caption className="label">Comparing</caption>
-      <thead>
-        <tr>
-          <th className="info-text" scope="col">{item.product.name}</th>
-          <th className="info-text" scope="col">{' '}</th>
-          <th className="info-text" scope="col">{product.name}</th>
-        </tr>
-      </thead>
-      <tbody>
-        <tr>
-          <td className="info-text">{item.product.default_price}</td>
-          <td className="label">Price</td>
-          <td className="info-text">{product.default_price}</td>
-        </tr>
-        <tr>
-          <td className="info-text">{item.product.category}</td>
-          <td className="label">Category</td>
-          <td className="info-text">{product.category}</td>
-        </tr>
-      </tbody>
-    </table>
+    <>
+      <div className="related-items comparison-modal" id="comparison-modal" hidden>
+        <table>
+          <caption className="label">Comparing</caption>
+          <thead>
+            <tr>
+              <th className="info-text" scope="col">{item.product.name}</th>
+              <th className="info-text" scope="col">{' '}</th>
+              <th className="info-text" scope="col">{product.name}</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td className="info-text">{item.product.default_price}</td>
+              <td className="label">Price</td>
+              <td className="info-text">{product.default_price}</td>
+            </tr>
+            <tr>
+              <td className="info-text">{item.product.category}</td>
+              <td className="label">Category</td>
+              <td className="info-text">{product.category}</td>
+            </tr>
+            {Object.keys(itemFeatures).map((key) => (
+              <tr>
+                <td className="info-text">{itemFeatures[key]}</td>
+                <td className="label">{key}</td>
+                <td className="info-text">{productFeatures[key] || ''}</td>
+              </tr>
+            ))}
+            {Object.keys(productFeatures).map((key) => {
+              let node;
+              if (!Object.keys(itemFeatures).includes(key)) {
+                node = (
+                  <tr>
+                    <td className="info-text">{itemFeatures[key] || ''}</td>
+                    <td className="label">{key}</td>
+                    <td className="info-text">{productFeatures[key]}</td>
+                  </tr>
+                );
+              }
+              return node;
+            })}
+            <tr>
+              <td className="info-text"><Stars avgRating={findAvgRating(item.ratings || {})} /></td>
+              <td className="label">Rating</td>
+              <td className="info-text"><Stars avgRating={avgRating} /></td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+      <div
+        className="related-items comparison-modal"
+        id="comparison-modal-overlay"
+        role="button"
+        tabIndex="0"
+        aria-label="comparison-modal-overlay"
+        hidden
+        onClick={(e) => {
+          comparisonModalClickHandler();
+        }}
+        onKeyDown={(e) => {
+          comparisonModalClickHandler();
+        }}
+      />
+    </>
   );
 }
 

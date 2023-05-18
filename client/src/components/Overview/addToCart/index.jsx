@@ -9,16 +9,31 @@ export default function AddToCart({ sizes }) {
     setClicked(true);
   };
 
+  const reset = () => {
+    setClicked(false);
+  };
+
+  const emptyCart = (e) => {
+    localStorage.removeItem('cart');
+  };
+
   return (
-    <div>
+    <div className="option">
+      Buy now!
       {clicked
         ? (
           <div className="add info-text">
             what size?
             <SelectSize sizes={sizes} />
+            <button type="reset" onClick={reset}>nevermind</button>
           </div>
         )
-        : <button type="button" onClick={handleClick} className="submit-button">Add To Cart</button>}
+        : (
+          <div>
+            <button type="button" onClick={handleClick}>Add To Cart</button>
+            <button type="reset" onClick={emptyCart}>clear cart</button>
+          </div>
+        )}
     </div>
   );
 }

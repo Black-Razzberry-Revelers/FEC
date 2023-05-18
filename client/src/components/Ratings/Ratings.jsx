@@ -8,7 +8,7 @@ import WriteNewReview from './sub-comps/WriteNewReview';
 import averageRating from '../../calculateAvgRating';
 import Stars from '../stars';
 
-function Ratings(/* {product_id, count} */) {
+function Ratings(/* {product_id } */) {
   const [reviews, setReviews] = useState();
   const [metaData, setMetaData] = useState();
   const [moreReviews, setMoreReviews] = useState(false);

@@ -1,6 +1,6 @@
 import React from 'react';
 import Image from './image';
-import Thumbnail from './thumbnail';
+import Carousel from './carousel';
 
 export default function Gallery({ gallery, display, setDisplay }) {
   const [photoIndex, setPhotoIndex] = React.useState(1);
@@ -26,13 +26,13 @@ export default function Gallery({ gallery, display, setDisplay }) {
 
   return (
     <div role="main" className="gallery">
+      <Carousel setDisplay={setDisplay} />
       <div className="display">
         <Image display={display} />
-        <button type="button" onClick={handleClickUp} className="arrow-nav">{'>'}</button>
-        <button type="button" onClick={handleClickDown} className="arrow-nav">{'<'}</button>
-      </div>
-      <div className="imageSelect">
-        {gallery.map((image, i) => <Thumbnail image={image} key={i} setDisplay={setDisplay} />)}
+        <div className="change">
+          <button className="changedown" type="button" onClick={handleClickDown}>{'<'}</button>
+          <button className="changeup" type="button" onClick={handleClickUp}>{'>'}</button>
+        </div>
       </div>
     </div>
   );
