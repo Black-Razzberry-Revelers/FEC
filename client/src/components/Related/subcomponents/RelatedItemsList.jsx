@@ -3,15 +3,16 @@ import PropTypes from 'prop-types';
 import ItemCard from './ItemCard';
 // import { currentItem, relatedItems } from './exampleData';
 import { requests } from '../../requests';
-// import { styleContext } from '../../App';
+import { styleContext } from '../../App';
 
-export default function RelatedItemsList({ currentProduct, setProduct }) {
+export default function RelatedItemsList() {
+  const { product } = useContext(styleContext);
   const [activeIndex, setActiveIndex] = useState(0);
   const [relatedItems, setRelatedItems] = useState({ products: [], styles: [], meta: [] });
 
   useEffect(() => {
     let ignore = false;
-    requests.get.related(currentProduct.id)
+    requests.get.related(product.id)
       .then((result) => {
         // console.log('Current Product', currentProduct);
         // console.log('Related Items Data', result.data);
@@ -22,7 +23,7 @@ export default function RelatedItemsList({ currentProduct, setProduct }) {
     return () => {
       ignore = true;
     };
-  }, [currentProduct]);
+  }, [product]);
 
   return (
     <div className="related-items carousel">
@@ -38,7 +39,6 @@ export default function RelatedItemsList({ currentProduct, setProduct }) {
                 ratings: relatedItems.meta[i].ratings,
               }}
               outfitList={false}
-              setProduct={setProduct}
             />
           </div>
         ))}
@@ -48,21 +48,3 @@ export default function RelatedItemsList({ currentProduct, setProduct }) {
     </div>
   );
 }
-
-RelatedItemsList.propTypes = {
-  currentProduct: PropTypes.shape({
-    id: PropTypes.number,
-    campus: PropTypes.string,
-    name: PropTypes.string,
-    slogan: PropTypes.string,
-    description: PropTypes.string,
-    category: PropTypes.string,
-    default_price: PropTypes.string,
-    created_at: PropTypes.string,
-    updated_at: PropTypes.string,
-    features: PropTypes.arrayOf(
-      PropTypes.shape({ feature: PropTypes.string, value: PropTypes.string }),
-    ),
-  }).isRequired,
-  setProduct: PropTypes.func.isRequired,
-};

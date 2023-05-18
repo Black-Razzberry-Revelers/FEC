@@ -6,10 +6,15 @@ import { styleContext } from '../../App';
 import findAvgRating from '../../../calculateAvgRating';
 
 export default function ItemCard({
-  item, outfitItems, setOutfitItems, outfitList, setProduct,
+  item, outfitItems, setOutfitItems, outfitList,
 }) {
   const {
-    style, setStyle, styles, setStyles,
+    setStyle,
+    setStyles,
+    setProduct,
+    avgRating,
+    comparisonModalClickHandler,
+    setComparisonModalProduct,
   } = useContext(styleContext);
   const defaultStyle = item.styles.results.filter((itemStyle) => itemStyle['default?'] === true);
   const placeholder = 'https://static-00.iconduck.com/assets.00/image-icon-256x256-09od4zyo.png';
@@ -57,11 +62,12 @@ export default function ItemCard({
           {item.product.default_price}
         </div>
         <div>
-          <Stars avgRating={item.ratings ? findAvgRating(item.ratings) : 0} />
+          <Stars avgRating={item.ratings ? findAvgRating(item.ratings) : avgRating} />
         </div>
       </div>
       <button
         type="button"
+        className="material-symbols-outlined"
         onClick={(e) => {
           if (outfitList) {
             const outfitItemsFilter = outfitItems.filter(
@@ -70,16 +76,13 @@ export default function ItemCard({
             setOutfitItems(outfitItemsFilter);
             localStorage.setItem('outfitItems', JSON.stringify(outfitItemsFilter));
           } else {
-            const node = document.querySelector(`[data-testid="modal-${item.product.id}"]`);
-            node.hidden = !node.hidden;
+            comparisonModalClickHandler();
+            setComparisonModalProduct(item);
           }
         }}
       >
-        {outfitList ? 'Delete' : 'Compare'}
+        {outfitList ? 'close' : 'star'}
       </button>
-      <div className="related-items modal" data-testid={`modal-${item.product.id}`} hidden>
-        <ComparisonModal item={item} />
-      </div>
     </>
   );
 }
@@ -121,7 +124,6 @@ ItemCard.propTypes = {
   }).isRequired,
   setOutfitItems: PropTypes.func,
   outfitList: PropTypes.bool,
-  setProduct: PropTypes.func.isRequired,
   get outfitItems() {
     return PropTypes.arrayOf(this.item);
   },

@@ -4,8 +4,8 @@ import ItemCard from './ItemCard';
 // import { currentItem } from './exampleData'; // stub data
 import { styleContext } from '../../App';
 
-export default function OutfitItemsList({ currentProduct, setProduct }) {
-  const { styles } = useContext(styleContext);
+export default function OutfitItemsList() {
+  const { styles, product } = useContext(styleContext);
   const [outfitItems, setOutfitItems] = useState(
     JSON.parse(localStorage.getItem('outfitItems')) || [],
   );
@@ -20,9 +20,9 @@ export default function OutfitItemsList({ currentProduct, setProduct }) {
         id="add-item-to-outfit"
         onClick={(e) => {
           const productIds = outfitItems.map((item) => item.product.id);
-          if (!productIds.includes(currentProduct.id)) {
-            setOutfitItems([...outfitItems, { product: currentProduct, styles }]);
-            localStorage.setItem('outfitItems', JSON.stringify([...outfitItems, { product: currentProduct, styles }]));
+          if (!productIds.includes(product.id)) {
+            setOutfitItems([...outfitItems, { product, styles }]);
+            localStorage.setItem('outfitItems', JSON.stringify([...outfitItems, { product, styles }]));
           }
         }}
       >
@@ -37,7 +37,6 @@ export default function OutfitItemsList({ currentProduct, setProduct }) {
               outfitItems={outfitItems}
               setOutfitItems={setOutfitItems}
               outfitList
-              setProduct={setProduct}
             />
           </div>
         ))}
@@ -47,21 +46,3 @@ export default function OutfitItemsList({ currentProduct, setProduct }) {
     </div>
   );
 }
-
-OutfitItemsList.propTypes = {
-  currentProduct: PropTypes.shape({
-    id: PropTypes.number,
-    campus: PropTypes.string,
-    name: PropTypes.string,
-    slogan: PropTypes.string,
-    description: PropTypes.string,
-    category: PropTypes.string,
-    default_price: PropTypes.string,
-    created_at: PropTypes.string,
-    updated_at: PropTypes.string,
-    features: PropTypes.arrayOf(
-      PropTypes.shape({ feature: PropTypes.string, value: PropTypes.string }),
-    ),
-  }).isRequired,
-  setProduct: PropTypes.func.isRequired,
-};
