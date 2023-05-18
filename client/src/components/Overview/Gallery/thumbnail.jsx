@@ -8,6 +8,8 @@ export default function Thumbnail({ image, setDisplay }) {
     setDisplay(image);
   };
 
+  console.log(image)
+
   return (
     <button
       style={{ padding: 'unset', borderRadius: '8px', borderWidth: '.25px'}}

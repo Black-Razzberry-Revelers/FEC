@@ -21,7 +21,6 @@ export default function Overview({ avgRating }) {
   const [sizes, setSizes] = React.useState([]);
 
   React.useEffect(() => {
-    console.log('triggered', style);
     if (style.photos) {
       setGallery(style.photos);
       setDisplay(style.photos[0]);

@@ -8,8 +8,19 @@ export default function StyleOption({ styleInfo }) {
   };
 
   return (
-    <button type="button" className="option" onClick={handleClick}>
-      {styleInfo.name}
+    <button
+      style={{ padding: 'unset', borderRadius: '8px', borderWidth: '.25px' }}
+      type="button"
+      onClick={handleClick}
+      data-testid="thumbnail"
+      className="thumbnail"
+    >
+      <img
+        className="thumbnail"
+        style={{ padding: 'unset', borderRadius: '8px', borderWidth: '.25px' }}
+        alt="circle"
+        src={styleInfo.photos[0].thumbnail_url}
+      />
     </button>
   );
 }
