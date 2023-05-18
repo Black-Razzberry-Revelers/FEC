@@ -2,18 +2,21 @@
 /* eslint-disable jsx-a11y/no-noninteractive-element-interactions */
 import React from 'react';
 
-export default function Thumbnail({ image, setDisplay }) {
+export default function Thumbnail({ image, display, setDisplay }) {
   const handleClick = (e) => {
     e.preventDefault();
-    setDisplay(image.url);
+    setDisplay(image);
   };
 
   return (
     <button
-      style={{ padding: 'unset', borderRadius: '8px', borderWidth: '.25px'}}
+      style={image === display
+        ? { boxShadow: '0 0 10px blue',
+          padding: 'unset', borderRadius: '8px', borderWidth: '.25px' }
+        : { padding: 'unset', borderRadius: '8px', borderWidth: '.25px' }}
       type="button"
       onClick={handleClick}
-      data-testid="thumbnail"
+      data-testid="thumbnail img-thumbnail"
     >
       <img
         className="thumbnail img-thumbnail"

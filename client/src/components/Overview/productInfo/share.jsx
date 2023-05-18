@@ -7,7 +7,6 @@ export default function Share() {
   const fblink = `https://www.facebook.com/sharer/sharer.php?u=${query}&amp;src=sdkpreparse`;
   const pinLink = `https://pinterest.com/pin-builder/?url=${url}`;
 
-  console.log(query);
   const handleClick = (e) => {
     e.preventDefault();
     setClickShare(true);

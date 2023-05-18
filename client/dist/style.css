@@ -38,7 +38,7 @@ img {
   display: flex;
 }
 .option {
-  margin:1%
+  margin:4%
 }
 
 .section-head {
@@ -57,13 +57,18 @@ img {
 }
 
 .info,
+.descript {
+  width:fit-content;
+  height:min-content;
+}
+.info,
 .stylesinfo {
   display:flex;
   flex-direction: column;
   align-content: center;
   justify-content: space-evenly;
   min-width:10rem;
-  width:33%;
+  width: 30%;
 }
 
 .styles {
@@ -73,8 +78,6 @@ img {
   justify-content: flex-start;
   align-content: space-evenly;
 }
-
-.descript,
 .display {
   display:flex;
   flex-direction: column;
@@ -86,19 +89,23 @@ img {
 
 /* Image Carousel */
 
-.carousel1,
-.display,
-.imageContainer,
+.carousel1{
+  overflow-y: hidden;
+  width: 10%;
+  display: contents;
+}
+
 .gallery {
   display:flex;
   align-content: center;
   width: fit-content;
-  width: 66%;
-  /* align-self: flex-end; */
+  /* width: 50%; */
+  justify-content: space-evenly;
 }
 
 .productImage,
 .imageContainer {
+  width: 95%;
   max-height: 55vw;
   max-width: 55vw;
   overflow: hidden;
@@ -129,7 +136,7 @@ img {
 .change {
   display:flex;
   justify-content: space-between;
-  max-width: 66%;
+  max-width: 92%;
 }
 
 .changeup,

@@ -49,12 +49,12 @@ export default function Overview({ avgRating }) {
 
         <div className="stylesinfo">
           <div data-testid="productName" className="section-head">
-            <p id="product-name">
+            <div id="product-name">
               {product.name}
               <p data-testid="category" className="sub-head">
                 in: {product.category}
               </p>
-            </p>
+            </div>
             <p>
               <Stars avgRating={avgRating} />
             </p>

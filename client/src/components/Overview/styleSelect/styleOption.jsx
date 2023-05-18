@@ -9,14 +9,11 @@ export default function StyleOption({ styleInfo }) {
 
   return (
     <button
-      style={styleInfo.id === style.id
-        ? {
-          boxShadow: '12px 12px 2px 1px rgba(0, 0, 255, .2)',
-          padding: 'unset',
-          borderRadius: '8px',
-          borderWidth: '.25px',
-        }
-        : { padding: 'unset', borderRadius: '8px', borderWidth: '.25px' }}
+      id={style.style_id}
+      style={styleInfo.style_id === style.style_id
+        ? { boxShadow: '-5px -5px blue',
+          padding: 'unset', borderRadius: '50%', borderWidth: '.25px' }
+        : { padding: 'unset', borderRadius: '50%', borderWidth: '.25px' }}
       type="button"
       onClick={handleClick}
       data-testid="thumbnail"
@@ -24,7 +21,7 @@ export default function StyleOption({ styleInfo }) {
     >
       <img
         className="thumbnail"
-        style={{ padding: 'unset', borderRadius: '8px', borderWidth: '.25px' }}
+        style={{ padding: 'unset', borderRadius: '50%', borderWidth: '.25px' }}
         alt="circle"
         src={styleInfo.photos[0].thumbnail_url}
       />
