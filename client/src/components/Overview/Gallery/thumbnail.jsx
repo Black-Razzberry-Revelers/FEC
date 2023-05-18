@@ -21,7 +21,7 @@ export default function Thumbnail({ image, setDisplay, key }) {
       onKeyDown={handleKeyDown}
       data-testid="thumbnail"
       onClick={handleClick}
-      className="thumbnail"
+      className="thumbnail img-thumbnail"
       alt="circle"
       src={image.thumbnail_url}
     />

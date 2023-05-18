@@ -36,7 +36,7 @@ function UploadImages({ person, setPerson }) {
         style={{ display: 'none' }}
       />
       {imagesUrls.map((imageSrc) => (
-        <img src={imageSrc} alt="" key={imageSrc} style={{ width: '2rem', height: '2rem' }} />
+        <img className="img-thumbnail" src={imageSrc} alt="" key={imageSrc} style={{ width: '2rem', height: '2rem' }} />
       ))}
       {person.photos.length < 5 && (
         <button onClick={addMoreFiles}>{person.photos.length ? 'Add More' : 'Add a photo'}</button>
