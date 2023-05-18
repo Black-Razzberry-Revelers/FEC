@@ -5,6 +5,8 @@ import ReviewsList from './sub-comps/ReviewsList';
 import RatingBreakdown from './sub-comps/RatingBreakdown';
 import ProductBreakdown from './sub-comps/ProductBreakdown';
 import WriteNewReview from './sub-comps/WriteNewReview';
+import averageRating from '../../calculateAvgRating';
+import Stars from '../stars';
 
 function Ratings(/* {product_id, count} */) {
   const [reviews, setReviews] = useState();
@@ -28,9 +30,14 @@ function Ratings(/* {product_id, count} */) {
   }, [sortReviews]);
 
   return (
-    <div style={{ display: 'flex' }}>
-      <h2 className="section-head">Ratings & Reviews</h2>
+    <div className="Ratings" style={{ display: 'flex' }}>
       <div className="right" style={{ width: '50%' }}>
+        <h2 className="section-head">Ratings & Reviews</h2>
+        <div className="average-rating-stars-container">
+          <h2 className="average-rating">{metaData && averageRating(metaData.ratings)}</h2>
+          {metaData && <Stars avgRating={averageRating(metaData.ratings)} />}
+        </div>
+
         {metaData && (
           <RatingBreakdown
             metaData={metaData}
@@ -42,8 +49,8 @@ function Ratings(/* {product_id, count} */) {
       </div>
 
       <div className="left" style={{ width: '50%' }}>
-        <h3 className="sub-head">{reviews && `${reviews.length} Reviews, sorted by`}</h3>
-        <select onChange={(e) => setSortReviews(e.target.value)}>
+        <h3 className="rating-sub-head">{reviews && `${reviews.length} Reviews, sorted by`}</h3>
+        <select className="sort-ratings" onChange={(e) => setSortReviews(e.target.value)}>
           <option value="relevant">Relevant</option>
           <option value="helpful">Helpful</option>
           <option value="newest">Newest</option>
