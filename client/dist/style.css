@@ -34,9 +34,7 @@ img {
 .option {
   margin:1%
 }
-.gallery {
-  width: 62vw;
-}
+
 .overview {
   display:flex;
   flex-direction: row-reverse;
@@ -89,6 +87,7 @@ img {
   max-height: 55vw;
   max-width: 55vw;
   overflow: hidden;
+  transform: translateX(4px);
 }
 
 .thumbnail,
