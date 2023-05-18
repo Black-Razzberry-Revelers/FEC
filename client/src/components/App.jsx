@@ -60,7 +60,6 @@ export default function App() {
   return (
     <div className="body" role="application">
       <div>
-        {/* <starsContext.Provider value={{ avgRating, setAvgRating }}> */}
         <styleContext.Provider
           value={{
             style,
@@ -80,7 +79,6 @@ export default function App() {
           <Ratings />
           <ComparisonModal item={comparisonModalProduct} />
         </styleContext.Provider>
-        {/* </starsContext.Provider> */}
       </div>
     </div>
   );
