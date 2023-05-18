@@ -5,6 +5,17 @@ import { styleContext } from '../../App';
 
 export default function ComparisonModal({ item }) {
   const { product, comparisonModalClickHandler } = useContext(styleContext);
+
+  function buildFeatureObj(features) {
+    const obj = {};
+    console.log('Features provided:', features);
+    features.forEach((feature) => { obj[feature.feature] = feature.value; });
+    console.log('Built Obj', obj);
+    return obj;
+  }
+
+  const itemFeatures = buildFeatureObj(item.product.features);
+  const productFeatures = buildFeatureObj(product.features);
   return (
     <>
       <div className="related-items comparison-modal" id="comparison-modal" hidden>
@@ -28,6 +39,26 @@ export default function ComparisonModal({ item }) {
               <td>Category</td>
               <td>{product.category}</td>
             </tr>
+            {Object.keys(itemFeatures).map((key) => (
+              <tr>
+                <td>{itemFeatures[key]}</td>
+                <td>{key}</td>
+                <td>{productFeatures[key] || ''}</td>
+              </tr>
+            ))}
+            {Object.keys(productFeatures).map((key) => {
+              let node;
+              if (!Object.keys(itemFeatures).includes(key)) {
+                node = (
+                  <tr>
+                    <td>{itemFeatures[key] || ''}</td>
+                    <td>{key}</td>
+                    <td>{productFeatures[key]}</td>
+                  </tr>
+                );
+              }
+              return node;
+            })}
           </tbody>
         </table>
       </div>

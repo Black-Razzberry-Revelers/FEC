@@ -17,7 +17,9 @@ export default function App() {
   const [avgRating, setAvgRating] = React.useState(0);
   const [styles, setStyles] = React.useState({});
   const [style, setStyle] = React.useState({});
-  const [comparisonModalProduct, setComparisonModalProduct] = React.useState({ product: {} });
+  const [comparisonModalProduct, setComparisonModalProduct] = React.useState(
+    { product: { features: [] } },
+  );
 
   React.useEffect(() => {
     requests.get
