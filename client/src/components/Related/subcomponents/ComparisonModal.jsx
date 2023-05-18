@@ -17,55 +17,33 @@ export default function ComparisonModal({ item }) {
   const itemFeatures = buildFeatureObj(item.product.features);
   const productFeatures = buildFeatureObj(product.features);
   return (
-    <table>
-      <caption className="label">Comparing</caption>
-      <thead>
-        <tr>
-          <th className="info-text" scope="col">{item.product.name}</th>
-          <th className="info-text" scope="col">{' '}</th>
-          <th className="info-text" scope="col">{product.name}</th>
-        </tr>
-      </thead>
-      <tbody>
-        <tr>
-          <td className="info-text">{item.product.default_price}</td>
-          <td className="label">Price</td>
-          <td className="info-text">{product.default_price}</td>
-        </tr>
-        <tr>
-          <td className="info-text">{item.product.category}</td>
-          <td className="label">Category</td>
-          <td className="info-text">{product.category}</td>
-        </tr>
-      </tbody>
-    </table>
     <>
       <div className="related-items comparison-modal" id="comparison-modal" hidden>
         <table>
-          <caption>Comparing</caption>
+          <caption className="label">Comparing</caption>
           <thead>
             <tr>
-              <th scope="col">{item.product.name}</th>
-              <th scope="col">{' '}</th>
-              <th scope="col">{product.name}</th>
+              <th className="info-text" scope="col">{item.product.name}</th>
+              <th className="info-text" scope="col">{' '}</th>
+              <th className="info-text" scope="col">{product.name}</th>
             </tr>
           </thead>
           <tbody>
             <tr>
-              <td>{item.product.default_price}</td>
-              <td>Price</td>
-              <td>{product.default_price}</td>
+              <td className="info-text">{item.product.default_price}</td>
+              <td className="label">Price</td>
+              <td className="info-text">{product.default_price}</td>
             </tr>
             <tr>
-              <td>{item.product.category}</td>
-              <td>Category</td>
-              <td>{product.category}</td>
+              <td className="info-text">{item.product.category}</td>
+              <td className="label">Category</td>
+              <td className="info-text">{product.category}</td>
             </tr>
             {Object.keys(itemFeatures).map((key) => (
               <tr>
-                <td>{itemFeatures[key]}</td>
-                <td>{key}</td>
-                <td>{productFeatures[key] || ''}</td>
+                <td className="info-text">{itemFeatures[key]}</td>
+                <td className="label">{key}</td>
+                <td className="info-text">{productFeatures[key] || ''}</td>
               </tr>
             ))}
             {Object.keys(productFeatures).map((key) => {
@@ -73,18 +51,18 @@ export default function ComparisonModal({ item }) {
               if (!Object.keys(itemFeatures).includes(key)) {
                 node = (
                   <tr>
-                    <td>{itemFeatures[key] || ''}</td>
-                    <td>{key}</td>
-                    <td>{productFeatures[key]}</td>
+                    <td className="info-text">{itemFeatures[key] || ''}</td>
+                    <td className="label">{key}</td>
+                    <td className="info-text">{productFeatures[key]}</td>
                   </tr>
                 );
               }
               return node;
             })}
             <tr>
-              <td><Stars avgRating={findAvgRating(item.ratings || {})} /></td>
-              <td>Rating</td>
-              <td><Stars avgRating={avgRating} /></td>
+              <td className="info-text"><Stars avgRating={findAvgRating(item.ratings || {})} /></td>
+              <td className="label">Rating</td>
+              <td className="info-text"><Stars avgRating={avgRating} /></td>
             </tr>
           </tbody>
         </table>
