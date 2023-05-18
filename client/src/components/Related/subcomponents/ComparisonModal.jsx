@@ -3,7 +3,7 @@ import PropTypes from 'prop-types';
 import { currentItem } from './exampleData';
 import { styleContext } from '../../App';
 
-export default function ComparisonModal(/* { item } */) {
+export default function ComparisonModal({ item }) {
   const { product, comparisonModalClickHandler } = useContext(styleContext);
   return (
     <>
@@ -12,19 +12,19 @@ export default function ComparisonModal(/* { item } */) {
           <caption>Comparing</caption>
           <thead>
             <tr>
-              {/* <th scope="col">{item.product.name}</th> */}
+              <th scope="col">{item.product.name}</th>
               <th scope="col">{' '}</th>
               <th scope="col">{product.name}</th>
             </tr>
           </thead>
           <tbody>
             <tr>
-              {/* <td>{item.product.default_price}</td> */}
+              <td>{item.product.default_price}</td>
               <td>Price</td>
               <td>{product.default_price}</td>
             </tr>
             <tr>
-              {/* <td>{item.product.category}</td> */}
+              <td>{item.product.category}</td>
               <td>Category</td>
               <td>{product.category}</td>
             </tr>

@@ -14,9 +14,10 @@ export const styleContext = React.createContext({});
 
 export default function App() {
   const [product, setProduct] = React.useState({ features: [] });
-  const [avgRating, setAvgRating] = React.useState(0); // hardcoded for now. change later
+  const [avgRating, setAvgRating] = React.useState(0);
   const [styles, setStyles] = React.useState({});
   const [style, setStyle] = React.useState({});
+  const [comparisonModalProduct, setComparisonModalProduct] = React.useState({ product: {} });
 
   React.useEffect(() => {
     requests.get
@@ -65,14 +66,17 @@ export default function App() {
             styles,
             setStyles,
             product,
+            setProduct,
+            avgRating,
             comparisonModalClickHandler,
+            setComparisonModalProduct,
           }}
         >
           <Overview avgRating={avgRating} />
           <RelatedItemsSection currentProduct={product} setProduct={setProduct} />
           <Questions />
           <Ratings />
-          <ComparisonModal />
+          <ComparisonModal item={comparisonModalProduct} />
         </styleContext.Provider>
         {/* </starsContext.Provider> */}
       </div>
