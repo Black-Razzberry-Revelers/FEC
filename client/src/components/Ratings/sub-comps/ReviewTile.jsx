@@ -61,9 +61,9 @@ function ReviewTile({ review }) {
       <p className="info-text" style={{ fontWeight: 'bold' }}>
         {review.summary.length > 60 ? `${review.summary}...` : review.summary}
       </p>
-      <p className="show-button">{showMore ? review.body : review.body.slice(0, 250)}</p>
+      <p className="info-text">{showMore ? review.body : review.body.slice(0, 250)}</p>
       {review.body.length > 250 && (
-        <a onClick={() => setShowMore(true)}>Show More</a>
+        <a className="show-button" onClick={() => setShowMore(true)}>Show More</a>
       )}
       {review.photos.map((photo, i) => (
         <img

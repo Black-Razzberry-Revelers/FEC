@@ -16,7 +16,7 @@ function Questions({ product_id }) {
     expanded: false,
     mode: '',
     modeProps: {},
-    pid: product_id || 40342,
+    pid: product_id || 40346,
   });
 
   useEffect(() => {
@@ -31,7 +31,7 @@ function Questions({ product_id }) {
         expanded: false,
         mode: '',
         modeProps: {},
-        pid: product_id || 40342,
+        pid: product_id || 40346,
       });
     });
   }, []);
@@ -126,7 +126,7 @@ function Questions({ product_id }) {
   };
 
   return (
-    <div data-testid="Questions">
+    <div data-testid="Questions" id="Q-A">
       <SearchBar c={controller} v={view} data-testid="SearchBar" />
       <QuestionList v={view} c={controller} data-testid="QuestionList" />
       <NavigationButtons v={view} c={controller} data-testid="NavigationButtons" />
