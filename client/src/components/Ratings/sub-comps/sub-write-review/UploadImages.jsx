@@ -39,7 +39,7 @@ function UploadImages({ person, setPerson }) {
         <img className="img-thumbnail" src={imageSrc} alt="" key={imageSrc} style={{ width: '2rem', height: '2rem' }} />
       ))}
       {person.photos.length < 5 && (
-        <button onClick={addMoreFiles}>{person.photos.length ? 'Add More' : 'Add a photo'}</button>
+        <button className="form-button-rating" onClick={addMoreFiles}>{person.photos.length ? 'Add More' : 'Add a photo'}</button>
       )}
     </div>
   );

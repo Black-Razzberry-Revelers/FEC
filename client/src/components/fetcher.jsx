@@ -76,4 +76,51 @@ export default {
     };
     return axios(options);
   },
+
+  get: {
+    product: (id = 40346) => axios.get(
+      `api/products/${id}`,
+    ),
+    meta: (id = 40346) => axios.get(
+      'api/reviews/meta',
+      { params: { product_id: id } },
+    ),
+    questions: (id) => axios.get(
+      'api/questions',
+      { params: { product_id: id } },
+    ),
+    related: (id = 40346) => axios.get(
+      `api/products/${id}/related`,
+    ),
+  },
+
+  post: {
+    question: (product_id, body, name, email) => axios.post(
+      'api/questions/question',
+      {
+        product_id, body, name, email,
+      },
+    ),
+    answer: (product_id, question_id, body, name, email) => axios.post(
+      'api/questions/answer',
+      {
+        question_id, product_id, body, name, email,
+      },
+    ),
+  },
+
+  put: {
+    helpfulAnswer: (answer_id) => axios.put(
+      'api/questions/answer/helpful',
+      { params: { answer_id } },
+    ),
+    helpfulQuestion: (question_id) => axios.put(
+      'api/questions/question/helpful',
+      { params: { question_id } },
+    ),
+    reportAnswer: (answer_id) => axios.put(
+      'api/questions/answer/report',
+      { params: { answer_id } },
+    ),
+  },
 };

@@ -3,12 +3,13 @@ import React, { UseState } from 'react';
 
 function FeedbackAndInfo({ setPerson, person }) {
   return (
-    <div>
+    <div className="feedback-info">
       <fieldset>
         <legend>Summary: </legend>
 
         <label htmlFor="summary" />
         <input
+          className="summary"
           name="summary"
           type="text"
           placeholder="Why did you like the product or not?"

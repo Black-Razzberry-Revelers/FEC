@@ -2,7 +2,7 @@ import React, { useState, useEffect, useContext } from 'react';
 import PropTypes from 'prop-types';
 import ItemCard from './ItemCard';
 // import { currentItem, relatedItems } from './exampleData';
-import { requests } from '../../requests';
+import fetcher from '../../fetcher';
 import { styleContext } from '../../App';
 
 export default function RelatedItemsList() {
@@ -12,7 +12,7 @@ export default function RelatedItemsList() {
 
   useEffect(() => {
     let ignore = false;
-    requests.get.related(product.id)
+    fetcher.get.related(product.id)
       .then((result) => {
         // console.log('Current Product', currentProduct);
         // console.log('Related Items Data', result.data);
