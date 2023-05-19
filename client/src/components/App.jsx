@@ -28,14 +28,18 @@ export default function App() {
         const stylesArr = results.data.styles.results;
         setProduct(results.data.product);
         setStyles(results.data.styles);
-
+        let defaultFound = false;
         stylesArr.forEach((option, i) => {
           if (option['default?']) {
             const defaultStyle = option;
             defaultStyle.index = i;
             setStyle(defaultStyle);
+            defaultFound = true;
           }
         });
+        if (!defaultFound) {
+          setStyle(stylesArr[0]);
+        }
       })
       .catch((err) => {
         console.log(err);
@@ -60,7 +64,6 @@ export default function App() {
   return (
     <div className="body" role="application">
       <div>
-        {/* <starsContext.Provider value={{ avgRating, setAvgRating }}> */}
         <styleContext.Provider
           value={{
             style,
@@ -80,7 +83,6 @@ export default function App() {
           <Ratings />
           <ComparisonModal item={comparisonModalProduct} />
         </styleContext.Provider>
-        {/* </starsContext.Provider> */}
       </div>
     </div>
   );

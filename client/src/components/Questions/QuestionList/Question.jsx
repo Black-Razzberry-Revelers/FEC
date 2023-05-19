@@ -1,7 +1,11 @@
 import React, { useState, useEffect } from 'react';
+import { intlFormat } from 'date-fns';
 import AnswerList from './AnswerList';
 
-function Question({ question, qid, v, c }) {
+
+function Question({
+  question, qid, v, c,
+}) {
   const { showAnswers, changeMode, markQHelpful } = c;
 
   function onHelpful() {
@@ -28,14 +32,39 @@ function Question({ question, qid, v, c }) {
   });
 
   return (
-  <div>
-    <h4 className="sub-head">Question: {question.question_body}</h4>
-    <p className="label">Asked By:{question.asker_name}</p>
-    <p className="label">On: {question.question_date}</p>
-    <p className="label"> Helpful? {question.markedHelpful ? <strong className="helpful-button">Marked Helpful!</strong> : <strong onClick={onHelpful} className="helpful-button"> Yes! </strong>} ({question.question_helpfulness})  |  <strong onClick={onAddAnswer} className="helpful-button">Add Answer</strong></p>
-    <AnswerList c={c} v={v} qid={qid} answers={answers} />
-    {answers.length > 2 && <button onClick={onToggle} className="show-button"> {question.showMore ? 'Show Less Answers' : 'Show More Answers'} </button>}
-  </div>
+    <>
+      <div className="question-body big-Q">
+        <h1 className="big-letter">Q:</h1>
+        <h4 className="sub-head question-text">
+          {question.question_body}
+        </h4>
+        <p className="label question-info">
+          by:
+          {' '}
+          {question.asker_name}
+          {' '}
+          on:
+          {' '}
+          {intlFormat(new Date(question.question_date), {
+            year: 'numeric',
+            month: 'long',
+            day: 'numeric',
+          })}
+        </p>
+        <p className="label question-helpful">
+          {' '}
+          Helpful?
+          {' '}
+          {question.markedHelpful ? <strong className="helpful-button">Marked Helpful!</strong> : <strong onClick={onHelpful} className="helpful-button"> Yes! </strong>}
+          {' '}
+          (
+          {question.question_helpfulness}
+          )
+        </p>
+        <div className="add-answer"><strong onClick={onAddAnswer} className="helpful-button">Add Answer</strong></div>
+      </div>
+      <AnswerList c={c} v={v} qid={qid} answers={answers} tog={onToggle} />
+    </>
   );
 }
 
