@@ -1,12 +1,11 @@
 .body {
-  max-width: 2000px;
+  max-width: 1080px;
   margin: 0 auto !important;
   float: none !important;
 }
 
 h1,
-div,
-img {
+div {
   padding:1%;
 }
 
@@ -116,13 +115,12 @@ img {
   justify-content: space-evenly;
 }
 
-.productImage,
-.imageContainer {
+.productImage {
   width: 95%;
-  max-height: 55vw;
+  /* max-height: 55vw; */
   max-width: 55vw;
   overflow: hidden;
-  /* transform: translateX(4px); */
+  transform: translateX(4px);
 }
 
 .thumbnail,
@@ -152,12 +150,16 @@ img {
 .change {
   display:flex;
   justify-content: space-between;
-  max-width: 92%;
+  width: 95%;
+  height: 99%;
+  position: absolute;
+  padding: 0%;
 }
 
 .changeup,
 .changedown {
   width: 3vw;
+  opacity: 50%;
 }
 
 /* share  */
