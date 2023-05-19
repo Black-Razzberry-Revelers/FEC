@@ -55,9 +55,9 @@ export default function Overview({ avgRating }) {
                 in: {product.category}
               </p>
             </div>
-            <p>
+            <div>
               <Stars avgRating={avgRating} />
-            </p>
+            </div>
           </div>
           <ProductInfo />
           <StyleSelect styles={styles} />

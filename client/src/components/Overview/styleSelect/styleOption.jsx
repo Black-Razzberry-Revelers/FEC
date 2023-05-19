@@ -11,8 +11,12 @@ export default function StyleOption({ styleInfo }) {
     <button
       id={style.style_id}
       style={styleInfo.style_id === style.style_id
-        ? { boxShadow: '-5px -5px blue',
-          padding: 'unset', borderRadius: '50%', borderWidth: '.25px' }
+        ? {
+          boxShadow: '-5px -5px blue',
+          padding: 'unset',
+          borderRadius: '50%',
+          borderWidth: '.25px',
+        }
         : { padding: 'unset', borderRadius: '50%', borderWidth: '.25px' }}
       type="button"
       onClick={handleClick}
