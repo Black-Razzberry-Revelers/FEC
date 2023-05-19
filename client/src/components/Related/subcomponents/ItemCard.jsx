@@ -41,8 +41,9 @@ export default function ItemCard({
           }
         }}
       >
-        <h3 className="sub-head">Item Card</h3>
+        {/* <h3 className="sub-head">Item Card</h3> */}
         <img
+          className="related-items"
           src={thumbnail || placeholder} // need to account for default styles
           alt={item.product.name}
         />
@@ -61,13 +62,11 @@ export default function ItemCard({
           Price: $
           {item.product.default_price}
         </div>
-        <div>
-          <Stars avgRating={item.ratings ? findAvgRating(item.ratings) : avgRating} />
-        </div>
+        <Stars avgRating={item.ratings ? findAvgRating(item.ratings) : avgRating} />
       </div>
       <button
         type="button"
-        className="material-symbols-outlined"
+        className="material-symbols-outlined item-card-action related-items"
         onClick={(e) => {
           if (outfitList) {
             const outfitItemsFilter = outfitItems.filter(
