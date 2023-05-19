@@ -55,7 +55,7 @@ function Answer({
         ) |
         {' '}
       </p>
-      <div className="answer-images">
+      {/* /* <div className="answer-images">
         {answer.photos.map((photo) => (
           <img
             className="thumbnail img-thumbnail"
@@ -65,7 +65,7 @@ function Answer({
             onClick={imgClicker(photo)}
           />
         ))}
-      </div>
+      </div> */ }
       <p className="answer-report">
         {' '}
         {!answer.reported ? <strong onClick={onReport} className="helpful-button">Report</strong> : <strong>Reported</strong>}
