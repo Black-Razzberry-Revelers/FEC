@@ -17,6 +17,7 @@ function Questions({ product_id }) {
     mode: '',
     modeProps: {},
     pid: product_id || 40346,
+
   });
 
   useEffect(() => {
