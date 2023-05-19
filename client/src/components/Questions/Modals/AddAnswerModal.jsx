@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { requests } from '../../requests';
+import fetcher from '../../fetcher';
 
 function AddAnswerModal({ v, c }) {
   const [answer, setAnswer] = useState('');
@@ -28,7 +28,7 @@ function AddAnswerModal({ v, c }) {
 
   function onSubmit() {
     if (validate()) {
-      requests.post.answer(v.pid, v.modeProps.qid, answer, nickname, email).then(() => {
+      fetcher.post.answer(v.pid, v.modeProps.qid, answer, nickname, email).then(() => {
         c.changeMode('', {});
       });
     }

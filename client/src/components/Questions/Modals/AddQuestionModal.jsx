@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { requests } from '../../requests';
+import fetcher from '../../fetcher';
 
 function AddQuestionModal({ v, c }) {
   const [question, setQuestion] = useState('');
@@ -23,7 +23,7 @@ function AddQuestionModal({ v, c }) {
   }
   function onSubmit() {
     if (validate()) {
-      requests.post.question(v.pid, question, nickname, email).then(() => {
+      fetcher.post.question(v.pid, question, nickname, email).then(() => {
         c.changeMode('', {});
       });
     }
