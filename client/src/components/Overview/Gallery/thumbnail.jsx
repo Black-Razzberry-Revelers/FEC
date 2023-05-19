@@ -10,21 +10,22 @@ export default function Thumbnail({ image, display, setDisplay }) {
 
   return (
     <button
-      style={image === display
-        ? {
-          boxShadow: '0 0 10px blue',
-          padding: 'unset',
-          borderRadius: '8px',
-          borderWidth: '.25px',
-        }
-        : { padding: 'unset', borderRadius: '8px', borderWidth: '.25px' }}
       type="button"
       onClick={handleClick}
       data-testid="thumbnail"
+      style={{ padding: 'unset', borderRadius: '8px', borderWidth: '.25px' }}
     >
       <img
+        style={image === display
+          ? {
+            border: '3px solid var(--dark-alt)',
+            boxShadow: '0 0 10px var(--dark-alt)',
+            padding: 'unset',
+            borderRadius: '8px',
+            borderWidth: '.25px',
+          }
+          : { padding: 'unset', borderRadius: '8px', borderWidth: '.25px' }}
         className="thumbnail img-thumbnail"
-        style={{ padding: 'unset', borderRadius: '8px', borderWidth: '.25px' }}
         alt="circle"
         src={image.thumbnail_url}
       />

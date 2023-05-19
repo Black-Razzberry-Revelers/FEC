@@ -118,15 +118,17 @@ div {
 .carousel1{
   overflow-y: hidden;
   width: 10%;
-  display: contents;
+  /* display: contents; */
+  align-self: baseline;
 }
 
 .gallery {
   display:flex;
   align-content: center;
   width: fit-content;
-  /* width: 50%; */
   justify-content: space-evenly;
+  flex-wrap: wrap;
+  align-content: baseline;
 }
 
 .productImage {
