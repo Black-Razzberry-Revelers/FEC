@@ -35,7 +35,6 @@ exports.postQuestion = (req, res) => {
 };///
 
 exports.postAnswer = (req, res) => {
-  console.log('>>>>Post Answer Reached');
   const {
     product_id, body, name, email, question_id,
   } = req.body;

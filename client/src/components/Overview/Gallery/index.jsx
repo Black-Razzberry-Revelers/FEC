@@ -15,7 +15,6 @@ export default function Gallery({ gallery, display, setDisplay }) {
   };
 
   const handleClickDown = () => {
-    console.log(photoIndex);
     if (photoIndex === 0) {
       setPhotoIndex(gallery.length - 1);
     } else {

@@ -9,8 +9,8 @@ function ReviewsList({ reviews, filters, moreReviews }) {
   const [filteredReviews, setFilteredReviews] = useState(reviews);
 
   const style = {
-    border: '1px solid black',
     width: '100%',
+    height: '50rem',
     overflow: 'auto',
   };
   const handleScroll = (event) => {
