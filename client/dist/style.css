@@ -278,7 +278,9 @@ table {
   margin-left: 25rem;
   margin-right: 25rem;
 } */
-
+.Ratings {
+  background-color: #EBF5FF;
+}
 .display-block {
   display: block;
 }
@@ -323,10 +325,12 @@ table {
   padding-left: 0px;
   font-size: inherit;
   font-weight: bold;
-  border-bottom: black solid thin;
+  border-bottom: #0d2530 solid thin;
   margin-left: 0.5rem;
   font-family: auto;
   font-size: larger;
+  background: none;
+
 
 }
 .tile-container-stars-user-date {
@@ -349,14 +353,177 @@ p.label.tile-user {
   display: contents;
 }
 
-/* .body {
+h3.rating-sub-head {
+  /* font-weight: 500; */
+  /* font-family: sans-serif; */
+  font-size: revert;
+}
+.rating-star {
+  /* display: flex; */
+  position: relative;
+  /* left: 2rem; */
+  top: 1.5rem;
+}
+p.info-text {
+  font-weight: 300;
+  font-family: system-ui;
+  word-wrap: break-word;
+}
+
+p.info-text.rating-recommend {
+  font-size: 1rem;
+  font-weight: 300;
+  color: gray;
+  /* width: 15rem; */
+}
+p.info-text.rating-helpful {
+  font-size: 1rem;
+  font-weight: 300;
+  color: gray;
+}
+.label {
+  color: gray;
+}
+
+.show-button {
+  width: 10rem;
+  height: 3rem;
+  margin: 1rem;
+  background: white;
+  font-size: 1rem;
+  font-weight: 600;
+}
+
+.rating-add-review {
+  width: 10rem;
+  height: 3rem;
+  margin: 1rem;
+  background: #0d2530;
+  font-size: 1rem;
+  font-weight: 600;
+  color: white;
+}
+
+.review-tile{
+    border-bottom: black solid thin;
+}
+.review-response {
+  background-color: #0d2530;
+  color: white;
+}
+
+.modalframe-rating{
+  z-index: 1001;
   position: fixed;
-  top: 0;
-  left: 0;
-  width:100%;
-  height: 100%;
-  background: rgba(0, 0, 0, 0.6);
-} */
+  /* background: #fff; */
+  background: #0d2530;
+  color: white;
+  width: 35%;
+  height: auto;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  box-shadow: 0 0 0.5rem black;
+  padding: 20px;
+  overflow-y: auto;
+  max-height: 95vh;
+  border-radius: 2rem;
+}
+
+.characteristics-radio-button {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr 1fr 1fr 1fr;
+}
+.radio-button {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.traits {
+  font-size: small;
+  color: gray;
+}
+/**********************/
+input:focus {
+  outline: none;
+  border: none;
+}
+
+div.feedback-info input[type="text"] {
+  border: none;
+  width:100%
+}
+.form-buttons-rating {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+.form-button-rating{
+  background: white;
+  width: 6rem;
+  height: 2rem;
+  border-radius: 0.5rem;
+}
+
+.rating-head-modal{
+    display: flex;
+    justify-content: space-around;
+    font-size: x-large;
+    font-weight: 700;
+}
+
+.sub-head-rating-modal {
+  display: flex;
+  justify-content: space-around;
+  color: #666262;
+}
+
+div.feedback-info input[type="text"] {
+  border: none;
+  width: 100%;
+  background: none;
+  color: white;
+}
+
+input[type="range"]::-webkit-slider-thumb {
+  -webkit-appearance: none;
+  height: 2rem;
+  width: 1rem;
+  /* background: black; */
+  border-left: 1rem solid transparent;
+  border-right: 1rem solid transparent;
+  top: 0.5rem;
+  border-top: 1.5rem solid black;
+  position: relative;
+  appearance: none;
+}
+
+input[type="range"] {
+  width: 100%;
+  /* background: #053a5f; */
+  background: #abc9d6;
+  appearance: none;
+  height: 0.5rem;
+  border-radius: 1rem;
+}
+
+.modalframe-img {
+  z-index: 1001;
+  position: fixed;
+  width: auto;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  /* box-shadow: 0 0 0.5rem black; */
+  border-radius: 10rem;
+}
+
+
+
+
+
+
 
 /********** Shared Classes ***********/
 .section-head {
@@ -403,60 +570,7 @@ p.label.tile-user {
   font-family: sans-serif;
 } */
 
-h3.rating-sub-head {
-  /* font-weight: 500; */
-  /* font-family: sans-serif; */
-  font-size: revert;
-}
-.rating-star {
-  /* display: flex; */
-  position: relative;
-  /* left: 2rem; */
-  top: 1.5rem;
-}
-p.info-text {
-  font-weight: 500;
-  font-family: system-ui;
-  color: gray;
-}
 
-p.info-text.rating-recommend {
-  font-size: 1rem;
-  font-weight: 300;
-  color: gray;
-  /* width: 15rem; */
-}
-p.info-text.rating-helpful {
-  font-size: 1rem;
-  font-weight: 300;
-  color: gray;
-}
-.label {
-  color: gray;
-}
-
-.show-button {
-  width: 10rem;
-  height: 3rem;
-  margin: 1rem;
-  background: white;
-  font-size: 1rem;
-  font-weight: 600;
-}
-
-.rating-add-review {
-  width: 10rem;
-  height: 3rem;
-  margin: 1rem;
-  background: white;
-  font-size: 1rem;
-  font-weight: 600;
-}
-
-.review-tile{
-    border-bottom: black solid thin;
-}
-=======
 /********** Questions ***********/
 
 #Q-A{
