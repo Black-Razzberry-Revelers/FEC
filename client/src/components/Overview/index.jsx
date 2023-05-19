@@ -1,3 +1,4 @@
+/* eslint-disable react/jsx-one-expression-per-line */
 /* eslint-disable object-shorthand */
 /* eslint-disable no-restricted-syntax */
 import React from 'react';
@@ -44,19 +45,21 @@ export default function Overview({ avgRating }) {
 
   return (
     <div data-testid="overview">
-      <h1 data-testid="productName" className="section-head">{product.name}</h1>
-      <div data-testid="category" className="sub-head">
-        in:
-        {product.category}
-      </div>
-      <div>
-        {avgRating}
-        <Stars avgRating={avgRating} />
-      </div>
 
       <div className="overview">
 
         <div className="stylesinfo">
+          <div data-testid="productName" className="section-head">
+            <div id="product-name">
+              {product.name}
+              <p data-testid="category" className="sub-head">
+                in: {product.category}
+              </p>
+            </div>
+            <div>
+              <Stars avgRating={avgRating} />
+            </div>
+          </div>
           <ProductInfo />
           <StyleSelect styles={styles} />
           <AddToCart sizes={sizes} />

@@ -1,5 +1,5 @@
 .body {
-  max-width: 1080px;
+  max-width: 2000px;
   margin: 0 auto !important;
   float: none !important;
 }
@@ -29,8 +29,11 @@ img {
   padding:1%
 }
 
+/***** slash price *****/
 
-
+.slash-price {
+  color: red;
+}
 
 /******* OverView *******/
 
@@ -38,7 +41,15 @@ img {
   display: flex;
 }
 .option {
-  margin:1%
+  margin:4%
+}
+
+.section-head {
+  display: flex;
+}
+
+#product-name {
+  font-weight: bold;
 }
 
 .overview {
@@ -49,13 +60,18 @@ img {
 }
 
 .info,
+.descript {
+  width:fit-content;
+  height:min-content;
+}
+.info,
 .stylesinfo {
   display:flex;
   flex-direction: column;
   align-content: center;
   justify-content: space-evenly;
   min-width:10rem;
-  width:33%;
+  width: 30%;
 }
 
 .styles {
@@ -65,13 +81,6 @@ img {
   justify-content: flex-start;
   align-content: space-evenly;
 }
-/* /descript,/ */
-.descript{
-  display:flex;
-  flex-direction: column;
-  position: relative;
-}
-
 .display {
   display:flex;
   flex-direction: column;
@@ -83,19 +92,23 @@ img {
 
 /* Image Carousel */
 
-.carousel1,
-.display,
-.imageContainer,
+.carousel1{
+  overflow-y: hidden;
+  width: 10%;
+  display: contents;
+}
+
 .gallery {
   display:flex;
   align-content: center;
   width: fit-content;
-  width: 66%;
-  /* align-self: flex-end; */
+  /* width: 50%; */
+  justify-content: space-evenly;
 }
 
 .productImage,
 .imageContainer {
+  width: 95%;
   max-height: 55vw;
   max-width: 55vw;
   overflow: hidden;
@@ -122,11 +135,14 @@ img {
   height: 3.5vw;
   overflow: hidden;
 }
+.thumbnail:hover {
+  transform: scale(1.25);
+}
 
 .change {
   display:flex;
   justify-content: space-between;
-  max-width: 66%;
+  max-width: 92%;
 }
 
 .changeup,
@@ -137,10 +153,13 @@ img {
 /* share  */
 
 .sharePopup {
-  position:absolute;
-  top:50%;
-  left:50%;
-  background-color: rgb(128, 125, 125);
+  z-index: 1010;
+  position: absolute;
+  width: 20%;
+  top: 50%;
+  left: 50%;
+  background-color: steelblue;
+  border-radius: 10%;
 }
 
 /********* Related *********/
@@ -169,7 +188,7 @@ img {
   transition: transform 0.3s;
 }
 
-.modal-frame,
+/* .modal-frame, */
 #comparison-modal {
   z-index: 1010;
   position:fixed;
