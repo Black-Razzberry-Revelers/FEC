@@ -1,5 +1,7 @@
 import React, { useState, useEffect } from 'react';
+import { intlFormat } from 'date-fns';
 import AnswerList from './AnswerList';
+
 
 function Question({
   question, qid, v, c,
@@ -32,16 +34,22 @@ function Question({
   return (
     <>
       <div className="question-body big-Q">
-        <h1 className="big-letter">Q</h1>
+        <h1 className="big-letter">Q:</h1>
         <h4 className="sub-head question-text">
           {question.question_body}
         </h4>
         <p className="label question-info">
-          Asked By:
-          {question.asker_name}
-          On:
+          by:
           {' '}
-          {question.question_date}
+          {question.asker_name}
+          {' '}
+          on:
+          {' '}
+          {intlFormat(new Date(question.question_date), {
+            year: 'numeric',
+            month: 'long',
+            day: 'numeric',
+          })}
         </p>
         <p className="label question-helpful">
           {' '}

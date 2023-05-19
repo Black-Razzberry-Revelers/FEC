@@ -19,9 +19,9 @@ function QuestionList({ v, c }) {
 
   return (
     <div id="question-viewport">
-      <div id="question-strip">
-        {sort.map((q) => (<Question question={q} key={q.question_id} qid={q.question_id} v={v} c={c} />))}
-      </div>
+
+      {sort.map((q) => (<Question question={q} key={q.question_id} qid={q.question_id} v={v} c={c} />))}
+
     </div>
   );
 }

@@ -43,7 +43,7 @@ function AddAnswerModal({ v, c }) {
   const p3 = 'email@provider.com';
 
   return (
-    <div className="modal">
+    <div className="modal modal-frame">
       <h1>
         ADD AN ANSWER ON Question:
         {' '}

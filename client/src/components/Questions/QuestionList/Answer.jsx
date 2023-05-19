@@ -1,4 +1,5 @@
 import React, { useState } from 'react';
+import { intlFormat } from 'date-fns';
 
 function Answer({
   answer, v, c, qid, aid,
@@ -19,7 +20,7 @@ function Answer({
       <p className="sub-head answer-text">
         {answer.body}
       </p>
-      <p className='label answer-info'>
+      <p className="label answer-info">
         {' '}
         by:
         {' '}
@@ -27,7 +28,11 @@ function Answer({
         {' '}
         on:
         {' '}
-        {answer.date}
+        {intlFormat(new Date(answer.date), {
+          year: 'numeric',
+          month: 'long',
+          day: 'numeric',
+        })}
       </p>
       <p className="info-text answer-helpful">
         {' '}
@@ -40,7 +45,10 @@ function Answer({
         ) |
         {' '}
       </p>
-      <p className="answer-report"> {!answer.reported ? <strong onClick={onReport} className="helpful-button">Report</strong> : <strong>Reported</strong>}</p>
+      <p className="answer-report">
+        {' '}
+        {!answer.reported ? <strong onClick={onReport} className="helpful-button">Report</strong> : <strong>Reported</strong>}
+      </p>
     </div>
   );
 }
