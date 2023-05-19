@@ -16,17 +16,26 @@ img {
  position:relative
 }
 
+.review-rating-star {
+  display: inline-flex;
+  width: 100%;
+  justify-content: center;
+  position: relative;
+}
+
 .stars {
-  display: flex;
-  flex-direction: row;
+  display: inline-flex;
+  /* flex-direction: row; */
   position: absolute;
-  padding: 2%;
-  min-width: fit-content;
+  top: 0;
+  left: 0;
+  /* padding: 2%;
+  min-width: fit-content; */
 
 }
 
 .star {
-  padding:1%
+  /* padding:1% */
 }
 
 /***** slash price *****/
@@ -164,6 +173,30 @@ img {
 
 /********* Related *********/
 
+button.related-items {
+  opacity: 60%;
+  border-radius: 33%;
+}
+
+img.related-items {
+  border-radius: 33%;
+}
+
+.arrow-nav {
+  position: absolute;
+  top: 50%;
+  height: 5rem;
+  transform: translateY(-50%);
+}
+
+.right-arrow {
+  right: 0;
+}
+
+.left-arrow {
+  left: 0;
+}
+
 .list {
   display: flex;
   flex-direction: row;
@@ -171,6 +204,7 @@ img {
 
 .carousel {
   overflow: hidden;
+  position: relative;
 }
 
 .carousel-item,
@@ -181,6 +215,14 @@ img {
   justify-content: space-between;
   height: auto;
   cursor: pointer;
+  position: relative;
+  width: 20rem;
+  padding: 0 .625rem;
+}
+
+.item-card-action {
+  position: absolute;
+  right:0;
 }
 
 .inner {
@@ -211,6 +253,12 @@ img {
   top: 50%;
   left: 50%;
   transform: translate(-50%,-50%);
+}
+
+table {
+  table-layout: fixed;
+  width: 100%;
+  text-align: center;
 }
 
 /********** Rating & Reviews ***********/
@@ -252,12 +300,12 @@ img {
 }
 
 .bar{
-  background-color: #eaeaea;
-  padding: 20px;
+  /* background-color: #eaeaea;
+  padding: 20px; */
   /* width: 1rem; */
-  display: grid;
+  /* display: grid; */
   /* justify-items: start; */
-  top: -1rem;
+  /* top: -1rem; */
 }
 
 .rating-bar {
@@ -290,10 +338,7 @@ p.label.tile-user {
   display: flex;
   justify-content: flex-end;
 }
-.review-rating-star {
-  display: flex;
-  background-color: white;
-}
+
 /* .body {
   position: fixed;
   top: 0;
