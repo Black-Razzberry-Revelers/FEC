@@ -14,7 +14,7 @@ export default function StyleOption({ styleInfo }) {
       onClick={handleClick}
       data-testid="thumbnail"
       className="option"
-      style={{ padding: 'unset', borderRadius: '50%', borderWidth: '.25px' }}
+      style={{ padding: 'unset', borderRadius: '50%' }}
     >
       <img
         style={styleInfo.style_id === style.style_id
@@ -25,7 +25,7 @@ export default function StyleOption({ styleInfo }) {
             borderRadius: '50%',
             borderWidth: '.25px',
           }
-          : { padding: 'unset', borderRadius: '50%', borderWidth: '.25px' }}
+          : { padding: 'unset', borderRadius: '50%' }}
         className="thumbnail"
         alt="circle"
         src={styleInfo.photos[0].thumbnail_url}

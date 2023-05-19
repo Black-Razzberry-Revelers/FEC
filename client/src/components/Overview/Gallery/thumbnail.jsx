@@ -13,7 +13,7 @@ export default function Thumbnail({ image, display, setDisplay }) {
       type="button"
       onClick={handleClick}
       data-testid="thumbnail"
-      style={{ padding: 'unset', borderRadius: '8px', borderWidth: '.25px' }}
+      style={{ padding: 'unset', borderRadius: '8px' }}
     >
       <img
         style={image === display
@@ -24,7 +24,7 @@ export default function Thumbnail({ image, display, setDisplay }) {
             borderRadius: '8px',
             borderWidth: '.25px',
           }
-          : { padding: 'unset', borderRadius: '8px', borderWidth: '.25px' }}
+          : { padding: 'unset', borderRadius: '8px' }}
         className="thumbnail img-thumbnail"
         alt="circle"
         src={image.thumbnail_url}
