@@ -137,6 +137,7 @@ div {
   max-width: 55vw;
   overflow: hidden;
   transform: translateX(4px);
+  color:rgb(222, 225, 225)
 }
 
 .thumbnail,

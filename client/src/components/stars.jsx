@@ -1,6 +1,6 @@
 import React from 'react';
-import starEmpty from '../../dist/assets/icons8-star-ios-16-16.png';
-import starFilled from '../../dist/assets/icons8-star-ios-16-filled-16.png';
+import starEmpty from '../../dist/assets/icons8-star-16-empty.png';
+import starFilled from '../../dist/assets/icons8-star-16-filled.png';
 
 export default function Stars({ avgRating }) {
   let floor = Math.floor(avgRating);
