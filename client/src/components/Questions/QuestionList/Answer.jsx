@@ -11,7 +11,12 @@ function Answer({
   function onReport() {
     reportAnswer(qid, aid);
   }
-
+  function imgClicker(photo) {
+    return () => {
+      console.log("Photo UTL",photo)
+      c.changeMode('Image', { imgURL: photo });
+    };
+  }
   return (
     <div className="answer-body">
       <h3 className="big-letter big-A">
@@ -50,6 +55,17 @@ function Answer({
         ) |
         {' '}
       </p>
+      <div className="answer-images">
+        {answer.photos.map((photo) => (
+          <img
+            className="thumbnail img-thumbnail"
+            style={{ padding: 'unset', borderRadius: '8px', borderWidth: '.25px' }}
+            alt="circle"
+            src={photo}
+            onClick={imgClicker(photo)}
+          />
+        ))}
+      </div>
       <p className="answer-report">
         {' '}
         {!answer.reported ? <strong onClick={onReport} className="helpful-button">Report</strong> : <strong>Reported</strong>}
