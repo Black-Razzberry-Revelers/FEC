@@ -28,14 +28,18 @@ export default function App() {
         const stylesArr = results.data.styles.results;
         setProduct(results.data.product);
         setStyles(results.data.styles);
-
+        let defaultFound = false;
         stylesArr.forEach((option, i) => {
           if (option['default?']) {
             const defaultStyle = option;
             defaultStyle.index = i;
             setStyle(defaultStyle);
+            defaultFound = true;
           }
         });
+        if (!defaultFound) {
+          setStyle(stylesArr[0]);
+        }
       })
       .catch((err) => {
         console.log(err);

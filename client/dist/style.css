@@ -29,8 +29,11 @@ img {
   padding:1%
 }
 
+/***** slash price *****/
 
-
+.slash-price {
+  color: red;
+}
 
 /******* OverView *******/
 

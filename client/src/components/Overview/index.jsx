@@ -1,3 +1,4 @@
+/* eslint-disable react/jsx-one-expression-per-line */
 /* eslint-disable object-shorthand */
 /* eslint-disable no-restricted-syntax */
 import React from 'react';

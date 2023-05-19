@@ -3,10 +3,10 @@ import axios from 'axios';
 
 export const requests = {
   get: {
-    product: (id = 40347) => axios.get(
+    product: (id = 40346) => axios.get(
       `http://localhost:3000/api/products/${id}`,
     ),
-    meta: (id = 40347) => axios.get(
+    meta: (id = 40346) => axios.get(
       'http://localhost:3000/api/reviews/meta',
       { params: { product_id: id } },
     ),
@@ -14,7 +14,7 @@ export const requests = {
       'http://localhost:3000/api/questions',
       { params: { product_id: id } },
     ),
-    related: (id = 40347) => axios.get(
+    related: (id = 40346) => axios.get(
       `http://localhost:3000/api/products/${id}/related`,
     ),
   },
