@@ -1,7 +1,16 @@
+:root{
+  --light-main: #EBF5FF;
+  --dark-main: #153B50;
+  --dark-highlight: #7A3B69;
+  --light-hightlight: #CDB4DB;
+}
+
 .body {
-  max-width: 2000px;
+  max-width: 1080px;
   margin: 0 auto !important;
   float: none !important;
+  background-color: var(--light-main);
+  color: var(--dark-main)
 }
 
 h1,
