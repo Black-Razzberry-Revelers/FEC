@@ -7,7 +7,7 @@ import Questions from './Questions/Questions';
 import Ratings from './Ratings/Ratings';
 import ComparisonModal from './Related/subcomponents/ComparisonModal';
 import findAvgRating from '../calculateAvgRating';
-import { requests } from './requests';
+import fetcher from './fetcher';
 
 export const styleContext = React.createContext({});
 // export const starsContext = React.createContext(null);
@@ -22,7 +22,7 @@ export default function App() {
   );
 
   React.useEffect(() => {
-    requests.get
+    fetcher.get
       .product()
       .then((results) => {
         const stylesArr = results.data.styles.results;
@@ -44,7 +44,7 @@ export default function App() {
       .catch((err) => {
         console.log(err);
       });
-    requests.get
+    fetcher.get
       .meta()
       .then((results) => {
         setAvgRating(findAvgRating(results.data.ratings));

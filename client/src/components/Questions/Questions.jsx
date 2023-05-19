@@ -6,7 +6,7 @@ import SearchBar from './Navigation/SearchBar';
 import AddAnswerModal from './Modals/AddAnswerModal';
 import AddQuestionModal from './Modals/AddQuestionModal';
 import ImageModal from './Modals/ImageModal';
-import { requests } from '../requests';
+import fetcher from '../fetcher';
 
 function Questions({ product_id }) {
   const [model, setModel] = useState({});
@@ -20,7 +20,7 @@ function Questions({ product_id }) {
   });
 
   useEffect(() => {
-    requests.get.questions(40342).then((response) => {
+    fetcher.get.questions(40342).then((response) => {
       setModel({
         questions: response.data,
       });
@@ -78,7 +78,7 @@ function Questions({ product_id }) {
   }
 
   function markQHelpful(id) {
-    requests.put.helpfulQuestion(id).then(() => {
+    fetcher.put.helpfulQuestion(id).then(() => {
       const copy = model.questions.map((q) => {
         if (q.question_id === id) {
           const mark = { ...q };
@@ -93,7 +93,7 @@ function Questions({ product_id }) {
   }
 
   function markAHelpful(qid, aid) {
-    requests.put.helpfulAnswer(aid).then(()=>{
+    fetcher.put.helpfulAnswer(aid).then(()=>{
       const copy = model.questions.map((q) => {
         if (q.question_id === qid) {
           const mark = { ...q };
@@ -108,7 +108,7 @@ function Questions({ product_id }) {
   }
 
   function reportAnswer(qid, aid) {
-    requests.put.reportAnswer(aid).then(() => {
+    fetcher.put.reportAnswer(aid).then(() => {
       const copy = model.questions.map((q) => {
         if (q.question_id === qid) {
           const mark = { ...q };
