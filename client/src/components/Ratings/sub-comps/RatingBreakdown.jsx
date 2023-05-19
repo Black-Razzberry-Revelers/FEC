@@ -37,7 +37,7 @@ function RatingBreakdown({ metaData, filters, setFilters }) {
                 className="green"
                 style={{
                   width: `${(rating / totalReviews) * 100}%`,
-                  backgroundColor: '#545656',
+                  backgroundColor: '#0d2530',
                   height: '10px',
                 }}
               />
@@ -45,7 +45,7 @@ function RatingBreakdown({ metaData, filters, setFilters }) {
                 className="gray"
                 style={{
                   width: `${((totalReviews - rating) / totalReviews) * 100}%`,
-                  backgroundColor: '#c6cccc',
+                  backgroundColor: '#abc9d6',
                   height: '10px',
                 }}
               />

@@ -59,9 +59,9 @@ function ReviewTile({ review }) {
       </div>
 
       <p className="info-text" style={{ fontWeight: 'bold' }}>
-        {review.summary.length > 60 ? `${review.summary}...` : review.summary}
+        {review.summary.length > 60 ? `${review.summary.slice(0, 60)}...` : review.summary}
       </p>
-      <p className="info-text">{showMore ? review.body : review.body.slice(0, 250)}</p>
+      <p className="info-text">{showMore ? review.body : `${review.body.slice(0, 250)}...`}</p>
       {review.body.length > 250 && (
         <a className="show-button" onClick={() => setShowMore(true)}>Show More</a>
       )}
@@ -75,24 +75,21 @@ function ReviewTile({ review }) {
         />
       ))}
       {image && (
-        <>
+        <div>
           <img
+            className="modalframe-img"
             src={image}
             alt="img"
-            style={{
-              width: '100%',
-              height: '100%',
-            }}
           />
-          <button onClick={() => setImage('')}>close</button>
-        </>
+          <div className="modal-frame-overlay" onClick={() => setImage('')} />
+        </div>
       )}
 
       {review.response && (
-        <>
+        <div className="review-response">
           <p className="label">Response from seller</p>
           <p className="info-text">{reiew.response}</p>
-        </>
+        </div>
       )}
       <p className="info-text rating-info-text">{review.response && reiew.response}</p>
       <p className="info-text rating-recommend">{review.recommend && 'I recommend this product'}</p>

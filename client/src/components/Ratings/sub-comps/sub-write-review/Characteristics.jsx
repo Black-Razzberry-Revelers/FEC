@@ -16,10 +16,10 @@ function Characteristics({ metaData, person, setPerson }) {
       <fieldset>
         <legend>Please select a rating for each of the characteristics:</legend>
         {Object.entries(characteristics).map((entry) => (
-          <div key={entry[0]} style={{ display: 'flex' }}>
+          <div className="characteristics-radio-button" key={entry[0]}>
             <label htmlFor={entry[0]}>{entry[0]}</label>
             {traits[entry[0]].map((rating, i) => (
-              <div key={i + 1}>
+              <div className="radio-button" key={i + 1}>
                 <p>{i + 1}</p>
                 <input
                   type="radio"
@@ -36,7 +36,7 @@ function Characteristics({ metaData, person, setPerson }) {
                     },
                   })}
                 />
-                <p>{rating}</p>
+                <p className="traits">{rating}</p>
               </div>
             ))}
           </div>
