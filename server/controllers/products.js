@@ -16,7 +16,6 @@ exports.getProductById = (req, res) => {
       res.status(202).send(data);
     })
     .catch((err) => {
-      // console.log('getProductById Error: ', err);
       res.sendStatus(505);
     });
 };

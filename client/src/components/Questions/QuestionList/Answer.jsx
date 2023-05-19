@@ -1,4 +1,5 @@
 import React, { useState } from 'react';
+import { intlFormat } from 'date-fns';
 
 function Answer({
   answer, v, c, qid, aid,
@@ -12,38 +13,43 @@ function Answer({
   }
 
   return (
-    <>
-      <p className="sub-head">
-        {' '}
-        Answer:
-        {' '}
+    <div className="answer-body">
+      <h3 className="big-letter big-A">
+        A:
+      </h3>
+      <p className="sub-head answer-text">
         {answer.body}
       </p>
-      <p className='label'>
+      <p className="label answer-info">
         {' '}
         by:
         {' '}
         {answer.answerer_name}
-      </p>
-      <p>
         {' '}
         on:
         {' '}
-        {answer.date}
+        {intlFormat(new Date(answer.date), {
+          year: 'numeric',
+          month: 'long',
+          day: 'numeric',
+        })}
       </p>
-      <p>
+      <p className="info-text answer-helpful">
         {' '}
         Helpful?
         {' '}
-        {!answer.markedHelpful ? <strong onClick={onHelpful}>Yes</strong> : <strong>Marked Helpful</strong>}
+        {!answer.markedHelpful ? <strong onClick={onHelpful} className="helpful-button">Yes</strong> : <strong>Marked Helpful</strong>}
         {' '}
         (
         {answer.helpfulness}
         ) |
         {' '}
-        {!answer.reported ? <strong onClick={onReport}>Report</strong> : <strong>Reported</strong>}
       </p>
-    </>
+      <p className="answer-report">
+        {' '}
+        {!answer.reported ? <strong onClick={onReport} className="helpful-button">Report</strong> : <strong>Reported</strong>}
+      </p>
+    </div>
   );
 }
 

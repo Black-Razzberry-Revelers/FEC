@@ -44,7 +44,7 @@ function ReviewTile({ review }) {
   }, [review.review_id]);
 
   return (
-    <div>
+    <div className="review-tile">
       <div className="tile-container-stars-user-date">
         <div className="rating-star"><Stars avgRating={review.rating} /></div>
         <p className="label tile-user">{review.reviewer_name}</p>
@@ -61,9 +61,9 @@ function ReviewTile({ review }) {
       <p className="info-text" style={{ fontWeight: 'bold' }}>
         {review.summary.length > 60 ? `${review.summary}...` : review.summary}
       </p>
-      <p className="show-button">{showMore ? review.body : review.body.slice(0, 250)}</p>
+      <p className="info-text">{showMore ? review.body : review.body.slice(0, 250)}</p>
       {review.body.length > 250 && (
-        <a onClick={() => setShowMore(true)}>Show More</a>
+        <a className="show-button" onClick={() => setShowMore(true)}>Show More</a>
       )}
       {review.photos.map((photo, i) => (
         <img
@@ -94,11 +94,11 @@ function ReviewTile({ review }) {
           <p className="info-text">{reiew.response}</p>
         </>
       )}
-      <p className="info-text">{review.response && reiew.response}</p>
-      <p className="info-text">{review.recommend && 'I recommend this product'}</p>
-      <p className="info-text">
+      <p className="info-text rating-info-text">{review.response && reiew.response}</p>
+      <p className="info-text rating-recommend">{review.recommend && 'I recommend this product'}</p>
+      <p className="info-text rating-helpful">
         Was this review helpful?
-        <a className="helpful-button" onClick={() => sendPositiveFeedback(review.review_id)}>
+        <a className="helpful-button " onClick={() => sendPositiveFeedback(review.review_id)}>
           Yes (
           {review.helpfulness}
           )

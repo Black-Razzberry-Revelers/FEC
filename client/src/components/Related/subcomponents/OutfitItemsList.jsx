@@ -13,10 +13,10 @@ export default function OutfitItemsList() {
 
   return (
     <div className="outfit carousel">
-      <h2 className="section-head">Outfit Items List</h2>
+      <h2 className="section-head">Your Outfit</h2>
       <button
         type="button"
-        className="outfit "
+        className="related-items outfit "
         id="add-item-to-outfit"
         onClick={(e) => {
           const productIds = outfitItems.map((item) => item.product.id);
@@ -28,7 +28,7 @@ export default function OutfitItemsList() {
       >
         +
       </button>
-      <div className="outfit list inner" style={{ transform: `translateX(-${activeIndex * 33}%)` }}>
+      <div className="outfit list inner" style={{ transform: `translateX(-${activeIndex * 22.25}rem)` }}>
         {outfitItems.map((item) => (
           <div className="outfit carousel-item item-card" key={item.product.id}>
             <ItemCard
@@ -41,8 +41,8 @@ export default function OutfitItemsList() {
           </div>
         ))}
       </div>
-      <button className="arrow-nav" type="button" hidden={activeIndex === 0} onClick={(e) => setActiveIndex(activeIndex - 1)}>{'<'}</button>
-      <button className="arrow-nav" type="button" onClick={(e) => setActiveIndex(activeIndex + 1)}>{'>'}</button>
+      <button className="related-items arrow-nav left-arrow" type="button" hidden={activeIndex === 0} onClick={(e) => setActiveIndex(activeIndex - 1)}>{'<'}</button>
+      <button className="related-items arrow-nav right-arrow" type="button" onClick={(e) => setActiveIndex(activeIndex + 1)}>{'>'}</button>
     </div>
   );
 }

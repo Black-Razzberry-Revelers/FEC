@@ -14,6 +14,4 @@ export default function findAvgRating(ratingsObj) {
 }
 
 // let test = { '1': '10', '2': '15', '3': '20', '4': '25', '5': '50' }
-
-// console.log(avgRating(test));
 // client/src/calculateAvgRating.js

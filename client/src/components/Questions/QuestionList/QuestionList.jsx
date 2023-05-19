@@ -17,17 +17,11 @@ function QuestionList({ v, c }) {
     sort = sort.slice(0, 2);
   }
 
-  const style = {
-    width: '95vh',
-    maxHeight: '80vh',
-    overflow: 'auto',
-  };
-
   return (
-    <div id="QuestionViewport" style={style}>
-      <div id="QuestionStrip">
-        {sort.map((q) => (<Question question={q} key={q.question_id} qid={q.question_id} v={v} c={c} />))}
-      </div>
+    <div id="question-viewport">
+
+      {sort.map((q) => (<Question question={q} key={q.question_id} qid={q.question_id} v={v} c={c} />))}
+
     </div>
   );
 }

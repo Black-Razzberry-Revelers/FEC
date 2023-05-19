@@ -15,7 +15,6 @@ export default function Gallery({ gallery, display, setDisplay }) {
   };
 
   const handleClickDown = () => {
-    console.log(photoIndex);
     if (photoIndex === 0) {
       setPhotoIndex(gallery.length - 1);
     } else {
@@ -25,15 +24,17 @@ export default function Gallery({ gallery, display, setDisplay }) {
   };
 
   return (
-    <div role="main" className="gallery">
-      <Carousel setDisplay={setDisplay} />
-      <div className="display">
-        <Image display={display} />
-        <div className="change">
-          <button className="changedown" type="button" onClick={handleClickDown}>{'<'}</button>
-          <button className="changeup" type="button" onClick={handleClickUp}>{'>'}</button>
+    <>
+      <div role="main" className="gallery">
+        <div className="display">
+          <Image display={display} />
+          <div className="change">
+            <button className="changedown" type="button" onClick={handleClickDown}>{'<'}</button>
+            <button className="changeup" type="button" onClick={handleClickUp}>{'>'}</button>
+          </div>
         </div>
       </div>
-    </div>
+      <Carousel display={display} setDisplay={setDisplay} />
+    </>
   );
 }
