@@ -16,7 +16,7 @@ function Questions({ product_id }) {
     expanded: false,
     mode: '',
     modeProps: {},
-    pid: product_id || 40342,
+    pid: product_id || 40346,
   });
 
   useEffect(() => {
@@ -31,7 +31,7 @@ function Questions({ product_id }) {
         expanded: false,
         mode: '',
         modeProps: {},
-        pid: product_id || 40342,
+        pid: product_id || 40346,
       });
     });
   }, []);

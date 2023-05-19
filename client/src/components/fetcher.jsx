@@ -6,7 +6,7 @@ export default {
     page = 1,
     count = 5,
     sort = 'newest',
-    product_id = 40344,
+    product_id = 40346,
   ) => {
     const options = {
       url: 'api/reviews',
@@ -21,7 +21,7 @@ export default {
     return axios(options);
   },
 
-  getReviewsMetadata: (product_id = 40344) => {
+  getReviewsMetadata: (product_id = 40346) => {
     const options = {
       url: 'api/reviews/meta',
       method: 'get',
