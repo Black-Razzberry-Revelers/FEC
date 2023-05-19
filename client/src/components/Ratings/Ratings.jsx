@@ -31,8 +31,8 @@ function Ratings(/* {product_id } */) {
 
   return (
     <div className="Ratings" style={{ display: 'flex' }}>
-      <div className="right" style={{ width: '50%' }}>
-        <h2 className="section-head">Ratings & Reviews</h2>
+      <div className="right" style={{ width: '30%' }}>
+        <h2 className="section-head rating-head">Ratings & Reviews</h2>
         <div className="average-rating-stars-container">
           <h2 className="average-rating">{metaData && averageRating(metaData.ratings)}</h2>
           {metaData && <Stars avgRating={averageRating(metaData.ratings)} />}
@@ -48,12 +48,12 @@ function Ratings(/* {product_id } */) {
         {metaData && <ProductBreakdown metaData={metaData} />}
       </div>
 
-      <div className="left" style={{ width: '50%' }}>
-        <h3 className="rating-sub-head">{reviews && `${reviews.length} Reviews, sorted by`}</h3>
+      <div className="left" style={{ width: '70%' }}>
+        <h3 className="rating-sub-head">{reviews && `${reviews.length} reviews, sorted by`}</h3>
         <select className="sort-ratings" onChange={(e) => setSortReviews(e.target.value)}>
-          <option value="relevant">Relevant</option>
-          <option value="helpful">Helpful</option>
-          <option value="newest">Newest</option>
+          <option value="relevant">relevant</option>
+          <option value="helpful">helpful</option>
+          <option value="newest">newest</option>
         </select>
 
         {reviews && (
@@ -64,11 +64,11 @@ function Ratings(/* {product_id } */) {
 
           />
         )}
-        <button className="show-button" type="button" onClick={() => setMoreReviews(true)}>
-          More Reviews
+        <button className="show-button rating-add-review" type="button" onClick={() => setMoreReviews(true)}>
+          MORE REVIEWS
         </button>
-        <button className="show-button" type="button" onClick={() => setWriteReview(true)}>
-          Write New Review
+        <button className="show-button rating-add-review" type="button" onClick={() => setWriteReview(true)}>
+          ADD A REVIEW +
         </button>
         {metaData && (
         <WriteNewReview

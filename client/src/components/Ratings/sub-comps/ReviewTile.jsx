@@ -44,7 +44,7 @@ function ReviewTile({ review }) {
   }, [review.review_id]);
 
   return (
-    <div>
+    <div className="review-tile">
       <div className="tile-container-stars-user-date">
         <div className="rating-star"><Stars avgRating={review.rating} /></div>
         <p className="label tile-user">{review.reviewer_name}</p>
@@ -94,11 +94,11 @@ function ReviewTile({ review }) {
           <p className="info-text">{reiew.response}</p>
         </>
       )}
-      <p className="info-text">{review.response && reiew.response}</p>
-      <p className="info-text">{review.recommend && 'I recommend this product'}</p>
-      <p className="info-text">
+      <p className="info-text rating-info-text">{review.response && reiew.response}</p>
+      <p className="info-text rating-recommend">{review.recommend && 'I recommend this product'}</p>
+      <p className="info-text rating-helpful">
         Was this review helpful?
-        <a className="helpful-button" onClick={() => sendPositiveFeedback(review.review_id)}>
+        <a className="helpful-button " onClick={() => sendPositiveFeedback(review.review_id)}>
           Yes (
           {review.helpfulness}
           )

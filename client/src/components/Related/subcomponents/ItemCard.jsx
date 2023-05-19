@@ -32,14 +32,12 @@ export default function ItemCard({
         onClick={(e) => {
           setProduct(item.product);
           setStyles(item.styles);
-          console.log('Related Item Default Style:', defaultStyle[0]);
           setStyle(defaultStyle[0]);
         }}
         onKeyDown={(e) => {
           if (e.code === 'Enter') {
             setProduct(item.product);
             setStyles(item.styles);
-            console.log('Related Item Default Style:', defaultStyle[0]);
             setStyle(defaultStyle[0]);
           }
         }}
@@ -59,7 +57,6 @@ export default function ItemCard({
           Category:
           {' '}
           {item.product.category}
-          {/* {console.log('Item Card Item:', item)} */}
         </div>
         <div className="info-text">
           Price: $
