@@ -16,10 +16,13 @@ export default function ItemCard({
     comparisonModalClickHandler,
     setComparisonModalProduct,
   } = useContext(styleContext);
-  const defaultStyle = item.styles.results.filter((itemStyle) => itemStyle['default?'] === true);
+  let defaultStyle = item.styles.results.filter((itemStyle) => itemStyle['default?'] === true);
+  if (!defaultStyle.length) {
+    defaultStyle = [item.styles.results[0]];
+  }
   const placeholder = 'https://static-00.iconduck.com/assets.00/image-icon-256x256-09od4zyo.png';
-  const thumbnail = defaultStyle.length > 0 ? defaultStyle[0].photos[0].thumbnail_url
-    : item.styles.results[0].photos[0].thumbnail_url;
+  const thumbnail = defaultStyle[0].photos[0].thumbnail_url;
+
   return (
     <>
       <div

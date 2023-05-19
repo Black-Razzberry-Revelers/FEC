@@ -27,10 +27,6 @@ export default function SelectSize({ sizes }) {
     localStorage.setItem('cart', JSON.stringify([...cart, form]));
   };
 
-  const emptyCart = (e) => {
-    localStorage.removeItem('cart');
-  };
-
   return (
     <div>
       {sizes
@@ -47,8 +43,6 @@ export default function SelectSize({ sizes }) {
               ))}
             </select>
             <SelectQuantity quantity={quantity} />
-            <button type="submit">Add</button>
-            <button type="reset" onClick={emptyCart}>clear cart</button>
           </form>
         )
         : <div>loading...</div>}
