@@ -119,5 +119,9 @@ ComparisonModal.propTypes = {
         })),
       })),
     }),
-  }).isRequired,
+  }),
+};
+
+ComparisonModal.defaultProps = {
+  item: { product: { features: [] } },
 };
