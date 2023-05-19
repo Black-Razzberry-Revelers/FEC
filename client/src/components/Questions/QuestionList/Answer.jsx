@@ -24,7 +24,12 @@ function Answer({
         {' '}
         by:
         {' '}
-        {answer.answerer_name}
+        {answer.answerer_name === 'seller' || answer.answerer_name === 'Seller' ? (
+          <strong>
+            {answer.answerer_name}
+            {' '}
+          </strong>
+        ) : answer.answerer_name}
         {' '}
         on:
         {' '}
