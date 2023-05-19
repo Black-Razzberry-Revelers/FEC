@@ -134,6 +134,7 @@ function Questions({ product_id }) {
 
       {view.mode === 'Add Answer' && <AddAnswerModal v={view} c={controller} data-testid="AddAnswer" />}
       {view.mode === 'Add Question' && <AddQuestionModal v={view} c={controller} data-testid="AddQuestion" />}
+      { view.mode === 'Image' && <ImageModal v={view} c={controller} />}
     </div>
   );
 }

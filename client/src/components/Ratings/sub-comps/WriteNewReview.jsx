@@ -54,57 +54,68 @@ function WriteNewReview({ setWriteReview, metaData, writeReview }) {
   };
 
   return (
-    <div className={showHideClassName}>
-      <section className="modal-main modalframe">
-        <span
-          className="material-symbols-outlined"
+    writeReview && (
+      <>
+        <section className="modal-main modalframe-rating">
+          <span
+            className="material-symbols-outlined"
+            onClick={() => setWriteReview(false)}
+          >
+            cancel
+          </span>
+          <form className="modal-form">
+            <label className="section-head rating-head-modal">Write Your Review</label>
+
+            <p className="sub-head sub-head-rating-modal">About the Product Name Here</p>
+            <OverallRating setPerson={setPerson} person={person} />
+
+            <fieldset>
+              <legend className="sub-head">Do you recommend this product?</legend>
+
+              <label htmlFor="yes">Yes</label>
+              <input
+                type="radio"
+                id="yes"
+                name="recommendation"
+                required
+                onClick={() => setPerson({
+                  ...person,
+                  recommend: true,
+                })}
+              />
+
+              <label htmlFor="no">No</label>
+              <input
+                type="radio"
+                id="no"
+                name="recommendation"
+                required
+                onClick={() => setPerson({
+                  ...person,
+                  recommend: false,
+                })}
+              />
+            </fieldset>
+
+            {metaData && <Characteristics metaData={metaData} setPerson={setPerson} person={person} />}
+            <FeedbackAndInfo setPerson={setPerson} person={person} />
+            <div className="form-buttons-rating">
+              <UploadImages setPerson={setPerson} person={person} />
+              <button className="submit-button form-button-rating" type="submit" onClick={(e) => handleSubmit(e)}>Click</button>
+            </div>
+          </form>
+        </section>
+
+        <div
+          className={writeReview && 'modal-frame-overlay'}
+          role="button"
+          aria-label="share-modal-overlay"
+          tabIndex="0"
           onClick={() => setWriteReview(false)}
-        >
-          cancel
-        </span>
-        <form className="modal-form">
-          <label className="section-head">Write Your Review</label>
+        />
 
-          <p className="sub-head">About the Product Name Here</p>
-          <OverallRating setPerson={setPerson} person={person} />
-
-          <fieldset>
-            <legend className="sub-head">Do you recommend this product?</legend>
-
-            <label htmlFor="yes">Yes</label>
-            <input
-              type="radio"
-              id="yes"
-              name="recommendation"
-              required
-              onClick={() => setPerson({
-                ...person,
-                recommend: true,
-              })}
-            />
-
-            <label htmlFor="no">No</label>
-            <input
-              type="radio"
-              id="no"
-              name="recommendation"
-              required
-              onClick={() => setPerson({
-                ...person,
-                recommend: false,
-              })}
-            />
-          </fieldset>
-
-          {metaData && <Characteristics metaData={metaData} setPerson={setPerson} person={person} />}
-          <FeedbackAndInfo setPerson={setPerson} person={person} />
-
-          <UploadImages setPerson={setPerson} person={person} />
-          <button className="submit-button" type="submit" onClick={(e) => handleSubmit(e)}>Click</button>
-        </form>
-      </section>
-    </div>
-  );
+      </>
+    ));
 }
 
 export default WriteNewReview;
