@@ -5,6 +5,7 @@ function Answer({
   answer, v, c, qid, aid,
 }) {
   const { markAHelpful, reportAnswer } = c;
+  const { tog } = v;
   function onHelpful() {
     markAHelpful(qid, aid);
   }
@@ -13,7 +14,7 @@ function Answer({
   }
   function imgClicker(photo) {
     return () => {
-      console.log("Photo UTL",photo)
+      console.log('Photo UTL', photo);
       c.changeMode('Image', { imgURL: photo });
     };
   }
@@ -48,7 +49,7 @@ function Answer({
         {' '}
         Helpful?
         {' '}
-        {!answer.markedHelpful ? <strong onClick={onHelpful} className="helpful-button">Yes</strong> : <strong>Marked Helpful</strong>}
+        {!answer.markedHelpful ? <strong onClick={onHelpful} className="helpful-button" role="button" onKeyPress={onHelpful} tabIndex="0">Yes</strong> : <strong>Marked Helpful</strong>}
         {' '}
         (
         {answer.helpfulness}
@@ -68,7 +69,7 @@ function Answer({
       </div> */ }
       <p className="answer-report">
         {' '}
-        {!answer.reported ? <strong onClick={onReport} className="helpful-button">Report</strong> : <strong>Reported</strong>}
+        {!answer.reported ? <strong onClick={onReport} className="helpful-button" role="button" onKeyPress={onReport} tabIndex="0">Report</strong> : <strong>Reported</strong>}
       </p>
     </div>
   );
