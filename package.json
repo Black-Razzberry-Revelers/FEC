@@ -7,8 +7,8 @@
     "coverage": "npx jest --coverage",
     "deep-test": "jest --env=jsdom --detectOpenHandles",
     "test": "jest --env=jsdom --coverage",
-    "client-dev": "npx webpack --watch",
-    "build": "webpack",
+    "client-dev": "npx webpack --watch --config webpack.dev.js",
+    "build": "webpack --config webpack.prod.js",
     "start": "nodemon --watch server server/index.js"
   },
   "repository": {
