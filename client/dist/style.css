@@ -29,29 +29,37 @@ div {
 /******* STARS *********/
 
 .bar {
- position:relative
+ /* position:relative */
 }
 
 .review-rating-star {
-  display: inline-flex;
+  /* display: inline-flex;
   width: 100%;
   justify-content: center;
+  position: relative; */
+}
+
+.stars-container {
   position: relative;
+  height: 2rem;
 }
 
 .stars {
-  display: inline-flex;
-  /* flex-direction: row; */
+  /* display: inline-flex;
+  flex-direction: row;
   position: absolute;
   top: 0;
   left: 0;
-  /* padding: 2%;
+  padding: 2%;
   min-width: fit-content; */
-
+  position: absolute;
+  padding: 5px 0;
 }
 
 .star {
   /* padding:1% */
+  display: inline-flex;
+  overflow: hidden;
 }
 
 /***** slash price *****/
@@ -206,11 +214,37 @@ button.related-items {
   font-size: 1rem;
   margin: 1rem;
   font-weight: 600;
-  background: white;
+  background: var(--main-light);
+}
+
+button.related-items:hover{
+  background-color: var(--light-alt);
+}
+
+button#add-item-to-outfit {
+  width: 18.5rem;
+  border-radius: 3%;
+  padding: 1rem 0;
 }
 
 img.related-items {
-  border-radius: 33%;
+  border-radius: 5%;
+}
+
+.item-card-image-container {
+  height: 80%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+.item-card-image-container,
+.card-info {
+  background: var(--main-dark);
+  border: 3px solid;
+  box-shadow: 0px 0px 10px var(--dark-alt);
+  border-radius: 3px;
+  min-width: 18.5rem;
 }
 
 .arrow-nav {
@@ -232,6 +266,7 @@ img.related-items {
 .list {
   display: flex;
   flex-direction: row;
+  padding: 0;
 }
 
 .carousel {
@@ -239,22 +274,23 @@ img.related-items {
   position: relative;
 }
 
-.carousel-item,
-.card-info {
-  display: inline-flex;
+.carousel-item {
+  display: flex;
   flex-direction: column;
-  align-items: center;
   justify-content: space-between;
-  height: auto;
   cursor: pointer;
   position: relative;
   width: 20rem;
   padding: 0 .625rem;
 }
 
-.item-card{
-  background-color: var(--main-dark);
+.item-card {
   color:var(--main-light);
+  transition: transform .2s;
+}
+
+.item-card:hover {
+  transform: scale(1.025);
 }
 
 .item-card-action {
@@ -271,22 +307,23 @@ img.related-items {
 #comparison-modal {
   z-index: 1010;
   position:fixed;
-  background: whitesmoke;
+  background: var(--main-dark);
   width: 50%;
   height: auto;
   top:50%;
   left:50%;
   transform: translate(-50%,-50%);
   opacity: 90%;
-  box-shadow: .25rem .25rem 3rem black;
+  box-shadow: .25rem .25rem 3rem var(--main-dark);
   border-radius: 1rem;
+  color: var(--main-light)
 }
 
 .modal-frame-overlay,
 #comparison-modal-overlay {
   z-index: 1000;
   position:fixed;
-  background: black;
+  background: var(--main-dark);
   opacity: 30%;
   width: 100%;
   height: 100%;
@@ -298,7 +335,15 @@ img.related-items {
 table {
   table-layout: fixed;
   width: 100%;
+  font-size: larger;
+  font-weight: 400;
+}
+
+td.label,
+caption.label {
+  color: var(--light-alt);
   text-align: center;
+  w
 }
 
 /********** Rating & Reviews ***********/
@@ -342,19 +387,19 @@ table {
 
 .bar{
   /* background-color: #eaeaea;
-  padding: 20px; */
-  /* width: 1rem; */
-  /* display: grid; */
-  /* justify-items: start; */
-  /* top: -1rem; */
+  padding: 20px;
+  width: 1rem;
+  display: grid;
+  justify-items: start;
+  top: -1rem; */
 }
 
 .rating-bar {
-  display: grid;
+  /* display: grid;
   grid-template-columns: 4rem 1fr 1rf;
-  /* grid-gap: 0rem; */
+  grid-gap: 0rem;
   align-items: center;
-  grid-template-columns: 4rem 1fr 2rem;
+  grid-template-columns: 4rem 1fr 2rem; */
 }
 .rating-sub-head {
   display: contents;
@@ -385,7 +430,7 @@ p.label.tile-user {
 }
 
 .review-rating-star {
-  left: -1rem;
+  /* left: -1rem; */
 }
 
 .ratings-head {
@@ -398,10 +443,10 @@ h3.rating-sub-head {
   font-size: revert;
 }
 .rating-star {
-  /* display: flex; */
+  /* display: flex;
   position: relative;
-  /* left: 2rem; */
-  top: 1.5rem;
+  left: 2rem;
+  top: 1.5rem; */
 }
 p.info-text {
   font-weight: 300;

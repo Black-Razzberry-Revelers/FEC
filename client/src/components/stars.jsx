@@ -4,13 +4,15 @@ import starFilled from '../../dist/assets/icons8-star-16-filled.png';
 
 export default function Stars({ avgRating }) {
   let floor = Math.floor(avgRating);
-  let percent = Math.ceil((avgRating - Math.floor(avgRating)) * 10);
-  if (percent > 7) {
+  let percent = (avgRating - Math.floor(avgRating)) * 100;
+  if (percent >= 87.5) {
+    percent = 20;
+  } else if (percent >= 62.5 && percent < 87.5) {
+    percent = 15;
+  } else if (percent >= 37.5 && percent < 62.5) {
     percent = 10;
-  } else if (percent > 4 && percent < 8) {
-    percent = 5;
-  } else if (percent > 2 && percent < 6) {
-    percent = 2.5;
+  } else if (percent >= 12.5 && percent < 37.5) {
+    percent = 7.5;
   } else {
     percent = 0;
   }
@@ -21,36 +23,33 @@ export default function Stars({ avgRating }) {
   }
 
   return (
-    <div className="bar review-rating-star">
-      <div className="stars">
-        <div className="stars" id="empty">
-          {[1, 2, 3, 4, 5].map((num) => (
-            <span key={`${num}emptyStar`}>
-              <img src={starEmpty} alt="star" />
-            </span>
-          ))}
-        </div>
-        <div className="stars" id="filled">
-          {filled.map((star, i) => (
-            <span key={`${i}filledStar`} className="star">
-              <img src={starFilled} alt="star" />
-            </span>
-          ))}
-          <span
-            className="star"
-            style={{
-              width: `${percent}%`,
-              overflow: 'hidden',
-              paddingRight: '5px',
-            }}
-          >
-            <img
-              src={starFilled}
-              alt="star"
-              // style={{ paddingBottom: '20%' }}
-            />
+    <div className="stars-container">
+      <div className="stars stars-empty">
+        {[1, 2, 3, 4, 5].map((num) => (
+          <span key={`${num}emptyStar`}>
+            <img src={starEmpty} alt="star" />
           </span>
-        </div>
+        ))}
+      </div>
+      <div className="stars stars-filled">
+        {filled.map((star, i) => (
+          <span key={`${i}filledStar`} className="star">
+            <img src={starFilled} alt="star" />
+          </span>
+        ))}
+        <span
+          className="star"
+          style={{
+            width: `${percent}%`,
+            // overflow: 'hidden',
+            // paddingRight: '5px',
+          }}
+        >
+          <img
+            src={starFilled}
+            alt="star"
+          />
+        </span>
       </div>
     </div>
   );
