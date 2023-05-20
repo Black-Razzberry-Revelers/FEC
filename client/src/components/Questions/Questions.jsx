@@ -72,9 +72,9 @@ function Questions({ product_id }) {
         }
         return false;
       });
-      setView({...view, questions: filtered });
+      setView({ ...view, questions: filtered });
     } else {
-      setView({...view, questions: model.questions.map((x) => x) });
+      setView({ ...view, questions: model.questions.map((x) => x) });
     }
   }
 
@@ -94,7 +94,7 @@ function Questions({ product_id }) {
   }
 
   function markAHelpful(qid, aid) {
-    fetcher.put.helpfulAnswer(aid).then(()=>{
+    fetcher.put.helpfulAnswer(aid).then(() => {
       const copy = model.questions.map((q) => {
         if (q.question_id === qid) {
           const mark = { ...q };
@@ -134,7 +134,7 @@ function Questions({ product_id }) {
 
       {view.mode === 'Add Answer' && <AddAnswerModal v={view} c={controller} data-testid="AddAnswer" />}
       {view.mode === 'Add Question' && <AddQuestionModal v={view} c={controller} data-testid="AddQuestion" />}
-      { view.mode === 'Image' && <ImageModal v={view} c={controller} />}
+      {/* { view.mode === 'Image' && <ImageModal v={view} c={controller} />} */}
     </div>
   );
 }
