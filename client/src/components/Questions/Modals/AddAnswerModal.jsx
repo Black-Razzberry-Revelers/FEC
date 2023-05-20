@@ -1,3 +1,4 @@
+/* eslint-disable no-alert */
 import React, { useState } from 'react';
 import fetcher from '../../fetcher';
 
@@ -7,7 +8,7 @@ function AddAnswerModal({ v, c }) {
   const [email, setEmail] = useState('');
   const [images, setImages] = useState([]);
   function onUpload() {}
-
+  // eslint-disable-next-line no-useless-escape
   const emailREGEXP = /^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$/;
 
   function validate() {
@@ -54,8 +55,8 @@ function AddAnswerModal({ v, c }) {
         <input value={nickname} type="text" placeholder={p2} data-testid="answer-nickname-input" onChange={(e) => change(e.target.value, setNickname)} />
         <input value={email} type="text" placeholder={p3} data-testid="answer-email-input" onChange={(e) => change(e.target.value, setEmail)} />
       </form>
-      <div className="submit-button" onClick={onSubmit} data-testid="answer submit">Submit</div>
-      <div className="submit-button" onClick={onBack}>Go Back!</div>
+      <div className="submit-button" onClick={onSubmit} data-testid="answer submit" role="button" onKeyPress={onSubmit} tabIndex="0">Submit</div>
+      <div className="submit-button" onClick={onBack} role="button" onKeyPress={onBack} tabIndex="0">Go Back!</div>
     </div>
   );
 }

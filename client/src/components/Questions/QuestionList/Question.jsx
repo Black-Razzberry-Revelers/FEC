@@ -15,10 +15,11 @@ function Question({
     showAnswers(qid);
   }
   function onAddAnswer() {
-    console.log("add answer clicked")
+    console.log('add answer clicked');
     changeMode('Add Answer', { question, qid });
   }
-
+  // eslint-disable-next-line no-param-reassign
+  v.tog = onToggle();
   let answers = Object.keys(question.answers).map((key) => question.answers[key]);
 
   answers = answers.sort((a, b) => {
@@ -58,15 +59,18 @@ function Question({
           {' '}
           Helpful?
           {' '}
-          {question.markedHelpful ? <strong className="helpful-button">Marked Helpful!</strong> : <strong onClick={onHelpful} className="helpful-button"> Yes! </strong>}
+          {question.markedHelpful ? <strong className="helpful-button">Marked Helpful!</strong> : <strong onClick={onHelpful} className="helpful-button" role="button" onKeyPress={onHelpful} tabIndex="0"> Yes! </strong>}
           {' '}
           (
           {question.question_helpfulness}
           )
         </p>
-        <div className="add-answer">< strong onClick={onAddAnswer} className="helpful-button">Add Answer</strong> </div>
+        <div className="add-answer">
+          <strong onClick={onAddAnswer} className="helpful-button" role="button" onKeyPress={onAddAnswer} tabIndex="0">Add Answer</strong>
+          {' '}
+        </div>
       </div>
-      <AnswerList c={c} v={v} qid={qid} answers={answers} tog={onToggle} />
+      <AnswerList c={c} v={v} qid={qid} answers={answers} />
     </>
   );
 }

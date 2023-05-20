@@ -401,7 +401,7 @@ caption.label {
     margin: 0;
 }
 
-.bar{
+/* .bar{
   /* background-color: #eaeaea;
   padding: 20px;
   width: 1rem;
@@ -618,7 +618,7 @@ input[type="range"] {
   background: rgba(0, 0, 0, 0.6);
 }
 
-/********** Shared Classes ***********/
+/********** Shared Classes **********
 .section-head {
 }
 
@@ -656,6 +656,7 @@ input[type="range"] {
 .modal-image{
 
 }
+*/
 
 /* // */
 /* h3.rating-sub-head {
@@ -665,19 +666,11 @@ input[type="range"] {
 
 /********** Questions ***********/
 
-#Q-A{
-
-}
 
 #Q-A-title {
   font-family: var(--header-font);
   color:var(--main-dark);
   font-size: 3rem;
-}
-
-#Q-A-searchbar {
-
-
 }
 
 #question-viewport{
@@ -698,9 +691,6 @@ background-color: var(--main-dark);
 color: var(--main-light)
 }
 
-#question-strip{
-
-}
 .question-body{
 display: grid;
 grid-template-columns: 1fr 7fr 1fr ;
