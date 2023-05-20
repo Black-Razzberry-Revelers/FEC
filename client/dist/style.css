@@ -26,6 +26,22 @@ div {
   padding:1%;
 }
 
+/******* SITE HEADER ****/
+.site-header {
+  background-color: var(--dark-alt);
+  color: var(--main-light);
+  font-size: xxx-large;
+  text-align: right;
+}
+
+div.site-header {
+  border-radius: 3%;
+  width: 33%;
+  box-shadow: 0 0 4px var(--dark-alt);
+}
+
+
+
 /******* STARS *********/
 
 .bar {
