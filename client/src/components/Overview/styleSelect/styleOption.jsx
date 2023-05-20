@@ -10,22 +10,23 @@ export default function StyleOption({ styleInfo }) {
   return (
     <button
       id={style.style_id}
-      style={styleInfo.style_id === style.style_id
-        ? {
-          boxShadow: '-5px -5px blue',
-          padding: 'unset',
-          borderRadius: '50%',
-          borderWidth: '.25px',
-        }
-        : { padding: 'unset', borderRadius: '50%', borderWidth: '.25px' }}
       type="button"
       onClick={handleClick}
       data-testid="thumbnail"
       className="option"
+      style={{ padding: 'unset', borderRadius: '50%' }}
     >
       <img
+        style={styleInfo.style_id === style.style_id
+          ? {
+            border: '2px solid var(--light-alt)',
+            boxShadow: '0 0 15px var(--light-alt)',
+            padding: 'unset',
+            borderRadius: '50%',
+            borderWidth: '.25px',
+          }
+          : { padding: 'unset', borderRadius: '50%' }}
         className="thumbnail"
-        style={{ padding: 'unset', borderRadius: '50%', borderWidth: '.25px' }}
         alt="circle"
         src={styleInfo.photos[0].thumbnail_url}
       />
