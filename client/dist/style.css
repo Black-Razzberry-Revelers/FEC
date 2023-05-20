@@ -359,7 +359,6 @@ td.label,
 caption.label {
   color: var(--light-alt);
   text-align: center;
-  w
 }
 
 /********** Rating & Reviews ***********/
@@ -401,7 +400,7 @@ caption.label {
     margin: 0;
 }
 
-/* .bar{
+.bar {
   /* background-color: #eaeaea;
   padding: 20px;
   width: 1rem;

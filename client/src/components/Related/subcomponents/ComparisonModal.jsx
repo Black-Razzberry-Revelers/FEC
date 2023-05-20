@@ -39,21 +39,22 @@ export default function ComparisonModal({ item }) {
               <td className="label">Category</td>
               <td className="info-text">{product.category}</td>
             </tr>
-            {Object.keys(itemFeatures).map((key) => (
+            {Object.keys(itemFeatures).map((key, i) => (
               <tr>
-                <td className="info-text">{itemFeatures[key]}</td>
-                <td className="label">{key}</td>
-                <td className="info-text">{productFeatures[key] || ''}</td>
+                <td className="info-text" key={itemFeatures[key] + i || i}>{itemFeatures[key]}</td>
+                <td className="label" key={key + i}>{key}</td>
+                <td className="info-text" key={productFeatures[key] + i || i}>{productFeatures[key] || ''}</td>
               </tr>
             ))}
-            {Object.keys(productFeatures).map((key) => {
+            {Object.keys(productFeatures).map((key, i) => {
               let node;
               if (!Object.keys(itemFeatures).includes(key)) {
+                console.log('Keys:', itemFeatures[key] + i, key + i, productFeatures[key] + i);
                 node = (
                   <tr>
-                    <td className="info-text">{itemFeatures[key] || ''}</td>
-                    <td className="label">{key}</td>
-                    <td className="info-text">{productFeatures[key]}</td>
+                    <td className="info-text" key={productFeatures[key] + i || i}>{itemFeatures[key] || ''}</td>
+                    <td className="label" key={key + i}>{key}</td>
+                    <td className="info-text" key={productFeatures[key] + i || i}>{productFeatures[key]}</td>
                   </tr>
                 );
               }
@@ -88,7 +89,7 @@ export default function ComparisonModal({ item }) {
 ComparisonModal.propTypes = {
   item: PropTypes.shape({
     product: PropTypes.shape({
-      id: PropTypes.number.isRequired,
+      id: PropTypes.number,
       campus: PropTypes.string,
       name: PropTypes.string,
       slogan: PropTypes.string,

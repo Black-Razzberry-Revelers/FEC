@@ -92,7 +92,7 @@ export default function ItemCard({
 ItemCard.propTypes = {
   item: PropTypes.shape({
     product: PropTypes.shape({
-      id: PropTypes.number.isRequired,
+      id: PropTypes.number,
       campus: PropTypes.string,
       name: PropTypes.string,
       slogan: PropTypes.string,
