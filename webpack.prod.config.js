@@ -1,13 +1,16 @@
+const path = require('path');
 const { merge } = require('webpack-merge');
 const MiniCssExtractPlugin = require('mini-css-extract-plugin');
 const CssMinimizerPlugin = require('css-minimizer-webpack-plugin');
 const common = require('./webpack.common.config');
-const path = require('path');
 
 module.exports = merge(
   common,
   {
-    entry: path.join(__dirname, '/client/dist/style.css'),
+    entry: [
+      path.join(__dirname, '/client/src/index.jsx'),
+      path.join(__dirname, '/client/dist/style.css'),
+    ],
     mode: 'production',
     devtool: 'source-map',
     module: {
@@ -22,10 +25,17 @@ module.exports = merge(
       filename: '[name].css',
     })],
     optimization: {
-      minimizer: [new CssMinimizerPlugin({
-        test: /\.foo\.css$/i,
-      })],
+      minimizer: [new CssMinimizerPlugin()],
       minimize: true,
+      splitChunks: {
+        cacheGroups: {
+          styles: {
+            name: 'styles',
+            test: /\.css$/,
+            enforce: true,
+          },
+        },
+      },
     },
   },
 );
