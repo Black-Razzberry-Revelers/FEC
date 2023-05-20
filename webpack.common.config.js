@@ -5,10 +5,10 @@ const path = require('path');
 module.exports = {
   entry: path.join(__dirname, '/client/src/index.jsx'),
   output: {
-    filename: '[name].bundle.js',
+    filename: 'bundle.js',
     path: path.resolve('client/dist'),
     clean: {
-      keep: /assets\//,
+      keep: /assets|index\.html|style\.css$/,
     },
   },
   module: {
