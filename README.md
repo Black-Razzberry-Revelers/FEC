@@ -131,9 +131,4 @@ Github: TammamTautou
 ## State of the Project
 We initially built this application over a 3 week sprint ending on 5/20/23, as part of Hack Reactor's 'Software Engineering Immersive' Program.
 Any changes since that time reflect the further efforts of the teammembers to explore and refine their skills as developers.
-It is not our intent to
-
-##  Retrospection
-
-*Anything else we might want to include, A catchall category that could include references or helpful links.*
-
+It is not our intent to maintain, support, or extend this code. However, it *is* our intent to refine and polish at some point during the 3 months following 06/23/2023
