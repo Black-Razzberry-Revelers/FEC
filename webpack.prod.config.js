@@ -11,13 +11,16 @@ module.exports = merge(
     module: {
       rules: [
         {
-          test: /.s?css$/,
+          test: /.s?css$/i,
           use: [MiniCssExtractPlugin.loader, 'css-loader', 'sass-loader'],
         },
       ],
     },
     optimization: {
-      minimizer: [new CssMinimizerPlugin()],
+      minimize: true,
+      minimizer: [new CssMinimizerPlugin({
+        test: /\.foo\.css$/i,
+      })],
     },
     plugins: [new MiniCssExtractPlugin()],
   },
