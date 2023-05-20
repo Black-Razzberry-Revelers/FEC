@@ -18,7 +18,7 @@ function AnswerList({
       {shown.map((a) => (<Answer answer={a} key={a.id} v={v} c={c} qid={qid} aid={a.id} />))}
       {answers.length > 2
       && (
-      <div onClick={tog} className="show-button show-more">
+      <div onClick={tog} role="button" onKeyPress={tog} tabIndex="0" className="show-button show-more">
         {question.showMore ? 'Show Less Answers' : 'Show More Answers'}
       </div>
       )}
