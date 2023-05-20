@@ -19,7 +19,6 @@ function Question({
     changeMode('Add Answer', { question, qid });
   }
   // eslint-disable-next-line no-param-reassign
-  v.tog = onToggle();
   let answers = Object.keys(question.answers).map((key) => question.answers[key]);
 
   answers = answers.sort((a, b) => {
@@ -34,7 +33,7 @@ function Question({
     }
     return 0;
   });
-
+  const toggle = { onToggle };
   return (
     <>
       <div className="question-body big-Q">
@@ -70,7 +69,7 @@ function Question({
           {' '}
         </div>
       </div>
-      <AnswerList c={c} v={v} qid={qid} answers={answers} />
+      <AnswerList c={c} v={v} qid={qid} answers={answers} tog={toggle.onToggle} />
     </>
   );
 }
