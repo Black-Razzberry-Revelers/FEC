@@ -11,7 +11,7 @@ const logger = require('./middlewares/logger');
 const app = express();
 
 // middelwares
-app.use(express.static(path.join(__dirname, '../client/dist')));
+app.use(express.static(path.join(__dirname, '../client/dist/assets')));
 app.use(express.json());
 app.use(morgan('dev'));
 app.use(cors());
