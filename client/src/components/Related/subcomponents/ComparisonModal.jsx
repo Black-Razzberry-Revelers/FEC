@@ -49,7 +49,6 @@ export default function ComparisonModal({ item }) {
             {Object.keys(productFeatures).map((key, i) => {
               let node;
               if (!Object.keys(itemFeatures).includes(key)) {
-                console.log('Keys:', itemFeatures[key] + i, key + i, productFeatures[key] + i);
                 node = (
                   <tr>
                     <td className="info-text" key={productFeatures[key] + i || i}>{itemFeatures[key] || ''}</td>
