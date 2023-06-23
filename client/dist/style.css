@@ -1,5 +1,6 @@
 :root{
 --main-light: #EBF5FF;
+--main-btn-light: rgba(235, 245, 255, 0.6);
 --main-dark: #0D2530;
 --dark-alt: #6E355F;
 --light-alt:#CDB4DB;
@@ -225,12 +226,13 @@ div.site-header {
 /********* Related *********/
 
 button.related-items {
-  opacity: 60%;
-  border-radius: 33%;
+  /* opacity: 60%; */
+  border-radius: 50%;
   font-size: 1rem;
   margin: 1rem;
   font-weight: 600;
-  background: var(--main-light);
+  background: var(--main-btn-light);
+  color: var(--dark-alt);
 }
 
 button.related-items:hover{
@@ -244,7 +246,8 @@ button#add-item-to-outfit {
 }
 
 img.related-items {
-  border-radius: 5%;
+  /* border-radius: 5%; */
+  padding: .5rem;
 }
 
 .item-card-image-container {
@@ -258,15 +261,16 @@ img.related-items {
 .card-info {
   background: var(--main-dark);
   border: 3px solid;
-  box-shadow: 0px 0px 10px var(--dark-alt);
+  box-shadow: 0px 0px 2px var(--dark-alt);
   border-radius: 3px;
   min-width: 18.5rem;
+  font-family: var(--header-font);
 }
 
 .arrow-nav {
   position: absolute;
   top: 50%;
-  height: 10rem;
+  height: 3rem;
   width: 3rem;
   transform: translateY(-50%);
 }
@@ -312,6 +316,8 @@ img.related-items {
 .item-card-action {
   position: absolute;
   right:0;
+  height: 2rem;
+  width: 2rem;
 }
 
 .inner {
