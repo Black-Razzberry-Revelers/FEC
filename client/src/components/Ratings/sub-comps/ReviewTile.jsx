@@ -9,12 +9,13 @@ import { useState, useEffect } from 'react';
 import { intlFormat } from 'date-fns';
 import fetcher from '../../fetcher';
 import Stars from '../../stars';
-
+// #6E355F
 function ReviewTile({ review }) {
   const style = {
-    width: '5rem',
-    borderRadius: '5rem',
-    height: '5rem',
+    width: '4rem',
+    borderRadius: '4rem',
+    height: '4rem',
+    marginInline: '0.5rem',
   };
 
   const [image, setImage] = useState('');
@@ -45,7 +46,7 @@ function ReviewTile({ review }) {
 
   return (
     <div className="review-tile">
-      <div className="tile-container-stars-user-date">
+      <div className="stars-user-date">
         <div className="rating-star"><Stars avgRating={review.rating} /></div>
         <p className="label tile-user">{review.reviewer_name}</p>
         <p className="label tile-date">

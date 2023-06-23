@@ -11,9 +11,12 @@ body {
   max-width: 1080px;
   margin: 0 auto !important;
   float: none !important;
-  background-color: var(--main-light);
   font-family: var(--body-font);
   color: var(--main-dark);
+}
+
+main {
+  background: var(--main-light);
 }
 
 h1, h2, h3 {
@@ -300,21 +303,6 @@ table {
 }
 
 /********** Rating & Reviews ***********/
-/*test*/
- /* .modal-main {
-  position:fixed;
-  background: #e6e8ee;
-  width: 80%;
-  height: auto;
-  top:50%;
-  left:50%;
-  transform: translate(-50%,-50%);
-} */
-
-/* body {
-  margin-left: 25rem;
-  margin-right: 25rem;
-} */
 .Ratings {
   background-color: #EBF5FF;
 }
@@ -338,19 +326,10 @@ table {
     margin: 0;
 }
 
-/* .bar{
-  /* background-color: #eaeaea;
-  padding: 20px; */
-  /* width: 1rem; */
-  /* display: grid; */
-  /* justify-items: start; */
-  /* top: -1rem; */
-/* } */
 
 .rating-bar {
   display: grid;
   grid-template-columns: 4rem 1fr 1rf;
-  /* grid-gap: 0rem; */
   align-items: center;
   grid-template-columns: 4rem 1fr 2rem;
 }
@@ -391,14 +370,10 @@ p.label.tile-user {
 }
 
 h3.rating-sub-head {
-  /* font-weight: 500; */
-  /* font-family: sans-serif; */
   font-size: revert;
 }
 .rating-star {
-  /* display: flex; */
   position: relative;
-  /* left: 2rem; */
   top: 1.5rem;
 }
 p.info-text {
@@ -411,7 +386,6 @@ p.info-text.rating-recommend {
   font-size: 1rem;
   font-weight: 300;
   color: gray;
-  /* width: 15rem; */
 }
 p.info-text.rating-helpful {
   font-size: 1rem;
@@ -449,27 +423,30 @@ p.info-text.rating-helpful {
   color: white;
 }
 
-.modalframe-rating{
+.modalframe-rating {
   z-index: 1001;
   position: fixed;
-  /* background: #fff; */
-  background: #0d2530;
-  color: white;
-  width: 35%;
-  height: auto;
+  background: var(--main-dark);
+  color: var(--tw-ring-offset-color);
+  width: 40rem;
+  height: 80%;
   top: 50%;
   left: 50%;
   transform: translate(-50%, -50%);
-  box-shadow: 0 0 0.5rem black;
-  padding: 20px;
+  /* box-shadow: 0 0 1rem var(--dark-alt); */
+  padding: 1rem;
   overflow-y: auto;
-  max-height: 95vh;
-  border-radius: 2rem;
+  max-height: 92vh;
+  border-radius: 1rem;
+  border: solid var(--dark-alt) thick;
+
 }
 
 .characteristics-radio-button {
   display: grid;
   grid-template-columns: 1fr 1fr 1fr 1fr 1fr 1fr;
+  height: 4rem;
+  align-items: baseline;
 }
 .radio-button {
     display: flex;
@@ -497,10 +474,13 @@ div.feedback-info input[type="text"] {
   justify-content: space-between;
 }
 .form-button-rating{
-  background: white;
+  all: unset;
   width: 6rem;
   height: 2rem;
   border-radius: 0.5rem;
+  background-color: var(--dark-alt);
+  text-align: center;
+  box-shadow: 0 0 0.5rem var(--dark-alt);
 }
 
 .rating-head-modal{
@@ -527,7 +507,6 @@ input[type="range"]::-webkit-slider-thumb {
   -webkit-appearance: none;
   height: 2rem;
   width: 1rem;
-  /* background: black; */
   border-left: 1rem solid transparent;
   border-right: 1rem solid transparent;
   top: 0.5rem;
@@ -538,7 +517,6 @@ input[type="range"]::-webkit-slider-thumb {
 
 input[type="range"] {
   width: 100%;
-  /* background: #053a5f; */
   background: #abc9d6;
   appearance: none;
   height: 0.5rem;
