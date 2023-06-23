@@ -26,19 +26,17 @@ export default function OutfitItemsList() {
           }
         }}
       >
-        +
+        +  Add to Your Outfit
       </button>
-      <div className="outfit list inner" style={{ transform: `translateX(-${activeIndex * 22.25}rem)` }}>
+      <div className="outfit list inner" style={{ transform: `translateX(-${activeIndex * 20.5}rem)` }}>
         {outfitItems.map((item) => (
-          <div className="outfit carousel-item item-card" key={item.product.id}>
-            <ItemCard
-              key={item.product.id}
-              item={{ product: item.product, styles: item.styles }}
-              outfitItems={outfitItems}
-              setOutfitItems={setOutfitItems}
-              outfitList
-            />
-          </div>
+          <ItemCard
+            key={item.product.id}
+            item={{ product: item.product, styles: item.styles }}
+            outfitItems={outfitItems}
+            setOutfitItems={setOutfitItems}
+            outfitList
+          />
         ))}
       </div>
       <button className="related-items arrow-nav left-arrow" type="button" hidden={activeIndex === 0} onClick={(e) => setActiveIndex(activeIndex - 1)}>{'<'}</button>
