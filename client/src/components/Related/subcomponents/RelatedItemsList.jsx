@@ -28,19 +28,17 @@ export default function RelatedItemsList() {
   return (
     <div className="related-items carousel">
       <h2>Related Items</h2>
-      <div className="related-items list inner" style={{ transform: `translateX(-${activeIndex * 21.25}rem)` }}>
+      <div className="related-items list inner" style={{ transform: `translateX(-${activeIndex * 20.5}rem)` }}>
         {relatedItems.products.map((item, i) => (
-          <div className="related-items carousel-item item-card" key={item.id}>
-            <ItemCard
-              key={item.id}
-              item={{
-                product: item,
-                styles: relatedItems.styles[i],
-                ratings: relatedItems.meta[i].ratings,
-              }}
-              outfitList={false}
-            />
-          </div>
+          <ItemCard
+            key={item.id}
+            item={{
+              product: item,
+              styles: relatedItems.styles[i],
+              ratings: relatedItems.meta[i].ratings,
+            }}
+            outfitList={false}
+          />
         ))}
       </div>
       <button className="related-items arrow-nav left-arrow" type="button" hidden={activeIndex === 0} onClick={(e) => setActiveIndex(activeIndex - 1)}>{'<'}</button>

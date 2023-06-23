@@ -24,30 +24,32 @@ export default function ItemCard({
   const thumbnail = defaultStyle[0].photos[0].thumbnail_url;
 
   return (
-    <>
-      <div
-        className="card-info"
-        role="link"
-        tabIndex="0"
-        onClick={(e) => {
+    <div
+      className="related-items carousel-item item-card"
+      role="link"
+      tabIndex="0"
+      onClick={(e) => {
+        setProduct(item.product);
+        setStyles(item.styles);
+        setStyle(defaultStyle[0]);
+      }}
+      onKeyDown={(e) => {
+        if (e.code === 'Enter') {
           setProduct(item.product);
           setStyles(item.styles);
           setStyle(defaultStyle[0]);
-        }}
-        onKeyDown={(e) => {
-          if (e.code === 'Enter') {
-            setProduct(item.product);
-            setStyles(item.styles);
-            setStyle(defaultStyle[0]);
-          }
-        }}
-      >
-        {/* <h3 className="sub-head">Item Card</h3> */}
+        }
+      }}
+    >
+      <div className="related-items item-card-image-container">
         <img
           className="related-items"
           src={thumbnail || placeholder} // need to account for default styles
           alt={item.product.name}
         />
+      </div>
+      <div className="card-info">
+        {/* <h3 className="sub-head">Item Card</h3> */}
         <div className="info-text">
           Name:
           {' '}
@@ -68,6 +70,7 @@ export default function ItemCard({
         type="button"
         className="material-symbols-outlined item-card-action related-items"
         onClick={(e) => {
+          e.stopPropagation();
           if (outfitList) {
             const outfitItemsFilter = outfitItems.filter(
               (outfitItem) => outfitItem.product.id !== item.product.id,
@@ -82,14 +85,14 @@ export default function ItemCard({
       >
         {outfitList ? 'close' : 'star'}
       </button>
-    </>
+    </div>
   );
 }
 
 ItemCard.propTypes = {
   item: PropTypes.shape({
     product: PropTypes.shape({
-      id: PropTypes.number.isRequired,
+      id: PropTypes.number,
       campus: PropTypes.string,
       name: PropTypes.string,
       slogan: PropTypes.string,
