@@ -4,8 +4,9 @@
 --main-dark: #0D2530;
 --dark-alt: #6E355F;
 --light-alt:#CDB4DB;
+--body-font:'Barlow', sans-serif;
+/* --header-font:'Cormorant Garamond', serif; */
 --header-font:'Barlow', sans-serif;
---body-font:'Cormorant Garamond', serif;
 }
 
 body {
@@ -260,12 +261,20 @@ img.related-items {
 .item-card-image-container,
 .card-info {
   background: var(--main-dark);
-  border: 3px solid;
-  box-shadow: 0px 0px 2px var(--dark-alt);
-  border-radius: 3px;
+  border: .5rem solid var(--dark-alt);
+  /* box-shadow: 0px 0px 2px var(--dark-alt); */
+  /* border-radius: 3px; */
   min-width: 18.5rem;
   font-family: var(--header-font);
 }
+
+/* .item-card-image-container:hover {
+  box-shadow: 0px 0px 1rem var(--main-dark);
+} */
+
+/* .card-info:hover {
+  box-shadow: 0px -6px 0 var(--dark-alt), 0 0 1rem var(--main-dark);
+} */
 
 .arrow-nav {
   position: absolute;
@@ -313,6 +322,14 @@ img.related-items {
   transform: scale(1.025);
 }
 
+.item-card:hover .item-card-image-container {
+  box-shadow: 0px 0px 1rem var(--main-dark);
+}
+
+.item-card:hover .card-info {
+  box-shadow: 0px -6px 0 var(--dark-alt), 0 0 1rem var(--main-dark);
+}
+
 .item-card-action {
   position: absolute;
   right:0;
@@ -335,10 +352,11 @@ img.related-items {
   top:50%;
   left:50%;
   transform: translate(-50%,-50%);
-  opacity: 90%;
+  /* opacity: 95%; */
   box-shadow: .25rem .25rem 3rem var(--main-dark);
   border-radius: 1rem;
-  color: var(--main-light)
+  color: var(--main-light);
+  border: .5rem solid var(--dark-alt);
 }
 
 .modal-frame-overlay,
@@ -365,6 +383,10 @@ td.label,
 caption.label {
   color: var(--light-alt);
   text-align: center;
+}
+
+th {
+  text-align: left;
 }
 
 /********** Rating & Reviews ***********/
