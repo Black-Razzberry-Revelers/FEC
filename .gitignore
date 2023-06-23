@@ -6,6 +6,7 @@
 
 # webpack
 bundle.js*
+main.css*
 
 
 # directories
