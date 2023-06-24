@@ -463,13 +463,24 @@ th {
   align-items: center;
   grid-template-columns: 17% 60% 23%;
 }
+
+.user\+date {
+  display: flex;
+  justify-content: flex-end;
+}
+p.label.tile-user {
+  padding-right: 5px;
+}
+
+
 p.label.tile-user {
   display: flex;
   justify-content: flex-end;
 }
 
-.review-rating-star {
-  /* left: -1rem; */
+.stars-user-date {
+  display: flex;
+  justify-content: space-between;
 }
 
 .ratings-head {
@@ -482,11 +493,14 @@ h3.rating-sub-head {
 .rating-star {
   position: relative;
   top: 1.5rem;
+  width: 6rem;
 }
 p.info-text {
   font-weight: 300;
   font-family: system-ui;
   word-wrap: break-word;
+  width: 40rem;
+
 }
 
 p.info-text.rating-recommend {
@@ -512,9 +526,22 @@ p.info-text.rating-helpful {
   font-weight: 600;
 }
 
+button.show-button.rating-add-review:hover {
+  background: #0d2530de;
+}
+
+a.helpful-button-report {
+  border-left: solid thin;
+  padding-left: 10px;
+}
+
+a.helpful-button {
+  padding-right: 10px;
+}
+
 .rating-add-review {
-  width: 10rem;
-  height: 3rem;
+  width: 15rem;
+  height: 5rem;
   margin: 1rem;
   background: #0d2530;
   font-size: 1rem;
