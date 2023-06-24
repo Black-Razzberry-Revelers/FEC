@@ -15,55 +15,59 @@ export default function Share() {
     setClickShare(true);
   };
   return (
-    clickShare
-      ? (
-        <>
-          <div className="sharePopup modal-frame">
-            Share this product
-            <div
-              data-layout="button_count"
-              data-size="small"
-              data-href={url}
-            >
-              <a
-                target="_blank"
-                rel="noreferrer noopener"
-                href={fblink}
-              >
-                <img alt="icon" src={facebook} />
-              </a>
-              <a
-                className="twitter-share-button"
-                href="https://twitter.com/intent/tweet"
-                data-size="small"
-                rel="noreferrer"
-                target="_blank"
-              >
-                <link rel="canonical" href={url} />
-                <img alt="icon" src={twitter} />
-              </a>
-              <a
-                className="pinterest-share-button"
-                href={pinLink}
-                data-size="small"
-                rel="noreferrer"
-                target="_blank"
-              >
-                <img alt="icon" src={pinterest} />
-              </a>
-            </div>
-          </div>
-          <div
-            className="modal-frame-overlay"
-            role="button"
-            aria-label="share-modal-overlay"
-            tabIndex="0"
-            onKeyDown={(e) => setClickShare(false)}
-            onClick={(e) => setClickShare(false)}
-          />
-        </>
-      )
-      : <button type="button" onClick={handleClick} className="show-button">share</button>
-
+    <div className="share-icones">
+      <i className="fa-brands fa-facebook-f" />
+      <i className="fa-brands fa-twitter" />
+      <i className="fa-brands fa-pinterest" />
+    </div>
+    // clickShare
+    //   ? (
+    //     <>
+    //       <div className="sharePopup modal-frame">
+    //         Share this product
+    //         <div
+    //           data-layout="button_count"
+    //           data-size="small"
+    //           data-href={url}
+    //         >
+    //           <a
+    //             target="_blank"
+    //             rel="noreferrer noopener"
+    //             href={fblink}
+    //           >
+    //             <img alt="icon" src={facebook} />
+    //           </a>
+    //           <a
+    //             className="twitter-share-button"
+    //             href="https://twitter.com/intent/tweet"
+    //             data-size="small"
+    //             rel="noreferrer"
+    //             target="_blank"
+    //           >
+    //             <link rel="canonical" href={url} />
+    //             <img alt="icon" src={twitter} />
+    //           </a>
+    //           <a
+    //             className="pinterest-share-button"
+    //             href={pinLink}
+    //             data-size="small"
+    //             rel="noreferrer"
+    //             target="_blank"
+    //           >
+    //             <img alt="icon" src={pinterest} />
+    //           </a>
+    //         </div>
+    //       </div>
+    //       <div
+    //         className="modal-frame-overlay"
+    //         role="button"
+    //         aria-label="share-modal-overlay"
+    //         tabIndex="0"
+    //         onKeyDown={(e) => setClickShare(false)}
+    //         onClick={(e) => setClickShare(false)}
+    //       />
+    //     </>
+    //   )
+    //   : <button type="button" onClick={handleClick} className="show-button">share</button>
   );
 }
