@@ -635,7 +635,7 @@ a.helpful-button {
   background: var(--main-light);
   color: var(--main-dark);
   width: 40rem;
-  height: 65%;
+  height: 67%;
   top: 50%;
   left: 50%;
   transform: translate(-50%, -50%);
@@ -958,6 +958,38 @@ font-family: var(--header-font);
   gap: 20px;
   justify-content: space-between;
 }
+.ask-modal-frame {
+  z-index: 1001;
+  position: fixed;
+  background: var(--main-light);
+  color: var(--main-dark);
+  width: 40rem;
+  height: 30%;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  padding: 1rem;
+  overflow-y: auto;
+  max-height: 92vh;
+  border-radius: 1rem;
+  border: solid var(--dark-alt) thick;
+}
+
+.q-submit-button {
+  border: solid thin var(--light-alt);
+  border-radius: 1rem;
+  text-align: center;
+  background: var(--dark-alt);
+  color: white;
+  font-size: 2rem;
+  margin-bottom: 1rem;
+  margin-top: 1rem;
+}
+.submit-button:hover {
+  background-color: var(--light-alt);
+}
+
+
 
 #ask-a-question {
   font-size: 1.5rem;
@@ -967,6 +999,13 @@ font-family: var(--header-font);
   height: 2rem;
   border-radius: 1rem;
   color: var(--dark-alt);
+}
+.ask-input {
+  width: 100%;
+    height: 4rem;
+    border-radius: 1rem;
+    text-align: center;
+    margin-bottom: 1rem;
 }
 
 #more-questions {

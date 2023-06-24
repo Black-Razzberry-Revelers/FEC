@@ -133,7 +133,7 @@ function Questions({ product_id }) {
       <NavigationButtons v={view} c={controller} data-testid="NavigationButtons" />
 
       {view.mode === 'Add Answer' && <AddAnswerModal v={view} c={controller} data-testid="AddAnswer" />}
-      {view.mode === 'Add Question' && <AddQuestionModal v={view} c={controller} data-testid="AddQuestion" />}
+      {view.mode === 'Add Question' && <AddQuestionModal v={view} c={controller} data-testid="AddQuestion" isAdd={view.mode} />}
       {/* { view.mode === 'Image' && <ImageModal v={view} c={controller} />} */}
     </div>
   );

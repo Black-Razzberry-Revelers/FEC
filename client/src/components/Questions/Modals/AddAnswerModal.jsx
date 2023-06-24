@@ -51,9 +51,9 @@ function AddAnswerModal({ v, c }) {
         {v.modeProps.question.question_body}
       </h1>
       <form>
-        <input value={answer} type="text" placeholder={p1} data-testid="answer-input" onChange={(e) => change(e.target.value, setAnswer)} />
-        <input value={nickname} type="text" placeholder={p2} data-testid="answer-nickname-input" onChange={(e) => change(e.target.value, setNickname)} />
-        <input value={email} type="text" placeholder={p3} data-testid="answer-email-input" onChange={(e) => change(e.target.value, setEmail)} />
+        <input className="answer-input" value={answer} type="text" placeholder={p1} data-testid="answer-input" onChange={(e) => change(e.target.value, setAnswer)} />
+        <input className="answer-input" value={nickname} type="text" placeholder={p2} data-testid="answer-nickname-input" onChange={(e) => change(e.target.value, setNickname)} />
+        <input className="answer-input" value={email} type="text" placeholder={p3} data-testid="answer-email-input" onChange={(e) => change(e.target.value, setEmail)} />
       </form>
       <div className="submit-button" onClick={onSubmit} data-testid="answer submit" role="button" onKeyPress={onSubmit} tabIndex="0">Submit</div>
       <div className="submit-button" onClick={onBack} role="button" onKeyPress={onBack} tabIndex="0">Go Back!</div>
