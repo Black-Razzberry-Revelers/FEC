@@ -35,7 +35,7 @@ function Question({
   });
   const toggle = { onToggle };
   return (
-    <>
+    <div className="single-question">
       <div className="question-body big-Q">
         <h1 className="big-letter">Q:</h1>
         <h4 className="sub-head question-text">
@@ -54,23 +54,26 @@ function Question({
             day: 'numeric',
           })}
         </p>
-        <p className="label question-helpful">
-          {' '}
-          Helpful?
-          {' '}
-          {question.markedHelpful ? <strong className="helpful-button">Marked Helpful!</strong> : <strong onClick={onHelpful} className="helpful-button" role="button" onKeyPress={onHelpful} tabIndex="0"> Yes! </strong>}
-          {' '}
-          (
-          {question.question_helpfulness}
-          )
-        </p>
-        <div className="add-answer">
-          <strong onClick={onAddAnswer} className="helpful-button" role="button" onKeyPress={onAddAnswer} tabIndex="0">Add Answer</strong>
-          {' '}
+        <div className="add=answer-helpful">
+          <p className="label question-helpful">
+            {' '}
+            Helpful?
+            {' '}
+            {question.markedHelpful ? <strong className="helpful-button">Marked Helpful!</strong> : <strong onClick={onHelpful} className="helpful-button" role="button" onKeyPress={onHelpful} tabIndex="0"> Yes! </strong>}
+            {' '}
+            (
+            {question.question_helpfulness}
+            )
+          </p>
+          <div className="add-answer">
+            <strong onClick={onAddAnswer} className="helpful-button" role="button" onKeyPress={onAddAnswer} tabIndex="0">Add Answer</strong>
+            {' '}
+          </div>
         </div>
+
       </div>
       <AnswerList c={c} v={v} qid={qid} answers={answers} tog={toggle.onToggle} />
-    </>
+    </div>
   );
 }
 

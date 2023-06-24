@@ -35,7 +35,7 @@ function Ratings(/* {product_id } */) {
         <h2 className="section-head rating-head">Ratings & Reviews</h2>
         <div className="average-rating-stars-container">
           <h2 className="average-rating">{metaData && averageRating(metaData.ratings)}</h2>
-          {metaData && <Stars avgRating={averageRating(metaData.ratings)} />}
+          {metaData && <Stars avgRating={averageRating(metaData.ratings)} starWidth="1.5rem" starHeight="1.5rem" />}
         </div>
 
         {metaData && (

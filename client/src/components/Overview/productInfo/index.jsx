@@ -6,7 +6,6 @@ import Description from './description';
 export default function ProductInfo() {
   return (
     <div role="main" className="info">
-      <Description />
       <Price />
       <Share />
     </div>

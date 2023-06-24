@@ -9,9 +9,9 @@ function SearchBar({ c }) {
 
   return (
     <>
-      <h3 className="section-head" id="Q-A-title">Questions and Answers</h3>
+      <h3 className="section-head " id="Q-A-title">Questions and Answers</h3>
       <form className="modal-form" id="Q-A-searchbar">
-        <input type="text" placeholder="Search for a Question or Answer" onChange={onTextChange} data-testid="SearchForm" />
+        <input className="search-question" type="text" placeholder="Search for a Question or Answer" onChange={onTextChange} data-testid="SearchForm" />
       </form>
     </>
   );

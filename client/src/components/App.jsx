@@ -63,9 +63,9 @@ export default function App() {
 
   return (
     <div className="body" role="application">
-      <div className="site-header">
-        <h1 className="site-header">shoptopia.</h1>
-      </div>
+      <nav className="site-header">
+        <h1 className="site-header-name">shoptopia.</h1>
+      </nav>
       <div>
         <styleContext.Provider
           value={{
