@@ -48,15 +48,18 @@ function ReviewTile({ review }) {
     <div className="review-tile">
       <div className="stars-user-date">
         <div className="rating-star"><Stars avgRating={review.rating} /></div>
-        <p className="label tile-user">{review.reviewer_name}</p>
-        <p className="label tile-date">
-          {intlFormat(new Date(review.date), {
-            year: 'numeric',
-            month: 'long',
-            day: 'numeric',
-          })}
+        <div className="user+date">
+          <p className="label tile-user">{`${review.reviewer_name},  `}</p>
+          <p className="label tile-date">
+            {intlFormat(new Date(review.date), {
+              year: 'numeric',
+              month: 'long',
+              day: 'numeric',
+            })}
 
-        </p>
+          </p>
+        </div>
+
       </div>
 
       <p className="info-text" style={{ fontWeight: 'bold' }}>
@@ -95,13 +98,14 @@ function ReviewTile({ review }) {
       <p className="info-text rating-info-text">{review.response && reiew.response}</p>
       <p className="info-text rating-recommend">{review.recommend && 'I recommend this product'}</p>
       <p className="info-text rating-helpful">
-        Was this review helpful?
-        <a className="helpful-button " onClick={() => sendPositiveFeedback(review.review_id)}>
+        <span className="helpful"> Helpful ? </span>
+        <a className="helpful-button" onClick={() => sendPositiveFeedback(review.review_id)}>
           Yes (
-          {review.helpfulness}
+          <span className="helpfulness-count">{review.helpfulness}</span>
           )
         </a>
-        <a className="helpful-button" onClick={() => sendNegativeFeedback(review.review_id)}>No (0)</a>
+
+        <a className="helpful-button-report" onClick={() => sendNegativeFeedback(review.review_id)}>Report</a>
       </p>
     </div>
   );
