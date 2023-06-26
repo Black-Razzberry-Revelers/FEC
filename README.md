@@ -42,8 +42,8 @@
 | Andrew | Related Items | [beanjermin](https://github.com/lundas) |
 | Dillon | Questions and Answers | [yoko-8](https://github.com/Dillon-Armstrong) |
 | Benji | Ratings and Reviews | [davidguy3237](https://github.com/Benjamin-Cardon) |
-<a href="https://github.com/Coffea-Exotica-Enticers/FEC/graphs/contributors">
-  <img src="https://contrib.rocks/image?repo=Coffea-Exotica-Enticers/FEC" />
+<a href="https://github.com/Black-Razzberry-Revelers/Shoptopia/graphs/contributors">
+  <img src="https://contrib.rocks/image?repo=Black-Razzberry-Revelers/Shoptopia" />
 </a>
 
 ## Requirements
