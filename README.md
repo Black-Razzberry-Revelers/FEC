@@ -38,10 +38,10 @@
 ## Contributors
 | Name | Component | Github Handle |
 |---|---|---|
-| Tammam | Product Details | [Tammam](https://github.com/TammamTautou) |
+| Dillon | Product Details | [Dillon](https://github.com/Dillon-Armstrong) |
 | Andrew | Related Items | [Andrew](https://github.com/lundas) |
-| Dillon | Questions and Answers | [Dillon](https://github.com/Dillon-Armstrong) |
-| Benji | Ratings and Reviews | [Benji](https://github.com/Benjamin-Cardon) |
+| Benji | Questions And Answers | [Benji](https://github.com/Benjamin-Cardon) |
+| Tammam | Ratings And Reviews | [Tammam](https://github.com/TammamTautou) |
 <a href="https://github.com/Black-Razzberry-Revelers/Shoptopia/graphs/contributors">
   <img src="https://contrib.rocks/image?repo=Black-Razzberry-Revelers/Shoptopia" />
 </a>
@@ -101,6 +101,10 @@ Product details section allows users to scroll through images, select a specific
  </details>
 
 ### Your Outfit List
+
+| Related Products List | Modal Windows |
+|---|---|
+|![Related Products List](https://github.com/Black-Razzberry-Revelers/Shoptopia/blob/main/client/dist/assets/relatedItems-screen.png)|![Modal Windows](https://github.com/Black-Razzberry-Revelers/Shoptopia/blob/main/client/dist/assets/relateditems-detales-screen.png)|
 <details>
  <summary>Functionalities</summary>
 
@@ -111,8 +115,6 @@ Product details section allows users to scroll through images, select a specific
   * Users can remove a product card by clicking the 'X' button on the top right corner
  </details>
 
-<img src="https://github.com/Black-Razzberry-Revelers/Shoptopia/blob/main/client/dist/assets/relatedItems-screen.png" width="800" height="600"/>
-<img src="https://github.com/Black-Razzberry-Revelers/Shoptopia/blob/main/client/dist/assets/relateditems-detales-screen.png" width="800" height="600"/>
 
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
 
@@ -145,7 +147,7 @@ Product details section allows users to scroll through images, select a specific
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
 
 # Ratings And Reviews
-| Review Component | Modal Window | review-modal |
+| Review Component | Modal Window | Add-Review-Modal |
 |---|---|---|
 | ![review](https://github.com/Black-Razzberry-Revelers/Shoptopia/blob/main/client/dist/assets/ratings-screen.png) | ![review-modal](https://github.com/Black-Razzberry-Revelers/Shoptopia/blob/main/client/dist/assets/ratings-screen-2.png) | ![write-review](https://github.com/Black-Razzberry-Revelers/Shoptopia/blob/main/client/dist/assets/add-review-screen.png) |
 
