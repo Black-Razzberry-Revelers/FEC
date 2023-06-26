@@ -147,7 +147,7 @@ Product details section allows users to scroll through images, select a specific
 # Ratings And Reviews
 | Review Component | Modal Window |
 |---|---|---|
-| ![review](https://github.com/Black-Razzberry-Revelers/Shoptopia/blob/main/client/dist/assets/ratings-screen.png) | ![review-modal](https://github.com/Black-Razzberry-Revelers/Shoptopia/blob/main/client/dist/assets/ratings-screen-2.png) | ![write-review](https://github.com/Black-Razzberry-Revelers/Shoptopia/blob/main/client/dist/assets/add-review-screen.png) |
+| ![review](https://github.com/Black-Razzberry-Revelers/Shoptopia/blob/main/client/dist/assets/ratings-screen.png) | ![review-modal](https://github.com/Black-Razzberry-Revelers/Shoptopia/blob/main/client/dist/assets/ratings-screen-2.png) | ![write-review](https://github.com/Black-Razzberry-Revelers/Shoptopia/blob/main/client/dist/assets/add-review-screen.png)
 
 <details>
  <summary>Functionalites</summary>
