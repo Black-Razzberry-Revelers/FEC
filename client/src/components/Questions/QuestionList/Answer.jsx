@@ -53,7 +53,7 @@ function Answer({
         {' '}
         (
         {answer.helpfulness}
-        ) |
+        )
         {' '}
       </p>
       {/* /* <div className="answer-images">

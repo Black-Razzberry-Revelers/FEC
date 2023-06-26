@@ -36,7 +36,6 @@ function Characteristics({ metaData, person, setPerson }) {
                     },
                   })}
                 />
-                <p className="traits">{rating}</p>
               </div>
             ))}
           </div>

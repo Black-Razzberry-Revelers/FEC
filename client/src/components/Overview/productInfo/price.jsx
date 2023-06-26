@@ -10,10 +10,10 @@ export default function Price() {
     style.sale_price
       ? (
         <>
-          <div className="info-text"> {style.sale_price} </div>
-          <strike className="info-text slash-price"> {style.original_price} </strike>
+          <div className="info-text" style={{ fontSize: '2rem' }}> {`$${style.sale_price}`} </div>
+          <strike className="info-text slash-price" style={{ fontSize: '2rem' }}> {`$${style.original_price}`} </strike>
         </>
       )
-      : <div className="info-text"> {style.original_price} </div>
+      : <div className="info-text" style={{ fontSize: '2rem' }}> {`$${style.original_price}`} </div>
   );
 }

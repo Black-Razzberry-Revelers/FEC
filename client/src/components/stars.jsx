@@ -2,7 +2,7 @@ import React from 'react';
 import starEmpty from '../../dist/assets/icons8-star-16-empty.png';
 import starFilled from '../../dist/assets/icons8-star-16-filled.png';
 
-export default function Stars({ avgRating }) {
+export default function Stars({ avgRating, starWidth, starHeight }) {
   let floor = Math.floor(avgRating);
   let percent = (avgRating - Math.floor(avgRating)) * 100;
   if (percent >= 87.5) {
@@ -21,20 +21,25 @@ export default function Stars({ avgRating }) {
     filled.push('star');
     floor -= 1;
   }
+  const styles = {
+    wide: starWidth,
+    height: starHeight,
+
+  };
 
   return (
     <div className="stars-container">
       <div className="stars stars-empty">
         {[1, 2, 3, 4, 5].map((num) => (
           <span key={`${num}emptyStar`}>
-            <img src={starEmpty} alt="star" />
+            <img style={styles} src={starEmpty} alt="star" />
           </span>
         ))}
       </div>
       <div className="stars stars-filled">
         {filled.map((star, i) => (
           <span key={`${i}filledStar`} className="star">
-            <img src={starFilled} alt="star" />
+            <img style={styles} src={starFilled} alt="star" />
           </span>
         ))}
         <span
@@ -46,6 +51,7 @@ export default function Stars({ avgRating }) {
           }}
         >
           <img
+            style={styles}
             src={starFilled}
             alt="star"
           />

@@ -8,6 +8,7 @@ import Gallery from './Gallery';
 import AddToCart from './addToCart';
 import { styleContext } from '../App';
 import Stars from '../stars';
+import Description from './productInfo/description';
 
 export default function Overview({ avgRating }) {
   const {
@@ -47,27 +48,30 @@ export default function Overview({ avgRating }) {
     <div data-testid="overview">
 
       <div className="overview">
-
-        <div className="stylesinfo">
-          <div data-testid="productName" className="section-head">
-            <div id="product-name">
-              {product.name}
-              <p data-testid="category" className="sub-head">
-                in: {product.category}
-              </p>
+        <div className="Description">
+          <div className="stylesinfo">
+            <div data-testid="productName" className="section-head" style={{ paddingTop: '5rem' }}>
+              <div id="product-name">
+                {product.name}
+                <p data-testid="category" className="sub-head">
+                  in: {product.category}
+                </p>
+              </div>
+              <div style={{ width: '0rem' }}>
+                <Stars avgRating={avgRating} />
+              </div>
             </div>
-            <div>
-              <Stars avgRating={avgRating} />
-            </div>
+            <ProductInfo />
+            <StyleSelect styles={styles} />
+            <AddToCart sizes={sizes} />
           </div>
-          <ProductInfo />
-          <StyleSelect styles={styles} />
-          <AddToCart sizes={sizes} />
+
         </div>
 
         <Gallery data-testid="gallery" gallery={gallery} display={display} setDisplay={setDisplay} />
 
       </div>
+      <Description />
     </div>
   );
 }

@@ -1,8 +1,9 @@
+/* eslint-disable jsx-a11y/click-events-have-key-events */
 /* eslint-disable no-alert */
 import React, { useState } from 'react';
 import fetcher from '../../fetcher';
 
-function AddQuestionModal({ v, c }) {
+function AddQuestionModal({ v, c, isAdd }) {
   const [question, setQuestion] = useState('');
   const [nickname, setNickname] = useState('');
   const [email, setEmail] = useState('');
@@ -39,16 +40,26 @@ function AddQuestionModal({ v, c }) {
   const p2 = 'What Nickname do you want to be known as?';
   const p3 = 'email@provider.com';
   return (
-    <div className="modal-frame">
-      <h3 className="section-head">Your Question</h3>
-      <form className="modal-form">
-        <input value={question} type="text" placeholder={p1} data-testid="question-input" onChange={(e) => change(e.target.value, setQuestion)} />
-        <input value={nickname} type="text" placeholder={p2} data-testid="question-nickname-input" onChange={(e) => change(e.target.value, setNickname)} />
-        <input value={email} type="text" placeholder={p3} data-testid="question-email-input" onChange={(e) => change(e.target.value, setEmail)} />
-      </form>
-      <div className="submit-button" onClick={onSubmit} data-testid="question-submit" role="button" onKeyPress={onSubmit} tabIndex="0">Submit</div>
-      <div className="submit-button" onClick={onBack} role="button" onKeyPress={onBack} tabIndex="0">Go Back!</div>
-    </div>
+    <>
+      <div className="ask-modal-frame">
+        <h3 className="section-head">Your Question</h3>
+        <form className="modal-form">
+          <input className="ask-input" value={question} type="text" placeholder={p1} data-testid="question-input" onChange={(e) => change(e.target.value, setQuestion)} />
+          <input className="ask-input" value={nickname} type="text" placeholder={p2} data-testid="question-nickname-input" onChange={(e) => change(e.target.value, setNickname)} />
+          <input className="ask-input" value={email} type="text" placeholder={p3} data-testid="question-email-input" onChange={(e) => change(e.target.value, setEmail)} />
+        </form>
+        <div className="q-submit-button" onClick={onSubmit} data-testid="question-submit" role="button" onKeyPress={onSubmit} tabIndex="0">Submit</div>
+        <div className="q-submit-button" onClick={onBack} role="button" onKeyPress={onBack} tabIndex="0">Go Back!</div>
+      </div>
+
+      <div
+        className={isAdd === 'Add Question' && 'modal-frame-overlay'}
+        role="button"
+        aria-label="share-modal-overlay"
+        tabIndex="0"
+        onClick={onBack}
+      />
+    </>
   );
 }
 
