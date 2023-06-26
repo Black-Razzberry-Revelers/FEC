@@ -38,10 +38,10 @@
 ## Contributors
 | Name | Component | Github Handle |
 |---|---|---|
-| Tammam | Product Details | [seguyy](https://github.com/TammamTautou) |
-| Andrew | Related Items | [beanjermin](https://github.com/lundas) |
-| Dillon | Questions and Answers | [yoko-8](https://github.com/Dillon-Armstrong) |
-| Benji | Ratings and Reviews | [davidguy3237](https://github.com/Benjamin-Cardon) |
+| Tammam | Product Details | [Tammam](https://github.com/TammamTautou) |
+| Andrew | Related Items | [Andrew](https://github.com/lundas) |
+| Dillon | Questions and Answers | [Dillon](https://github.com/Dillon-Armstrong) |
+| Benji | Ratings and Reviews | [Benji](https://github.com/Benjamin-Cardon) |
 <a href="https://github.com/Black-Razzberry-Revelers/Shoptopia/graphs/contributors">
   <img src="https://contrib.rocks/image?repo=Black-Razzberry-Revelers/Shoptopia" />
 </a>
